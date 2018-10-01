@@ -1,3 +1,22 @@
 Rails.application.routes.draw do
+  get 'drivers/index'
+  get 'drivers/show'
+  get 'drivers/edit'
+  get 'drivers/destroy'
+  get 'drivers/update'
+  get 'drivers/new'
+  get 'drivers/create'
+  get 'passengers/index'
+  get 'passengers/show'
+  get 'passengers/edit'
+  get 'passengers/destroyupdate'
+  get 'passengers/new'
+  get 'passengers/create'
+  get 'trips/index'
+  get 'trips/show'
+  get 'trips/edit'
+  get 'trips/update'
+  get 'trips/destroy'
+  get 'trips/create'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
