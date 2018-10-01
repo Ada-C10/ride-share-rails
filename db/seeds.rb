@@ -6,7 +6,7 @@ puts "Loading raw driver data from #{DRIVER_FILE}"
 driver_failures = []
 CSV.foreach(DRIVER_FILE, :headers => true) do |row|
   driver = Driver.new
-  driver.id = row['id']
+  driver.id = row['id'].to_i
   driver.name = row['name']
   driver.vin = row['vin']
   successful = driver.save
@@ -29,7 +29,7 @@ puts "Loading raw passenger data from #{PASSENGER_FILE}"
 passenger_failures = []
 CSV.foreach(PASSENGER_FILE, :headers => true) do |row|
   passenger = Passenger.new
-  passenger.id = row['id']
+  passenger.id = row['id'].to_i
   passenger.name = row['name']
   passenger.phone_num = row['phone_num']
   successful = passenger.save
@@ -52,11 +52,11 @@ puts "Loading raw trip data from #{TRIP_FILE}"
 trip_failures = []
 CSV.foreach(TRIP_FILE, :headers => true) do |row|
   trip = Trip.new
-  trip.id = row['id']
-  trip.driver_id = row['driver_id']
-  trip.passenger_id = row['passenger_id']
+  trip.id = row['id'].to_i
+  trip.driver_id = row['driver_id'].to_i
+  trip.passenger_id = row['passenger_id'].to_i
   trip.date = Date.strptime(row['date'], '%Y-%m-%d')
-  trip.rating = row['rating']
+  trip.rating = row['rating'].to_i
   trip.cost = row['cost']
   successful = trip.save
   if !successful
