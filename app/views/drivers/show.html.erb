@@ -4,9 +4,24 @@
 <%= link_to "Delete", driver_path(@driver.id), method: :delete, data: {confirm: "Delete #{@driver.name}?"} %>
 <p>Total Earnings: $<%= @driver.total_earnings.to_f / 100 %></p>
 <p>Average Rating: <%= @driver.average_rating %></p>
-<p>Trips Driven:</p>
-<ol>
+<p>Trips for <%= @driver.name %>:</p>
+<table>
+  <tr>
+    <th>Trip ID</th>
+    <th>Date</th>
+    <th>Passenger</th>
+    <th>Price</th>
+    <th>Rating</th>
+    <th>Delete?</th>
+  </tr>
+
   <% @driver.trips.each do |trip| %>
-    <li><%= trip.id %></li>
+    <tr>
+      <td><%= trip.id %></td>
+      <td><%= trip.date %></td>
+      <td><%= link_to "#{trip.passenger.name}", passenger_path(trip.passenger.id) %></td>
+      <td>$<%= trip.cost.to_f / 100 %></td>
+      <td><%= trip.rating %></td>
+      <td><%= link_to "Delete Trip", trip_path(trip.id), method: :delete, data: {confirm: "Delete Trip with #{trip.passenger.name}?"}%></td>
+    </tr>
   <% end %>
-</ol>
