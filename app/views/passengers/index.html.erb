@@ -1,0 +1,12 @@
+<h3>Passengers</h3>
+<ol>
+  <% i = 0 %>
+  <% @passengers.each do |passenger| %>
+  <li>
+    <p>
+      <%= "#{passenger.name}" %>
+    </p>
+  </li>
+
+  <% end %>
+</ol>

@@ -1,0 +1,11 @@
+<div class="description-container">
+
+  <h2><%= @passenger.name %></h2>
+
+  <p class="description-text"><%= @passenger.id %> | <%= @passenger.phone_num %></p>
+</div>
+<div class="return-home">
+  <h3>
+    <%= link_to "Return Home", all_passengers_path, class: "homepage" %>
+  </h3>
+</div>
