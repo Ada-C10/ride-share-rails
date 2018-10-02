@@ -1,0 +1,26 @@
+<h1>Viewing Passenger <%= @passenger.id %></h1>
+<h3>Name: <%= @passenger.name %></h3>
+<h3>Phone Number: <%= @passenger.phone_num %></h3>
+<h2> Passenger Trips: </h2>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Date</th>
+    <th>Drivers</th>
+    <th>Price </th>
+    <th>Rating</th>
+    <th>Delete</th>
+  </tr>
+  <% @passenger.trips.each do |trip| %>
+  <tr>
+    <td><%= link_to "#{trip.id}", trip_path(trip.id) %> </td>
+    <td><%= trip.date%> </td>
+    <td><%= link_to "#{trip.driver.name}", driver_path(trip.driver.id)%> </td>
+    <td><%= "$#{trip.cost.to_f / 100}"%> </td>
+    <td><%= trip.rating %> </td>
+    <td><%= link_to "Delete Trip", trip_path(trip.id), method: :delete, data: {confirm: "Delete Trip with #{trip.id}?"}%></td>
+  </tr>
+  <% end %>
+</ol>
+</table>
+<h3> Total Charges: <%= "$#{@passenger.total_charges.to_f/100}"%> </h3>
