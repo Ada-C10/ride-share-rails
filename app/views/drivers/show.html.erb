@@ -1,0 +1,12 @@
+<% if @driver.nil? %>
+  <h1> 404 Not found</h1>
+<% else %>
+
+  <h1><%= @driver.name %></h1>
+  <h3> Vin Number: <%= @driver.vin%></h3>
+
+  <p>Edit & Delete go here</p>
+  <p>Trips go here</p>
+
+
+<% end %>

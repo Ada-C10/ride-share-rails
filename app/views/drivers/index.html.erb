@@ -1,5 +1,9 @@
-<h1>Driver List</h1>
+<ol class="driver-list">
+  <h2>All Drivers</h2>
 
-<li>
-    <%= link_to driver.name, driver_path(driver.id) %>
-  </li>
+  <% @drivers.each do |driver| %>
+    <li><%= link_to driver.name, driver_path(driver.id) %></li>
+  <%end%>
+
+
+</ol>

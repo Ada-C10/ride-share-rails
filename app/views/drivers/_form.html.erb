@@ -1,0 +1,17 @@
+<h1> <%= action_name %> </h1>
+
+<%= form_with model: @driver, class: "driver-form" do |f|%>
+  <p>Please provide the following information to save your book to our database:</p>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :vin %>
+  <%= f.text_field :vin %>
+
+  <%= f.label :driver_picture %>
+  <%= f.text_field :driver_picture %>
+
+
+  <%= f.submit button_title, class: "driver-button" %>
+<% end %>
