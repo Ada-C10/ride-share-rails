@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 
   patch '/passengers/:id', to: 'drivers#update'
 
+  delete '/passengers/:id', to: 'passengers#destroy'
+
 
   get '/passengers/:id', to: 'passengers#show', as: 'passenger'
 
@@ -24,6 +26,8 @@ Rails.application.routes.draw do
 
   get '/drivers/:id/edit', to: 'drivers#edit', as: 'edit_driver'
   patch '/drivers/:id', to: 'drivers#update'
+
+  delete '/drivers/:id', to: 'drivers#destroy'
 
   get '/drivers/:id', to: 'drivers#show', as: 'driver'
 end
