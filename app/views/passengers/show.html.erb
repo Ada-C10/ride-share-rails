@@ -1,0 +1,11 @@
+<h2>Passenger<%="#{@passenger.name}"%></h2>
+
+
+    <img id="selfie" src="https://randomuser.me/api/portraits/women/50.jpg" alt="Image of a car">
+  <ul>
+    <li><strong>Phone Number:</strong> <%= @passenger.phone_num %></li>
+
+
+    <sub><%= link_to "Edit", edit_passenger_path(@passenger.id) %></sub>
+    <sub><%= link_to "Delete", passenger_path(@passenger.id), method: :delete, data: {confirm: "Please confirm you would like to delete." } %></sub>
+  </ul>
