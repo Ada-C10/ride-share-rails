@@ -1,0 +1,7 @@
+<p>
+<%@drivers.each do |driver|%>
+<%=driver.name%>
+<%=driver.vin%>
+<%= link_to "| Details", driver_path(driver.id) %>
+<%end%>
+</p>
