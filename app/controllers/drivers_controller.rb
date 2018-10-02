@@ -9,4 +9,8 @@ class DriversController < ApplicationController
       head :not_found
     end
   end
+
+  def new
+    @driver = Driver.new
+  end
 end
