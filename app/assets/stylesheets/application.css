@@ -20,42 +20,37 @@ table {
     margin-right: auto;
 }
 
-#show_passenger_table th {
+#show_table th {
     font-size: large;
     background-color: lightgrey;
 }
 
-
-#show_passenger_table th, #show_passenger_table td {
+#show_table th, #show_table td {
     padding-left: 30px;
     padding-right: 30px;
     border-bottom: 1px solid darkolivegreen;
     text-align: left;
 }
 
-#index_passenger_table th {
+#index_table th {
     font-size: large;
     background-color: lightseagreen;
 }
 
-#index_passenger_table tr:hover {
+#index_table tr:hover {
     background-color: #8CD867;
 }
 
-#index_passenger_table tr:nth-child(even){
+#index_table tr:nth-child(even){
     background-color: rgb(178, 179, 184);
 }
-#index_passenger_table th, #index_passenger_table td {
+#index_table th, #index_table td {
     padding: 1em;
     border-bottom: 1px solid darkolivegreen;
     text-align: left;
 }
-#index_passenger_table .index_actions a[href]{
-    /*border: solid 1px #363537;*/
-    /*border-radius: 10px;*/
+#index_table .index_actions a[href]{
     padding: 5px;
-
-
 }
 
 a[href]{

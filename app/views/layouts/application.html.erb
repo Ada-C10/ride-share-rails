@@ -9,7 +9,13 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <%= yield %>
-  </body>
+  <% if params[:controller] == "pages" %>
+    <body class="home">
+      <%= yield %>
+    </body>
+  <% else %>
+    <body>
+      <%= yield %>
+    </body>
+  <% end %>
 </html>
