@@ -11,22 +11,22 @@ class PassengersController < ApplicationController
     end
   end
 
-  # def new
-  #   @book = Book.new
-  # end
-  #
-  # def create
-  #   filtered_book_params = book_params()
-  #   @book = Book.new(filtered_book_params)
-  #
-  #   is_successful_save = @book.save
-  #
-  #   if is_successful_save
-  #     redirect_to books_path
-  #   else
-  #     render :new
-  #   end
-  # end
+  def new
+    @passenger = Passenger.new
+  end
+
+  def create
+    filtered_passenger_params = passenger_params()
+    @passenger = Passenger.new(filtered_passenger_params)
+
+    is_successful_save = @passenger.save
+
+    if is_successful_save
+      redirect_to passengers_path
+    else
+      render :new
+    end
+  end
   #
   # def edit
   #   @book = Book.find_by(id: params[:id])
@@ -46,16 +46,14 @@ class PassengersController < ApplicationController
   #   redirect_to books_path
   # end
   #
-  # private
-  # #
-  # # # Strong params: only let certain attributes
-  # # # through
-  # def passenger_params
-  #   return params.require(:passenger).permit(
-  #     :title,
-  #     :author,
-  #     :description,
-  #     :isbn
-  #   )
-  # end
+  private
+  #
+  # # Strong params: only let certain attributes
+  # # through
+  def passenger_params
+    return params.require(:passenger).permit(
+      :name,
+      :phone_num,
+    )
+  end
 end
