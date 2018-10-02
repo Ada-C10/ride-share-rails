@@ -26,7 +26,7 @@ class DriversController < ApplicationController
   end
 
   def edit
-    @passenger = Passenger.find_by(id: params[:id])
+    @driver = Driver.find_by(id: params[:id])
   end
 
   def update
@@ -49,5 +49,5 @@ class DriversController < ApplicationController
   def driver_params
     return params.require(:driver).permit(:name, :vin)
   end
-  
+
 end

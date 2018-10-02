@@ -1,0 +1,10 @@
+<p>Driver name: <%= @driver.name %></p>
+<p>Driver vin: <%= @driver.vin %></p>
+<p><% @driver.trips.each do |trip| %></p>
+  Trip ID: <%= trip.id %>
+  Date: <%= trip.date %>
+  Driver: <%= trip.driver.name %>
+  Passenger: <%= trip.passenger.name %>
+  Cost: <%= trip.cost %>
+  Rating: <%= trip.rating %>
+  <% end %>
