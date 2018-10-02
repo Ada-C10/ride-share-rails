@@ -1,2 +1,13 @@
-<h1>Drivers#show</h1>
-<p>Find me in app/views/drivers/show.html.erb</p>
+<% if @driver.nil? %>
+  <h1><%= "404: NOT FOUND" %></h1>
+<% else %>
+<h1> <%= @driver.name %></h1>
+<ul>
+  <li>VIN: <%= @driver[:vin] %></li>
+</ul>
+
+<ul>
+<li><%= link_to "Edit", edit_driver_path(@driver.id)%></li>
+<li><%= link_to "Delete #{@driver.name}?", driver_path(@driver.id), method: :delete, data: {confirm:"Are you sure you want to delete?"} %></li>
+</ul>
+<% end %>
