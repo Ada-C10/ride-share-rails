@@ -1,3 +1,8 @@
-// Place all the styles related to the Pages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+ul {
+  display: flex;
+  list-style-type: none;
+}
+
+nav ul li {
+  padding: 0.5rem 2rem 0.5rem 2rem;
+}
