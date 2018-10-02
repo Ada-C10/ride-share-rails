@@ -20,7 +20,7 @@ class PassengersController < ApplicationController
     ###### TODO Add error message for if it does not save  #####
     @passenger = Passenger.new(passenger_params)
     if @passenger.save
-      redirect_to root_path
+      redirect_to passengers_path
     else
       render :new
     end
@@ -31,9 +31,9 @@ class PassengersController < ApplicationController
   end
 
   def destroy
-    passenger = Passenger.find_by(id: params[:id].to_i)
-    @deleted_passenger = passenger.destroy
-    redirect_to root_path
+    passenger = Passenger.find_by(id: params[:id].to_i) 
+    passenger.destroy
+    redirect_to passengers_path
   end
 
   def update
