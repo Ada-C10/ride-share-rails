@@ -3,9 +3,9 @@ Rails.application.routes.draw do
 
 root 'home#index'
 
-rails resources :passengers
-rails resources :drivers
-#rails resources :tasks
+resources :passengers
+resources :drivers
+#resources :trips
 
 # get '/drivers', to: 'drivers#index', as: 'drivers' DONE
 
