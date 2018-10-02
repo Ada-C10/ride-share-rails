@@ -9,10 +9,9 @@ class DriversController < ApplicationController
     @driver = Driver.find_by(id: id)
 
 
-    if id == nil
-      render :not_found,
-      # status: :not_found
-    end
+    # if id == nil
+    #   render :not_found, status: :not_found
+    # end
   end
 
   def new
