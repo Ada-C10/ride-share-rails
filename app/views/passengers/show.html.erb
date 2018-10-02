@@ -5,9 +5,9 @@
   <h1> 404 Not found</h1>
 <% else %>
   <h1><%=@passenger.name %></h1>
-  <h3> by <%= link_to "#{@passenger.name}", passengers_show_path(@passenger.id) %></h3>
+  <h3> by <%= link_to "#{@passenger.name}", passengers_path(@passenger.id) %></h3>
   <p><%= @passenger.phone_num %> </p>
-  <%= link_to "Edit", passengers_edit_path(@passenger.id) %>
+  <%= link_to "Edit", edit_passenger_path(@passenger.id) %>
   <div></div>
-  <%= link_to "Delete #{@passenger.name}", passengers_destroy_path(@passenger.id), method: :delete %>
+  <%= link_to "Delete #{@passenger.name}" method: :delete %>
 <% end %>
