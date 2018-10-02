@@ -1,5 +1,16 @@
 class DriversController < ApplicationController
   # create routes
+  def index
+    @driver = Driver.all
+  end
+
+  def show
+    id = params[:id].to_i
+    @driver = Driver.find_by(id: id)
+    if @driver.nil?
+      render :notfound, status: :notfound
+    end
+  end
 
   def create
     @driver = Driver.new(driver_params)
