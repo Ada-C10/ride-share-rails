@@ -1,10 +1,6 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  # root '#'
-
-
-
-  #patch 'complete/tasks/:id', to: 'tasks#complete', as: 'complete_task'
+  # root 'layouts#application'
 
   resources :passengers, :drivers, :trips
 
