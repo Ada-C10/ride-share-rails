@@ -1,0 +1,10 @@
+<h1>Viewing Passenger <%= @passenger.id %></h1>
+<h3>Name: <%= @passenger.name %></h3>
+<h3>Phone Number: <%= @passenger.phone_num %></h3>
+<ol>
+  <% @passenger.trips.each do |trip| %>
+    <li>
+      <%= trip.cost %>
+    </li>
+  <% end %>
+</ol>
