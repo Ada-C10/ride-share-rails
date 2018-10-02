@@ -33,7 +33,7 @@ class DriversController < ApplicationController
 
 
   def edit
-    @driver = Driver.find_by(id:params[:id])
+    @driver = Driver.find_by(id: params[:id].to_i)
   end
 
 
