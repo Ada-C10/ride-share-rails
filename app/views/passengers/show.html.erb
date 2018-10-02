@@ -5,7 +5,7 @@
 <ul>
   <li>Phone Number: <%= @passenger[:phone_num] %></li>
 </ul>
-
+<!-- create chart of trips -->
 <ul>
 <li><%= link_to "Edit", edit_passenger_path(@passenger.id)%></li>
 <li><%= link_to "Delete #{@passenger.name}?", passenger_path(@passenger.id), method: :delete, data: {confirm:"Are you sure you want to delete?"} %></li>

@@ -1,2 +1,7 @@
-<h1>Drivers#new</h1>
-<p>Find me in app/views/drivers/new.html.erb</p>
+
+<%= render partial: "../views/form",
+  locals: { model_name: @drivers,
+    action_name: 'Add a Driver',
+    number_variable: :vin,
+    number_title: "Vehicle ID Number",
+    button_title: 'Create Driver' } %>

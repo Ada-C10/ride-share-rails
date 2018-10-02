@@ -1,0 +1,11 @@
+<%= form_with model: model_name do |f|%>
+<h1><%= action_name %><h1>
+<p> Please provide the following information:</p>
+  <%= f.label :name , "Name:"%>
+  <%= f.text_field :name%>
+  <br>
+  <%= f.label number_variable, "#{number_title}"%>
+  <%= f.text_field number_variable%>
+  <br>
+  <%= f.submit button_title%>
+<%end%>
