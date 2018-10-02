@@ -17,12 +17,19 @@
           <!-- <li>
             <!- <%# link_to  "Home", "/", id: "home-link" %> -->
           <li>
-           <%= link_to "Passenger Index", passengers_path%>
+           <%= link_to "Passengers", passengers_path%>
+         </li>
+         <li>
+          <%= link_to "Drivers", drivers_path%>
          </li>
          <li>
            <a href="<%= new_passenger_path%>">
              Add a passenger
            </a>
+         </li>
+         <li>
+           <a href="<%=new_driver_path%>"
+         </li>
         </ul>
       </nav>
     </header>
