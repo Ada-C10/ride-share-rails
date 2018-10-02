@@ -1,5 +1,5 @@
 class AddDriverIdToTrips < ActiveRecord::Migration[5.2]
   def change
-    add_column :driver_id
+    add_reference :trips, :driver, foreign_key: true
   end
 end
