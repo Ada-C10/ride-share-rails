@@ -1,0 +1,23 @@
+<h1> <%= action_name %> </h1>
+<%# form_with url: "/books", method: :post, class: "book-form" do |f|%>
+
+<%= form_with model: @trip, class: "trip-form" do |f|%>
+  <p>Please provide the following information to save your trip to our database:</p>
+
+  <%= f.label :date %>
+  <%= f.text_field :date%>
+
+  <%= f.label :rating %>
+  <%= f.text_field :rating%>
+
+  <%= f.label :cost %>
+  <%= f.text_field :cost%>
+
+  <%= f.label :driver_id %>
+  <%= f.text_field :driver_id %>
+
+  <%= f.label :passenger_id %>
+  <%= f.text_field :passenger_id %>
+
+  <%= f.submit button_title, class: "trip-button" %>
+<% end %>
