@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  root 'drivers#index'
+
   get '/passengers', to: 'passengers#index', as: 'passengers'
 
   get '/passengers/new', to: 'passengers#new', as: 'new_passenger'

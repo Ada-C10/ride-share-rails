@@ -10,6 +10,29 @@
   </head>
 
   <body>
+
+      <header>
+    <h1> Rideshare Rails!! </h1>
+    </header>
+
+    <nav>
+      <ul>
+        <li>
+          <%= link_to "New Driver", new_driver_path %>
+        </li>
+        <li>
+          <%= link_to "New passenger", new_passenger_path %>
+        </li>
+        <li>
+          <%= link_to "All passengers", passengers_path %>
+        </li>
+        <li>
+          <%= link_to "All drivers", drivers_path %>
+        </li>
+
+      </ul>
+
+    </nav>
     <%= yield %>
   </body>
 </html>

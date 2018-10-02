@@ -9,7 +9,7 @@ class PassengersController < ApplicationController
 
 
     if @passenger.nil?
-     render :notfound, status: :not_found
+      render :notfound, status: :not_found
     end
   end
 
@@ -19,9 +19,9 @@ class PassengersController < ApplicationController
 
   def update
     passenger = Passenger.find_by(id: params[:id].to_i)
-    passenger.update(passenger_params)
+      passenger.update(passenger_params)
+      redirect_to passenger_path(passenger.id)
 
-    redirect_to passenger_path(passenger.id)
   end
 
   def new
