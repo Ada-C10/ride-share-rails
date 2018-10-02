@@ -1,5 +1,8 @@
+<h2>Passengers</h2>
 <% @passengers.each do |passenger| %>
-
-<%= passenger.name %> <%= passenger.phone_num %>
+<p>
+  <%= passenger.name %> <%= passenger.phone_num %>
+  <%= link_to "(View Details)", passenger_path(passenger.id) %>
+</p>
 
 <%end %>
