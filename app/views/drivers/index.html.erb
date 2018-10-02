@@ -1,5 +1,5 @@
 <h1>These are the drivers!</h1>
 <% @drivers.each do |driver| %>
-  <h2><%= link_to "This IS: #{driver.name}", drivers_path(driver.id) %>
+  <h2><%= link_to "This IS: #{driver.name}", driver_path(driver.id) %>
   </h2>
 <% end %>
