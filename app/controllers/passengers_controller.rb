@@ -10,8 +10,7 @@ class PassengersController < ApplicationController
 
 
       if id == nil
-        render :not_found,
-        # status: :not_found
+        render :not_found, status: :not_found
       end
     end
 
@@ -33,7 +32,7 @@ class PassengersController < ApplicationController
       # @task.description = params[:task][:description]
       # @task.due = params[:task][:due]
       if @passenger.save
-        redirect_to passengers_root # go to the index so we can see the book in the list
+        redirect_to passengers_path # go to the index so we can see the book in the list
       else
         render :new
       end
@@ -43,7 +42,7 @@ class PassengersController < ApplicationController
       @passenger = Passenger.new(passenger_params)
       # @task = Task.new(name: params[:task][:name], description: params[:task][:description], due: params[:task][:due]) #instantiate a new book
       if @passenger.save # save returns true if the database insert succeeds
-        redirect_to passengers_root # go to the index so we can see the book in the list
+        redirect_to passengers_path # go to the index so we can see the book in the list
       else # save failed :(
         render :new # show the new book form view again
       end

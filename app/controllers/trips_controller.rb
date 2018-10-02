@@ -14,10 +14,12 @@ class TripsController < ApplicationController
     end
   end
 
+  def homepage
+  end
+
   def new
     @trip = Trip.new
   end
-
 
   def edit
     id = params[:id].to_i

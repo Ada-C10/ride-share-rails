@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Welcome to Ride Share</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+    <div class="wrapper">
+      <div class="box header">Ride Share</div>
+      <div class="box sidebar">
+        <ul>
+          <li class="all_task"><%= link_to "Add Driver", new_driver_path %></li>
+          <li class="all_task"><%= link_to "Add Passenger", new_passenger_path %></li>
+        </ul>
+      </div>
+
+      <div class="box content">
+        <!-- <h5 class="task">TASKLIST</h5>
+        <ul><%= yield %><ul> -->
+      </div>
+      <div class="box footer">copywrite 2018</div>
+    </div>
+
+
+  </body>
+</html>

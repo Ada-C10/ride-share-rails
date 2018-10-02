@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root "drivers#index", as: 'drivers_root'
+  root 'trips#homepage'
 
   get '/drivers', to: 'drivers#index'
   get '/drivers/new', to: 'drivers#new', as: 'new_driver'
@@ -12,9 +12,6 @@ Rails.application.routes.draw do
 
   delete '/drivers:id', to: 'drivers#destroy'
 
-
-
-  root "trips#index", as: 'trips_root'
 
   get '/trips', to: 'trips#index', as: 'trips'
 
@@ -28,9 +25,6 @@ Rails.application.routes.draw do
   delete '/trips:id', to: 'trips#destroy'
 
 
-
-
-  root "passengers#index", as: 'passengers_root'
 
   get '/passengers', to: 'passengers#index', as: 'passengers'
 
