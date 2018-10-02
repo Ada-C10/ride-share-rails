@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
 
   get '/passengers/:id/edit', to: 'passengers#edit', as: 'edit_passenger'
-  patch '/passengers/:id', to: 'tasks#update'
+  patch '/passengers/:id', to: 'passengers#update'
 
 
 
