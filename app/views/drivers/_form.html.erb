@@ -1,0 +1,10 @@
+<!-- form_for outdated -->
+<h1><%= title %></h1>
+<%= form_for @driver do |f| %>
+<%= f.label :name %>
+<p><%= f.text_field :name %></p>
+<p><%= f.label :vin %></p>
+<p><%= f.text_field :vin %></p>
+<!-- # where is the update task in the submit button coming from? -->
+<%= f.submit %>
+<% end %>
