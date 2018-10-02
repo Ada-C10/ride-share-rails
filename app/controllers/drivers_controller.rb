@@ -17,7 +17,6 @@ class DriversController < ApplicationController
     if @driver.save
       redirect_to root_path
     else
-      raise
       render :new
     end
   end

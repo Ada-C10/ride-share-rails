@@ -1,6 +1,5 @@
 class Driver < ApplicationRecord
-  validates :name, presence: true
-  validates :vin, presence: true, uniqueness: true
+  validates_presence_of :name, :vin 
 
   has_many :trips, dependent: :nullify
 
