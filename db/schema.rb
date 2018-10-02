@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 2018_10_02_184149) do
   end
 
   create_table "trips", force: :cascade do |t|
-    t.string "date"
+    t.date "date"
     t.integer "rating"
     t.integer "cost"
     t.datetime "created_at", null: false
