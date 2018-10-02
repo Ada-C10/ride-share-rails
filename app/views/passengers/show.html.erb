@@ -1,2 +1,55 @@
-<h1>Passengers#show</h1>
-<p>Find me in app/views/passengers/show.html.erb</p>
+<h2><%= @passenger.name%></h2>
+
+  TODO: MAKE link not possible is in progress....
+
+  <%= link_to "Request a Ride", passenger_trips_path(@passenger.id), method: :post %>
+
+<p>Phone Number: <%= @passenger.phone_num %></p>
+<p>Total Charged: $ <strong>CREATE METHOD</strong> </p>
+<h3>Trips By Date: </h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Trip ID</th>
+      <th>Date</th>
+      <th>Driver</th>
+      <th>Passenger</th>
+      <th>Cost</th>
+      <th>Rating</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @trips.each do |trip| %>
+      <tr>
+        <td><%= link_to trip.id,trip_path(trip.id), class: 'trip-link' %></td>
+        <td><%= trip.date %></td>
+        <td><%= link_to trip.driver_id,trip_path(trip.driver_id), class: 'trip-link' %></td>
+        <td><%= link_to trip.passenger_id,trip_path(trip.passenger_id), class: 'trip-link' %></td>
+        <td> <strong>CREATE METHOD</strong> </td>
+        <td><% if trip.rating == nil %>
+          <%= form_for trip do |f| %>
+            <%= f.number_field :rating, min: 1, max: 5 %>
+            <%= f.submit %>
+          <% end %>
+        <% else %>
+          <%= trip.rating %>
+        <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h3>Modify Passenger:  </h3>
+<ul>
+  <li>
+    <%= link_to "Edit", edit_passenger_path %>
+  </li>
+
+  <li>
+    <%= link_to "Delete", passenger_path(@passenger.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+  </li>
+</ul>
