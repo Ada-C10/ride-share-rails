@@ -1,7 +1,9 @@
 class Driver < ApplicationRecord
   has_many :trips
 
-  # The user must provide a name and VIN
+  validates :name, presence: true
+  validates :vin, presence: true
+
 
 
 end
