@@ -1,3 +1,9 @@
-<p>
-  This is the drivers view 
-</p>
+<h3>ALL DRIVERS</h3>
+
+<ul>
+  <% @drivers.all.each do |driver| %>
+  <li>
+    <p><%= driver[:name] %></p>
+  </li>
+  <% end %>
+</ul>
