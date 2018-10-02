@@ -34,7 +34,7 @@ class DriversController < ApplicationController
   end
 
   def destroy
-    if Driver.destroy(params[:id])
+    if @driver.destroy
       redirect_to root_path
     end
   end
