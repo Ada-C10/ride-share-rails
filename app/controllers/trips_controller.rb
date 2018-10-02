@@ -18,17 +18,19 @@ class TripsController < ApplicationController
   end
 
   def create
-    @trip = Trip.new
-    @trip.driver = Driver.first_available_driver
-    @trip.passenger = Passenger.find_by(id: params[:passenger_id])
-    @trip.driver.status = false
-    @trip.driver.save
-    @trip.date = Date.today
-    @trip.cost = rand(1000..9999)
-    if @trip.save
-      redirect_to passenger_path(@trip[:passenger_id])
-    else
-      render :new
+    passenger = Passenger.find_by(id: params[:passenger_id])
+    driver = Driver.first_available_driver
+
+    unless passenger.is_in_ride?
+      driver.change_status
+
+      @trip = Trip.new
+      @trip.passenger = passenger
+      @trip.driver = driver
+      @trip.date = Date.today
+      @trip.cost = rand(1000..9999)
+
+      @trip.save ? redirect_to passenger_path(@trip[:passenger_id]) : render :new
     end
   end
 
