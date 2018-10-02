@@ -1,9 +1,6 @@
 class TripsController < ApplicationController
   before_action :set_trip, only: [:show, :edit, :update, :destroy]
 
-  def new
-  end
-
   def create
   end
 
