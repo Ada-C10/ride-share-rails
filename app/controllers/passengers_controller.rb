@@ -28,16 +28,16 @@ class PassengersController < ApplicationController
     end
   end
   #
-  # def edit
-  #   @book = Book.find_by(id: params[:id])
-  # end
-  #
-  # def update
-  #   book = Book.find(params[:id])
-  #   book.update(book_params)
-  #
-  #   redirect_to book_path(book.id)
-  # end
+  def edit
+    @passenger = Passenger.find_by(id: params[:id])
+  end
+
+  def update
+    passenger = Passenger.find(params[:id])
+    passenger.update(passenger_params)
+
+    redirect_to passenger_path(passenger.id)
+  end
   #
   # def destroy
   #   book = Book.find_by(id: params[:id])

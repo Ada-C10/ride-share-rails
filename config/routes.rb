@@ -12,4 +12,4 @@ patch '/passengers/:id', to: 'passengers#update'
 delete '/passengers/:id', to: 'passengers#destroy'
 
 get '/passengers/:id/edit', to: 'passengers#edit', as: 'edit_passenger'
-end
+end 
