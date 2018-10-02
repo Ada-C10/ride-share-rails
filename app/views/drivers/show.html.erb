@@ -2,12 +2,26 @@
 <p>ID: <%= @driver.id %></p>
 <p>Name: <%= @driver.name %></p>
 <p>VIN: <%= @driver.vin %></p>
-<p>Total Earnings:</p>
-<p>Average Ratings:</p>
+<p>Total Earnings: <%= @driver.total_earnings %></p>
+<p>Average Ratings: <%= @driver.average_rating %></p>
 
 <p>
   <%= link_to 'Edit', edit_driver_path(@driver.id) %>
 </p>
 <p>
-  <%= link_to "Delete", driver_path(@driver.id), method: :destroy, data: {confirm: "Are you sure?"} %>
+  <%= link_to "Delete", driver_path(@driver.id), method: :delete, data: {confirm: "Are you sure?"} %>
+</p>
+
+<p>Trip Details</p>
+<p>
+  <% @driver.trips.each do |trip| %>
+  <p>
+    <sub>ID: <%= trip.id %></sub>
+    <sub>Passenger: <%= trip.passenger_id %></sub>
+    <sub>Driver: <%= trip.driver_id %></sub>
+    <sub>Date: <%= trip.date %></sub>
+    <sub>Rating: <%= trip.rating %></sub>
+    <sub>Cost: <%= trip.cost %></sub>
+  </p>
+  <% end %>
 </p>
