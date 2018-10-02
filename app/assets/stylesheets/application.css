@@ -29,7 +29,7 @@ table {
 #show_passenger_table th, #show_passenger_table td {
     padding-left: 30px;
     padding-right: 30px;
-    border-bottom: 1px solid gold;
+    border-bottom: 1px solid darkolivegreen;
     text-align: left;
 }
 
