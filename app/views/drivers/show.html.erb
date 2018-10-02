@@ -4,7 +4,22 @@
 <h1> <%= @driver.name %></h1>
 <ul>
   <li>VIN: <%= @driver[:vin] %></li>
-</ul>
+  <li> Total Earned: $<%= @driver.total_earned%></li>
+  <li> Average Rating: <%= @driver.average_rating%></li>
+  </ul>
+<section>
+  Trips: <% @driver.trips.each do |trip|%>
+            <ul>
+              <li> Trip ID: <%= trip.id%></li>
+              <li> Trip Date: <%= trip.date%></li>
+              <li> Passenger: <%= trip.passenger.name%></li>
+              <li> Cost: <%= trip.cost/100%></li>
+              <li> Rating:<%= trip.rating%></li>
+            </ul>
+              <%end%>
+
+
+
 
 <ul>
 <li><%= link_to "Edit", edit_driver_path(@driver.id)%></li>
