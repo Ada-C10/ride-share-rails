@@ -10,7 +10,7 @@
   <section>
     Trips: <% @driver.trips.each do |trip|%>
     <ul>
-      <li> Trip ID: <%= trip.id%></li>
+      <li><%= link_to "Trip #{trip.id}", trip_path(trip.id)%>
       <li> Trip Date: <%= trip.date%></li>
       <li> Passenger: <%= trip.passenger.name%></li>
       <li> Cost: <%= trip.cost/100%></li>
