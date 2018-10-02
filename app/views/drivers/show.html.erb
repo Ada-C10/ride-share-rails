@@ -1,0 +1,13 @@
+<h1>Driver Info</h1>
+<p>ID: <%= @driver.id %></p>
+<p>Name: <%= @driver.name %></p>
+<p>VIN: <%= @driver.vin %></p>
+<p>Total Earnings:</p>
+<p>Average Ratings:</p>
+
+<p>
+  <%= link_to 'Edit', edit_driver_path(@driver.id) %>
+</p>
+<p>
+  <%= link_to "Delete", driver_path(@driver.id), method: :destroy, data: {confirm: "Are you sure?"} %>
+</p>
