@@ -38,7 +38,6 @@ class TripsController < ApplicationController
     end
   end
 
-
   def destroy
     trip = Trip.find_by(id: params[:id])
 
