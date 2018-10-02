@@ -22,34 +22,35 @@ class PassengersController < ApplicationController
       redirect_to passengers_path
     else
       render :new
-  end
-
-  def edit
-    @passenger = Passenger.find_by(id: params[:id])
-  end
-
-  def update
-    passenger = Passenger.find(params[:id])
-    if passenger.update(passenger_params)
-      redirect_to passenger_path(passenger.id)
-    else
-      head :not_acceptable
     end
-  end
 
-  def destroy
-    passenger = Passenger.find_by(id: params[:id])
+    def edit
+      @passenger = Passenger.find_by(id: params[:id])
+    end
 
-    passenger.destroy
-    redirect_to passengers_path
-  end
+    def update
+      passenger = Passenger.find(params[:id])
+      if passenger.update(passenger_params)
+        redirect_to passenger_path(passenger.id)
+      else
+        head :not_acceptable
+      end
+    end
 
-  private
+    def destroy
+      passenger = Passenger.find_by(id: params[:id])
 
-  def passenger_params
-    return params.require(:passenger).permit(
-      :name,
-      :phone_num
-    )
+      passenger.destroy
+      redirect_to passengers_path
+    end
+
+    private
+
+    def passenger_params
+      return params.require(:passenger).permit(
+        :name,
+        :phone_num
+      )
+    end
   end
 end
