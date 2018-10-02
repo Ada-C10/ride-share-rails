@@ -1,4 +1,5 @@
 class Passenger < ApplicationRecord
+  validates :name, :phone_num, presence: true
 
   has_many :trips, dependent: :nullify
 
