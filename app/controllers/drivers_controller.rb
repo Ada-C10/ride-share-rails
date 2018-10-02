@@ -24,7 +24,7 @@ class DriversController < ApplicationController
     if is_successful
       redirect_to drivers_path
     else
-      render :new , status: :bad_request 
+      render :new , status: :bad_request
     end
 
   end
@@ -34,16 +34,19 @@ class DriversController < ApplicationController
   end
 
   def update
-    driver = Driver.find_by(id: params[:id])
+    @driver = Driver.find_by(id: params[:id])
 
-    is_successful = driver.update(driver_params)
+    is_successful = @driver.update(driver_params)
 
       if is_successful
-        redirect_to drivers_path
+        redirect_to driver_path
       else
         render :edit , status: :bad_request
       end
   end
+
+  # can't delete, as "ERROR:  update or delete on table "drivers" violates foreign key constraint "fk_rails_e7560abc33" on table "trips"
+  #DETAIL:  Key (id)=(2) is still referenced from table "trips"."
 
   def destroy
     driver = Driver.find_by(id: params[:id])
