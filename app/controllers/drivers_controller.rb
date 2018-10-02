@@ -45,6 +45,12 @@ class DriversController < ApplicationController
     redirect_to drivers_path
   end
 
+  def change_status
+    @driver = Driver.find_by(id: params[:id])
+    @driver.toggle(:status).save
+    redirect_to driver_path
+  end
+
   private
 
   def driver_params
