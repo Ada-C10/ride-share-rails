@@ -1,0 +1,9 @@
+<h1> Trip index page </h1>
+<p>
+  <% @trips.each do |trip| %>
+  trip id: <%= trip.id %>
+  driver: <%= trip.driver_id %>
+  passenger: <%= trip.passenger_id %>
+  <% end %>
+
+</p>

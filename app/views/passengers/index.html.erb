@@ -1,0 +1,8 @@
+<h1> Passenger index page </h1>
+<% @passengers.each do |passenger| %>
+<p>
+  name: <%= passenger.name %>
+  phone num: <%= passenger.phone_num %>
+</p>
+
+<% end %>
