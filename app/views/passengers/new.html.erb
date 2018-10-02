@@ -1,2 +1,2 @@
-<h1>Passengers#new</h1>
-<p>Find me in app/views/passengers/new.html.erb</p>
+<%= render partial: "layouts/form",
+      locals: { action_name: 'New Passenger', model_name: @passenger, class_name: "passenger-form", number_info: :phone_num, button_title: "New", button_class: "new"} %>

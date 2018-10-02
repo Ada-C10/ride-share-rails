@@ -1,0 +1,16 @@
+<h1> <%= action_name %> </h1>
+<%# form_with url: "/books", method: :post, class: "book-form" do |f|%>
+
+<%= form_with model: model_name, class: class_name do |f|%>
+  <p>Please provide the following information to save your profile:</p>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label number_info %>
+  <%= f.text_field number_info %>
+
+  <%# f.hidden :creator, value: 'Divya' %>
+
+  <%= f.submit button_title, class: button_class %>
+<% end %>
