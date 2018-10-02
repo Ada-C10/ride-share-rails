@@ -1,8 +1,8 @@
 <h1> Passenger index page </h1>
-<% @passengers.each do |passenger| %>
-<p>
-  name: <%= passenger.name %>
-  phone num: <%= passenger.phone_num %>
-</p>
-
-<% end %>
+<ul>
+  <% @passengers.each do |passenger| %>
+  <li>
+    <%= link_to passenger.name, passenger_path(passenger.id)%>
+  </li>
+  <% end %>
+</ul>
