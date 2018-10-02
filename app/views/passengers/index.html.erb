@@ -2,7 +2,7 @@
 
 <% @passengers = Passenger.all%>
 <% ordered_passengers = @passengers.order(:name) %>
-<table id="index_passenger_table">
+<table id="index_table">
     <tr>
       <th>PASSENGER NAME</th>
       <th>PASSENGER ID</th>
@@ -19,10 +19,7 @@
     <td>
       <%= link_to "#{passenger.id}", passenger_path(passenger.id) %>
     </td>
-    <td class="index_actions">
-            <%= link_to "✏️", edit_passenger_path(passenger.id), id: "change", class: "hover_name1"%>
-            <%= link_to "🔥", passenger, method: :delete, data: {confirm: "You sure about that? Select OK to remove task #{passenger.name.upcase} ForEVVVeeeR!"}, id: "delete", class: "hover_name1" %>
-    <td>
+  
   </tr>
 <%end%>
 
