@@ -1,48 +1,49 @@
-class TripsController < ApplicationController
+class DriversController < ApplicationController
 
   def index
-    @trips = Trip.all.order(:id)
+    @drivers = Driver.all.order(:name)
   end
 
   def show
     id = params[:id]
-    @trip = Trip.find_by(id: id)
+    @driver = Driver.find_by(id: id)
 
 
     if id == nil
-      render :not_found, status: :not_found
+      render :not_found,
+      # status: :not_found
     end
   end
 
   def new
-    @trip = Trip.new
+    @driver = Driver.new
   end
 
 
   def edit
     id = params[:id].to_i
-    @trip = Trip.find_by(id: id)
+    @driver = Driver.find_by(id: id)
   end
 
   def update
     id = params[:id].to_i
-    @trip = Trip.find_by(id: id)
-    @trip.update(task_params)
+    @driver = Driver.find_by(id: id)
+    @driver.update(driver_params)
     # @task.name = params[:task][:name]
     # @task.description = params[:task][:description]
     # @task.due = params[:task][:due]
-    if @trip.save
-      redirect_to trips_root # go to the index so we can see the book in the list
+    if @driver.save
+      redirect_to drivers_root # go to the index so we can see the book in the list
     else
       render :new
     end
   end
 
   def create
-    @trip = Trip.new(trip_params)
+    @driver = Driver.new(driver_params)
     # @task = Task.new(name: params[:task][:name], description: params[:task][:description], due: params[:task][:due]) #instantiate a new book
-    if @trip.save # save returns true if the database insert succeeds
-      redirect_to trips_root # go to the index so we can see the book in the list
+    if @driver.save # save returns true if the database insert succeeds
+      redirect_to drivers_root # go to the index so we can see the book in the list
     else # save failed :(
       render :new # show the new book form view again
     end
@@ -50,9 +51,9 @@ class TripsController < ApplicationController
 
   def destroy
     id = params[:id].to_i
-    @trip = Trip.find_by(id: id)
-    if @trip.destroy
-      redirect_to trips_root
+    @driver = Driver.find_by(id: id)
+    if @driver.destroy
+      redirect_to drivers_root
     end
   end
 
@@ -70,7 +71,7 @@ class TripsController < ApplicationController
 
   private
 
-    def trip_params
-      return params.require(:trip).permit(:date ,:rating ,:cost)
+    def driver_params
+      return params.require(:driver).permit(:name, :vin)
     end
 end
