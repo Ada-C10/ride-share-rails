@@ -1,24 +1,31 @@
 <h1><%= @driver.name %></h1>
+<%= link_to "All Drivers", drivers_path %>
+<%= "|" %>
 <%= link_to "Edit", edit_driver_path(@driver.id) %>
-<br />
+<%= "|" %>
 <%= link_to "Delete", driver_path(@driver.id), method: :delete, data: {confirm: "Are you sure?"} %>
 <br />
 <br />
 
-<strong>ID: <%= @driver.id %></strong>
-<br />
-<strong>VIN: <%= @driver.vin %></strong>
-<br />
-<strong>Total Earnings: $<%= '%.2f' % @driver.total_earnings %></strong>
+<strong>Total Earnings: $<%= @driver.total_earnings %></strong>
 <br />
 <strong>Average Rating: <%= @driver.average_rating %></strong>
 <br />
 <br />
-<strong>List of Trips:</strong>
-<% @driver.trips.each do |trip| %>
-<ul>
-  <li>
-    <%= "Date: #{trip.date}, Passenger ID: #{trip.passenger_id}, Driver ID: #{trip.driver_id}" %>
-  </li>
-</ul>
-<% end %>
+
+<% trips_by_date = @driver.trips.order(:date) %>
+
+<table id="show_driver_data">
+  <tr>
+    <th>Date</th>
+    <th>Driver ID</th>
+    <th>Passenger ID</th>
+  </tr>
+  <% trips_by_date.each do |trip| %>
+    <tr>
+      <td><%= trip.date %></td>
+      <td><%= trip.driver_id %></td>
+      <td><%= trip.passenger_id %></td>
+    </tr>
+  <% end %>
+</table>
