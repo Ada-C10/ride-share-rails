@@ -8,6 +8,10 @@ class DriversController < ApplicationController
     @driver = Driver.find_by(id: @id)
 # See the driver's total earnings (-1.65, *.8)
 # See the driver's average rating
+
+    if @driver.nil?
+      render :notfound, status: :not_found
+    end
   end
 
   def new
