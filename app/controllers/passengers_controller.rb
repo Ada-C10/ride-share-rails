@@ -22,12 +22,12 @@ class PassengersController < ApplicationController
 
   def destroy
     @passenger.destroy
-    # redirect_to passenger_root_path
+    redirect_to passenger_path
   end
     
   def update
     if @passenger.update(passenger_params)
-      # redirect_to 
+      redirect_to passenger_path
     else
       render :new
     end
