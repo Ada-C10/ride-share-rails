@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   # root 'Passengers#index'
   resources :passengers
   resources :drivers
+  resources :trips
 
 end
