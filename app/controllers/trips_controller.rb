@@ -1,8 +1,5 @@
 class TripsController < ApplicationController
   before_action :set_trip, only: [:show, :edit, :update, :destroy]
-  
-  def new
-  end
 
   def create
   end
@@ -23,7 +20,7 @@ class TripsController < ApplicationController
   private
 
   def set_trip
-    @trip = trip.find(params[:id])
+    @trip = Trip.find(params[:id])
   end
 
 

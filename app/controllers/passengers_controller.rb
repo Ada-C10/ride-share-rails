@@ -34,8 +34,9 @@ class PassengersController < ApplicationController
   end
 
   def destroy
-    @passenger.destroy
-    redirect_to passenger_path
+    if @passenger.destroy
+      redirect_to passengers_path
+    end
   end
 
   private
