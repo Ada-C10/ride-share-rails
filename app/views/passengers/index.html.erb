@@ -1,0 +1,16 @@
+<div class="wrapper_index">
+  <h2>YOUR PASSENGERS</h2>
+  <ol>
+    <% @passengers.each_with_index do |passenger, index| %>
+      <%=link_to "#{index +1}. " + passenger.name, passenger_path(passenger.id)%>
+      <% end %>
+    </div>
+    <div class="links">
+      <%= link_to "view details ", passenger %>
+      <%= link_to "delete ", passenger, method: :delete, data: { confirm: "Are you really really sure that you want to delete #{passenger.name}?" } %>
+      <%= link_to "Edit Passenger ", edit_passenger_path(passenger.id) %>
+
+    </div>
+  </li>
+  <% end %>
+</ol>
