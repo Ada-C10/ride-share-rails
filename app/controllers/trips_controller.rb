@@ -38,9 +38,9 @@ class TripsController < ApplicationController
 
   def update
     trip = Trip.find_by(id: params[:id].to_i)
-    trip.update(trip)
+    trip.update(trip_params)
     ###### TODO Add error message for if it does not save  #####
-    redirect_to trip(trip.id)
+    redirect_to trip_path(trip.id)
   end
 
   private

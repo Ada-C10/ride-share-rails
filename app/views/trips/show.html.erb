@@ -1,2 +1,18 @@
-<h1>Trips#show</h1>
-<p>Find me in app/views/trips/show.html.erb</p>
+<!-- <h1>trips#show</h1>
+<p>Find me in app/views/trips/show.html.erb</p> -->
+
+<% if @trip.nil? %>
+  <h1> 404 Not found</h1>
+<% else %>
+  <h1><%=@trip.id %></h1>
+  <p><%= @trip.date %></p>
+  <p><%= @trip.rating %></p>
+  <p><%= @trip.cost %></p>
+  <p><%= @trip.driver_id %></p>
+  <p><%= @trip.passenger_id %></p>
+
+  <%= link_to "Edit", edit_trip_path(@trip.id) %>
+  <!--TODO FIgure out how to delete trips without impacting driver trips.   -->
+  <!--  Maybe set trip id to null then delete? -->
+  <%= link_to "Delete #{@trip.id}", trip_path(@trip.id), method: :delete %>
+<% end %>
