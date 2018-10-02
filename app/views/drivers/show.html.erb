@@ -8,6 +8,6 @@
 
 <ul>
 <li><%= link_to "Edit", edit_driver_path(@driver.id)%></li>
-<li><%= link_to "Delete #{@driver.name}?", driver_path(@driver.id), method: :delete, data: {confirm:"Are you sure you want to delete?"} %></li>
+<li><%= link_to "Delete", driver_path(@driver.id), method: :delete, data: {confirm:"Are you sure you want to delete?"} %></li>
 </ul>
 <% end %>
