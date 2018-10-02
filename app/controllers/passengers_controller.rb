@@ -40,7 +40,7 @@ class PassengersController < ApplicationController
     passenger = Passenger.find_by(id: params[:id].to_i)
     passenger.update(passenger_params)
     ###### TODO Add error message for if it does not save  #####
-    redirect_to passenger_index_path(passenger.id)
+    redirect_to passenger_path(passenger.id)
   end
 
 private
