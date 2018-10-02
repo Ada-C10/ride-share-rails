@@ -6,7 +6,7 @@ class PassengersController < ApplicationController
 
   
   def index
-    @Passengers = Passenger.all
+    @Passengers = Passenger.all.order(:name)
   end
 
   def show

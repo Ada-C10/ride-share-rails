@@ -1,2 +1,33 @@
 <h1>Passengers#show</h1>
+<% if @passenger.nil? %>
+<h1> 404 not found </h1>
+<% else %>
+<%= @passenger.name%>
+<%= @passenger.phone_num%>
+<% end %>
+
+
+<table id="show_passenger_data">
+<tr>
+<th>TRIP ID</th>
+<th>RATING</th>
+<th>COST</th>
+</tr>
+<tbody>
+
+<% @passenger.trips.each do |trip| %>
+<tr>
+<td> <%= trip.id %> </td>
+<td> <%= trip.driver_id %> </td>
+<td> <%= trip.date %></td>
+<td> <%= trip.rating %></td>
+<td> <%= trip.cost %></td>
+<% end %>
+</tr>
+
+<tr>
+<td>
+
+
+
 <p>Find me in app/views/passengers/show.html.erb</p>

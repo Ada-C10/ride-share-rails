@@ -1,2 +1,24 @@
 <h1>Passengers#index</h1>
+<% @passengers = Passenger.all%>
+<% ordered_passengers = @passengers.order(:name) %>
+<table id="index_passenger_table">
+    <tr>
+      <th>#</th>
+      <th>PASSENGER NAME</th>
+    </tr>
+    <tbody>
+<tr>
+
+<% ordered_passengers.each do |passenger| %>
+  <tr>
+  <td>
+    <%= link_to "#{passenger.name}", passenger_path(passenger.id) %>
+  </td>
+  <td>
+
+  </tr>
+<%end%>
+
+</table>
+
 <p>Find me in app/views/passengers/index.html.erb</p>
