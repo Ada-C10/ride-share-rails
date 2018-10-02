@@ -19,4 +19,8 @@ class Driver < ApplicationRecord
     return driver.trips.where(cost: nil).length > 0
   end
 
+  def self.first_available
+    return Driver.all.find { |driver| driver.is_available? }
+  end
+
 end
