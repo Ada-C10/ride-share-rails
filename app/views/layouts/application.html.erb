@@ -10,6 +10,35 @@
   </head>
 
   <body>
+    <header>
+      <h1>Welcome to Ada's Rideshare!</h1>
+      <nav>
+        <ul>
+          <!-- <li>
+            <!- <%# link_to  "Home", "/", id: "home-link" %> -->
+          <li>
+           <%= link_to "Passenger Index", passengers_path%>
+         </li>
+         <li>
+           <a href="<%= new_passenger_path%>">
+             Add a passenger
+           </a>
+        </ul>
+      </nav>
+    </header>
+<main>
     <%= yield %>
+</main>
   </body>
 </html>
+
+
+
+
+  <!-- <body>
+
+    <main>
+      <%# yield %>
+    </main>
+  </body>
+</html> -->
