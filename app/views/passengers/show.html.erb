@@ -1,0 +1,12 @@
+<% if @passenger.nil? %>
+  <h1> 404 Not found</h1>
+<% else %>
+
+  <h1><%= @passenger.name %></h1>
+  <h3> Phone Number : <%= @passenger.phone_num %></h3>
+
+  <p>Edit & Delete go here</p> 
+  <p>Trips go here</p>
+
+
+<% end %>

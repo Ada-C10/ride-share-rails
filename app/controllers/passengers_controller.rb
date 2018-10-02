@@ -7,9 +7,10 @@ class PassengersController < ApplicationController
   end
 
   def show
-    @passengers = Passenger.find_by(id: params[:id].to_i)
+    id = params[:id].to_i
+    @passenger = Passenger.find_by(id: id)
 
-    if @passengers.nil?
+    if @passenger.nil?
       render :notfound, status: :not_found
     end
   end
