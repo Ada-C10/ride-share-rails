@@ -10,7 +10,7 @@
 </ul>
 <% end %>
 
-<%= form_for @driver do |f| %>
+<%= form_with model: @driver, class: 'driver-form', data: { remote: false } do |f| %>
 <%= f.label :name %>
 <%= f.text_field :name %>
 

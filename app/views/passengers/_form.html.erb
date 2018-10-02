@@ -10,7 +10,7 @@
 </ul>
 <% end %>
 
-<%= form_for @passenger do |f| %>
+<%= form_with model: @passenger, class: 'passenger-form', data: { remote: false } do |f| %>
 <%= f.label :name %>
 <%= f.text_field :name %>
 

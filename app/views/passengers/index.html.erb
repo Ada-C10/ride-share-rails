@@ -1,11 +1,25 @@
 <h2>Passengers List</h2>
-<ul>
-  <% @passengers.each do |passenger| %>
-  <li>
-    <span class="name">
-      <%=  link_to passenger.name, passenger_path(passenger.id), class: 'name-link' %>
-    </span>
-     Phone Number: <%= passenger.phone_num %>
-  </li>
-  <% end %>
-</ul>
+<table>
+<thead>
+  <tr>
+    <th>Passenger Name</th>
+    <th>Passenger Name</th>
+
+  </tr>
+</thead>
+
+  <tbody>
+
+    <% @passengers.each do |passenger| %>
+
+    <tr>
+      <td>
+        <%=  link_to passenger.name, passenger_path(passenger.id), class: 'name-link' %>
+      </td>
+      <td>
+      
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
