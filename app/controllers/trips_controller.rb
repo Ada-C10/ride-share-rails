@@ -12,29 +12,18 @@ class TripsController < ApplicationController
     end
   end
 
-  def new
-    @trip = Trip.new
+  def create
+    driver_id = Driver.first_available.id
+    passenger_id = params[:data] # this might not work
+    new_trip_params = {date: Date.today, rating: nil, cost: nil,
+                       driver_id: driver_id, passenger_id: passenger_id}
+    @trip = Trip.new(new_trip_params)
+    @trip.save # make sure to validate this later?
+    redirect_to passenger_path(@trip.passenger.id) #probably works!
   end
 
   def edit
     @trip = Trip.find(params[:id].to_i)
-  end
-
-  def destroy
-    trip = Trip.find_by(id: params[:id].to_i)
-    trip.destroy
-
-    redirect_to trips_path
-  end
-
-  def create
-    @trip = Trip.new(trip_params)
-
-    if @trip.save
-      redirect_to trip_path(@trip.id) #does this need to be to integer?
-    else
-      render :new
-    end
   end
 
   def update
@@ -42,6 +31,13 @@ class TripsController < ApplicationController
     trip.update(trip_params)
 
     redirect_to trip_path(@trip.id)
+  end
+
+  def destroy
+    trip = Trip.find_by(id: params[:id].to_i)
+    trip.destroy
+
+    redirect_to trips_path
   end
 
   private
