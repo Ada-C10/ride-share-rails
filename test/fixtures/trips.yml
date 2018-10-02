@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: MyString
+  Date: MyString
+  price: MyString
+  integer: MyString
+  rating: MyString
+  integer: MyString
+
+two:
+  date: MyString
+  Date: MyString
+  price: MyString
+  integer: MyString
+  rating: MyString
+  integer: MyString
