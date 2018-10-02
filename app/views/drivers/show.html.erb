@@ -1,10 +1,16 @@
+<h3>DRIVER DETAILS</h3>
+
+<%= link_to "add new driver", new_driver_path %>
+
+
 <p>Driver name: <%= @driver.name %></p>
-<p>Driver vin: <%= @driver.vin %></p>
+<p>VIN: <%= @driver.vin %></p>
+<p>Average Rating: PLACEHOLDER!</p>
 <p><% @driver.trips.each do |trip| %></p>
   Trip ID: <%= trip.id %>
   Date: <%= trip.date %>
   Driver: <%= trip.driver.name %>
-  Passenger: <%= trip.passenger.name %>
+  Passenger: <%= link_to trip.passenger.name, passenger_path(trip.passenger.id) %>
   Cost: <%= trip.cost %>
   Rating: <%= trip.rating %>
   <% end %>
