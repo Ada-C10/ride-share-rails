@@ -8,7 +8,14 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
+  <nav>
+    <ul>
+      <!-- Home, List All Passengers, List All Drivers, List All Drivers, -->
+      <!-- New Passenger, New Driver -->
+      <%= link_to "Home", root_path %>
+      <%= link_to "All Passengers", root_path %>
+    </ul>
+  </nav>
   <body>
     <%= yield %>
   </body>
