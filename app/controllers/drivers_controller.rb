@@ -11,6 +11,20 @@ class DriversController < ApplicationController
     end
   end
 
+  def new
+    @driver = Driver.new
+  end
+
+  def create
+    driver = Driver.new(driver_params)
+
+    if driver.save
+      redirect_to drivers_path
+    else
+      render :new
+    end
+  end
+
   def edit
   end
 
@@ -20,9 +34,8 @@ class DriversController < ApplicationController
   def update
   end
 
-  def new
-  end
-
-  def create
+  private
+  def driver_params
+    return params.required(:driver).permit(:name, :vin)
   end
 end
