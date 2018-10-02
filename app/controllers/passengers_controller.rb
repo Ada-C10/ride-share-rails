@@ -31,7 +31,7 @@ class PassengersController < ApplicationController
   def update
     passenger = Passenger.find(params[:id])
     if passenger.update(passenger_params)
-      redirect_to passenger_path(passenger.id)
+      redirect_to passengers_path
     else
       head :not_acceptable
     end

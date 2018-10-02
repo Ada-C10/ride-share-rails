@@ -5,6 +5,8 @@
     <strong>
       <li><%= passenger.name %></li>
       <li><%= passenger.phone_num %></li>
+      <li><%= link_to "Edit", edit_passenger_path(passenger.id) %></li>
+      <li><%= link_to "Delete", passenger_path(passenger.id), method: :delete, data: { confirm: "Are you sure you want to delete #{passenger.name}?" } %></li>
     </strong>
   </ul>
 
