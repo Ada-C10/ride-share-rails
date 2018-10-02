@@ -1,2 +1,29 @@
-<h1>Trips#show</h1>
-<p>Find me in app/views/trips/show.html.erb</p>
+<h2><%= @trip.date%></h2>
+<p>Trip ID: <%= @trip.id %></p>
+<p>Trip Cost: $<%= @trip.cost / 100 %></p>
+
+<% if @trip.driver_id != nil %>
+<p><%= link_to "Driver: #{@trip.driver.name}", driver_path(@trip.driver_id) %></p>
+<% else %>
+<p><%= link_to "Driver: DELETED DRIVER", drivers_path %></p>
+<% end %>
+
+<% if @trip.passenger_id != nil %>
+<p><%= link_to "Passenger: #{@trip.passenger.name}", passenger_path(@trip.passenger_id) %></p>
+<% else %>
+<p><%= link_to "Passenger: DELETED PASSENGER", passengers_path %></p>
+<% end %>
+
+<p>Cost:  <%= @trip.cost %></p>
+<p>Rating: <%= @trip.rating %></p>
+
+<h3>Modify trip:  </h3>
+<ul>
+  <li>
+    <%= link_to "Edit", edit_trip_path %>
+  </li>
+
+  <li>
+    <%= link_to "Delete", trip_path(@trip.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+  </li>
+</ul>

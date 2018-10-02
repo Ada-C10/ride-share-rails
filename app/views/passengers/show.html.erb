@@ -26,8 +26,8 @@
       <tr>
         <td><%= link_to trip.id,trip_path(trip.id), class: 'trip-link' %></td>
         <td><%= trip.date %></td>
-        <td><%= link_to trip.driver_id,trip_path(trip.driver_id), class: 'trip-link' %></td>
-        <td><%= link_to trip.passenger_id,trip_path(trip.passenger_id), class: 'trip-link' %></td>
+        <td><%= trip.driver_id %></td>
+        <td><%= trip.passenger_id %></td>
         <td> <strong>CREATE METHOD</strong> </td>
         <td><% if trip.rating == nil %>
           <%= form_for trip do |f| %>

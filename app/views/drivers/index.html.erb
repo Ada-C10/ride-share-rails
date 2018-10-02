@@ -1,12 +1,22 @@
-<h1>Drivers List</h1>
-
-<ul>
-  <% @drivers.each do |driver| %>
-  <li class="driver">
-    <span class="name">
-      <%=  link_to driver.name, driver_path(driver.id), class: 'driver-link' %>
-    </span>
-    VIN: <%= driver.vin %>
-  </li>
-  <% end %>
-</ul>
+<h2>Drivers List</h2>
+<table>
+  <tbody>
+    <% @drivers.each do |driver| %>
+    <tr>
+      <td>
+        <%=  link_to driver.name, driver_path(driver.id), class: 'name-link' %>
+      </td>
+      <td>
+        <ul>
+          <li>
+            <%= link_to "Edit", edit_driver_path(driver.id) %>
+          </li>
+          <li>
+            <%= link_to "Delete", driver_path(driver.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+          </li>
+        </ul>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
