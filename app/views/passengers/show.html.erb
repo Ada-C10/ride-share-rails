@@ -5,9 +5,10 @@
   <h1> 404 Not found</h1>
 <% else %>
   <h1><%=@passenger.name %></h1>
+  <!--TODO Correct link to show, not working right now   -->
   <h3> by <%= link_to "#{@passenger.name}", passengers_path(@passenger.id) %></h3>
   <p><%= @passenger.phone_num %> </p>
   <%= link_to "Edit", edit_passenger_path(@passenger.id) %>
   <div></div>
-  <%= link_to "Delete #{@passenger.name}" method: :delete %>
+  <%= link_to "Delete #{@passenger.name}", method: :delete %>
 <% end %>

@@ -9,9 +9,6 @@
 
 <h1>These are the passengers!</h1>
 <% @passengers.each do |passenger| %>
-  <h2><%= link_to "This IS: #{passenger.name}", passengers_index_path(passenger.id) %>
+  <h2><%= link_to "This IS: #{passenger.name}", passengers_path(passenger.id) %>
   </h2>
-<!-- </a>
-  <p> by <%# passenger.name %></p>
-  <%= link_to "Delete", book_path(book.id), method: :delete %> -->
 <% end %>
