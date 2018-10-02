@@ -22,16 +22,17 @@ class DriversController < ApplicationController
     else
       render :new
     end
-
-    def edit
-      @driver = Driver.find_by(id: params[:id])
-    end
   end
+
+  def edit
+    @driver = Driver.find_by(id: params[:id])
+  end
+
 
   def update
     driver = Driver.find(params[:id])
     if driver.update(driver_params)
-      redirect_to driver_path(driver.id)
+      redirect_to drivers_path
     else
       head :not_acceptable
     end
@@ -52,5 +53,5 @@ class DriversController < ApplicationController
       :vin
     )
   end
-
+  
 end
