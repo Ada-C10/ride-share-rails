@@ -6,7 +6,7 @@ class DriversController < ApplicationController
 
     def show
       id = params[:id]
-      @drivers = Driver.find_by(id:id)
+      @driver = Driver.find_by(id:id)
 
     end
 
