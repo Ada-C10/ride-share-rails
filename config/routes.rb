@@ -18,9 +18,8 @@ Rails.application.routes.draw do
   get '/drivers', to: 'drivers#index', as: 'all_drivers'
 
   get '/drivers/new', to: 'drivers#new', as: 'new_driver'
-  post "/drivers", to: "drivers#create"
-
-
+  post '/drivers', to: 'drivers#create'
+  
   get '/drivers/:id/edit', to: 'drivers#edit', as: 'edit_driver'
   patch '/drivers/:id', to: 'drivers#update'
 
