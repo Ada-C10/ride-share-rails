@@ -1,0 +1,7 @@
+<%= form_with model: @driver, class: 'task-form' do |f| %>
+  <p><%= f.label :name %>:
+    <%= f.text_field :name%></p>
+  <p><%= f.label :vin %>:
+    <%= f.text_area :vin %></p>
+  <%= f.submit "Save Driver" %>
+<% end %>
