@@ -1,0 +1,22 @@
+<h2 class="my-class"><%= page_title %></h2>
+
+<% if @driver.errors.any? %>
+<ul class="errors">
+  <% @driver.errors.each do |field, message| %>
+  <li>
+    <strong><%= field.capitalize %>: </strong><%= message %>
+  </li>
+  <% end %>
+</ul>
+<% end %>
+
+<%= form_for @driver do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name %>
+
+<%= f.label :vin %>
+<%= f.text_field :vin %>
+
+<%= f.submit %>
+
+<% end %>
