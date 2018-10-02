@@ -7,4 +7,13 @@ class Driver < ApplicationRecord
 
     return total.round(2)
   end
+
+  def average_rating
+      if self.trips.length < 1
+        return average_rating = 0
+      end
+      sum_ratings = self.trips.reduce(0.0){|memo, trip| memo + trip.rating}
+      average_rating = (sum_ratings/self.trips.length).to_f.round(2)
+      return average_rating
+    end
 end
