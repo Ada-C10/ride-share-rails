@@ -8,9 +8,21 @@ Rails.application.routes.draw do
 
 
   get '/passengers/:id/edit', to: 'passengers#edit', as: 'edit_passenger'
-  patch '/passengers/:id', to: 'tasks#update'
+  patch '/passengers/:id', to: 'drivers#update'
 
 
 
   get '/passengers/:id', to: 'passengers#show', as: 'passenger'
+
+  # Drivers routes
+  get '/drivers', to: 'drivers#index', as: 'all_drivers'
+
+  get '/drivers/new', to: 'drivers#new', as: 'new_driver'
+  post "/drivers", to: "drivers#create"
+
+
+  get '/drivers/:id/edit', to: 'drivers#edit', as: 'edit_driver'
+  patch '/drivers/:id', to: 'drivers#update'
+
+  get '/drivers/:id', to: 'drivers#show', as: 'driver'
 end
