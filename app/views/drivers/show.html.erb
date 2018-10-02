@@ -1,0 +1,11 @@
+<div class="description-container">
+
+  <h2><%= @driver.name %></h2>
+
+  <p class="description-text"><%= @driver.id %> | <%= @driver.vin %></p>
+</div>
+<div class="return-home">
+  <h3>
+    <%= link_to "Return Home", all_drivers_path, class: "homepage" %>
+  </h3>
+</div>
