@@ -17,6 +17,7 @@ class DriversController < ApplicationController
     if @driver.save
       redirect_to root_path
     else
+      raise
       render :new
     end
   end
@@ -33,7 +34,7 @@ class DriversController < ApplicationController
   end
 
   def destroy
-    if Task.destroy(params[:id].to_i)
+    if Driver.destroy(params[:id])
       redirect_to root_path
     end
   end

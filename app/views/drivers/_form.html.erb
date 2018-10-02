@@ -1,0 +1,15 @@
+<%= form_with model: @driver, class: 'form' do |f|%>
+
+<p><%= form_intro %></p>
+
+<section>
+<%= f.label :name %>
+<%= f.text_field :name %>
+
+<%= f.label :vin %>
+<%= f.text_field :vin %>
+
+<%= f.submit "Save Changes", class: "submit_button" %>
+</section>
+
+<%end%>
