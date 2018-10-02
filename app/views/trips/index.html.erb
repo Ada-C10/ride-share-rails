@@ -2,8 +2,8 @@
 <p>Find me in app/views/trips/index.html.erb</p> -->
 <h1>These are the trips!</h1>
 <% @trips.each do |trip| %>
-  <h2><%= link_to "#{trip.name}", trip_path(trip.id) %> </h2>
-  <p> <%= "#{trip.date}"  %> </p>
+  <h2><%= link_to "#{trip.date}", trip_path(trip.id) %> </h2>
+  <!-- <p> <%# "#{trip.date}"  %> </p> -->
 <% end %>
 
  <!-- TODO  consider adding a landing page for trips eventhough instructions don't call for it -->
