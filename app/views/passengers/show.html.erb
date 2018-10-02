@@ -6,6 +6,18 @@
   <li>Phone Number: <%= @passenger[:phone_num] %></li>
   <li> Total Charged: $ <%=@passenger.total_charged%></li>
 </ul>
+
+<section>
+  Trips: <% @passenger.trips.each do |trip|%>
+  <ul>
+    <li> Trip ID: <%= trip.id%></li>
+    <li> Trip Date: <%= trip.date%></li>
+    <li> Driver: <%= trip.driver.name%></li>
+    <li> Cost: <%= trip.cost/100%></li>
+
+  </ul>
+  <%end%>
+</section>
 <!-- create chart of trips -->
 <ul>
 <li><%= link_to "Edit", edit_passenger_path(@passenger.id)%></li>
