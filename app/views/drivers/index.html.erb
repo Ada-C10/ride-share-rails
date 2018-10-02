@@ -1,0 +1,20 @@
+<h3><%= link_to "New Driver", new_driver_path %></h3>
+
+<h1>Driver List</h1>
+<ul class="list-of-data">
+  <% @drivers.each do |driver| %>
+    <li>
+      <ul class="details">
+        <li>
+          <%= link_to "#{driver.name}", driver_path(driver.id) %>
+        </li>
+        <li>
+          <%= link_to "Edit", edit_driver_path(driver.id) %>
+        </li>
+        <li>
+          <%= link_to "Delete", driver_path(driver.id), method: :delete,  data: { confirm: 'Are you sure?' } %>
+        </li>
+      </ul>
+    </li>
+  <% end %>
+</ul>

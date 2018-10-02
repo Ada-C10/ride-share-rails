@@ -1,0 +1,46 @@
+<h1>Driver Details</h1>
+
+<% if @driver.nil? %>
+<%= controller.redirect_to "/notfound" %>
+<% else %>
+
+<h2><%= @driver.name %></h2>
+
+<ul>
+  <li>
+    ID: <%= @driver.id %>
+  </li>
+  <li>
+    VIN: <%= @driver.vin %>
+  </li>
+  <li>
+    Total Earnings: $<%= @driver.total_earnings %>
+  </li>
+  <li>
+    Rating: <%= @driver.average_rating %>
+  </li>
+</ul>
+
+<ul>
+  <li><%= link_to "Edit", edit_driver_path(@driver.id) %></li>
+  <li><%= link_to "Delete", driver_path(@driver.id), method: :delete,  data: { confirm: 'Are you sure?'} %></li>
+</ul>
+
+<h2>Driver's Trips</h2>
+<% trips = @driver.list_trips %>
+<ul class="list-of-data">
+  <% trips.each do |trip| %>
+    <li>
+      <ul class="details">
+        <li><%= trip.id %></li>
+        <li><%= trip.driver_id %></li>
+        <li><%= trip.passenger_id %></li>
+        <li><%= trip.date %></li>
+        <li><%= trip.rating %></li>
+        <li><%= trip.cost %></li>
+      </ul>
+    </li>
+  <% end %>
+</ul>
+
+<% end %> 

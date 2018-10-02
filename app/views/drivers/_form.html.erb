@@ -1,0 +1,16 @@
+<h1> <%=action_name %> </h1>
+
+<%= form_with model: @driver, class: "form" do |f| %>
+  <p>Modify the fields below:</p>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :vin %>
+  <%= f.text_field :vin %>
+
+  <%# f.label :image_url %>
+  <%# f.text_field :image_url %>
+
+  <%= f.submit button_title, class: "button" %>
+<% end %>

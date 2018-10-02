@@ -1,0 +1,18 @@
+<h1>Trips List</h1>
+<%= link_to "Add new trip", new_trip_path %>
+<ul class="list-of-data">
+  <% @trips.each do |trip| %>
+    <li>
+      <ul class="details">
+        <li><%= trip.id %></li>
+        <li><%= link_to "#{trip.driver_id}", trip_path(trip.driver_id) %></li>
+        <li><%= link_to "#{trip.passenger_id}", trip_path(trip.passenger_id) %></li>
+        <li><%= link_to "#{trip.date}", trip_path(trip.date) %></li>
+        <li><%= link_to "#{trip.rating}", trip_path(trip.rating) %></li>
+        <li><%= link_to "#{trip.cost}", trip_path(trip.cost) %></li>
+        <li><%= link_to "Edit", edit_trip_path(trip.id) %></li>
+        <li><%= link_to "Delete", trip_path(trip.id), method: :delete,  data: { confirm: 'Are you sure?' } %></li>
+      </ul>
+    </li>
+  <% end %>
+</ul>

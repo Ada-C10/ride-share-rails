@@ -1,0 +1,13 @@
+<h1><%= action_name %></h1>
+
+<%= form_with model: @passenger, class: "form" do |f|%>
+  <p>Modify the fields below:</p>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :phone_num %>
+  <%= f.text_field :phone_num %>
+
+  <%= f.submit button_title, class: "button" %>
+<% end %>
