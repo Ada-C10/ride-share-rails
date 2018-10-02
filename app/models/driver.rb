@@ -14,4 +14,9 @@ class Driver < ApplicationRecord
     num_trips = self.trips.length.to_f
     return (sum_rating/num_trips).round(2)
   end
+
+  def is_available?
+    return driver.trips.where(cost: nil).length > 0
+  end
+
 end
