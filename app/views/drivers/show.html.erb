@@ -1,0 +1,11 @@
+<% if @drivers.nil? %>
+  <h1> 404 Not found</h1>
+<% else %>
+
+  <h1>Task</h1>
+  <h1><%=@drivers.name %></h1>
+  <p><%= @drivers.vin %> </p>
+  <%= link_to "Edit", driver_path(@driver.id) %>
+  <div></div>
+  <%= link_to "Delete #{@driver.name}", driver_path(@driver.id), method: :delete %>
+<% end %>
