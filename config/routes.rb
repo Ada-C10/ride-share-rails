@@ -6,5 +6,6 @@ Rails.application.routes.draw do
 
   #patch 'complete/tasks/:id', to: 'tasks#complete', as: 'complete_task'
 
-  resources :passengers
+  resources :passengers, :drivers, :trips
+
 end
