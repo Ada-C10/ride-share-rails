@@ -5,28 +5,31 @@
 <%= @passenger.name%>
 <%= @passenger.phone_num%>
 <% end %>
+<div>
+<strong>Total Cost: <%= @passenger.total_cost %></strong>
+</div>
 
 
 <table id="show_passenger_data">
 <tr>
 <th>TRIP ID</th>
+<th>DRIVER ID</th>
+<th>DATE</th>
 <th>RATING</th>
 <th>COST</th>
 </tr>
 <tbody>
-
-<% @passenger.trips.each do |trip| %>
-<tr>
-<td> <%= trip.id %> </td>
-<td> <%= trip.driver_id %> </td>
-<td> <%= trip.date %></td>
-<td> <%= trip.rating %></td>
-<td> <%= trip.cost %></td>
-<% end %>
-</tr>
-
-<tr>
-<td>
+  <% @passenger.trips.each do |trip| %>
+    <tr>
+      <td> <%= "#{trip.id}" %></td>
+      <td> <%= "#{trip.driver_id}" %></td>
+      <td> <%= "#{trip.date}" %></td>
+      <td> <%= "#{trip.rating}" %></td>
+      <td> <%= "#{trip.cost}" %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
 
 
 
