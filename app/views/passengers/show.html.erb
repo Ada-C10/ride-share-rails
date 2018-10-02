@@ -3,6 +3,7 @@
 <% else %>
 
   <h1><%= @passenger.name %></h1>
+    <%= link_to "Add New Driver", new_driver_path%>
   <h3> Phone Number : <%= @passenger.phone_num %></h3>
 
   <%= link_to "Edit #{@passenger.name}", edit_passenger_path(@passenger.id)%>

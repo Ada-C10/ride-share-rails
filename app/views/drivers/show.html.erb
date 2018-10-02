@@ -3,9 +3,18 @@
 <% else %>
 
   <h1><%= @driver.name %></h1>
-  <h3> Vin Number: <%= @driver.vin%></h3>
+  <h3> Driver Name : <%= @driver.name %></h3>
+  <h3> Driver Vin : <%= @driver.vin %></h3>
+  <h3> Driver Picture : <%= @driver.driver_picture %></h3>
 
-  <p>Edit & Delete go here</p>
+  <%= link_to "Edit #{@driver.name}", edit_driver_path(@driver.id)%>
+
+
+
+  <p></p>
+
+  <%= link_to "Delete #{@driver.name}", driver_path(@driver.id), method: :delete, data: { confirm: 'Are you sure you want to delete?'}%>
+
   <p>Trips go here</p>
 
 
