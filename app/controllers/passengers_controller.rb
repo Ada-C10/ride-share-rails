@@ -15,13 +15,13 @@ class PassengersController < ApplicationController
   end
 
   def create
-    filtered_passenger_params = passenger_params
-    @passenger = Passenger.new(filtered_passenger_params)
+    @passenger = Passenger.new(passenger_params)
 
     if @passenger.save
       redirect_to passengers_path
     else
       render :new
+    end
   end
 
   def edit
