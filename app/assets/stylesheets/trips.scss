@@ -1,3 +1,142 @@
-// Place all the styles related to the Trips controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+  border-top: 20px solid black;
+  height:100%;
+}
+
+#title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 20px;
+  padding-bottom: 50px;
+}
+
+#title h1 {
+  font-family: 'Francois One', sans-serif;
+  font-size: 3em;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#title sub {
+  padding-top: 2px;
+  font-family: 'Hind Siliguri', sans-serif;
+  font-size: 1em;
+  color: #A8A8A8;
+  font-style: italic;
+  flex-shrink: auto;
+}
+
+.nav {
+  display: flex;
+  flex-direction: row;
+  /* align-items: center; */
+  justify-content: space-around;
+  align-content: center;
+  flex-wrap: wrap;
+  padding-left: 20%;
+  padding-right: 20%;
+  list-style: none;
+}
+
+
+.nav > li > a:link {
+  font-family: 'Francois One', sans-serif;
+  text-decoration: none;
+}
+
+.nav > li > a:visited {
+  color: lightgrey;
+  font-family: 'Francois One', sans-serif;
+  text-decoration: none;
+}
+
+.nav > li > a:hover {
+  color: #f88379;
+  font-family: 'Francois One', sans-serif;
+  text-decoration: none;
+}
+
+a.current:visited {
+  color: #f88379;
+}
+
+#selfie {
+  padding-top: 20px;
+  display: block;
+  object-fit: contain;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+  /* shape-image-threshold: rect(10px,60px,200px,0px); */
+}
+
+.heading > h4 {
+  font-family: 'Francois One', sans-serif;
+  font-size: 1.5em;
+  text-align: center;
+  margin-left: 25%;
+  margin-right: 24%;
+  padding-bottom: 20px;
+  border-bottom: 2px solid black;
+}
+
+.heading > p {
+  font-family: 'Hind Siliguri', sans-serif;
+  font-size: 1.10em;
+  color: #A8A8A8;
+  margin-right: 18%;
+  margin-left: 18%;
+  line-height: 1.5;
+}
+
+.heading > li {
+  font-family: 'Hind Siliguri', sans-serif;
+  font-size: 1.10em;
+  margin-right: 18%;
+  margin-left: 18%;
+  line-height: 1.5;
+  list-style: none;
+}
+
+.heading > li > a {
+  color: #f88379
+}
+
+.heading > li > a:link {
+  font-family: 'Francois One', sans-serif;
+  text-decoration: none;
+}
+
+.heading > li > a:active {
+  color: lightgrey;
+  font-family: 'Francois One', sans-serif;
+  text-decoration: none;
+}
+
+.heading > li > a:hover {
+  color: lightgrey;
+  font-family: 'Francois One', sans-serif;
+  text-decoration: none;
+}
+
+footer {
+  position: relative;
+  bottom:0;
+  width:100%;
+  height:60px;   /* Height of the footer */
+  background:lightgrey;
+}
+
+footer > a > img {
+  display: block;
+  height: 50px;
+  color: white;
+  padding: 5px 0px;
+  margin-left: auto;
+  margin-right: auto;
+}

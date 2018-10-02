@@ -36,6 +36,11 @@ CSV.foreach(PASSENGER_FILE, :headers => true) do |row|
   if !successful
     passenger_failures << passenger
     puts "Failed to save passenger: #{passenger.inspect}"
+    # passenger.errors.each do |field, msg|
+    #   puts "#{field}: #{msg}"
+    # end
+    #
+    # exit
   else
     puts "Created passenger: #{passenger.inspect}"
   end
@@ -44,8 +49,8 @@ end
 puts "Added #{Passenger.count} passenger records"
 puts "#{passenger_failures.length} passengers failed to save"
 
-
-
+#
+#
 TRIP_FILE = Rails.root.join('db', 'seed_data', 'trips.csv')
 puts "Loading raw trip data from #{TRIP_FILE}"
 
