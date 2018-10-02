@@ -1,4 +1,4 @@
-class DriverController < ApplicationController
+class DriversController < ApplicationController
 
   def index
       @drivers = Driver.all
@@ -9,5 +9,6 @@ class DriverController < ApplicationController
       @drivers = Driver.find_by(id:id)
 
     end
+
 
 end
