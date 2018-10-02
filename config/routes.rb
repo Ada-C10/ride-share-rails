@@ -8,12 +8,10 @@ Rails.application.routes.draw do
 
 
   get '/passengers/:id/edit', to: 'passengers#edit', as: 'edit_passenger'
-<<<<<<< HEAD
-  patch '/passengers/:id', to: 'passengers#update'
-=======
-  patch '/passengers/:id', to: 'drivers#update'
->>>>>>> 439ac4ec19a24217cfad72a3835ff7e525f0fbc7
 
+  patch '/passengers/:id', to: 'passengers#update'
+
+  patch '/passengers/:id', to: 'drivers#update'
 
 
   get '/passengers/:id', to: 'passengers#show', as: 'passenger'
@@ -23,7 +21,7 @@ Rails.application.routes.draw do
 
   get '/drivers/new', to: 'drivers#new', as: 'new_driver'
   post '/drivers', to: 'drivers#create'
-  
+
   get '/drivers/:id/edit', to: 'drivers#edit', as: 'edit_driver'
   patch '/drivers/:id', to: 'drivers#update'
 
