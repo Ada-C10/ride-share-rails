@@ -4,6 +4,7 @@
 <%= link_to "Delete", driver_path(@driver.id), method: :delete, data: {confirm: "Delete #{@driver.name}?"} %>
 <p>Total Earnings: $<%= @driver.total_earnings.to_f / 100 %></p>
 <p>Average Rating: <%= @driver.average_rating %></p>
+<p>Trips Driven:</p>
 <ol>
   <% @driver.trips.each do |trip| %>
     <li><%= trip.id %></li>

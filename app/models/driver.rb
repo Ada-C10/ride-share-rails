@@ -2,7 +2,7 @@ class Driver < ApplicationRecord
   validates :name, presence: true
   validates :vin, presence: true, uniqueness: true
 
-  has_many :trips
+  has_many :trips, dependent: :nullify
 
   def total_earnings
     total = 0
