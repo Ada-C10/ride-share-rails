@@ -2,8 +2,9 @@
 <h3>Name: <%= @passenger.name %></h3>
 <h3>Phone Number: <%= @passenger.phone_num %></h3>
 <button>
-  <h2> <%= link_to "Request Ride", new_trip_path, method: :create %> </h2>
+  <h2> <%= link_to "Request Ride", trips_path, {:action => 'create', :passenger => 1} %> </h2>
 </button>
+
 <h2> Passenger Trips: </h2>
 <table>
   <tr>

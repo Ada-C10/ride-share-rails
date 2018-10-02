@@ -11,9 +11,9 @@ class Passenger < ApplicationRecord
     sum
   end
 
-  def create_trip
-    driver = Driver.order("RANDOM()").limit(1)
-    @trip_hash = {driver_id: driver, passenger_id: self.id, date: DateTime.now, cost: rand(1..5000)}
-  end
+  # def create_trip
+  #   driver = Driver.order("RANDOM()").limit(1)
+  #   @trip_hash = {driver_id: driver, passenger_id: self.id, date: DateTime.now, cost: rand(1..5000)}
+  # end
 
 end
