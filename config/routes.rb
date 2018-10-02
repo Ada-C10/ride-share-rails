@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'drivers/index'
+  get 'drivers/show'
+  get 'drivers/edit'
   root 'drivers#index'
 
   resources :driver
