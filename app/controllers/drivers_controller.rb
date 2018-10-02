@@ -26,12 +26,25 @@ class DriversController < ApplicationController
   end
 
   def edit
-  end
+    @driver = Driver.find_by(id: params[:id])
 
-  def destroy
+    if @driver.nil?
+      render :notfound, status: :not_found
+    end
   end
 
   def update
+    driver = Driver.find_by(id: params[:id])
+    driver.update(driver_params)
+
+    if driver.save
+      redirect_to driver_path
+    else
+      render :edit
+    end
+  end
+
+  def destroy
   end
 
   private

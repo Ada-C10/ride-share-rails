@@ -1,11 +1,1 @@
-<h2>Add A New Driver</h2>
-
-<%= form_with model: @driver do |f|%>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <br />
-  <%= f.label :vin %>
-  <%= f.text_field :vin %>
-  <br />
-  <%= f.submit %>
-<% end %>
+<%= render partial: "form", locals: { action_name: "Add A New Driver"} %>
