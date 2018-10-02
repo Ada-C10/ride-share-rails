@@ -38,14 +38,14 @@ class PassengersController < ApplicationController
 
     redirect_to passenger_path(passenger.id)
   end
-  #
-  # def destroy
-  #   book = Book.find_by(id: params[:id])
-  #
-  #   book.destroy
-  #   redirect_to books_path
-  # end
-  #
+
+  def destroy
+    passenger = Passenger.find_by(id: params[:id])
+
+    passenger.destroy
+    redirect_to passengers_path
+  end
+
   private
   #
   # # Strong params: only let certain attributes
