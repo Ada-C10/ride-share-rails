@@ -4,6 +4,7 @@
 <br />
 <strong>VIN: <%= @driver.vin %></strong>
 <br />
+<strong>Total Earnings: $<%= '%.2f' % @driver.total_earnings %></strong>
 <br />
 <%= link_to "Edit", edit_driver_path(@driver.id) %>
 <br />
