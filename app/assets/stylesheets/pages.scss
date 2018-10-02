@@ -1,8 +1,57 @@
+body {
+  background-image: image_url('space.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
 ul {
-  display: flex;
+  display: grid;
   list-style-type: none;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 0;
 }
 
 nav ul li {
-  padding: 0.5rem 2rem 0.5rem 2rem;
+  padding: 0.5rem 2rem;
+}
+
+.passengers {
+  grid-column: 2 / 3;
+}
+
+.drivers {
+  grid-column: 3 / 4;
+}
+
+.dropdown {
+    text-align: center;
+}
+
+.drop_heading {
+    background-color: transparent;
+    color: white;
+    padding: 16px;
+    font-size: 1.8rem;
+    border: none;
+}
+
+.drop_content {
+    display: none;
+    background-color: transparent;
+    min-width: 1rem;
+    z-index: 1;
+}
+
+.drop_content a[href] {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.drop_content a:hover {background-color: rgba(0, 0, 0, 0.3)}
+
+.dropdown:hover .drop_content {
+    display: block;
 }
