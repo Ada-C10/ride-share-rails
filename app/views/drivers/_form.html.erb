@@ -1,0 +1,10 @@
+<%=form_with model: @driver do |field| %>
+<p>Please enter the following details:</p>
+<%= field.label :name%>
+<%=field.text_field :name, placeholder: "Jenny" %>
+
+<%= field.label :vin%>
+<%=field.text_field :vin, placeholder: "123456-789" %>
+
+<%=field.submit submit_type%>
+<%end%>

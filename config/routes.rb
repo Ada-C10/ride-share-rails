@@ -9,10 +9,10 @@ resources :drivers
 
 # get '/drivers', to: 'drivers#index', as: 'drivers' DONE
 
-# get '/drivers/new', to: 'drivers#new', as: 'new_driver'
+# get '/drivers/new', to: 'drivers#new', as: 'new_driver' DONE
 # post '/drivers', to: 'drivers#create' DONE
 
-# get '/drivers/:id', to: 'drivers#show', as: 'driver'
+# get '/drivers/:id', to: 'drivers#show', as: 'driver' DONE
 # #
 # patch '/drivers/:id', to: 'drivers#update'
 #
