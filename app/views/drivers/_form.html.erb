@@ -17,6 +17,12 @@
 <%= f.label :vin %>
 <%= f.text_field :vin %>
 
+<%= f.label :car_make %>
+<%= f.select :car_make, ["Ford", "Honda", "Hyundai", "Nissan", "Toyota"] %>
+
+<%= f.label :car_model %>
+<%= f.select :car_model, ["Escape", "Focus", "Fiesta", "Accord", "Civic", "CR-V", "Elantra", "Santa Fe", "Sonata", "Altma", "Leaf", "PathFinder","RAV4", "Prius", "Camry"] %>
+
 <%= f.submit %>
 
 <% end %>
