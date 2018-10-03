@@ -4,28 +4,22 @@
 <%= link_to "Edit", edit_driver_path(@driver.id) %>
 <%= "|" %>
 <%= link_to "Delete", driver_path(@driver.id), method: :delete, data: {confirm: "Are you sure?"} %>
-<br />
-<br />
+<br /><br />
 
 <strong>Total Earnings: $<%= @driver.total_earnings %></strong>
 <br />
 <strong>Average Rating: <%= @driver.average_rating %></strong>
-<br />
-<br />
+<br /><br />
 
 <% trips_by_date = @driver.trips.order(:date) %>
 
-<table id="show_table">
+<table class="show_table">
   <tr>
     <th>Date</th>
     <th>Driver ID</th>
     <th>Passenger ID</th>
   </tr>
-  <% trips_by_date.each do |trip| %>
-    <tr>
-      <td><%= trip.date %></td>
-      <td><%= trip.driver_id %></td>
-      <td><%= trip.passenger_id %></td>
-    </tr>
-  <% end %>
+  <tbody>
+    <%= render partial: "dtrips", collection: trips_by_date %>
+  </tbody>
 </table>
