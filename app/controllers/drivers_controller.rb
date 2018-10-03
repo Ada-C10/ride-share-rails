@@ -27,6 +27,10 @@ class DriversController < ApplicationController
   end
 
   def edit
+    @driver = Driver.find_by(id: params[:id])
+    if @driver.nil?
+      head :not_found
+    end
   end
 
   def update
@@ -40,7 +44,7 @@ class DriversController < ApplicationController
   def driver_params
     return params.require(:driver).permit(
       :name, :vin)
-    
+
   end
 
 
