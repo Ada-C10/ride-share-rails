@@ -50,7 +50,7 @@ class DriversController < ApplicationController
 
   private
 
-  def book_params
+  def driver_params
     return params.require(:driver).permit(
       :name,
       :vin

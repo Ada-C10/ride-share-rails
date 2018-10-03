@@ -2,12 +2,11 @@
   <h2>YOUR TRIPS</h2>
   <ol>
     <% @trips.each_with_index do |trip, index| %>
-      <%=link_to "#{index +1}. " + trip.name, trip_path(trip.id)%>
-      <% end %>
+      <%=link_to "#{index +1}. " + trip_path(trip.id)%>
     </div>
     <div class="links">
       <%= link_to "view details ", trip %>
-      <%= link_to "delete ", trip, method: :delete, data: { confirm: "Are you really really sure that you want to delete #{trip.name}?" } %>
+      <%= link_to "delete ", trip, method: :delete, data: { confirm: "Are you really really sure that you want to delete?" } %>
       <%= link_to "Edit Trip ", edit_trip_path(trip.id) %>
 
     </div>
