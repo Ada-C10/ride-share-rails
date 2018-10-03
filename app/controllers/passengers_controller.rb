@@ -1,7 +1,7 @@
 class PassengersController < ApplicationController
 
   def index
-    @passengers = Passenger.all.order(:name)
+    @passengers = Passenger.all.order(:id)
   end
 
   def show
