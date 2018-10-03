@@ -11,3 +11,27 @@
 
 <h1>Trips#index</h1>
 <p>Find me in app/views/trips/index.html.erb</p>
+
+<h4>Trip History:</h4>
+<table style="width:100%">
+  <tr>
+    <th>Trip ID</th>
+    <th>Passenger ID</th>
+    <th>Driver Id</th>
+    <th>Date</th>
+    <th>Rating</th>
+    <th>Cost</th>
+    <th>Update</th>
+  </tr>
+  <% @trips.all.each do |trip| %>
+  <tr>
+    <td><%=trip.id%></td>
+    <td><%=trip.passenger_id %></td>
+    <td><%=trip.driver_id%></td>
+    <td><%=trip.date%></td>
+    <td><%=trip.rating%></td>
+    <td><%=trip.cost%></td>
+    <td><%=link_to "edit", edit_trip_path(trip.id)%></td>
+    <% end  %>
+  </tr>
+</table>
