@@ -4,11 +4,19 @@ class TripsController < ApplicationController
   end
 
 
+  def show
+
+    @trip = Trip.find_by(id: params[:id])
+    if @trip.nil?
+      head :not_found
+    end
+
+  end
+
   def new
 
   end
 
-<<<<<<< HEAD
 
   def create
 
@@ -16,14 +24,11 @@ class TripsController < ApplicationController
   end
 
 
-
-
-=======
   def create
-    
+
   end
 
->>>>>>> passenger
+
   private
   def trip_params
     return params.require(:trip).permit(
