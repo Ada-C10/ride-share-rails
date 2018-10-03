@@ -2,8 +2,10 @@
 
 <ul>
   <strong>
-    <li> Driver Name: <%= @trip.driver.name %> </li>
-    <li> Passenger Name: <%= @trip.passenger.name %> </li>
+    <li> Driver Name:</li>
+    <li><%= link_to @trip.driver.name, driver_path(@trip.driver.id) %></li>
+    <li> Passenger Name:</li>
+    <li><%= link_to @trip.passenger.name, passenger_path(@trip.passenger.id) %></li>
     <li> Date: <%= @trip.date %> </li>
     <li> Price: <%= @trip.cost %> </li>
     <% if @trip.rating.nil? %>
