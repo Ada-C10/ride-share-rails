@@ -4,9 +4,6 @@ class TripsController < ApplicationController
     @trip = Trip.find(params[:id].to_i)
   end
 
-
-
-
   def show
     @trip = Trip.find_by(id: params[:id])
 
@@ -38,8 +35,15 @@ class TripsController < ApplicationController
     trip = Trip.find_by(id: params[:id])
     trip.destroy
 
-    redirect_back(fallback_location: root_path)
-    # why is it trying to run the show method and view
+    if params[:driver_id]
+      driver_id = params[:driver_id].to_i
+      redirect_to driver_path(driver_id)
+    elsif params[:passenger_id]
+      passenger_id = params[:passenger_id].to_i
+      redirect_to driver_path(passenger_id)
+    else
+      redirect_to root_path
+    end
   end
 
 
@@ -56,7 +60,7 @@ class TripsController < ApplicationController
     end
   end
 
-    
+
   end
 
   # private

@@ -24,7 +24,7 @@ class Driver < ApplicationRecord
     return (sum / self.trips.count).round(2)
   end
 
-   def self.new_trip_driver
+  def self.new_trip_driver
     avail_drivers = self.where(active: true, status: true)
     driver = avail_drivers.first
     # binding.pry

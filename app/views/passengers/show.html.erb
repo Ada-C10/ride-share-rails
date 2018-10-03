@@ -31,7 +31,7 @@
     <th>COST</th>
   </tr>
 <tbody>
- 
+
   <% if @passenger.trips.empty? %>
     <tr>
       <td><%= "No Trips on Record" %></td>
@@ -45,11 +45,10 @@
         <td> <%= trip.rating %></td>
         <td> <%= "🚀"'%.2f' % (trip.cost/100) %></td>
       </tr>
-        
+
     <td>
     <% end %>
 
   <% end %>
   </tbody>
 </table>
-
