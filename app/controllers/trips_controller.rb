@@ -2,9 +2,9 @@ class TripsController < ApplicationController
   before_action :set_trip, only: [:show, :edit, :update, :destroy]
 
   def autocreate
-    offset = rand(Driver.count)
-    driver = Driver.offset(offset).first
-    trip_hash = {driver_id: driver.id, passenger_id: params[:id].to_i, date: DateTime.now, cost: rand(1..5000)}
+    driver_num = rand(Driver.count)
+    driver = Driver.offset(driver_num).first
+    trip_hash = {driver_id: driver.id, passenger_id: params[:id].to_i, date: DateTime.now, cost: rand(200..5000)}
     @trip = Trip.new(trip_hash)
     @trip.save
     redirect_to trip_path(@trip.id)
