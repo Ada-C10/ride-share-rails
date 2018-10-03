@@ -1,8 +1,22 @@
 <h1>List of Drivers</h1>
-<% @drivers.each do |driver| %>
-  <ul>
-    <li>
-      <%= link_to driver.name, driver_path(driver.id) %>
-    </li>
-  </ul>
-<% end %>
+
+<% active_drivers = @drivers.where(active: true) %>
+
+<table class="index_table">
+  <tr>
+    <th>DRIVER NAME</th>
+    <th>DRIVER ID</th>
+  </tr>
+  <tbody>
+    <% active_drivers.each do |driver| %>
+      <tr>
+        <td>
+          <%= link_to driver.name, driver_path(driver.id) %>
+        </td>
+        <td>
+          <%= driver.id%>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
