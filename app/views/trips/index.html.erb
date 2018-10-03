@@ -1,0 +1,13 @@
+<h3> <%= @type %> Detail Page </h3>
+
+<% @trips.each do |trip| %>
+
+<ul>
+  <strong>
+    <li> Date: <%= trip.date %> </li>
+    <li> Rating: <%= trip.rating %> </li>
+    <li> Cost: <%= trip.cost %> </li>
+  </strong>
+</ul>
+
+<% end %>
