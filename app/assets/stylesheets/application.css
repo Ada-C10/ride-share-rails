@@ -17,6 +17,19 @@
 rgba(130, 204, 221,1.0), rgba(165, 177, 194,1.0), rgba(209, 216, 224,1.0) */
 /* fonts: font-family: 'Lora', serif;
 font-family: 'Karla', sans-serif; */
+/* <!-- container scaffolding -->
+ <div class="container" role="main">
+  <div class="c1">
+  </div>
+  <div class="c2">
+  </div>
+  <div class="c3">
+  </div>
+  <div class="c4">
+  </div>
+  <div class="c5">
+  </div>
+</div>  */
 
 @import url('https://fonts.googleapis.com/css?family=Karla|Lora');
 
@@ -46,21 +59,17 @@ body {
 }
 
 .c1 {
-  margin-top: .5em;
   color: white;
   text-align: left;
   background-image: linear-gradient(to bottom left, rgba(60, 99, 130,1.0), rgba(10, 61, 98,1.0));
-  border-radius: 50px 0px 0px 0px;
   border-bottom: 4px solid rgba(165, 177, 194,1.0);
 }
 
 .c2 {
-  margin-top: .5em;
   color: white;
   background-image: linear-gradient(to bottom right, rgba(96, 163, 188,1.0), rgba(60, 99, 130,1.0));
   display: flex;
   justify-content: center;
-  border-radius: 0px 50px 0px 0px;
   border-bottom: 4px solid rgba(165, 177, 194,1.0);
   border-left: 2px solid rgba(165, 177, 194,1.0);
 }
@@ -68,7 +77,6 @@ body {
 .c3 {
   color: #333;
   background-color: rgba(130, 204, 221,1.0);
-  border-radius: 0px 0px 0px 50px;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -107,7 +115,6 @@ body {
 .c5 {
   color: #333;
   background-color: rgba(209, 216, 224,1.0);
-  border-radius: 0px 0px 50px 0px;
 }
 
 @media (min-width: 600px) {
@@ -119,13 +126,23 @@ body {
 @media (min-width: 800px) {
   .c1 {
     width: 60%;
+    border-radius: 50px 0px 0px 0px;
+    margin-top: .5em;
   }
   .c2 {
     width: 40%;
+    border-radius: 0px 50px 0px 0px;
+    margin-top: .5em;
   }
   .c3, .c4, .c5 {
     width: 33.33%;
     height: 375px;
+  }
+  .c3 {
+    border-radius: 0px 0px 0px 50px;
+  }
+  .c5 {
+    border-radius: 0px 0px 50px 0px;
   }
 }
 
