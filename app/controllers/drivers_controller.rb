@@ -20,6 +20,7 @@ class DriversController < ApplicationController
     @driver = Driver.new(name: params[:driver][:name],
                     vin: params[:driver][:vin])
     if @driver.save
+      flash[:notice] = "Driver created successfully!"
       redirect_to all_drivers_path
     else
       render :new
