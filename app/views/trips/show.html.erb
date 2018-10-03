@@ -20,5 +20,5 @@
 
 
   <sub><%= link_to "Edit", edit_trip_path(@trip.id) %></sub>
-  <sub><%= link_to "Delete", trips_path(@trip.id), method: :delete, data: {confirm: "Please confirm you would like to delete." } %></sub>
+  <sub><%= link_to "Delete", trip_path(@trip.id), method: :delete, data: {confirm: "Please confirm you would like to delete this"}%></sub>
 </ul>

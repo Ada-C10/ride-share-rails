@@ -25,7 +25,7 @@ class Passenger < ApplicationRecord
     Driver.all.sample.trips << trip
     trip.date = Date.today
     trip.rating = Random.rand(0..5)
-    trip.cost = Random.rand(5..100)
+    trip.cost = Random.rand(500..10000)
     trip.save
   end
 

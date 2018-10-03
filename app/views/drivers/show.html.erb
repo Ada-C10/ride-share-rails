@@ -14,6 +14,7 @@
   <li><strong>Name:</strong> <%= @driver.name %></li>
   <li><strong>Vin Number:</strong> <%= @driver.vin %></li>
   <li><strong>Total Revenue:</strong> <%= @driver.total_revenue %></li>
+  <li><strong>Average Rating:</strong> <%= "#{'%.2f' % @driver.average_rating}"%></li>
 
 
   <sub><%= link_to "Edit", edit_passenger_path(@driver.id) %></sub>
@@ -32,7 +33,7 @@
   </tr>
   <% @driver.all_driver_trips.each do |trip| %>
   <tr>
-    <td><%=trip.id%></td>
+    <td><%=link_to trip.id, trip_path(trip.id)%></td>
     <td><%=trip.passenger_id %></td>
     <td><%=trip.driver_id%></td>
     <td><%=trip.date%></td>

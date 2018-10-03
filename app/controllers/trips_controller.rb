@@ -41,13 +41,10 @@ class TripsController < ApplicationController
   end
 
   def create
-    @trip = Trip.new(trip_params)
-    # @task = Task.new(name: params[:task][:name], description: params[:task][:description], due: params[:task][:due]) #instantiate a new book
-    if @trip.save # save returns true if the database insert succeeds
-      redirect_to trips_path # go to the index so we can see the book in the list
-    else # save failed :(
-      render :new # show the new book form view again
-    end
+    id = params[:passenger_id].to_i
+    @passenger = Passenger.find_by(id: id)
+    @passenger.assign_trip
+      redirect_to passenger_path(@passenger.id)
   end
 
   def destroy
@@ -73,6 +70,6 @@ class TripsController < ApplicationController
   private
 
     def trip_params
-      return params.require(:trip).permit(:date ,:rating ,:cost)
+      return params.require(:trip).permit(:date ,:rating ,:cost, :passenger_id, :driver_id)
     end
 end

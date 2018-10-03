@@ -12,6 +12,9 @@ Rails.application.routes.draw do
 
   delete '/drivers/:id', to: 'drivers#destroy'
 
+  resources :passengers do
+    resources :trips, only: [:create]
+  end
 
   get '/trips', to: 'trips#index', as: 'trips'
 
@@ -26,15 +29,16 @@ Rails.application.routes.draw do
 
 
 
-  get '/passengers', to: 'passengers#index', as: 'passengers'
-
-  get '/passengers/new', to: 'passengers#new', as: 'new_passenger'
-  post '/passengers', to: 'passengers#create'
-
-  get '/passengers/:id', to: 'passengers#show', as: 'passenger'
-  get '/passengers/:id/edit', to: 'passengers#edit', as: 'edit_passenger'
-  patch '/passengers/:id', to: 'passengers#update'
-
-  delete '/passengers/:id', to: 'passengers#destroy'
+  # get '/passengers', to: 'passengers#index', as: 'passengers'
+  #
+  # get '/passengers/new', to: 'passengers#new', as: 'new_passenger'
+  # post '/passengers', to: 'passengers#create'
+  #
+  # get '/passengers/:id', to: 'passengers#show', as: 'passenger'
+  #
+  # get '/passengers/:id/edit', to: 'passengers#edit', as: 'edit_passenger'
+  # patch '/passengers/:id', to: 'passengers#update'
+  # patch '/passengers/:id/status', to: 'passengers#status', as: 'passenger_status'
+  # delete '/passengers/:id', to: 'passengers#destroy'
 
 end
