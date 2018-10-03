@@ -12,4 +12,14 @@ class Driver < ApplicationRecord
 
     return average_rating
   end
+
+  def total_cost
+    total_cost = 0.0
+
+    trips.each do |trip|
+      total_cost += trip.cost.to_i
+    end
+
+    return total_cost
+  end
 end
