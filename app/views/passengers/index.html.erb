@@ -1,7 +1,7 @@
 <h1>List of passengers</h1>
 <ul>
-  <% active_passengers = @passenger.select {|passenger| passenger.status == true}%>
-  <% active_passengers.each do |passenger| %>
+  <!-- <% active_passengers = @passenger.select {|passenger| passenger.status == true}%> -->
+  <% @passengers.active_passengers.each do |passenger| %>
     <li>
       <p><%= link_to "name: #{passenger.name}", passenger_path(passenger.id) %></p>
     </li>
