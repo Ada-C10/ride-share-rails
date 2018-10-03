@@ -1,15 +1,15 @@
 <html>
   <body class="homepage">
     <header class="welcome-header">
-      <h1>F.A.S.T</h1>
+      <h1>F.A.S.T.</h1>
       <h2>Friendly and Stylish Transportation</h2>
     </header>
     <section class="main-part driver">
       <!-- https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_button_test -->
-      <button class="button">Driver</button>
+      <button class="button"><%= link_to "Driver", drivers_path%></button>
     </section>
     <section class="main-part passenger">
-      <button class="button">Passenger</button>
+      <button class="button"><%= link_to "Passenger", passengers_path %></button>
     </section>
     <footer class="copywrite">
       <p>Copyright(c) 2018</p>
