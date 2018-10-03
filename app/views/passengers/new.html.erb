@@ -1,5 +1,13 @@
-<h1> Passenger </h1>
-<%# form_with url: "/books", method: :post, class: "book-form" do |f|%>
+<section id="title">
+  <h1>New Passenger</h1>
+  <sub>Start Your Journey Today</sub>
+</section>
+
+<nav class="nav">
+  <li><%= link_to "HOME", root_path %></li>
+  <li><%= link_to "DRIVER", drivers_path %></li>
+  <li><%= link_to "PASSENGER", passengers_path %></li>
+</nav>
 
 <%= form_with model: @Passenger, class: "passenger-form" do |f|%>
   <p>Please provide the following information to become a passenger on RideShare!</p>

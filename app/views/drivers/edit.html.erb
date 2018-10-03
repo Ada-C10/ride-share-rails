@@ -4,10 +4,8 @@
   <li><%= link_to "PASSENGER", passengers_path %></li>
 </nav>
 
-<h1> New Driver </h1>
-
-<%= form_with model: @driver, class: "driver-form" do |f|%>
-  <p>Please provide the following information to become a driver on RideShare!</p>
+<h1> Driver </h1>
+<%= form_with model: @driver, class: "driver-form" do |f|%>>
 
   <%= f.label :name %>
   <%= f.text_field :name %>
@@ -15,7 +13,5 @@
   <%= f.label :vin %>
   <%= f.text_field :vin %>
 
-  <%# f.hidden :creator, value: 'Divya' %>
-
-  <%= f.submit "Sumbit!", class: "driver-button" %>
+  <%= f.submit "Edit", class: "driver-button" %>
 <% end %>

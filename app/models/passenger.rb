@@ -8,13 +8,13 @@ class Passenger < ApplicationRecord
   def total_spent
     total = 0
     trips.each do |trip|
-    total += trip.cost
+      total += trip.cost
     end
     return total
   end
-
+  
   def all_passenger_trips
-    trips.all
+    trips
   end
 
 end

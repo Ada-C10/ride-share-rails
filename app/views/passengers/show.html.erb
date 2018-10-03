@@ -1,7 +1,14 @@
-<h2>Passenger<%="#{@passenger.id}"%></h2>
+<section id="title">
+  <h1>Passenger <%="#{@passenger.id}"%></h1>
+  <sub>Changing The Way You Travel</sub>
+</section>
 
+<nav class="nav">
+  <li><%= link_to "HOME", root_path %></li>
+  <li><%= link_to "DRIVER", drivers_path %></li>
+  <li><%= link_to "PASSENGER", passengers_path %></li>
+</nav>
 
-    <img id="selfie" src="https://randomuser.me/api/portraits/women/50.jpg" alt="Image of a car">
   <ul>
     <li><strong>Name:</strong> <%= @passenger.name %></li>
     <li><strong>Phone Number:</strong> <%= @passenger.phone_num %></li>
@@ -10,6 +17,7 @@
 
     <sub><%= link_to "Edit", edit_passenger_path(@passenger.id) %></sub>
     <sub><%= link_to "Delete", passenger_path(@passenger.id), method: :delete, data: {confirm: "Please confirm you would like to delete." } %></sub>
+  </ul>
 
     <h4>Trip History:</h4>
     <table style="width:100%">
@@ -32,4 +40,3 @@
         <% end  %>
       </tr>
     </table>
-  </ul>

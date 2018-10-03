@@ -14,5 +14,8 @@ class Driver < ApplicationRecord
    return total_revenue = (total * 0.80)
  end
 
+ def all_driver_trips
+   trips.all
+ end
 
 end

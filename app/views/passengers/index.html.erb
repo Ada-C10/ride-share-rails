@@ -1,4 +1,13 @@
-<h1 class= "title"> Rideshare Passenger List</h1>
+<section id="title">
+  <h1>Ride Share Passenger List</h1>
+  <sub>Changing The Way People Travel</sub>
+</section>
+
+<nav class="nav">
+  <li><%= link_to "HOME", root_path %></li>
+  <li><%= link_to "DRIVER", drivers_path %></li>
+  <li><%= link_to "PASSENGER", passengers_path %></li>
+</nav>
 
 <ul>
   <% @passengers.each do |passenger| %>

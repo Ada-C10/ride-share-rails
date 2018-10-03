@@ -1,0 +1,39 @@
+<h1>Driver <%="#{@driver.id}"%></h1>
+
+<nav class="nav">
+  <li><%= link_to "HOME", root_path %></li>
+  <li><%= link_to "DRIVER", drivers_path %></li>
+  <li><%= link_to "PASSENGER", passengers_path %></li>
+</nav>
+
+<ul>
+  <li><strong>Name:</strong> <%= @driver.name %></li>
+  <li><strong>Vin Number:</strong> <%= @driver.vin %></li>
+  <li><strong>Total Revenue:</strong> <%= @driver.total_revenue %></li>
+
+
+  <sub><%= link_to "Edit", edit_passenger_path(@driver.id) %></sub>
+  <sub><%= link_to "Delete", passenger_path(@driver.id), method: :delete, data: {confirm: "Please confirm you would like to delete." } %></sub>
+</ul>
+
+<h4>Trip History:</h4>
+<table style="width:100%">
+  <tr>
+    <th>Trip ID</th>
+    <th>Passenger ID</th>
+    <th>Driver Id</th>
+    <th>Date</th>
+    <th>Rating</th>
+    <th>Cost</th>
+  </tr>
+  <% @driver.all_driver_trips.each do |trip| %>
+  <tr>
+    <td><%=trip.id%></td>
+    <td><%=trip.passenger_id %></td>
+    <td><%=trip.driver_id%></td>
+    <td><%=trip.date%></td>
+    <td><%=trip.rating%></td>
+    <td><%=trip.cost%></td>
+    <% end  %>
+  </tr>
+</table>

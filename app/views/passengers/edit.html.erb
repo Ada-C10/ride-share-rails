@@ -1,5 +1,14 @@
-<h1>Update Your Passenger Information</h1>
+<section id="title">
+  <h1>Update Passenger</h1>
+  <sub>Changing The Way You Travel</sub>
+</section>
+
 <%# form_with url: "/books", method: :post, class: "book-form" do |f|%>
+<nav class="nav">
+  <li><%= link_to "HOME", root_path %></li>
+  <li><%= link_to "DRIVER", drivers_path %></li>
+  <li><%= link_to "PASSENGER", passengers_path %></li>
+</nav>
 
 <%= form_with model: @passenger, class: "passenger-form" do |f|%>
   <p>Please provide the following information to become a passenger on RideShare!</p>
