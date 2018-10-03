@@ -1,0 +1,23 @@
+<!-- Use same form partial as Goeun? -->
+<!-- validations working, but error messages not showing up. -->
+
+<% if @driver.errors.messages.any? %>
+<h1>Does this work?</h1>
+  <section class="form-errors">
+    <h3>There were some problems. Please fix them.</h3>
+    <ul>
+      <% @driver.errors.messages.each do |field, problem_list| %>
+        <% problem_list.each do |problem| %>
+          <li>
+            <strong><%= field %></strong>
+            <%= problem %>
+          </li>
+        <% end %>
+      <% end %>
+    </ul>
+  </section>
+<% end %>
+
+<%= render partial: "form", locals: {directions: "Complete this form to sign up a new driver:", action_button: "Create New Driver"} %>
+
+<%=link_to "Return to main driver's list", drivers_path %>

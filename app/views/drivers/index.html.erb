@@ -1,4 +1,10 @@
-<h1> Does this work? </h1>
-<% @drivers.each do |driver| %>
-<%= driver.name %>
-<% end %>
+<h1> Drivers </h1>
+<%=link_to "Enter a new driver", new_driver_path %>
+<ul>
+  <% @drivers.sort.each do |driver| %>
+    <li><strong>Driver #<%=driver.id %>: <%=driver.name %></strong></li>
+    <%=link_to "View Details", driver_path(driver.id) %> |
+    <%=link_to "Edit", edit_driver_path(driver.id) %> |
+    <%=link_to "Delete", driver_path(driver), method: :delete, data: {confirm: "Are you sure you want to delete #{driver.name} from the database?" }%>
+  <% end %>
+</ul>

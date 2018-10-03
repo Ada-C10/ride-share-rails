@@ -1,0 +1,13 @@
+
+<%= form_with model: @driver do |form| %>
+
+  <p><%=directions%></p>
+
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+
+  <%= form.label :VIN %>
+  <%= form.text_field :vin %>
+
+  <%= form.submit action_button, class: "task-button" %>
+<% end %>

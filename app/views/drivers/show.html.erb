@@ -1,0 +1,15 @@
+
+<p>
+
+  <strong>Driver:</strong>
+  <%= @driver.name%>
+  <br />
+  <strong>VIN:</strong>
+  <%= @driver.vin%>
+
+</p>
+
+<p>
+  <%=link_to "Edit This Driver's information", edit_driver_path %>
+  <%=link_to "Return to main driver's list", drivers_path %>
+  </p>
