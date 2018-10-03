@@ -2,15 +2,14 @@
   <h2>YOUR DRIVERS</h2>
   <ol>
     <% @drivers.each_with_index do |driver, index| %>
-      <%=link_to "#{index +1}. " + driver.name, driver_path(driver.id)%>
-      <% end %>
-    </div>
-    <div class="links">
-      <%= link_to "view details ", driver %>
-      <%= link_to "delete ", driver, method: :delete, data: { confirm: "Are you really really sure that you want to delete #{driver.name}?" } %>
-      <%= link_to "Edit Driver ", edit_driver_path(driver.id) %>
+    <%=link_to "#{index +1}. " + driver.name, driver_path(driver.id)%>
+  </div>
+  <div class="links">
+    <%= link_to "view details ", driver %>
+    <%= link_to "delete ", driver, method: :delete, data: { confirm: "Are you really really sure that you want to delete #{driver.name}?" } %>
+    <%= link_to "Edit Driver ", edit_driver_path(driver.id) %>
 
-    </div>
-  </li>
-  <% end %>
+  </div>
+</li>
+<% end %>
 </ol>
