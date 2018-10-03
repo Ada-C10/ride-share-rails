@@ -38,7 +38,7 @@ class TripsController < ApplicationController
     if params[:driver_id]
       driver_id = params[:driver_id].to_i
       redirect_to driver_path(driver_id)
-    elsif params[:passenger_id]
+    elsif params[:passenger_id] #This doesn't work
       passenger_id = params[:passenger_id].to_i
       redirect_to driver_path(passenger_id)
     else
@@ -53,7 +53,7 @@ class TripsController < ApplicationController
       driver = Driver.new_trip_driver
       @trip = Trip.new(driver_id: driver, passenger_id: @passenger_id, date: DateTime.now, cost: 0)
       if @trip.save
-        redirect_to trips_path
+        redirect_to root_path
       else
         # render :new
       end
