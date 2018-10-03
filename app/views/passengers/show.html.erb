@@ -11,7 +11,7 @@
 
 
 <section class="ride_request">
-<%= link_to "Request a Trip", trips_path, method: :post %>
+<%= link_to "Request a Trip", new_passenger_trip_path(@passenger.id), method: :get %>
 </section>
 
 
