@@ -2,16 +2,39 @@
 
 <%= link_to "add new driver", new_driver_path %>
 
+<div>
+  ADD LINK TO TRIP!
+  Driver name: <%= @driver.name %>
+  <br>
 
-<p>Driver name: <%= @driver.name %></p>
-<p>VIN: <%= @driver.vin %></p>
-<p>Average Rating: <%= @driver.average_rating%></p>
-<p>Total Cost: <%= @driver.total_cost %></p>
-<p><% @driver.trips.each do |trip| %></p>
-  Trip ID: <%= trip.id %>
-  Date: <%= trip.date %>
-  Driver: <%= trip.driver.name %>
-  Passenger: <%= link_to trip.passenger.name, passenger_path(trip.passenger.id) %>
-  Cost: <%= trip.cost %>
-  Rating: <%= trip.rating %>
+  VIN: <%= @driver.vin %>
+  <br>
+
+  Average Rating: <%= @driver.average_rating.round(2)%>
+  <br>
+
+  Total Earnings: <%= @driver.total_earnings %>
+  <br>
+<table class = "trips_table">
+  <tr>
+    <th>ID</th>
+    <th>Date</th>
+    <th>Driver</th>
+    <th>Passenger</th>
+    <th>Price</th>
+    <th>Rating</th>
+  </tr>
+  <tr>
+    <% @driver.trips.each do |trip| %>
+    <td>Trip ID: <%= trip.id %></td>
+    <td>Date: <%= trip.date %></td>
+    <td>Driver: <%= trip.driver.name %></td>
+    <td>Passenger: <%= link_to trip.passenger.name, passenger_path(trip.passenger.id) %></td>
+    <td>Cost: <%= trip.cost %></td>
+    <td>Rating: <%= trip.rating %></td>
+  </tr>
+
   <% end %>
+</table>
+
+</div>

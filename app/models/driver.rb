@@ -2,6 +2,9 @@ class Driver < ApplicationRecord
   has_many :trips
 
   def average_rating
+
+    return 0 if trips.length == 0
+
     total_rating = 0.0
 
     trips.each do |trip|
@@ -13,13 +16,14 @@ class Driver < ApplicationRecord
     return average_rating
   end
 
-  def total_cost
-    total_cost = 0.0
+  def total_earnings
+    total_earnings = 0.0
 
     trips.each do |trip|
-      total_cost += trip.cost.to_i
+      total_earnings += trip.cost.to_f
     end
 
-    return total_cost
+    total_earnings = (total_earnings * 0.8) - 1.65
+    return total_earnings
   end
 end
