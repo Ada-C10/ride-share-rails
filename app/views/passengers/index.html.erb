@@ -1,22 +1,30 @@
 <section id="title">
-  <h1>Ride Share Passenger List</h1>
-  <sub>Changing The Way People Travel</sub>
+  <h1>Passenger List</h1>
+  <sub>Changing The Way You Travel</sub>
 </section>
 
 <nav class="nav">
   <li><%= link_to "HOME", root_path %></li>
   <li><%= link_to "DRIVER", drivers_path %></li>
   <li><%= link_to "PASSENGER", passengers_path %></li>
+  <li><%= link_to "TRIPS", trips_path %></li>
 </nav>
 
-<ul>
+<table style="width:100%">
+  <tr>
+    <th>Passenger ID</th>
+    <th>Name</th>
+    <th>Phone Number</th>
+    <th>Update</th>
+    <th>Delete</th>
+  </tr>
   <% @passengers.each do |passenger| %>
-    <li class="passenger">
-      <%= link_to passenger.id, passenger_path(passenger.id) %>
-      <%= passenger.name %>
-      <%= passenger.phone_num %>
-      <%= link_to "edit", edit_passenger_path(passenger.id) %>
-      <%= link_to "delete", passenger_path(passenger.id), method: :delete, data: {confirm: "Please confirm you would like to be deleted as a passenger"} %>
-    </li>
-  </ul>
-<% end %>
+  <tr>
+    <td><%= link_to passenger.id, passenger_path(passenger.id)%></td>
+    <td><%= passenger.name %></td>
+    <td><%= passenger.phone_num %></td>
+    <td><%= link_to "edit", edit_passenger_path(passenger.id) %></td>
+    <td><%= link_to "delete", passenger_path(passenger.id), method: :delete, data: {confirm: "Please confirm you would like to be deleted as a passenger"} %></td>
+    <% end  %>
+  </tr>
+</table>

@@ -12,7 +12,7 @@ class Passenger < ApplicationRecord
     trips.each do |trip|
       total += trip.cost
     end
-    return total
+    return total * 0.01
   end
 
   def all_passenger_trips
@@ -24,7 +24,8 @@ class Passenger < ApplicationRecord
     self.trips << trip
     Driver.all.sample.trips << trip
     trip.date = Date.today
-    trip.cost = Random.rand(0..9)
+    trip.rating = Random.rand(0..5)
+    trip.cost = Random.rand(5..100)
     trip.save
   end
 

@@ -11,7 +11,9 @@ class Driver < ApplicationRecord
 
    total += (trip.cost - 1.65)
    end
-   return total_revenue = (total * 0.80)
+   total_revenue = (total * 0.80)
+   total_revenue *= 0.01
+   return ('%.2f' % total_revenue)
  end
 
  def all_driver_trips
