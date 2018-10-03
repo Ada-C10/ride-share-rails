@@ -58,5 +58,3 @@ class TripsController < ApplicationController
     )
   end
 end
-
-end
