@@ -1,11 +1,35 @@
-<h2>Passenger<%="#{@passenger.name}"%></h2>
+<h2>Passenger<%="#{@passenger.id}"%></h2>
 
 
     <img id="selfie" src="https://randomuser.me/api/portraits/women/50.jpg" alt="Image of a car">
   <ul>
+    <li><strong>Name:</strong> <%= @passenger.name %></li>
     <li><strong>Phone Number:</strong> <%= @passenger.phone_num %></li>
+    <li><strong>Total Spent:</strong> <%= @passenger.total_spent %></li>
 
 
     <sub><%= link_to "Edit", edit_passenger_path(@passenger.id) %></sub>
     <sub><%= link_to "Delete", passenger_path(@passenger.id), method: :delete, data: {confirm: "Please confirm you would like to delete." } %></sub>
+
+    <h4>Trip History:</h4>
+    <table style="width:100%">
+      <tr>
+        <th>Trip ID</th>
+        <th>Passenger ID</th>
+        <th>Driver Id</th>
+        <th>Date</th>
+        <th>Rating</th>
+        <th>Cost</th>
+      </tr>
+      <% @passenger.all_passenger_trips.each do |trip| %>
+      <tr>
+        <td><%=trip.id%></td>
+        <td><%=trip.passenger_id %></td>
+        <td><%=trip.driver_id%></td>
+        <td><%=trip.date%></td>
+        <td><%=trip.rating%></td>
+        <td><%=trip.cost%></td>
+        <% end  %>
+      </tr>
+    </table>
   </ul>
