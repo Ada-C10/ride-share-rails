@@ -15,7 +15,7 @@ class Driver < ApplicationRecord
     if num_trips == 0
       return "N/A"
     else
-      return '%.2f' % "#{sum_rating/num_trips}" #.round(2)
+      return '%.2f' % "#{sum_rating/num_trips}"
     end
   end
 
