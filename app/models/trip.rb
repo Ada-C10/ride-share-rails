@@ -6,7 +6,7 @@ class Trip < ApplicationRecord
   # validates :passenger_id, presence: true
 
   def all_trips
-    trips.all
+    trip.all  
   end
 
 end

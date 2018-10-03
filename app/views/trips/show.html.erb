@@ -7,18 +7,31 @@
   <li><%= link_to "HOME", root_path %></li>
   <li><%= link_to "DRIVER", drivers_path %></li>
   <li><%= link_to "PASSENGER", passengers_path %></li>
+  <li><%= link_to "TRIPS", trips_path %></li>
 </nav>
 
-<ul>
-  <li><strong>Trip ID:</strong> <%= @trip.id %></li>
-  <li><strong>Driver's ID:</strong> <%= @trip.driver.id%></li>
-  <li><strong>Driver's Name:</strong> <%= @trip.driver.name%></li>
-  <li><strong>Passenger's Name:</strong> <%= @trip.passenger.name%></li>
-  <li><strong>Rating:</strong> <%= @trip.date %></li>
-  <li><strong>Rating:</strong> <%= @trip.rating %></li>
-  <li><strong>Cost:</strong> <%= @trip.cost %></li>
+<h4>Trip Details</h4>
+<table style="width:100%">
+  <tr>
+    <th>Trip ID</th>
+    <th>Driver's ID</th>
+    <th>Driver's name</th>
+    <th>Passenger's Name</th>
+    <th>Date</th>
+    <th>Rating</th>
+    <th>Cost</th>
+  </tr>
 
+  <tr>
+    <td><%=@trip.id%></td>
+    <td><%=@trip.driver.id%></td>
+    <td><%=@trip.driver.name%></td>
+    <td><%=@trip.passenger.name%></td>
+    <td><%=@trip.date%></td>
+    <td><%=@trip.rating%></td>
+    <td><%=@trip.cost%></td>
+  </tr>
+</table>
 
   <sub><%= link_to "Edit", edit_trip_path(@trip.id) %></sub>
-  <sub><%= link_to "Delete", trips_path(@trip.id), method: :delete, data: {confirm: "Please confirm you would like to delete." } %></sub>
-</ul>
+  <sub><%= link_to "Delete", trip_path(@trip.id), method: :delete, data: {confirm: "Please confirm you would like to delete." } %></sub>
