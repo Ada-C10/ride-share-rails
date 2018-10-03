@@ -29,8 +29,8 @@ class TripsController < ApplicationController
   end
 
   def update
-    @trip = Trip.find_by(id: params[:id].to_i)
-    @trip.update(trip_params)
+    trip = Trip.find_by(id: params[:id].to_i)
+    trip.update(trip_params)
 
     redirect_to trip_path(trip.id)
   end
@@ -45,7 +45,7 @@ class TripsController < ApplicationController
   private
 
   def trip_params
-    return params.require(:trip).permit(:passenger_id)
+    return params.require(:trip).permit(:passenger_id, :rating)
   end
 
 

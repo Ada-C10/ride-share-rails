@@ -3,5 +3,8 @@ Rails.application.routes.draw do
   # root 'layouts#application'
 
   resources :passengers, :drivers, :trips
+  #
+  # resources:authors do
+  #   resources :books, only :[index, :new]
 
 end
