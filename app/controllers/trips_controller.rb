@@ -22,12 +22,11 @@ class TripsController < ApplicationController
     driver = Driver.first_available_driver
 
     if driver.nil?
+      redirect_to passenger, alert: "NO DRIVERS AVAILABLE"
     end
 
-    # if no drivers available
-
-    unless passenger.is_in_ride? && driver
-      driver.becomes_unavailable
+    if !passenger.is_in_ride? && driver
+      driver.toggle_availablity
 
       @trip = Trip.new
       @trip.passenger = passenger
@@ -41,7 +40,6 @@ class TripsController < ApplicationController
         render :new
       end
     end
-
   end
 
   def edit
@@ -50,6 +48,7 @@ class TripsController < ApplicationController
 
   def update
     @trip = Trip.find_by(id: params[:id])
+    @trip.driver.toggle_availablity
     if @trip.update(trip_params)
       redirect_to passenger_path(@trip[:passenger_id])
     else

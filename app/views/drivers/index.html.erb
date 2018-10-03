@@ -1,4 +1,17 @@
 <h2>Drivers List</h2>
+<% if @drivers.all? { |driver| driver.is_available? == false } %>
+<p> NO AVAILABLE DRIVERS </p>
+<% else %>
+
+<% @drivers.each do |driver| %>
+<% if driver.is_available? == true %>
+  <%=  link_to driver.name, driver_path(driver.id), class: 'name-link' %>
+<% end %>
+
+<% end %>
+<p> NOPE</p>
+<% end %>
+
 <table>
   <tbody>
     <% @drivers.each do |driver| %>

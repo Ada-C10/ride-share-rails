@@ -6,7 +6,7 @@
 <%= link_to "Go OFFLINE", change_status_path(@driver.id), method: :patch %>
 <% end %>
 
-
+<p>STATUS: <%= @driver.is_available? %></p>
 <p>VIN: <%= @driver.vin %></p>
 <p>RATING: $ <strong>CREATE METHOD</strong> </p>
 <p>Total Charged: $ <strong>CREATE METHOD</strong> </p>
