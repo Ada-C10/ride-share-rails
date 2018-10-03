@@ -1,10 +1,8 @@
-<h1>TEST</h1>
-
-<h1>Passenger List</h1>
+<h1>All Passengers</h1>
 
 
   <% @passengers.each do |p| %>
-    <%= p.name %>
+    <%= link_to p.name, passenger_path(p.id) %>
     <br>
     <%= p.phone_num %>
     <br>
