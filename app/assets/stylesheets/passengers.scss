@@ -6,10 +6,21 @@
   font-family: sans-serif;
   border-collapse: collapse;
   width: 100%;
-  text-align: center;
+  text-align: left;
 }
 
 .trips_table td, .trips_table th {
   border: 1px solid black;
   padding: 4px;
+}
+
+.trips_table th {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  background-color: Darkviolet;
+  color: white;
+}
+
+.trips_table tr:nth-child(even) {
+  background-color: lightgrey;
 }

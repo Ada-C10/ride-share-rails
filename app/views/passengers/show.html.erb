@@ -36,7 +36,7 @@
   </tr>
 <tr>
   <% @pass_trips.each do |pass_trip| %>
-  <td><%= pass_trip.id %></td>
+  <td><%= link_to pass_trip.id%></td>
   <td><%= pass_trip.date %></td>
   <td><%= pass_trip.driver.name%></td>
   <td><%= pass_trip.passenger.name %></td>
