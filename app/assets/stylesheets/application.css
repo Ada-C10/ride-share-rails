@@ -20,36 +20,36 @@ table {
     margin-right: auto;
 }
 
-#show_table th {
+.show_table th {
     font-size: large;
     background-color: lightgrey;
 }
 
-#show_table th, #show_table td {
+.show_table th, .show_table td {
     padding-left: 30px;
     padding-right: 30px;
     border-bottom: 1px solid darkolivegreen;
     text-align: left;
 }
 
-#index_table th {
+.index_table th {
     font-size: large;
     background-color: lightseagreen;
 }
 
-#index_table tr:hover {
+.index_table tr:hover {
     background-color: #8CD867;
 }
 
-#index_table tr:nth-child(even){
+.index_table tr:nth-child(even){
     background-color: rgb(178, 179, 184);
 }
-#index_table th, #index_table td {
+.index_table th, .index_table td {
     padding: 1em;
     border-bottom: 1px solid darkolivegreen;
     text-align: left;
 }
-#index_table .index_actions a[href]{
+.index_table .index_actions a[href]{
     padding: 5px;
 }
 
