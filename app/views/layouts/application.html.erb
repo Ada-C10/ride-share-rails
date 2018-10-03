@@ -14,10 +14,11 @@
     <h1>Rideshare</h1>
     <nav>
       <ul>
-        <li>Passengers</li>
-        <li>Drivers</li>
-        <li>Create New Passenger</li>
-        <li>Create New Driver</li>
+        <li><%= link_to "Passengers", all_passengers_path, class: "all_passengers-link" %>
+        </li>
+        <li><%= link_to "Drivers", all_drivers_path, class: "all_drivers-link" %></li>
+        <li><%= link_to "Create New Driver", new_driver_path, class: "new_driver-link" %></li>
+        <li><%= link_to "Create New Passenger", new_passenger_path, class: "new_passengers-link" %></li>
       </ul>
     </nav>
   </header>
