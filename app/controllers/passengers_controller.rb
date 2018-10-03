@@ -43,10 +43,14 @@ end
   end
 
   def update
-    passenger = Passenger.find_by(id: params[:id].to_i)
-    passenger.update(passenger_params)
+    @passenger = Passenger.find_by(id: params[:id].to_i)
+    if @passenger.update(passenger_params)
 
-    redirect_to passenger_path(passenger.id)
+      redirect_to passenger_path(@passenger.id)
+    else
+      render :edit
+    end
+
   end
 
 private
