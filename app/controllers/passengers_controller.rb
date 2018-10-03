@@ -9,6 +9,7 @@ class PassengersController < ApplicationController
       head :not_found
     end
     @pass_trips = Trip.where(passenger_id: params[:id])
+    @total = @passenger.total_spending
   end
 
   def new

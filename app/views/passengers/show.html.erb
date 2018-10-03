@@ -1,6 +1,10 @@
 <h2>PASSENGER DETAILS</h2>
 
 <p>
+  <strong> ID:</strong>
+  <%= @passenger.id%>
+</p>
+<p>
   <strong> Name:</strong>
   <%= @passenger.name%>
 </p>
@@ -11,7 +15,9 @@
 </p>
 
 <p>
-  <strong> Total Spendings:</strong>
+  <strong> Total Spendings: $</strong>
+  <%= @total %>
+
 </p>
 
 
@@ -38,7 +44,7 @@
   <% @pass_trips.each do |pass_trip| %>
   <td><%= link_to pass_trip.id%></td>
   <td><%= pass_trip.date %></td>
-  <td><%= pass_trip.driver.name%></td>
+  <td><%= link_to pass_trip.driver.name%></td>
   <td><%= pass_trip.passenger.name %></td>
   <td><%= pass_trip.cost %></td>
   <td><%= pass_trip.rating %></td>
