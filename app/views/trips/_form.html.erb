@@ -1,0 +1,11 @@
+<h1> <%= action_name %> </h1>
+
+<%= form_with model: @trip do |f|%>
+  <p>Please provide the following information:</p>
+
+  <%= f.label :rating %>
+  <%= f.text_field :rating %>
+
+
+  <%= f.submit button_title %>
+<% end %>

@@ -24,6 +24,24 @@ class TripsController < ApplicationController
     end
   end
 
+  def edit
+    @trip = Trip.find_by(id: params[:id].to_i)
+  end
+
+  def update
+    @trip = Trip.find_by(id: params[:id].to_i)
+    @trip.update(trip_params)
+
+    redirect_to trip_path(trip.id)
+  end
+
+  def destroy
+    @trip = Trip.find_by(id: params[:id].to_i)
+    @trip.destroy
+    redirect_to trips_path
+  end
+
+
   private
 
   def trip_params
