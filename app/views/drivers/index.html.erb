@@ -17,10 +17,12 @@
   </div>
 </div>
  <div class="c3">
-   <p><%= link_to "Add New Driver", new_driver_path %></p>
+   <%= link_to "Add New Driver", new_driver_path %>
+   <%=link_to "Return", home_path%>
  </div>
  <div class="c4">
    <ul>
+     <h2>Drivers</h2>
      <%@drivers.each do |driver|%>
      <li>
        <%=driver.name%>

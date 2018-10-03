@@ -17,16 +17,17 @@
   </div>
 </div>
  <div class="c3">
-   <h2>Passengers</h2>
-   <%= link_to "(New Passenger)", new_passenger_path %>
+   <%= link_to "New Passenger", new_passenger_path %>
+   <%=link_to "Return", home_path%>
  </div>
  <div class="c4">
+   <h2>Passengers</h2>
    <% @passengers.each do |passenger| %>
    <p>
      <%= passenger.name %> <%= passenger.phone_num %>
-     <%= link_to "(View Details)", passenger_path(passenger.id) %>
+     <%= link_to "View Details", passenger_path(passenger.id) %>
      <%= link_to "Edit", edit_passenger_path(passenger.id) %>
-     <%= link_to "[Delete]", passenger_path(passenger.id), method: :delete, data: { confirm: "Are you sure you want to delete the passenger #{passenger.name}?" } %>
+     <%= link_to "Delete", passenger_path(passenger.id), method: :delete, data: { confirm: "Are you sure you want to delete the passenger #{passenger.name}?" } %>
    </p>
 
    <%end %>
