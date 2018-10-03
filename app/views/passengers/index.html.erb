@@ -3,7 +3,6 @@
   <ol>
     <% @passengers.each_with_index do |passenger, index| %>
       <%=link_to "#{index +1}. " + passenger.name, passenger_path(passenger.id)%>
-      <% end %>
     </div>
     <div class="links">
       <%= link_to "view details ", passenger %>
