@@ -4,7 +4,15 @@
 
 <strong>Name: <%= @driver.name %></strong>
 <br>
-<strong>Rating: </strong>
+<strong>Rating:
+  <% num_of_rating = @trips.count %>
+  <% rating_array = @trips.map do |trip| %>
+    <% trip.rating %>
+  <% end %>
+  <% sum_of_rating = rating_array.sum %>
+  <% avg_rating = sum_of_rating / num_of_rating %>
+  <%= avg_rating %>
+</strong>
 <br>
 
 <h2>Driver Trips</h2>
