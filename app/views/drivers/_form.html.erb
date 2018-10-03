@@ -1,5 +1,16 @@
 <!-- form_for outdated -->
 <h1><%= title %></h1>
+
+<% if @driver.errors.any? %>
+  <ul class="errors">
+    <% @driver.errors.each do |column, message| %>
+      <li>
+        <strong><%= column.capitalize %></strong> <%= message %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
 <%= form_for @driver do |f| %>
 <%= f.label :name %>
 <p><%= f.text_field :name %></p>
