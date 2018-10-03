@@ -1,1 +1,13 @@
 <h1>TEST</h1>
+
+<h1>Passenger List</h1>
+
+
+  <% @passengers.each do |p| %>
+    <%= p.name %>
+    <br>
+    <%= p.phone_num %>
+    <br>
+    <br>
+
+  <% end %>
