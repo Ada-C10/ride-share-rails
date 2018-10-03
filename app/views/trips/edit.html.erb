@@ -1,21 +1,10 @@
 <h1>Edit a trip</h1>
 
-
-<% if @trip.errors.messages.any? %>
-<section class="form-errors">
-  <h3>There were some problems. Please fix them.</h3>
-  <ul>
-    <% @trip.errors.messages.each do |field, problem_list| %>
-    <% problem_list.each do |problem| %>
-    <li>
-      <strong><%= field %></strong>
-      <%= problem %>
-    </li>
-    <% end %>
-    <% end %>
-  </ul>
-</section>
-<% end %>
+<%= render partial: 'layouts/form_errors',
+locals: {
+  model: @trip
+}
+%>
 
 <%= form_with model: @trip do |f| %>
 <p>
