@@ -1,36 +1,8 @@
-<!-- Use same form partial as Goeun? -->
-
-<!-- # <% if @driver.errors.messages.any? %>
-#   <div class="form-errors">
-#     <ul>
-#       <%@driver.errors.messages.each do |column, message_list|%>
-#         <%message_list.each do |message|%>
-#           <li>
-#           <strong><%=column%></strong>
-#           <%=message%>
-#           </li>
-#         <%end%>
-#       <%end%>
-#     </ul>
-#   </div>
-# <%end%> -->
-
-<% if @driver.errors.messages.any? %>
-<h1>Does this work?</h1>
-  <section class="form-errors">
-    <h3>There were some problems. Please fix them.</h3>
-    <ul>
-      <% @driver.errors.messages.each do |field, problem_list| %>
-        <% problem_list.each do |problem| %>
-          <li>
-            <strong><%= field %></strong>
-            <%= problem %>
-          </li>
-        <% end %>
-      <% end %>
-    </ul>
-  </section>
-<% end %>
+<%= render partial: 'layouts/form_errors',
+locals: {
+  model: @driver
+}
+%>
 
 <%= render partial: "form", locals: {directions: "Complete this form to edit driver information:", action_button: "Edit Driver Info"} %>
 
