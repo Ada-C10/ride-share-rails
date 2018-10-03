@@ -12,8 +12,15 @@ class Driver < ApplicationRecord
       cost = trip.convert_money(trip.cost)
       sum += cost
     end
-    # Need help debuggin why it's returning the nonconverted answer 
-    return (sum - 1.65) * 0.80
+    return ( (sum - 1.65) * 0.80 ).round(2)
+  end
+
+  def average_rating
+    sum_averages = 0
+    trips.each do |trip|
+      sum_averages += trip.rating
+    end
+    return sum_averages / trips.length
   end
 
   # Get amount driver earned

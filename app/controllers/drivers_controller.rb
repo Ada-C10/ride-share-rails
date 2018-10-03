@@ -7,6 +7,7 @@ class DriversController < ApplicationController
   def show
     id = params[:id].to_i
     @driver = Driver.find_by(id: id)
+    @trips = @driver.trips.all 
     if @driver.nil?
       render :notfound, status: :not_found
     end
@@ -48,7 +49,7 @@ class DriversController < ApplicationController
     # If it saves, send to show page
       redirect_to driver_path(driver.id)
     else
-      # If it doesn't work, render the edit view with validation errors 
+      # If it doesn't work, render the edit view with validation errors
       render :edit
     end
   end

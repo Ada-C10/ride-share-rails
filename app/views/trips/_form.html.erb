@@ -1,3 +1,14 @@
+<% if @trip.errors.any? %>
+  <ul class="errors">
+    <% @trip.errors.each do |column, message| %>
+      <li>
+        <strong><%= column.capitalize %></strong> <%= message %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+
 <h1> <%= action_name %> </h1>
 <%# form_with url: "/books", method: :post, class: "book-form" do |f|%>
 
