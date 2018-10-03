@@ -23,6 +23,12 @@
    <h2>Passenger Details</h2>
    <p>
      <%= @passenger.id %> <%= @passenger.name %> <%= @passenger.phone_num %>
+
+     <h2>Passenger Trips</h2>
+        <% @passenger.trips.each do |trip| %>
+        <p>Trip_ID: <%= trip.id %> Trip cost: <%= trip.cost %>
+        <%end%>
+      </p>
    </p>
  </div>
 </div>
