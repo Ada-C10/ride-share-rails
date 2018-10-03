@@ -1,7 +1,6 @@
 <h1>Passengers#index</h1>
 <h1>Passengers</h1>
 
-
 <div class="wrapper">
 
   <div class="table">
@@ -23,11 +22,11 @@
 
 <% @passengers.each do |passenger| %>
     <div class="row">
-      <div class="cell" data-title="ID"> 
+      <div class="cell" data-title="ID">
         <%= "#{passenger.id}" %>
       </div>
       <div class="cell" data-title="Name">
-        <%= link_to "#{passenger.name}", passenger_path(passenger.id) %>
+        <%= link_to "#{passenger.name}", passenger_trips_path(passenger.id) %>
       </div>
       <div class="cell" data-title="Edit">
         <%= link_to "Edit", edit_passenger_path(passenger.id)%>

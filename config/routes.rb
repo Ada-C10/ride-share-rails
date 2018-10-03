@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   root 'trips#index'
-  resources :trips, except: [:new]
+  resources :trips, except: [:create, :new]
   resources :drivers
-  resources :passengers
+  resources :passengers, except: [:show] do
+    resources :trips, only: [:index, :show, :create]
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
