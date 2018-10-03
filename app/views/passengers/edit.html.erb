@@ -12,6 +12,13 @@
 <h1>Edit an existing passenger</h1>
 
 
+<%= render partial: 'layouts/form_errors',
+locals: {
+  model: @passenger
+}
+%>
+
+
 <%= form_with model: @passenger do |f| %>
 <p>
   <%= f.label :name %>
