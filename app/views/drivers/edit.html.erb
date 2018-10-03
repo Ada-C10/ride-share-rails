@@ -1,19 +1,14 @@
-<!-- Use same form partial as Goeun? -->
+<nav>
+  <ul>
+    <li><%=link_to "Home", homes_path %></li>
+    <li><%=link_to "All Drivers", drivers_path %></li>
+    <li><%=link_to "Enter a new driver", new_driver_path %></li>
+    <li><%=link_to "All Passengers", passengers_path %></li>
+    <li><%=link_to "Enter a new passenger", new_passenger_path %></li>
+    <li><%=link_to "All Trips", trips_path %></li>
+  </ul>
+</nav>
 
-<!-- # <% if @driver.errors.messages.any? %>
-#   <div class="form-errors">
-#     <ul>
-#       <%@driver.errors.messages.each do |column, message_list|%>
-#         <%message_list.each do |message|%>
-#           <li>
-#           <strong><%=column%></strong>
-#           <%=message%>
-#           </li>
-#         <%end%>
-#       <%end%>
-#     </ul>
-#   </div>
-# <%end%> -->
 
 <% if @driver.errors.messages.any? %>
 <h1>Does this work?</h1>
