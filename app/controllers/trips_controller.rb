@@ -1,8 +1,8 @@
 class TripsController < ApplicationController
   def index  # GET    /passengers/:passenger_id/trips passenger_trip_path
     if params[:passenger_id]
-      passenger = Passenger.find_by(id: params[:passenger_id])
-      @trips = passenger.trips
+      @passenger = Passenger.find_by(id: params[:passenger_id])
+      @trips = @passenger.trips
     else
       @trips = Trip.all.order(:date, :desc)
     end
