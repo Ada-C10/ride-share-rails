@@ -1,3 +1,5 @@
 class Driver < ApplicationRecord
-  has_many :trips 
+  has_many :trips
+
+  validates :name, presence: true, uniqueness: true
 end
