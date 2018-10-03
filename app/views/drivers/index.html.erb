@@ -1,0 +1,11 @@
+<%= link_to "Homepage", root_path %>
+
+
+<h2>Rideshare Drivers</h2>
+
+<% @drivers.each do |driver| %>
+  <strong><%= link_to driver.name, driver_path(driver.id) %></strong>
+  <%= link_to "Edit", edit_driver_path(driver.id) %> |
+  <%= link_to "Delete", driver_path(driver.id), data: { confirm: "Are you sure you want to delete this driver: #{driver.name}?", method: :delete} %>
+  <br>
+<% end %>

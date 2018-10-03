@@ -1,0 +1,21 @@
+<%= action_title %>
+
+<%= form_with model: @driver do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <br>
+
+  <%= f.label :vin %>
+  <%= f.text_field :vin %>
+  <br>
+
+  <%= f.label :car_make %>
+  <%= f.text_field :car_make %>
+  <br>
+
+  <%= f.label :car_model %>
+  <%= f.text_field :car_model %>
+  <br>
+
+  <%= f.submit action_submit %>
+<% end %>
