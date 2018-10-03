@@ -10,8 +10,11 @@ class Passenger < ApplicationRecord
 
 
   def total_cost
-    total_cost = self.trips.reduce(0) { |sum, trip| sum + trip.cost }
-
-    return total_cost
+    unless self.trips == []
+      total_cost = self.trips.reduce(0) { |sum, trip| sum + trip.cost }
+      return total_cost
+    else
+      return 0
+    end
   end
 end
