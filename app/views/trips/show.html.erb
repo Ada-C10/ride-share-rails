@@ -1,0 +1,19 @@
+<h2> Trip Detail Page </h2>
+
+<ul>
+  <strong>
+    <li> Driver Name: <%= @trip.driver.name %> </li>
+    <li> Passenger Name: <%= @trip.passenger.name %> </li>
+    <li> Date: <%= @trip.date %> </li>
+    <li> Price: <%= @trip.cost %> </li>
+    <% if @trip.rating.nil? %>
+      <%= form_with model: @trip, class: 'trip-form' do |f| %>
+      <%= f.label :rating %>
+      <%= f.select :rating, [*1..5] %>
+      <%= f.submit "Submit Rating" %>
+      <% end %>
+    <% else %>
+      <li> Rating: <%= @trip.rating %> </li>
+    <% end %>
+  </strong>
+</ul>

@@ -8,4 +8,8 @@ Rails.application.routes.draw do
     resources :trips, only: [:index, :create]
   end
 
+  resources :trips
+
+  post '/trips/:id', to: 'trips#rated'
+
 end

@@ -54,6 +54,13 @@ class TripsController < ApplicationController
     redirect_to trips_path
   end
 
+  def rated
+    trip = Trip.find_by(id: params[:id])
+
+    trip.update(rating: params[:rating])
+    redirect_to trip_path(trip.id)
+  end
+
   private
 
   def trip_params
