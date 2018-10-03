@@ -6,7 +6,7 @@ class PassengersController < ApplicationController
 
   
   def index
-    @Passengers = Passenger.all.order(:name)
+    @passengers = Passenger.all.order(:name)
   end
 
   def show
@@ -21,8 +21,10 @@ class PassengersController < ApplicationController
   end
 
   def destroy
-    @passenger.destroy
-    redirect_to passenger_path
+    @passenger.active = false
+    if @passenger.save
+      redirect_to passenger_path
+    end 
   end
     
   def update
