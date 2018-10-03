@@ -8,7 +8,7 @@ class Driver < ApplicationRecord
     total_rating = 0.0
 
     trips.each do |trip|
-      total_rating += trip.rating.to_i
+      total_rating += trip.rating
     end
 
     average_rating = total_rating / trips.length
@@ -20,7 +20,7 @@ class Driver < ApplicationRecord
     total_earnings = 0.0
 
     trips.each do |trip|
-      total_earnings += trip.cost.to_f
+      total_earnings += trip.cost
     end
 
     total_earnings = (total_earnings * 0.8) - 1.65
