@@ -14,19 +14,25 @@ class TripsController < ApplicationController
   end
 
   def new
-
+    @trip = Trip.new
   end
 
 
   def create
 
+    passenger = Passenger.find_by(id: params[:passenger_id])
+    
+    @trip = passenger.trips.new
+
+    if @trip.save
+      redirect_to passenger_path(passenger)
+    else
+      #TODO validation
+      render :new
+    end
 
   end
 
-
-  def create
-
-  end
 
 
   private
