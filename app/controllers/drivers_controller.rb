@@ -40,6 +40,13 @@ class DriversController < ApplicationController
     end
   end
 
+  def destroy
+    driver = Driver.find_by(id: params[:id])
+
+    driver.destroy
+    redirect_to all_drivers_path
+  end
+
   private
 
   # Strong params: only let certain attributes
