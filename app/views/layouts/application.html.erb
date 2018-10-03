@@ -7,8 +7,18 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
 
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,400,700,900" rel="stylesheet">
+  </head>
+  <nav>
+    <ul>
+      <%= link_to "Ride Share Rails Home", root_path %>
+      <%= link_to "List All Passengers", passengers_path %>
+      <%= link_to "List All Drivers", drivers_path %>
+      <%= link_to "Create New Passenger", new_passenger_path %>
+      <%= link_to "Create New Driver", new_driver_path %>
+    </ul>
+  </nav>
   <body>
     <%= yield %>
   </body>
