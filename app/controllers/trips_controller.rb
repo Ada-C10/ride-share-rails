@@ -2,20 +2,6 @@ class TripsController < ApplicationController
 
   def index
 
-    if params[:passenger_id]
-      passenger = Passenger.find_by(id: params[:passenger_id])
-      head :not_found unless passenger
-
-      @type = 'Passenger'
-      @trips = passenger.trips
-
-    elsif params[:driver_id]
-      driver = Driver.find_by(id: params[:driver_id])
-      head :not_found unless driver
-
-      @type = 'Driver'
-      @trips = driver.trips
-    end
   end
 
   def show
@@ -30,11 +16,18 @@ class TripsController < ApplicationController
   end
 
   def create
-    filtered_trip_params = trip_params
-    @trip = Trip.new(filtered_trip_params)
+
+    passenger = Passenger.find_by(id: params[:passenger_id])
+    driver = Driver.first.all
+
+    @trip = Trip.new(
+      passenger: passenger,
+      driver: driver,
+      date: Time.now.to_s
+    )
 
     if @trip.save
-      redirect_to trips_path
+      redirect_to passenger_path(passenger.id)
     else
       render :new
     end
