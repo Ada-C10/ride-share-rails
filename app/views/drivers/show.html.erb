@@ -8,3 +8,48 @@
 <br>
 
 <h2>Driver Trips</h2>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <!-- <th>Date</th> -->
+      <th>Driver</th>
+      <th>Passenger</th>
+      <th>Price</th>
+      <th>Rating</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <% @trips.each do |trip| %>
+          <%= trip.id %><br>
+        <% end %>
+      </td>
+      <!-- <td>
+        <p>Date</p><br>
+      </td> -->
+      <td>
+        <% @trips.each do |trip| %>
+          <%= trip.driver_id %><br>
+        <% end %>
+      </td>
+      <td>
+        <% @trips.each do |trip| %>
+          <%= trip.passenger_id %><br>
+        <% end %>
+      </td>
+      <td>
+        <% @trips.each do |trip| %>
+          <%= trip.cost %><br>
+        <% end %>
+      </td>
+      <td>
+        <% @trips.each do |trip| %>
+          <%= trip.rating %><br>
+        <% end %>
+      </td>
+    </tr>
+  </tbody>
+</table>
