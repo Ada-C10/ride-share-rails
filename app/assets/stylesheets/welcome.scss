@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=K2D');
 
-body {
+.homepage {
   font-family: 'K2D';
   height: 100%;
   width: 100%;
@@ -20,7 +20,7 @@ body {
   "f f f f f f"
 }
 
-header {
+.welcome-header {
   grid-area: h;
   background-color: black;
   color: white;
@@ -28,7 +28,7 @@ header {
   border-bottom: 10px solid white;
 }
 
-section {
+.main-part {
   display: flex;
   align-items: center;
   justify-content: center;
