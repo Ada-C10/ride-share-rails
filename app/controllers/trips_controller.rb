@@ -3,6 +3,15 @@ class TripsController < ApplicationController
 
   end
 
+
+  def new
+
+  end
+
+  def create
+    
+  end
+
   private
   def trip_params
     return params.require(:trip).permit(
