@@ -1,0 +1,36 @@
+<h1>Create a new passenger</h1>
+
+
+<% if @passenger.errors.messages.any? %>
+<section class="form-errors">
+  <h3>There were some problems. Please fix them.</h3>
+  <ul>
+    <% @passenger.errors.messages.each do |field, problem_list| %>
+    <% problem_list.each do |problem| %>
+    <li>
+      <strong><%= field %></strong>
+      <%= problem %>
+    </li>
+    <% end %>
+    <% end %>
+  </ul>
+</section>
+<% end %>
+
+
+
+<%= form_with model: @passenger do |f| %>
+<p>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+</p>
+
+<p>
+  <%= f.label :phone_number %>
+  <%= f.text_field :phone_num %>
+</p>
+
+<p>
+  <%= f.submit "Create New Passenger", class: "submit-button" %>
+</p>
+<% end %>
