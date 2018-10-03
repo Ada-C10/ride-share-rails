@@ -25,11 +25,11 @@ def destroy
 
   begin
    @deleted_passenger = passenger.destroy
-   redirect_to passengers_path
   rescue
-    render  :deletewarning
+    passenger.status = false
+    passenger.save
   end
-
+  redirect_to passengers_path
 end
 
 
