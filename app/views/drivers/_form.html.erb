@@ -1,4 +1,6 @@
 <%=form_with model: @driver do |field| %>
+
+<h3><%= form_title %></h3>
 <p>Please enter the following details:</p>
 <%= field.label :name%>
 <%=field.text_field :name, placeholder: "Jenny" %>

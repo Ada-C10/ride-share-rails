@@ -1,4 +1,23 @@
-<h2>New Trip Form</h2>
+<div class="container" role="main">
+  <div class="c1">
+    <h1>Rideshare</h1>
+  </div>
+  <div class="c2">
+
+  </div>
+  <div class="c3">
+  </div>
+  <div class="c4">
+    <h2>New Trip Form</h2>
+    <%= render partial: "trip_form", locals: {
+      action_type: "Submit New Trip",
+      form_title: "New Trip"
+      }
+    %>
+  </div>
+  <div class="c5">
+  </div>
+</div>
 
 <%= render partial: "trip_form", locals: {
   action_type: "Submit New Trip",

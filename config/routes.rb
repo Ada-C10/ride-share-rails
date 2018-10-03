@@ -6,4 +6,6 @@ root 'home#index'
 resources :passengers
 resources :drivers
 resources :trips
+
+get '/home', to: 'home#index', as: 'home'
 end

@@ -1,7 +1,31 @@
-<h2>New Passenger Form</h2>
-
-<%= render partial: "passenger_form", locals: {
-  action_type: "Submit New Passenger",
-  form_title: "New Passenger"
-  }
-%>
+<div class="container" role="main">
+  <div class="c1">
+    <h1><%=link_to "Rideshare", home_path%></h1>
+  </div>
+  <div class="c2">
+    <div class="dropdown">
+      <button class="dropbtn">Drivers</button>
+      <div class="dropdown-content">
+        <%=link_to "Add Driver", new_driver_path %>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropbtn">Passengers</button>
+      <div class="dropdown-content">
+        <%=link_to "Add Passenger", new_passenger_path%>
+      </div>
+    </div>
+  </div>
+  <div class="c3">
+    <h2>New Passenger</h2>
+  </div>
+  <div class="c4">
+    <%= render partial: "passenger_form", locals: {
+      action_type: "Submit",
+      form_title: "Add New Passenger"
+      }
+    %>
+  </div>
+  <div class="c5">
+  </div>
+</div>
