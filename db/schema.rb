@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2018_10_03_000949) do
     t.string "vin"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "status", default: true
   end
 
   create_table "passengers", force: :cascade do |t|

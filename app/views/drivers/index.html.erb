@@ -1,0 +1,9 @@
+<h1>DRIVERS</h1>
+<% Driver.active_drivers.each do |driver| %>
+<p><section class="buttons">
+  <a href="/drivers/<%= driver.id %>" name="<%= driver.name%>"><%= driver.name%></a>
+  <%= button_to "Edit", edit_driver_path(driver.id), method: :get %>
+  <%= button_to "Delete", driver_path(driver.id), method: :delete, data: { confirm: "Are you sure?"}%>
+  </section>
+</p>
+<% end %>
