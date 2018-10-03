@@ -29,6 +29,10 @@ class TripsController < ApplicationController
   end
 
   def destroy
+    trip = Trip.find_by(id: params[:id])
+    trip.destroy
+
+    redirect_to
   end
 
   # to create a link to it on passenger page
