@@ -1,13 +1,13 @@
 <%= render partial: "layouts/form",
-locals: {message: "Create a new driver:",
+locals: {message: "Edit driver:",
          model: @driver,
-         url: drivers_path,
-         method: :post,
+         url: driver_path,
+         method: :patch,
          field_one_label: "Name",
          field_one_text_field: :name,
-         field_one_placeholder: nil,
+         field_one_placeholder: @driver.name,
          field_two_label: 'VIN Number',
          field_two_text_field: :vin,
-         field_two_placeholder: nil,
-         button_text: 'Create Driver'
+         field_two_placeholder: @driver.vin,
+         button_text: 'Edit Driver'
         } %>
