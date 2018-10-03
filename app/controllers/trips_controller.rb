@@ -23,7 +23,7 @@ class TripsController < ApplicationController
     @trip = Trip.new(
       passenger: passenger,
       driver: driver,
-      date: Time.now.to_s,
+      date: Time.now.strftime("%Y-%m-%d"),
       cost: 0.0
     )
 
