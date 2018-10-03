@@ -1,15 +1,38 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>RideShareRails</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>RideShareRails</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
-    <%= yield %>
-  </body>
+<body>
+  <h1>Rideshare Application</h1>
+  <nav class="side_buttons">
+    <button>
+      <a href="/passengers/new">Add New Passenger</a>
+    </button>
+
+    <button>
+      <a href="/passengers">Manage Passengers</a>
+    </button>
+    
+    <button>
+      <a href="/drivers/new">Add New Drivers</a>
+    </button>
+
+    <button>
+      <a href="/drivers">Manage Drivers</a>
+    </button>
+  </nav>
+
+  <%= yield %>
+
+  <div class="footer">
+    &copy 2018, Lindsay&Semret Incorporated.
+  </div>
+</body>
 </html>

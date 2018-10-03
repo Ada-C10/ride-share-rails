@@ -8,6 +8,7 @@ class TripsController < ApplicationController
 
   end
 
+<<<<<<< HEAD
 
   def create
 
@@ -17,6 +18,12 @@ class TripsController < ApplicationController
 
 
 
+=======
+  def create
+    
+  end
+
+>>>>>>> passenger
   private
   def trip_params
     return params.require(:trip).permit(

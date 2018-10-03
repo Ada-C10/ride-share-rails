@@ -8,6 +8,8 @@ class PassengersController < ApplicationController
     if @passenger.nil?
       head :not_found
     end
+    @pass_trips = Trip.where(passenger_id: params[:id])
+    @total = @passenger.total_spending
   end
 
   def new
@@ -18,7 +20,7 @@ class PassengersController < ApplicationController
   def create
 
     @passenger = Passenger.new(passenger_params())
-    @passenger.completed = false
+
     if @passenger.save
       redirect_to passengers_path
     else
@@ -33,10 +35,10 @@ class PassengersController < ApplicationController
   end
 
   def update
-    @passenger = Passenger.find_by(id: params[:id])
+    passenger = Passenger.find_by(id: params[:id])
 
-    if @passenger.update(passenger_params)
-      redirect_to passenger_path(passenger)
+    if passenger.update(passenger_params)
+      redirect_to passenger_path(passenger.id)
     end
   end
 
