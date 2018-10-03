@@ -1,2 +1,37 @@
-<h1>Trips#show</h1>
-<p>Find me in app/views/trips/show.html.erb</p>
+<h1>Trip Details</h1>
+
+<%= link_to "Edit", edit_trip_path(@trip.id) %>
+<%= "|" %>
+<%= link_to "Delete", trip_path(@trip.id), method: :delete, data: {confirm: "Are you sure?"} %>
+<br /><br />
+
+<table class="show_table">
+  <tr>
+    <th>Trip ID</th>
+    <th>Date</th>
+    <th>Passenger (ID)</th>
+    <th>Driver (ID)</th>
+    <th>Cost</th>
+    <th>Rating</th>
+  </tr>
+  <tbody>
+    <tr>
+      <td><%= @trip.id %></td>
+      <td><%= @trip.date %></td>
+      <td><%= link_to @trip.passenger_id, passenger_path(@trip.passenger_id) %></td>
+      <td><%= link_to @trip.driver_id, driver_path(@trip.driver_id) %></td>
+      <td>$<%= @trip.format_cost %></td>
+      <td>
+        <% if @trip.rating.nil? %>
+          <%= form_with model: @trip do |f| %>
+            <%= f.label "Rate this trip!" %>
+            <%= f.select :rating, [ [1, 1], [2, 2], [3, 3], [4, 4], [5, 5]] %>
+            <%= f.submit %>
+          <% end %>
+        <% else %>
+          <%= @trip.rating %>
+        <% end %>
+      </td>
+    </tr>
+  </tbody>
+</table>
