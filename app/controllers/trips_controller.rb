@@ -32,7 +32,7 @@ class TripsController < ApplicationController
     trip = Trip.find_by(id: params[:id])
     trip.destroy
 
-    redirect_to
+    redirect_to :back
   end
 
   # to create a link to it on passenger page

@@ -21,7 +21,17 @@
       <td><%= link_to "#{@passenger.name} (#{@passenger.id})", passenger_path(@passenger.id) %></td>
       <td><%= link_to "#{@driver.name} (#{@driver.id})", driver_path(@driver.id) %></td>
       <td><%= @trip.cost %></td>
-      <td><%= @trip.rating %></td>
+      <td>
+        <% if @trip.rating.nil? %>
+          <%= form_with model: @trip do |f| %>
+            <%= f.label "Rate this trip!" %>
+            <%= f.select :rating, [ [1, 1], [2, 2], [3, 3], [4, 4], [5, 5]] %>
+            <%= f.submit %>
+          <% end %>
+        <% else %>
+          <%= @trip.rating %>
+        <% end %>
+      </td>
     </tr>
   </tbody>
 </table>
