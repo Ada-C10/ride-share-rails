@@ -1,9 +1,12 @@
 <%= form_with model: @passenger, class: 'passenger-form' do |f| %>
 
-  <h3><%= form_name %></h3>
+  <h3><%= form_with %></h3>
 
   <%= f.label :name %>
   <%= f.text_field :name %>
+
+  <%= f.label :phone_num %>
+  <%= f.text_field :phone_num %>
 
   <%= f.submit action_type, class: "passenger-form-submit-button" %>
 
