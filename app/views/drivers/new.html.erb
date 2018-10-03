@@ -1,19 +1,22 @@
 <!-- Use same form partial as Goeun? -->
+<!-- validations working, but error messages not showing up. -->
 
 <% if @driver.errors.messages.any? %>
-  <div class="form-errors">
+<h1>Does this work?</h1>
+  <section class="form-errors">
+    <h3>There were some problems. Please fix them.</h3>
     <ul>
-      <%@driver.errors.messages.each do |column, message_list|%>
-        <%message_list.each do |message|%>
+      <% @driver.errors.messages.each do |field, problem_list| %>
+        <% problem_list.each do |problem| %>
           <li>
-          <strong><%=column%></strong>
-          <%=message%>
+            <strong><%= field %></strong>
+            <%= problem %>
           </li>
-        <%end%>
-      <%end%>
+        <% end %>
+      <% end %>
     </ul>
-  </div>
-<%end%>
+  </section>
+<% end %>
 
 <%= render partial: "form", locals: {directions: "Complete this form to sign up a new driver:", action_button: "Create New Driver"} %>
 
