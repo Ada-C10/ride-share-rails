@@ -13,4 +13,8 @@ class Passenger < ApplicationRecord
     end
     return false
   end
+
+  def total_charged
+    return self.trips.sum { | trip | trip.cost }
+  end
 end
