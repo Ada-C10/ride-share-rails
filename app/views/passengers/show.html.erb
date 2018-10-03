@@ -19,12 +19,18 @@
   <tr>
     <td><%= link_to "#{trip.id}", trip_path(trip.id) %> </td>
     <td><%= trip.date%> </td>
-    <td><%= link_to "#{trip.driver.name}", driver_path(trip.driver.id)%> </td>
-    <td><%= "$#{trip.cost.to_f / 100}"%> </td>
+
+    <% if trip.driver %>
+      <td><%= link_to "#{trip.driver.name}", driver_path(trip.driver.id) %></td>
+    <% else %>
+      <td>Inactive Driver</td>
+    <% end %>
+    
+    <td><%= trip.cost_in_dollars %> </td>
     <td><%= trip.rating %> </td>
     <td><%= link_to "Delete Trip", trip_path(trip.id), method: :delete, data: {confirm: "Delete Trip with #{trip.id}?"}%></td>
   </tr>
   <% end %>
 </ol>
 </table>
-<h3> Total Charges: <%= "$#{@passenger.total_charges.to_f/100}"%> </h3>
+<h3> Total Charges: <%= @passenger.total_charges_in_dollars %> </h3>
