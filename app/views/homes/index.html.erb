@@ -1,6 +1,6 @@
+<h1>Mr. Toad's Wild Ride Share</h1>
 <nav>
   <ul>
-    <li><%=link_to "Home", homes_path %></li>
     <li><%=link_to "All Drivers", drivers_path %></li>
     <li><%=link_to "Enter a new driver", new_driver_path %></li>
     <li><%=link_to "All Passengers", passengers_path %></li>
@@ -9,12 +9,4 @@
   </ul>
 </nav>
 
-<p>
-
-  <strong>Driver:</strong>
-  <%= @driver.name%>
-  <br />
-  <strong>VIN:</strong>
-  <%= @driver.vin%>
-
-</p>
+<%= image_tag "https://c1.staticflickr.com/4/3379/3640003283_e186fe1d8a_b.jpg", alt: "Mr. Toad" %>

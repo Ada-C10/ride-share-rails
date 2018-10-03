@@ -1,9 +1,21 @@
+
+<nav>
+  <ul>
+    <li><%=link_to "Home", homes_path %></li>
+    <li><%=link_to "All Drivers", drivers_path %></li>
+    <li><%=link_to "Enter a new driver", new_driver_path %></li>
+    <li><%=link_to "All Passengers", passengers_path %></li>
+    <li><%=link_to "Enter a new passenger", new_passenger_path %></li>
+    <li><%=link_to "All Trips", trips_path %></li>
+  </ul>
+</nav>
+
 <%= render partial: 'layouts/form_errors',
 locals: {
   model: @driver
 }
 %>
 
+
 <%= render partial: "form", locals: {directions: "Complete this form to sign up a new driver:", action_button: "Create New Driver"} %>
 
-<%=link_to "Return to main driver's list", drivers_path %>
