@@ -1,8 +1,11 @@
 <h1>These are the passengers!</h1>
+<h1><%= link_to "ADD PASSENGER", new_passenger_path%></h1>
 <% @passengers.each do |passenger| %>
-  <h2><%= link_to "This IS: #{passenger.name}", passengers_path(passenger.id) %>
+  <h2><%= link_to "This IS: #{passenger.name}", passenger_path(passenger.id)%>
   </h2>
 </a>
+
+
   <p> phone number <%= passenger.phone_num %></p>
   <%#= link_to "Delete", book_path(book.id), method: :delete %>
 <% end %>

@@ -1,0 +1,14 @@
+<% if @passenger.nil? %>
+  <h1> 404 Not found</h1>
+<% else %>
+  <h1><%=@passenger.id %></h1>
+  <h3>Passenger id <%= @passenger.id %></h3>
+  <h3>Passenger name <%= @passenger.name %></h3>
+  <p>Phone number <%= @passenger.phone_num %> </p>
+  <p>Total amount passenger has been charged:</p>
+  <p>List of trips</p>
+
+  <%= link_to "Edit", edit_passenger_path(@passenger.id) %>
+  <div></div>
+  <%= link_to "Delete", passenger_path(@passenger.id), method: :delete  %>
+<% end %>
