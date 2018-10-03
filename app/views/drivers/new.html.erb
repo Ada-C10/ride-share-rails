@@ -1,34 +1,5 @@
-<% if @driver.errors.messages.any? %>
-  <ul>
-    <% @driver.errors.messages.each do |field, problem_list| %>
-      <% problem_list.each do |problem| %>
-        <li>
-          <%= field %>
-          <%= problem %>
-        </li>
-      <% end %>
-    <% end %>
-  </ul>
-<% end %>
-
-<h2>Add a New Driver</h2>
-
-<%= form_with model: @driver do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <br>
-
-  <%= f.label :vin %>
-  <%= f.text_field :vin %>
-  <br>
-
-  <%= f.label :car_make %>
-  <%= f.text_field :car_make %>
-  <br>
-
-  <%= f.label :car_model %>
-  <%= f.text_field :car_model %>
-  <br>
-
-  <%= f.submit "Add New Driver" %>
-<% end %>
+<%= render partial: "driver", locals:
+{
+  action_title: "Add a New Driver",
+  action_submit: "Add Driver"
+} %>
