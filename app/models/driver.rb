@@ -25,7 +25,12 @@ class Driver < ApplicationRecord
     self.trips.each do |trip|
       average += trip.rating.to_f #to float to allow for half ratings
     end
-    rating = average/ (self.trips.length)
+
+    if trips.length > 0
+      rating = average / (self.trips.length)
+    else
+      rating = 0
+    end 
 
     return rating.round(1) #rounded only one space (4.1, 2.5, etc)
   end
