@@ -21,8 +21,13 @@ class TripsController < ApplicationController
     passenger = Passenger.find_by(id: params[:passenger_id])
     driver = Driver.first_available_driver
 
-    unless passenger.is_in_ride?
-      driver.change_status
+    if driver.nil?
+    end
+
+    # if no drivers available
+
+    unless passenger.is_in_ride? && driver
+      driver.becomes_unavailable
 
       @trip = Trip.new
       @trip.passenger = passenger
@@ -30,8 +35,13 @@ class TripsController < ApplicationController
       @trip.date = Date.today
       @trip.cost = rand(1000..9999)
 
-      @trip.save ? redirect_to passenger_path(@trip[:passenger_id]) : render :new
+      if @trip.save
+        redirect_to passenger_path(@trip[:passenger_id])
+      else
+        render :new
+      end
     end
+
   end
 
   def edit
