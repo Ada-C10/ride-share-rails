@@ -8,6 +8,7 @@ class PassengersController < ApplicationController
     if @passenger.nil?
       head :not_found
     end
+    @pass_trips = Trip.where(passenger_id: params[:id])
   end
 
   def new

@@ -1,3 +1,47 @@
+<h2>PASSENGER DETAILS</h2>
+
 <p>
-  THIS IS THE VIEW FOR PASSENGER DETAIL PAGE
+  <strong> Name:</strong>
+  <%= @passenger.name%>
 </p>
+
+<p>
+  <strong> Phone:</strong>
+  <%= @passenger.phone_num%>
+</p>
+
+<p>
+  <strong> Total Spendings:</strong>
+</p>
+
+
+<button>
+  <%= link_to "Request Trip", new_trip_path%>
+</button>
+
+<button>
+  <%= link_to "Edit Passenger Info", edit_passenger_path%>
+</button>
+
+<h3>PASSENGER TRIPS</h3>
+
+<table class="trips_table">
+  <tr>
+    <th>ID</th>
+    <th>Date</th>
+    <th>Driver</th>
+    <th>Passenger</th>
+    <th>Price</th>
+    <th>Rating</th>
+  </tr>
+<tr>
+  <% @pass_trips.each do |pass_trip| %>
+  <td><%= pass_trip.id %></td>
+  <td><%= pass_trip.date %></td>
+  <td><%= pass_trip.driver.name%></td>
+  <td><%= pass_trip.passenger.name %></td>
+  <td><%= pass_trip.cost %></td>
+  <td><%= pass_trip.rating %></td>
+</tr>
+<%end%>
+</table>
