@@ -12,4 +12,9 @@ class Driver < ApplicationRecord
   def self.first_available_driver
     return Driver.find_by(is_available?: true)
   end
+
+  def total_earnings
+    total_earnings = self.trips.sum{ | trip | (trip.cost - 1.65) * 0.80 }
+    return total_earnings
+  end
 end
