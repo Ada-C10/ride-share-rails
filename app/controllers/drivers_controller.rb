@@ -1,13 +1,14 @@
 class DriversController < ApplicationController
 
   def index
+    # How do we use our nested routes here? 
     @drivers = Driver.all.order(:name)
   end
 
   def show
     id = params[:id].to_i
     @driver = Driver.find_by(id: id)
-    @trips = @driver.trips.all 
+    @trips = @driver.trips.all
     if @driver.nil?
       render :notfound, status: :not_found
     end

@@ -1,8 +1,9 @@
 class TripsController < ApplicationController
   def index
+    # If a driver id is provider, show driver's trips 
     if params[:driver_id]
-      driver_id = params[:driver_id]
-      @trips = Driver.find_by(id: driver_id).trips.order(:date)
+      driver = Driver.find_by(id: params[:driver_id])
+      @trips = driver.trips
     else
       @trips = Trip.all.order(:date)
     end

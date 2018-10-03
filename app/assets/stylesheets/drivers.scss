@@ -1,3 +1,18 @@
 // Place all the styles related to the Drivers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.driver_container {
+  width: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.driver_container li {
+  padding: 5px;
+}
