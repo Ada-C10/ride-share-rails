@@ -20,7 +20,7 @@
       <td><%= link_to "#{trip.id}", trip_path(trip.id) %></td>
       <td><%= trip.date %></td>
       <td><%= link_to "#{trip.passenger.name}", passenger_path(trip.passenger.id) %></td>
-      <td>$<%= trip.cost.to_f / 100 %></td>
+      <td><%= trip.cost_in_dollars %></td>
       <td><%= trip.rating %></td>
       <td><%= link_to "Delete Trip", trip_path(trip.id), method: :delete, data: {confirm: "Delete Trip ##{trip.id}?"}%></td>
     </tr>

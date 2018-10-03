@@ -23,7 +23,7 @@
       <% else %>
         <td>Inactive Passenger</td>
       <% end %>
-      <td>$<%= trip.cost.to_f / 100 %></td>
+      <td><%= trip.cost_in_dollars %></td>
       <td><%= trip.rating %></td>
       <td><%= link_to "Delete Trip", trip_path(trip.id), method: :delete, data: {confirm: "Delete Trip ##{trip.id}?"}%></td>
     </tr>

@@ -24,7 +24,7 @@
     <% else %>
       <td>Inactive Passenger</td>
     <% end %>
-    <td>$<%= @trip.cost.to_f / 100 %></td>
+    <td><%= @trip.cost_in_dollars %></td>
     <% if @trip.rating %>
       <td><%= @trip.rating %></td>
     <% else %>
