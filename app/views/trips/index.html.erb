@@ -7,7 +7,7 @@
       <% @trips.each do |trip| %>
       <li>
         <p>
-          <%= "#{trip}" %>
+          <%= "#{trip}" %> | <%= link_to "Details", trip_path(trip.id), class: "trip-link" %>
         </p>
       </li>
       <% end %>
