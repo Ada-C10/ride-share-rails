@@ -1,6 +1,10 @@
-<h3>Rideshare Drivers</h3>
+<%= link_to "Homepage", root_path %>
+
+
+<h2>Rideshare Drivers</h2>
 
 <% @drivers.each do |driver| %>
-  <strong><%= driver.name %></strong>
+  <strong><%= link_to driver.name, driver_path(driver.id) %></strong>
+  <!-- <strong><%= driver.name %></strong> -->
   <br>
 <% end %>
