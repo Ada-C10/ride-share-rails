@@ -1,9 +1,11 @@
 <%= form_with model: @driver, class: 'driver-form' do |f| %>
 
-  <h3><%= form_name %></h3>
+  <h3><%= form_with %></h3>
 
   <%= f.label :name %>
   <%= f.text_field :name %>
+  <%= f.label :vin %>
+  <%= f.text_field :vin %>
 
   <%= f.submit action_type, class: "driver-form-submit-button" %>
 
