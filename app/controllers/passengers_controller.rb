@@ -49,6 +49,7 @@ class PassengersController < ApplicationController
 
 
   private
+  
   def passenger_params
     return params.require(:passenger).permit(
       :name,
