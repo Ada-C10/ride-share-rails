@@ -1,8 +1,6 @@
 class TripsController < ApplicationController
   def show
     @trip = Trip.find_by(id: params[:id])
-    @passenger = Passenger.find_by(id: @trip.passenger_id)
-    @driver = Driver.find_by(id: @trip.driver_id)
 
     if @trip.nil?
       render :notfound, status: :not_found
@@ -32,7 +30,8 @@ class TripsController < ApplicationController
     trip = Trip.find_by(id: params[:id])
     trip.destroy
 
-    redirect_to :back
+    redirect_back(fallback_location: root_path)
+    # why is it trying to run the show method and view
   end
 
   # to create a link to it on passenger page
