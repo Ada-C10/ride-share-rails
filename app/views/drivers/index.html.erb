@@ -3,7 +3,13 @@
 <ul>
   <% @drivers.all.each do |driver| %>
   <li>
-    <p><%= driver[:name] %></p>
+    <%= link_to driver[:name], driver_path(driver.id) %>
+
+    driver rating: <%= driver.average_rating %>
+
+    <%= link_to "edit", edit_driver_path(driver.id) %>
+
+    <%= link_to "delete", driver_path(driver), method: :delete, data: { confirm: "are you sure you want to delete #{driver.name}"} %>
   </li>
   <% end %>
 </ul>
