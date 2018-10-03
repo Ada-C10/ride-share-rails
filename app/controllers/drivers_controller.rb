@@ -42,10 +42,15 @@ class DriversController < ApplicationController
 
 
   def update
-    driver = Driver.find_by(id: params[:id].to_i)
-    driver.update(driver_params)
+    @driver = Driver.find_by(id: params[:id].to_i)
+    if @driver.update(driver_params)
     ###### TODO Add error message for if it does not save  #####
-    redirect_to driver_path(driver.id)
+    # If it saves, send to show page
+      redirect_to driver_path(driver.id)
+    else
+      # If it doesn't work, render the edit view with validation errors 
+      render :edit
+    end
   end
   private
 
