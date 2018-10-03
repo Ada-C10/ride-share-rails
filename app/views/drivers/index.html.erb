@@ -1,5 +1,7 @@
-<h1 class= "title"> Rideshare Driver List
-</h1>
+<section id="title">
+  <h1>Driver List</h1>
+  <sub>Changing The Way People Travel</sub>
+</section>
 
 <nav class="nav">
   <li><%= link_to "HOME", root_path %></li>
@@ -10,8 +12,6 @@
 <%= button_to "Become a Driver", new_driver_path, method: :get %>
 </div>
 
-<div class="container">
-<h1 Your Tasks</h1>
 <ul>
   <% @drivers.each do |driver| %>
 

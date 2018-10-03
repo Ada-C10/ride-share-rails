@@ -1,10 +1,14 @@
+<section id="title">
+  <h1>Driver Update</h1>
+  <sub>Changing The Way You Travel</sub>
+</section>
+
 <nav class="nav">
   <li><%= link_to "HOME", root_path %></li>
   <li><%= link_to "DRIVER", drivers_path %></li>
   <li><%= link_to "PASSENGER", passengers_path %></li>
 </nav>
 
-<h1> Driver </h1>
 <%= form_with model: @driver, class: "driver-form" do |f|%>>
 
   <%= f.label :name %>
