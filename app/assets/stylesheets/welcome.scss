@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css?family=K2D');
+
+body {
+  font-family: 'K2D';
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+  grid-template-areas:
+  "h h h h h h"
+  "h h h h h h"
+  "d d d p p p"
+  "d d d p p p"
+  "d d d p p p"
+  "d d d p p p"
+  "d d d p p p"
+  "d d d p p p"
+  "d d d p p p"
+  "f f f f f f"
+}
+
+header {
+  grid-area: h;
+  background-color: black;
+  color: white;
+  text-align: center;
+  border-bottom: 10px solid white;
+}
+
+section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.driver {
+  grid-area: d;
+  background-image: url('driver.jpg');
+  // margin: 10px;
+}
+
+.passenger {
+  grid-area: p;
+  background-image: url('passenger.jpg');
+  // margin: 10px;
+}
+
+footer {
+  grid-area: f;
+  background-color: black;
+  color: white;
+  text-align: center;
+  border-top: 10px solid white;
+}
+
+.button {
+   border-top: 1px solid #96d1f8;
+   border-radius: 9px;
+   -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   box-shadow: rgba(0,0,0,1) 0 1px 0;
+   text-shadow: rgba(0,0,0,.4) 0 1px 0;
+   color: black;
+   font-size: 20px;
+   font-family: Georgia, Serif;
+   text-decoration: none;
+   vertical-align: middle;
+   padding: 2em;
+   margin-top: 30%;
+
+   }
+.button:hover {
+   border-top-color: #28597a;
+   background: #black;
+   color: #ccc;
+   }
+.button:active {
+   border-top-color: #1b435e;
+   background: #1b435e;
+   }
