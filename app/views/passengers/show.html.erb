@@ -11,6 +11,12 @@
 
   <%= link_to "Delete #{@passenger.name}", passenger_path(@passenger.id), method: :delete, data: { confirm: 'Are you sure you want to delete?'}%>
   <br />
+
+  <%= form_with model: Trip.new do |f|%>
+    <%= f.hidden_field :passenger_id, :value => @passenger.id %>
+    <%= f.submit "Request Ride" %>
+  <% end %>
+
   <h3>Total Cost of Trips: <%= @passenger.total_trips_cost %></h3>
   <% @passenger.trips.each do |trip| %>
     <%= link_to "Passenger Trip: #{trip.id}", trip_path(trip) %>

@@ -8,8 +8,8 @@
   <p>Cost: $<%= @trip.cost%></p>
   <p>Rating: <%= @trip.rating%></p>
 
-  <%= link_to "Driver #{}", new_driver_path%>
+  <%= link_to "Driver #{@trip.driver.name}", driver_path(@trip.driver) %>
   <br>
-  <%= link_to "Passenger #{}", new_driver_path%>
+  <%= link_to "Passenger #{@trip.passenger.name}", passenger_path(@trip.passenger) %>
 
 <% end %>
