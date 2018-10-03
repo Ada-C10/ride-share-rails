@@ -1,7 +1,7 @@
-<h1>Driver Index</h1>
+<h1>Show all drivers</h1>
 
 <% @drivers.each do  |d| %>
-  <%= d.name  %>
+  <%= link_to "#{d.name}", driver_path(d.id) %>
   <br>
   <%= d.vin %>
   <br />

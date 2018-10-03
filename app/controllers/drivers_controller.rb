@@ -5,6 +5,11 @@ class DriversController < ApplicationController
   end
 
   def show
+    @drivers = Driver.find_by(id: params[:id])
+
+    if @drivers.nil?
+      head :not_found
+    end
   end
 
   def new
