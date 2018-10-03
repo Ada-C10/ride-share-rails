@@ -1,14 +1,36 @@
-<ul>
-<%@drivers.each do |driver|%>
-<li>
-<%=driver.name%>
-<%=driver.vin%>
-<%= link_to "| Details", driver_path(driver.id) %>
-<%= link_to "Delete Driver", driver_path(driver.id), method: :delete, data: {confirm: "Are you sure you want to delete this #{driver.name}"} %>
-<%= link_to "Edit Driver", edit_driver_path(driver.id) %>
-</li>
-<%end%>
+<div class="container" role="main">
+<div class="c1">
+  <h1><%=link_to "Rideshare", home_path%></h1>
+</div>
+<div class="c2">
+  <div class="dropdown">
+    <button class="dropbtn">Drivers</button>
+    <div class="dropdown-content">
+      <%=link_to "Add Driver", new_driver_path %>
+    </div>
+  </div>
+  <div class="dropdown">
+    <button class="dropbtn">Passengers</button>
+    <div class="dropdown-content">
+      <%=link_to "Add Passenger", new_passenger_path%>
+    </div>
+  </div>
+</div>
+ <div class="c3">
+   <p><%= link_to "Add New Driver", new_driver_path %></p>
+ </div>
+ <div class="c4">
+   <ul>
+     <%@drivers.each do |driver|%>
+     <li>
+       <%=driver.name%>
+       <%=driver.vin%>
+       <%= link_to "| Details", driver_path(driver.id) %>
+       <%= link_to "Delete Driver", driver_path(driver.id), method: :delete, data: {confirm: "Are you sure you want to delete this #{driver.name}"} %>
+       <%= link_to "Edit Driver", edit_driver_path(driver.id) %>
+     </li>
+     <%end%>
 
-</ul>
-
-<p><%= link_to "Add New Driver", new_driver_path %></p>
+   </ul>
+ </div>
+</div>
