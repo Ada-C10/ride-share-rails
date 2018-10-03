@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  root to: 'trips#index'
-  resources :trips
+  get 'home/index'
+  root to: 'home#index'
+  resources :trips, except: [:new, :create]
   resources :drivers
   resources :passengers do
     resources :trips, only: [:create]

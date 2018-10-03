@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RideshareRails</title>
+  <%= csrf_meta_tags %>
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+  <nav>
+    <ul>
+      <li>
+        <%= button_to "Trips", trips_path, :method => "get" %>
+      </li>
+      <li>
+        <%= button_to "Passengers", passengers_path, :method => "get" %>
+      </li>
+      <li>
+        <%= button_to "Add Passenger", new_passenger_path, :method => "get" %>
+      </li>
+      <li>
+        <%= button_to "Drivers", drivers_path, :method => "get" %>
+      </li>
+      <li>
+        <%= button_to "Add Driver", new_driver_path, :method => "get" %>
+      </li>
+    </ul>
+  </nav>
+  <%= yield %>
+</body>
+</html>
