@@ -22,7 +22,8 @@
  <div class="c4">
    <h2>Passenger Details</h2>
    <p>
-     <%= @passenger.id %> <%= @passenger.name %> <%= @passenger.phone_num %>
+     ID: <%= @passenger.id %> Name:<%= @passenger.name %> Phone:<%= @passenger.phone_num %>
+     Total Spent: $ <%= ((@passenger.total_expenditures) / 100.00) %>
 
      <h2>Passenger Trips</h2>
         <% @passenger.trips.each do |trip| %>
