@@ -24,9 +24,11 @@
    <%=@driver.id%>
    <%=@driver.name%>
    <%=@driver.vin%>
+   Revenue: $ <%= "%.2f" % ((@driver.total_revenue) / 100.00) %>
+   Average Rating:  <%= @driver.average_rating %>
    <h2>Driver Trips</h2>
       <% @driver.trips.each do |trip| %>
-      <p>Trip_ID: <%= trip.id %> Trip cost: <%= trip.cost %>
+      <p>Trip_ID: <%= trip.id %> Trip cost: <%= trip.cost %> Rating: <%= trip.rating %>
       <%end%>
     </p>
  </div>
