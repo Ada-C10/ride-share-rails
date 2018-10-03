@@ -25,7 +25,17 @@
       <td>Inactive Passenger</td>
     <% end %>
     <td>$<%= @trip.cost.to_f / 100 %></td>
-    <td><%= @trip.rating %></td>
+    <% if @trip.rating %>
+      <td><%= @trip.rating %></td>
+    <% else %>
+      <td> <%= form_with model: @trip do |f| %>
+            <%= f.label :rating %>
+            <%= f.select :rating, [1, 2, 3, 4, 5] %>
+            <%= f.submit 'save rating', class: "form-button" %>
+          <% end %>
+      </td>
+    <%end%>
+
     <td><%= link_to "Edit Trip", edit_trip_path(@trip.id) %></td>
     <td><%= link_to "Delete Trip", trip_path(@trip.id), method: :delete, data: {confirm: "Delete Trip ##{@trip.id}?"}%></td>
   </tr>

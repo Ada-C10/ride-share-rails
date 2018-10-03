@@ -23,6 +23,11 @@ class TripsController < ApplicationController
   end
 
   def update
+    if @trip.update(trip_params)
+      render :show
+    else
+      raise
+    end
   end
 
   def destroy
@@ -42,6 +47,10 @@ class TripsController < ApplicationController
 
   def set_trip
     @trip = Trip.find(params[:id])
+  end
+
+  def trip_params
+    return params.require(:trip).permit(:rating, :date, :cost)
   end
 
 end
