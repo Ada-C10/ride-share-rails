@@ -12,7 +12,7 @@
   <thead>
     <tr>
       <th>ID</th>
-      <!-- <th>Date</th> -->
+      <th>Date</th>
       <th>Driver</th>
       <th>Passenger</th>
       <th>Price</th>
@@ -27,9 +27,11 @@
           <%= trip.id %><br>
         <% end %>
       </td>
-      <!-- <td>
-        <p>Date</p><br>
-      </td> -->
+      <td>
+        <% @trips.each do |trip| %>
+          <%= trip.date.to_s %><br>
+        <% end %>
+      </td>
       <td>
         <% @trips.each do |trip| %>
           <%= trip.driver_id %><br>
