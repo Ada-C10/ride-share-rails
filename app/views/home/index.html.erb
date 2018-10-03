@@ -1,2 +1,40 @@
-<%=link_to "Manage Drivers", drivers_path%>
-<%=link_to "Manage Passengers", passengers_path%>
+<div class="container" role="main">
+  <div class="c1">
+    <h1>Rideshare</h1>
+  </div>
+  <div class="c2">
+    <div class="dropdown">
+      <button class="dropbtn">Drivers</button>
+      <div class="dropdown-content">
+        <%=link_to "Add Driver", new_driver_path %>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropbtn">Passengers</button>
+      <div class="dropdown-content">
+        <%=link_to "Add Passenger", new_passenger_path%>
+      </div>
+    </div>
+  </div>
+  <div class="c3">
+    <%=link_to "Manage Drivers", drivers_path%>
+    <%=link_to "Manage Passengers", passengers_path%>
+  </div>
+  <div class="c4">
+  </div>
+  <div class="c5">
+  </div>
+</div>
+<!-- container scaffolding -->
+<!-- <div class="container" role="main">
+  <div class="c1">
+  </div>
+  <div class="c2">
+  </div>
+  <div class="c3">
+  </div>
+  <div class="c4">
+  </div>
+  <div class="c5">
+  </div>
+</div> -->
