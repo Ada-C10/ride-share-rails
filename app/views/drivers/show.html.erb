@@ -8,7 +8,7 @@
 
 <p>STATUS: <%= @driver.is_available? %></p>
 <p>VIN: <%= @driver.vin %></p>
-<p>RATING: $ <strong>CREATE METHOD</strong> </p>
+<p>AVERAGE RATING: $ <strong><%= @driver.average_rating %></strong> </p>
 <p>TOTAL EARNED: $ <strong><%= @driver.total_earnings %></strong> </p>
 <h3>Trips By Date: </h3>
 

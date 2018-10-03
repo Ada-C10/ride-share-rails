@@ -17,4 +17,9 @@ class Driver < ApplicationRecord
     total_earnings = self.trips.sum{ | trip | (trip.cost - 1.65) * 0.80 }
     return total_earnings
   end
+
+  def average_rating
+    ratings_sum = self.trips.sum { | trip | trip.rating }
+    return ratings_sum / self.trips.length
+  end
 end
