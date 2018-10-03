@@ -15,8 +15,9 @@
   "d d d p p p"
   "d d d p p p"
   "d d d p p p"
-  "d d d p p p"
-  "d d d p p p"
+  "i i i i i i"
+  "i i i i i i"
+  "i i i i i i"
   "f f f f f f"
 }
 
@@ -46,6 +47,12 @@
   // margin: 10px;
 }
 
+.info {
+  grid-area: i;
+  text-align: center;
+  padding: 2em;
+}
+
 footer {
   grid-area: f;
   background-color: black;
@@ -54,7 +61,7 @@ footer {
   border-top: 10px solid white;
 }
 
-.button {
+.home-button {
    border-top: 1px solid #96d1f8;
    border-radius: 9px;
    -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
