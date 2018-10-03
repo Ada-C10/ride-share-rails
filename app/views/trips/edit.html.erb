@@ -1,0 +1,28 @@
+<h1>Edit a trip</h1>
+
+<%= render partial: 'layouts/form_errors',
+locals: {
+  model: @trip
+}
+%>
+
+<%= form_with model: @trip do |f| %>
+<p>
+  <%= f.label :date %>
+  <%= f.text_field :date %>
+</p>
+
+<p>
+  <%= f.label :rating %>
+  <%= f.text_field :rating %>
+</p>
+
+<p>
+  <%= f.label :cost %>
+  <%= f.text_field :cost %>
+</p>
+
+<p>
+  <%= f.submit "Edit Trip", class: "submit-button" %>
+</p>
+<% end %>

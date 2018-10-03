@@ -18,20 +18,4 @@ locals: {
 }
 %>
 
-
-
-<%= form_with model: @passenger do |f| %>
-<p>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-</p>
-
-<p>
-  <%= f.label :phone_number %>
-  <%= f.text_field :phone_num %>
-</p>
-
-<p>
-  <%= f.submit "Create New Passenger", class: "submit-button" %>
-</p>
-<% end %>
+<%= render partial: "form", locals: {directions: "Complete this form to add a new passenger:", action_button: "Create New Passenger"} %>
