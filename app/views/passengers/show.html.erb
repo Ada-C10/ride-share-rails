@@ -41,13 +41,13 @@
     <th>Rating</th>
   </tr>
 <tr>
-  <% @pass_trips.each do |pass_trip| %>
-  <td><%= link_to pass_trip.id%></td>
-  <td><%= pass_trip.date %></td>
-  <td><%= link_to pass_trip.driver.name%></td>
-  <td><%= pass_trip.passenger.name %></td>
-  <td><%= pass_trip.cost %></td>
-  <td><%= pass_trip.rating %></td>
+  <% @passenger.trips.each do |trip| %>
+  <td><%= link_to trip.id%></td>
+  <td><%= trip.date %></td>
+  <td><%= link_to trip.driver.name, driver_path(trip.driver.id)%></td>
+  <td><%= trip.passenger.name %></td>
+  <td><%= trip.cost %></td>
+  <td><%= trip.rating %></td>
 </tr>
 <%end%>
 </table>
