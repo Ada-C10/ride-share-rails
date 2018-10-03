@@ -13,4 +13,16 @@
   <!--TODO FIgure out how to delete drivers without impacting driver trips.   -->
   <!--  Maybe set driver id to null then delete? -->
   <%= link_to "Delete #{@driver.name}", driver_path(@driver.id), method: :delete %>
+
+  <!-- Show driver trips here. Have driver_trips_path.  -->
+  <h1>Driver Trips</h1>
+  <% @driver.trips.each do |trip| %>
+    <div class = "trip_container">
+      <p>Trip ID: <%="#{trip.id}"%></p>
+      <p>Passenger ID: <%="#{trip.passenger_id}"%></p>
+      <p>Date: <%="#{trip.date}"%></p>
+      <p>Rating: <%="#{trip.rating}"%></p>
+      <p>Cost: <%="#{trip.cost}"%></p>
+    </div>
+    <% end %>
 <% end %>

@@ -1,6 +1,11 @@
 class TripsController < ApplicationController
   def index
-    @trips = Trip.all.order(:date)
+    if params[:driver_id]
+      driver_id = params[:driver_id]
+      @trips = Driver.find_by(id: driver_id).trips.order(:date)
+    else
+      @trips = Trip.all.order(:date)
+    end
   end
 
   def show
