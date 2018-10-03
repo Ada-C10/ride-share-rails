@@ -28,9 +28,13 @@ def create
 end
 
 def edit
+  @passenger = Passenger.find_by(id: params[:id])
 end
 
 def update
+  passenger = Passenger.find(params[:id])
+  passenger.update(passenger_params)
+  redirect_to passenger_path
 end
 
 def destroy
