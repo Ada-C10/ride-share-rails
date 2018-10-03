@@ -18,12 +18,13 @@ class TripsController < ApplicationController
   def create
 
     passenger = Passenger.find_by(id: params[:passenger_id])
-    driver = Driver.first.all
+    driver = Driver.all.first
 
     @trip = Trip.new(
       passenger: passenger,
       driver: driver,
-      date: Time.now.to_s
+      date: Time.now.to_s,
+      cost: 0.0
     )
 
     if @trip.save

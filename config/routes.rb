@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   root to: 'trips#index'
 
   resources :drivers
-  resources :trips
+
   resources :passengers do
-    resources :trips, only: [:create]
+    resources :trips, only: [:index, :create]
   end
 
 end
