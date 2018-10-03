@@ -3,10 +3,21 @@ class TripsController < ApplicationController
     @trip = Trip.find_by(id: params[:id].to_i)
   end
 
-  # def index
-  #   @trips = Trip.all
-  # end
+  def index
+    if params[:driver_id]
+      driver_id = params[:driver_id]
+      @trips = Trip.find_by(id: driver_id)
+    elsif params[:passenger_id]
+      passenger_id = params[:passenger_id]
+      @trips = Trip.find_by(id: passenger_id)
+    else
+      @trips = Trip.all
+    end
+  end
 
+
+#passenger/123
+#driver/1345
   def new
     @trip = Trip.new
   end
