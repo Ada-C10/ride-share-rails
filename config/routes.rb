@@ -5,6 +5,11 @@ Rails.application.routes.draw do
   root 'passengers#index'
 
   resources :trips
-  resources :drivers
-  resources :passengers
+  resources :drivers do
+    resources :trips, only: [:index]
+  end
+
+  resources :passengers do
+    resources :trips, only: [:index, :new]
+  end
 end
