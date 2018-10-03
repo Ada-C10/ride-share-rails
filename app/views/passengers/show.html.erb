@@ -8,17 +8,8 @@
 </ul>
 
 <section>
-  <%= render partial: "../trips/index",
-    locals: {  } %>
-  Trips: <% @passenger.trips.each do |trip|%>
-  <ul>
-    <li><%= link_to "Trip #{trip.id}", trip_path(trip.id)%></li>
-    <li> Trip Date: <%= trip.date%></li>
-    <li> Driver: <%= trip.driver.name%></li>
-    <li> Cost: <%= trip.cost/100%></li>
+  <%= render partial: "list_of_trips", locals: { user: "Passenger"} %>
 
-  </ul>
-  <%end%>
 </section>
 <!-- create chart of trips -->
 <ul>

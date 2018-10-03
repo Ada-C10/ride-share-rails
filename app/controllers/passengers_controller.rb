@@ -1,6 +1,7 @@
 class PassengersController < ApplicationController
   def show
     @passenger = Passenger.find_by(id:params[:id])
+    @trips = @passenger.trips
   end
 
   def new

@@ -5,6 +5,7 @@ class DriversController < ApplicationController
 
   def show
     @driver = Driver.find_by(id: params[:id].to_i)
+    @trips = @driver.trips
   end
 
   def new
