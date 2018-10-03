@@ -1,6 +1,6 @@
 class TripsController < ApplicationController
   def index
-    @trips = Trip.all
+    @trips =  Trip.all.paginate(:page => params[:page]).order('id ASC')
   end
 
   def show
