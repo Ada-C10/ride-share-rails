@@ -27,4 +27,4 @@
   <% end %>
 </ol>
 </table>
-<h3> Total Charges: <%= "$#{@passenger.total_charges.to_f/100}"%> </h3>
+<h3> Total Charges: <%= @passenger.total_charges_in_dollars %> </h3>

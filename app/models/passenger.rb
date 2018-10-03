@@ -11,4 +11,8 @@ class Passenger < ApplicationRecord
     sum
   end
 
+  def total_charges_in_dollars
+    return "$#{total_charges.to_f / 100}"
+  end
+
 end
