@@ -1,5 +1,6 @@
 <h1>DRIVERS</h1>
-<% @driver.each do |driver| %>
+<% active_drivers = @driver.select {|driver| driver.status == true} %>
+<% active_drivers.each do |driver| %>
 <p><section class="buttons">
   <a href="/drivers/<%= driver.id %>" name="<%= driver.name%>"><%= driver.name%></a>
   <%= button_to "Edit", edit_driver_path(driver.id), method: :get %>
