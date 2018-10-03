@@ -1,0 +1,13 @@
+<%= render partial: "layouts/form",
+locals: {message: "Edit passenger:",
+         model: @passenger,
+         url: passenger_path,
+         method: :patch,
+         field_one_label: "Name",
+         field_one_text_field: :name,
+         field_one_placeholder: @passenger.name,
+         field_two_label: 'Phone Number',
+         field_two_text_field: :phone_num,
+         field_two_placeholder: @passenger.phone_num,
+         button_text: 'Save Changes'
+        } %>
