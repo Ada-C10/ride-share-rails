@@ -1,0 +1,20 @@
+<section id="title">
+  <h1>Driver Update</h1>
+  <sub>Changing The Way You Travel</sub>
+</section>
+
+<nav class="nav">
+  <li><%= link_to "HOME", root_path %></li>
+  <li><%= link_to "DRIVER", drivers_path %></li>
+  <li><%= link_to "PASSENGER", passengers_path %></li>
+</nav>
+
+<%= form_with model: @trip, class: "trip-form" do |f|%>
+  <p>Please provide the following information to edit this trip</p>
+
+  <%= f.label :id %>
+  <%= f.text_field :id %>
+
+
+  <%= f.submit "Edit", class: "trip-button" %>
+<% end %>

@@ -3,7 +3,6 @@
   <sub>Changing The Way You Travel</sub>
 </section>
 
-<%# form_with url: "/books", method: :post, class: "book-form" do |f|%>
 <nav class="nav">
   <li><%= link_to "HOME", root_path %></li>
   <li><%= link_to "DRIVER", drivers_path %></li>
@@ -19,7 +18,6 @@
   <%= f.label :phone_num %>
   <%= f.text_field :phone_num %>
 
-  <%# f.hidden :creator, value: 'Divya' %>
 
   <%= f.submit "Submit Edit", class: "passenger-button" %>
 <% end %>

@@ -9,7 +9,7 @@
   <li><%= link_to "PASSENGER", passengers_path %></li>
 </nav>
 
-<h1>Trips#index</h1>
+<h1>Trips</h1>
 <p>Find me in app/views/trips/index.html.erb</p>
 
 <h4>Trip History:</h4>
@@ -22,16 +22,18 @@
     <th>Rating</th>
     <th>Cost</th>
     <th>Update</th>
+    <th>Delete</th>
   </tr>
   <% @trips.all.each do |trip| %>
   <tr>
-    <td><%=trip.id%></td>
-    <td><%=trip.passenger_id %></td>
-    <td><%=trip.driver_id%></td>
+    <td><%=link_to trip.id,trip_path(trip.id)%></td>
+    <td><%=link_to trip.passenger_id %></td>
+    <td><%=link_to trip.driver_id%></td>
     <td><%=trip.date%></td>
     <td><%=trip.rating%></td>
     <td><%=trip.cost%></td>
     <td><%=link_to "edit", edit_trip_path(trip.id)%></td>
+    <td><%=link_to "delete", trips_path(trip.id), method: :delete, data: {confirm: "Please confirm you would like to delete this"}%></td>
     <% end  %>
   </tr>
 </table>

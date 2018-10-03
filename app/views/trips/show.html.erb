@@ -1,0 +1,24 @@
+<section id="title">
+  <h1>Ride Share</h1>
+  <sub>Changing The Way People Travel</sub>
+</section>
+
+<nav class="nav">
+  <li><%= link_to "HOME", root_path %></li>
+  <li><%= link_to "DRIVER", drivers_path %></li>
+  <li><%= link_to "PASSENGER", passengers_path %></li>
+</nav>
+
+<ul>
+  <li><strong>Trip ID:</strong> <%= @trip.id %></li>
+  <li><strong>Driver's ID:</strong> <%= @trip.driver.id%></li>
+  <li><strong>Driver's Name:</strong> <%= @trip.driver.name%></li>
+  <li><strong>Passenger's Name:</strong> <%= @trip.passenger.name%></li>
+  <li><strong>Rating:</strong> <%= @trip.date %></li>
+  <li><strong>Rating:</strong> <%= @trip.rating %></li>
+  <li><strong>Cost:</strong> <%= @trip.cost %></li>
+
+
+  <sub><%= link_to "Edit", edit_trip_path(@trip.id) %></sub>
+  <sub><%= link_to "Delete", trips_path(@trip.id), method: :delete, data: {confirm: "Please confirm you would like to delete." } %></sub>
+</ul>
