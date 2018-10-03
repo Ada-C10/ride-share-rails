@@ -10,6 +10,10 @@ class DriversController < ApplicationController
     end
   end
 
+  def new
+    @driver = Driver.new
+  end
+
   def create
     filtered_driver_params = driver_params()
     @driver = Driver.new(filtered_driver_params)
