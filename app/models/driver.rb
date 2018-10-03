@@ -10,9 +10,17 @@ class Driver < ApplicationRecord
   end
 
   def average_rating
+
+    total_length = self.trips.length
+
     total = self.trips.reduce(0) do |sum, trip|
-      sum + trip.rating
+      if trip.rating == nil
+        total_length -=1
+      else
+        sum + trip.rating
+      end
     end
-    return (total / self.trips.length)
+
+    return (total / total_length)
   end
 end
