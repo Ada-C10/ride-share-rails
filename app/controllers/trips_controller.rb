@@ -1,15 +1,6 @@
 class TripsController < ApplicationController
   before_action :set_trip, only: [:show, :edit, :update, :destroy]
 
-  # def autocreate
-  #   driver_num = rand(Driver.count)
-  #   driver = Driver.offset(driver_num).first
-  #   trip_hash = {driver_id: driver.id, passenger_id: params[:id].to_i, date: DateTime.now, cost: rand(200..5000)}
-  #   @trip = Trip.new(trip_hash)
-  #   @trip.save
-  #   redirect_to trip_path(@trip.id)
-  # end
-
   def create
     driver_num = rand(Driver.count)
     driver = Driver.offset(driver_num).first
@@ -26,7 +17,7 @@ class TripsController < ApplicationController
     if @trip.update(trip_params)
       render :show
     else
-      raise
+      render :edit
     end
   end
 

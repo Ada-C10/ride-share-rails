@@ -13,3 +13,9 @@
  *= require_tree .
  *= require_self
  */
+
+ nav li {
+   list-style-type: none;
+   display: inline-block;
+   padding-right: 5%
+ }
