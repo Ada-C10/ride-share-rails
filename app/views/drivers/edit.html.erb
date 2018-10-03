@@ -1,3 +1,20 @@
+<!-- Use same form partial as Goeun? -->
+
+<% if @driver.errors.messages.any? %>
+  <div class="form-errors">
+    <ul>
+      <%@driver.errors.messages.each do |column, message_list|%>
+        <%message_list.each do |message|%>
+          <li>
+          <strong><%=column%></strong>
+          <%=message%>
+          </li>
+        <%end%>
+      <%end%>
+    </ul>
+  </div>
+<%end%>
+
 <%= render partial: "form", locals: {directions: "Complete this form to edit driver information:", action_button: "Edit Driver Info"} %>
 
 <%=link_to "Return to main driver's list", drivers_path %>
