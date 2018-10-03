@@ -1,0 +1,15 @@
+<% if @trip.nil? %>
+  <h1> 404 Not found</h1>
+<% else %>
+
+  <h1>Trip: <%= @trip.id %></h1>
+
+  <p>Date: <%= @trip.date%></p>
+  <p>Cost: $<%= @trip.cost%></p>
+  <p>Rating: <%= @trip.rating%></p>
+
+  <%= link_to "Driver #{}", new_driver_path%>
+  <br>
+  <%= link_to "Passenger #{}", new_driver_path%>
+
+<% end %>

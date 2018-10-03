@@ -1,0 +1,11 @@
+<ol class="trip-list">
+  <h2>All Trips</h2>
+
+  <% @trips.each do |trip| %>
+    <li><%= link_to "Trip ID: #{trip.id}", trip_path(trip.id) %></li>
+
+
+  <%end%>
+
+
+</ol>
