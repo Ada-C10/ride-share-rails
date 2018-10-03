@@ -17,6 +17,14 @@ def new
 end
 
 def create
+  @passenger = Passenger.new(passenger_params
+  )
+
+    if @passenger.save
+      redirect_to passengers_path # go to the index so we can see the book in the list
+    else # save failed :(
+      render :new # show the new book form view again
+    end
 end
 
 def edit
@@ -29,5 +37,12 @@ def destroy
 end
 
 private
-# For params
+
+  def passenger_params
+    # only take in these params. Lesson attacks on site
+    return params.require(:passenger).permit(
+      :name,
+      :phone_num
+    )
+  end
 end
