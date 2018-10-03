@@ -1,1 +1,8 @@
 <h1>Driver Index</h1>
+
+<% @drivers.each do  |d| %>
+  <%= d.name  %>
+  <br>
+  <%= d.vin %>
+  <br />
+<% end   %>
