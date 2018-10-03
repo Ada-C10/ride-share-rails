@@ -35,7 +35,7 @@ class DriversController < ApplicationController
 
   def update
     @driver = Driver.find_by(id: params[:id].to_i)
-    if task.update(driver_params)
+    if @driver.update(driver_params)
       redirect_to driver_path(@driver.id) # unsure if need .to_i?
     end
   end

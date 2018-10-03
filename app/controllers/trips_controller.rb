@@ -1,6 +1,11 @@
 class TripsController < ApplicationController
-  def index
-    @trips = Trip.all.order(:name)
+  def index  # GET    /passengers/:passenger_id/trips passenger_trip_path
+    if params[:passenger_id]
+      passenger = Passenger.find_by(id: params[:passenger_id])
+      @trips = passenger.trips
+    else
+      @trips = Trip.all.order(:date, :desc)
+    end
   end
 
   def show
@@ -10,17 +15,23 @@ class TripsController < ApplicationController
     if @trip.nil?
       render :notfound, status: :not_found
     end
+    #   id = params[:id].to_i
+    #   @passenger = Passenger.find_by(id: id)
+    #
+    #   if @passenger.nil?
+    #     render :notfound, status: :not_found
+    #   end
   end
 
-  def create
-    driver_id = Driver.first_available.id
-    passenger_id = params[:data] # this might not work
-    new_trip_params = {date: Date.today, rating: nil, cost: nil,
-                       driver_id: driver_id, passenger_id: passenger_id}
-    @trip = Trip.new(new_trip_params)
-    @trip.save # make sure to validate this later?
-    redirect_to passenger_path(@trip.passenger.id) #probably works!
-  end
+  # def create
+  #   driver_id = Driver.first_available.id
+  #   passenger_id = params[:data] # this might not work
+  #   new_trip_params = {date: Date.today, rating: nil, cost: nil,
+  #                      driver_id: driver_id, passenger_id: passenger_id}
+  #   @trip = Trip.new(new_trip_params)
+  #   @trip.save # make sure to validate this later?
+  #   redirect_to passenger_path(@trip.passenger.id) #probably works!
+  # end
 
   def edit
     @trip = Trip.find(params[:id].to_i)

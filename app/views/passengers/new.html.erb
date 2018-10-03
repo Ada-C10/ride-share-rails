@@ -1,11 +1,13 @@
-<%= render partial: "layouts/new",
+<%= render partial: "layouts/form",
 locals: {message: "Create a new passenger:",
          model: @passenger,
          url: passengers_path,
          method: :post,
          field_one_label: "Name",
          field_one_text_field: :name,
+         field_one_placeholder: nil,
          field_two_label: "Phone number",
          field_two_text_field: :phone_num,
+         field_two_placeholder: nil,
          button_text: 'Create Passenger'
         } %>
