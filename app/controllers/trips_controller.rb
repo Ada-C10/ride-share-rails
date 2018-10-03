@@ -47,7 +47,7 @@ class TripsController < ApplicationController
     if params[:passenger_id]
       @passenger_id = params[:passenger_id].to_i
       driver = Driver.new_trip_driver
-      @trip = Trip.new(driver_id: driver, passenger_id: @passenger_id, date: DateTime.now)
+      @trip = Trip.new(driver_id: driver, passenger_id: @passenger_id, date: DateTime.now, cost: 0)
       if @trip.save
         redirect_to trips_path
       else
