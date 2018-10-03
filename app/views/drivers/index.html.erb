@@ -7,20 +7,29 @@
   <li><%= link_to "HOME", root_path %></li>
   <li><%= link_to "DRIVER", drivers_path %></li>
   <li><%= link_to "PASSENGER", passengers_path %></li>
+  <li><%= link_to "TRIPS", trips_path %></li>
 </nav>
 
 <%= button_to "Become a Driver", new_driver_path, method: :get %>
-</div>
 
-<ul>
+
+<table style="width:100%" class="table">
+  <tr>
+    <th>Driver ID</th>
+    <th>Name</th>
+    <th>Vin Number</th>
+    <th>Rating</th>
+    <th>Update</th>
+    <th>Delete</th>
+  </tr>
   <% @drivers.each do |driver| %>
-
-    <li class="driver">
-      <%= link_to driver.id, driver_path(driver.id) %>
-      <%= driver.name %>
-      <%= driver.vin %>
-      <%= link_to "edit", edit_driver_path(driver.id) %>
-      <%= link_to "delete", driver_path(driver.id), method: :delete, data: {confirm: "Please confirm you would like to be deleted as a driver"} %>
-    </li>
-  </ul>
-<% end %>
+  <tr>
+    <td><%= link_to driver.id, driver_path(driver.id) %></td>
+    <td><%= driver.name %></td>
+    <td><%= driver.vin %></td>
+    <td><%= "#{'%.2f' % driver.average_rating}"%></td>
+    <td><%= link_to "edit", edit_driver_path(driver.id) %></td>
+    <td><%= link_to "delete", driver_path(driver.id), method: :delete, data: {confirm: "Please confirm you would like to be deleted as a driver"} %></td>
+    <% end  %>
+  </tr>
+</table>

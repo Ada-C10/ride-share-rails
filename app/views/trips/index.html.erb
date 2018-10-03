@@ -7,6 +7,7 @@
   <li><%= link_to "HOME", root_path %></li>
   <li><%= link_to "DRIVER", drivers_path %></li>
   <li><%= link_to "PASSENGER", passengers_path %></li>
+  <li><%= link_to "TRIPS", trips_path %></li>
 </nav>
 
 <h1>Trips</h1>
@@ -33,7 +34,11 @@
     <td><%=trip.rating%></td>
     <td><%=trip.cost%></td>
     <td><%=link_to "edit", edit_trip_path(trip.id)%></td>
+<<<<<<< HEAD
     <td><%=link_to "delete", trips_path(trip.id), method: :delete, data: {confirm: "Please confirm you would like to delete this"}%></td>
+=======
+    <td><%=link_to "delete", trip_path(trip.id), method: :delete, data: {confirm: "Please confirm you would like to be deleted as a passenger"} %></td>
+>>>>>>> a55728107c0105963a8543fa6f2bb4eb389eac5a
     <% end  %>
   </tr>
 </table>

@@ -34,7 +34,7 @@ class PassengersController < ApplicationController
       if @passenger.save
         redirect_to passengers_path # go to the index so we can see the book in the list
       else
-        render :new
+        render :edit
       end
     end
 
