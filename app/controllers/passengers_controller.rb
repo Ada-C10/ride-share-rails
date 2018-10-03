@@ -1,12 +1,17 @@
 class PassengersController < ApplicationController
+
+  # QUESTION: add a check_valid_id method to dry up code??
+
   def index
     # @passenger = Passenger.all.order(:due_date)
       @passengers = Passenger.all
   end
 
   def show
-    # TODO: add 404 routing if not found; make a method?
-    @passenger = Passenger.find(params[:id].to_i)
+    if @passenger = Passenger.find_by(id: params[:id].to_i)
+    else
+      return head :not_found
+    end
   end
 
   def new
@@ -16,9 +21,9 @@ class PassengersController < ApplicationController
   def create
     @passenger = Passenger.new(passenger_params)
 
-    is_successful_save = @passenger.save
+    result = @passenger.save
 
-    if is_successful_save
+    if result
       redirect_to passengers_path
     else
       render :new
@@ -26,27 +31,25 @@ class PassengersController < ApplicationController
   end
 
   def edit
-    # TODO: add 404 routing if not found; make a method?
-
     @passenger = Passenger.find_by(id: params[:id])
-
     if !@passenger
-      return raise ActiveRecord::RecordNotFound, 'Record not found - cannot edit'
+      return head :not_found
     end
   end
 
   def update
-    # TODO: add 404 routing if not found; make a method?
-
     @passenger = Passenger.find(params[:id])
 
-    @passenger.update(passenger_params)
+    result = @passenger.update(passenger_params)
 
-    redirect_to passenger_path(@passenger)
+    if result
+      redirect_to passenger_path(@passenger)
+    else
+      render :edit
+    end
   end
 
   def destroy
-    # TODO: add 404 routing if not found; make a method?
 
     @passenger = Passenger.find_by(id: params[:id])
 
@@ -54,22 +57,11 @@ class PassengersController < ApplicationController
       @passenger.destroy
       redirect_to passengers_path
     else
-      return raise ActiveRecord::RecordNotFound, 'Record not found - cannot delete'
+      return head :not_found
     end
   end
-  #
-  # def complete
-  #   @task = Task.find(params[:id].to_i)
-  #
-  #   if @task.completed == false
-  #     @task.update(completed: true, completion_date: Date.today)
-  #   else
-  #     @task.update(completed: false, completion_date: nil)
-  #   end
-  #
-  #   redirect_to tasks_path
-  # end
-  #
+
+
   private
 
   def passenger_params
