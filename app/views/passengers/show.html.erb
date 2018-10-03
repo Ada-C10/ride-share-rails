@@ -11,24 +11,25 @@
 
 
 <section class="ride_request">
-<% link_to trip %>
+<%= link_to "Request a Trip", trips_path, method: :post %>
 </section>
 
-<section class= "edit_actions">
+
+
+<section class="edit_actions">
   <%= link_to "✏️", edit_passenger_path(@passenger.id), id: "change", class: "hover_name1"%>
   <%= link_to "🔥", @passenger, method: :delete, data: {confirm: "You sure about that? Select OK to remove task #{@passenger.name.upcase} ForEVVVeeeR!"}, id: "delete", class: "hover_name1" %>
 </section>
 
 
-<table id="show_table">
-<tr>
-<th>TRIP ID</th>
-<th>DRIVER ID</th>
-<th>DATE</th>
-<th>RATING</th>
-<th>COST</th>
-<th>EDIT/DELETE</th>
-</tr>
+<table class="show_table">
+  <tr>
+    <th>TRIP ID</th>
+    <th>DRIVER ID</th>
+    <th>DATE</th>
+    <th>RATING</th>
+    <th>COST</th>
+  </tr>
 <tbody>
  
   <% if @passenger.trips.empty? %>
@@ -38,7 +39,7 @@
   <% else %>
     <% @passenger.trips.each do |trip| %>
       <tr>
-        <td> <%= trip.id %></td>
+        <td> <%= link_to "#{trip.id}", trip_path(trip.id) %>%></td>
         <td> <%= trip.driver_id %></td>
         <td> <%= trip.date %></td>
         <td> <%= trip.rating %></td>

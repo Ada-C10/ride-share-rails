@@ -3,6 +3,10 @@ class Driver < ApplicationRecord
   validates :name, presence: true, uniqueness: true
   validates :vin, presence: true, uniqueness: true
 
+  # use scope to find active and drivers w/ available status
+  # scope :active, -> { where(active: true) }
+  # scope :active_and_status, -> { active.where(status: true) }
+
   def total_earnings
     total = 0
     self.trips.each do |trip|
@@ -18,5 +22,12 @@ class Driver < ApplicationRecord
       sum += trip.rating
     end
     return (sum / self.trips.count).round(2)
+  end
+
+   def self.new_trip_driver
+    avail_drivers = self.where(active: true, status: true)
+    driver = avail_drivers.first
+    binding.pry
+    return driver.id
   end
 end
