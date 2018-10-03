@@ -1,0 +1,24 @@
+<%= form_with model: @trips, class: 'trip_form' do |f| %>
+
+<div class="field">
+
+<%=f.label :Date%>
+<%=f.text_field :date%>
+
+<%=f.label :Driver%>
+<%=f.text_field :driver_id%>
+
+<%=f.label :passenger%>
+<%=f.text_field :passenger_id%>
+
+<%=f.label :Price%>
+<%=f.text_field :cost%>
+
+<%=f.label :Rating%>
+<%=f.text_field :rating%>
+
+</div>
+
+<%=f.submit button_name, class: "button"%>
+
+<% end %>

@@ -22,11 +22,11 @@
 
 
 <button>
-  <%= link_to "Request Trip", new_trip_path%>
+  <%= link_to "Request Trip", new_passenger_trip_path(@passenger)%>
 </button>
 
 <button>
-  <%= link_to "Edit Passenger Info", edit_passenger_path%>
+  <%= link_to "Edit Passenger Info", edit_passenger_path(passenger)%>
 </button>
 
 <h3>PASSENGER TRIPS</h3>
