@@ -12,7 +12,11 @@ class Driver < ApplicationRecord
   def average_rating
     sum_rating = self.trips.reduce(0) { |sum, trip| sum + trip.rating }
     num_trips = self.trips.length.to_f
-    return (sum_rating/num_trips).round(2)
+    if num_trips == 0
+      return "N/A"
+    else
+      return '%.2f' % "#{sum_rating/num_trips}" #.round(2)
+    end
   end
 
   def is_available?
