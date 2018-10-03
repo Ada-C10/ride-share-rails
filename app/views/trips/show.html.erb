@@ -1,6 +1,18 @@
 
 <h2>Trip Details</h2>
-  <p>
-    <%= @trip.id %> <%= @trip.date %> <%= @trip.cost%> <%= @trip.rating%>
-    <%= link_to "Go Back to All Trips", trips_path %>
-  </p>
+<p>
+  <%= @trip.id %> <%= @trip.date %> <%= @trip.cost%> <%= @trip.rating%>
+  <%= link_to "Go Back to All Trips", trips_path %>
+  Driver id: <%=@trip.driver_id%>
+  Passenger id: <%=@trip.passenger_id%>
+
+</p>
+
+<p>
+  <%= link_to "Go to this trip's driver", driver_path(id: @trip.driver_id) %>
+</p>
+<p>
+  <%= link_to "Go to this trip's passenger", passenger_path(id: @trip.passenger_id) %>
+
+
+</p>
