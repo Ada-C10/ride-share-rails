@@ -4,7 +4,16 @@ Rails.application.routes.draw do
   root 'homepages#index'
 
   resources :homepages
-  resources :trips
+
+  resources :drivers do
+    resources :trips
+  end
+
+  resources :passengers do
+    resources :trips
+  end
+
+
   resources :drivers
   resources :passengers
 end
