@@ -4,62 +4,7 @@
 
 <strong>Name: <%= @driver.name %></strong>
 <br>
-<strong>Rating:
-  <% num_of_rating = @trips.count %>
-  <% rating_array = @trips.map do |trip| %>
-    <% trip.rating %>
-  <% end %>
-  <% sum_of_rating = rating_array.sum %>
-  <% avg_rating = sum_of_rating / num_of_rating %>
-  <%= avg_rating %>
-</strong>
+<strong>Rating:</strong>
 <br>
 
 <h2>Driver Trips</h2>
-<table>
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Date</th>
-      <th>Driver</th>
-      <th>Passenger</th>
-      <th>Price</th>
-      <th>Rating</th>
-      <th>Delete</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        <% @trips.each do |trip| %>
-          <%= trip.id %><br>
-        <% end %>
-      </td>
-      <td>
-        <% @trips.each do |trip| %>
-          <%= trip.date.to_s %><br>
-        <% end %>
-      </td>
-      <td>
-        <% @trips.each do |trip| %>
-          <%= trip.driver_id %><br>
-        <% end %>
-      </td>
-      <td>
-        <% @trips.each do |trip| %>
-          <%= trip.passenger_id %><br>
-        <% end %>
-      </td>
-      <td>
-        <% @trips.each do |trip| %>
-          <%= trip.cost %><br>
-        <% end %>
-      </td>
-      <td>
-        <% @trips.each do |trip| %>
-          <%= trip.rating %><br>
-        <% end %>
-      </td>
-    </tr>
-  </tbody>
-</table>
