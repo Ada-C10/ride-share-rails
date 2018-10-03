@@ -1,0 +1,17 @@
+<div class="container">
+
+  <div class="div3">
+    <h3>your trips</h3>
+    <ol>
+      <% i = 0 %>
+      <% @trips.each do |trip| %>
+      <li>
+        <p>
+          <%= "#{trip}" %>
+        </p>
+      </li>
+      <% end %>
+    </ol>
+  </div>
+
+</div>

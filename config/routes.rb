@@ -8,15 +8,14 @@ Rails.application.routes.draw do
 
 
   get '/passengers/:id/edit', to: 'passengers#edit', as: 'edit_passenger'
-
   patch '/passengers/:id', to: 'passengers#update'
-
-  patch '/passengers/:id', to: 'drivers#update'
 
   delete '/passengers/:id', to: 'passengers#destroy'
 
 
   get '/passengers/:id', to: 'passengers#show', as: 'passenger'
+
+
 
   # Drivers routes
   get '/drivers', to: 'drivers#index', as: 'all_drivers'
@@ -30,4 +29,11 @@ Rails.application.routes.draw do
   delete '/drivers/:id', to: 'drivers#destroy'
 
   get '/drivers/:id', to: 'drivers#show', as: 'driver'
+
+
+
+  # Trips routes
+  get '/trips', to: 'trips#index', as: 'all_trips'
+
+  get '/trips/:id', to: 'trips#show', as: 'trip'
 end
