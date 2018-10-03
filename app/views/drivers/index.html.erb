@@ -8,15 +8,16 @@
     <th>DRIVER ID</th>
   </tr>
   <tbody>
-    <% active_drivers.each do |driver| %>
+    <%= render partial: "driver", collection: active_drivers %>
+    <!-- <% active_drivers.each do |driver| %>
       <tr>
         <td>
-          <%= link_to driver.name, driver_path(driver.id) %>
+          <%#= link_to driver.name, driver_path(driver.id) %>
         </td>
         <td>
-          <%= driver.id%>
+          <%#= driver.id%>
         </td>
       </tr>
-    <% end %>
+    <% end %> -->
   </tbody>
 </table>
