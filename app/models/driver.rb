@@ -12,8 +12,8 @@ class Driver < ApplicationRecord
       rating += self.trips[i].rating
     end
 
-    rating = rating/num_trips
-    return rating
+    rating = rating.to_f/num_trips
+    return rating.round(2)
   end
 
   def earned
