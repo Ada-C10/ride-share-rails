@@ -4,13 +4,14 @@
 <% if @trip.nil? %>
   <h1> 404 Not found</h1>
 <% else %>
-  <h1><%=@trip.id %></h1>
-  <p><%= @trip.date %></p>
-  <p><%= @trip.rating %></p>
-  <p><%= @trip.cost %></p>
-  <p><%= @trip.driver_id %></p>
-  <p><%= @trip.passenger_id %></p>
-
+  <div class="trip_container">
+    <h1><%=@trip.id %></h1>
+    <p><%= @trip.date %></p>
+    <p><%= @trip.rating %></p>
+    <p><%= @trip.cost %></p>
+    <p><%= @trip.driver_id %></p>
+    <p><%= @trip.passenger_id %></p>
+</div>
   <%= link_to "Edit", edit_trip_path(@trip.id) %>
   <!--TODO FIgure out how to delete trips without impacting driver trips.   -->
   <!--  Maybe set trip id to null then delete? -->
