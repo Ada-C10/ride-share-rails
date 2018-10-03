@@ -6,7 +6,10 @@ def index
 end
 
 def show
-
+  @passenger = Passenger.find_by(id: params[:id])
+  if @passenger.nil?
+    head :not_found
+  end
 end
 
 def new
