@@ -1,13 +1,22 @@
 <h1>Passenger details</h1>
 
 <ul>
-    <li>
-      <%= @passenger.id %>
-    </li>
-    <li>
-      <%= @passenger.name %>
-    </li>
-    <li>
-      <%= @passenger.phone_num %>
-    </li>
+  <li>
+    <%= @passenger.id %>
+  </li>
+  <li>
+    <%= @passenger.name %>
+  </li>
+  <li>
+    <%= @passenger.phone_num %>
+  </li>
+  <li>
+    <%= @passenger.net_expenditures %>
+  </li>
+
+  <li>
+    <% @trip.each do |t| %>
+      <%= t.cost %>
+    <% end %>
+  </li>
 </ul>
