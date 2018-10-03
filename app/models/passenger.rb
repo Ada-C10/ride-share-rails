@@ -1,3 +1,5 @@
+require 'date'
+
 class Passenger < ApplicationRecord
   has_many :trips
   has_many :drivers, through: :trips
@@ -12,9 +14,18 @@ class Passenger < ApplicationRecord
     end
     return total
   end
-  
+
   def all_passenger_trips
     trips
+  end
+
+  def assign_trip
+    trip = Trip.new
+    self.trips << trip
+    Driver.all.sample.trips << trip
+    trip.date = Date.today
+    trip.cost = Random.rand(0..9)
+    trip.save
   end
 
 end
