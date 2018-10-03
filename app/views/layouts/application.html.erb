@@ -10,22 +10,24 @@
   </head>
 
   <body>
-    <nav>
-      <ul>
-        <li>
-          <h3><%= link_to "Drivers", drivers_path %> </h3>
-        </li>
-        <li>
-          <h3><%= link_to "Passengers", passengers_path %> </h3>
-        </li>
-        <li>
-          <h3><%= link_to "New Driver", new_driver_path %> </h3>
-        </li>
-        <li>
-          <h3><%= link_to "New Passenger", new_passenger_path %> </h3>
-        </li>
-      </ul>
-    </nav>
+<nav>
+    <section class="dropdown">
+
+      <button class="dropbtn">Drivers</button>
+        <section class="dropdown-content">
+          <%= link_to "View Drivers", drivers_path %>
+          <%= link_to "New Driver", new_driver_path %>
+        </section>
+    </section>
+    <section class="dropdown">
+      <button class="dropbtn">Passengers</button>
+        <section class="dropdown-content">
+          <%= link_to "View Passengers", passengers_path %>
+          <%= link_to "New Passenger", new_passenger_path %>
+        </section>
+    </section>
+  </nav>
+
     <%= yield %>
   </body>
 </html>
