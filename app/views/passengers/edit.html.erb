@@ -1,8 +1,30 @@
+<div class="container" role="main">
+<div class="c1">
+  <h1><%=link_to "Rideshare", home_path%></h1>
+</div>
+<div class="c2">
+  <div class="dropdown">
+    <button class="dropbtn">Drivers</button>
+    <div class="dropdown-content">
+      <%=link_to "Add Driver", new_driver_path %>
+    </div>
+  </div>
+  <div class="dropdown">
+    <button class="dropbtn">Passengers</button>
+    <div class="dropdown-content">
+      <%=link_to "Add Passenger", new_passenger_path%>
+    </div>
+  </div>
+</div>
+ <div class="c3">
+   <%=link_to "Return", passengers_path%>
+ </div>
+ <div class="c4">
+   <%= render partial: "passenger_form", locals: {
+     action_type: "Save Edit",
+     form_title: "Edit #{@passenger.name}"
+   }
+   %>
+ </div>
+</div>
 <h2>Edit Passenger</h2>
-
-
-  <%= render partial: "passenger_form", locals: {
-    action_type: "Save Edit",
-    form_title: "Edit #{@passenger.name}"
-  }
-  %>

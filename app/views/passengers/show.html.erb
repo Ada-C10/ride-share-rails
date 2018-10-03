@@ -1,6 +1,28 @@
-
-<h2>Passenger Details</h2>
-  <p>
-    <%= @passenger.id %> <%= @passenger.name %> <%= @passenger.phone_num %>
-    <%= link_to "Go Back to All Passengers", passengers_path %>
-  </p>
+<div class="container" role="main">
+<div class="c1">
+  <h1><%=link_to "Rideshare", home_path%></h1>
+</div>
+<div class="c2">
+  <div class="dropdown">
+    <button class="dropbtn">Drivers</button>
+    <div class="dropdown-content">
+      <%=link_to "Add Driver", new_driver_path %>
+    </div>
+  </div>
+  <div class="dropdown">
+    <button class="dropbtn">Passengers</button>
+    <div class="dropdown-content">
+      <%=link_to "Add Passenger", new_passenger_path%>
+    </div>
+  </div>
+</div>
+ <div class="c3">
+   <%= link_to "Return", passengers_path %>
+ </div>
+ <div class="c4">
+   <h2>Passenger Details</h2>
+   <p>
+     <%= @passenger.id %> <%= @passenger.name %> <%= @passenger.phone_num %>
+   </p>
+ </div>
+</div>
