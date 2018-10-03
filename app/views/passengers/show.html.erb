@@ -1,0 +1,18 @@
+<h2> <%= @passenger.name %> Detail Page </h2>
+
+<ul>
+  <li> <%= @passenger.name %> </li>
+  <li> <%= @passenger.total_charges %> </li>
+</ul>
+
+<% @trips.each do |trip| %>
+
+<ul>
+  <strong>
+    <li> Date: <%= trip.date %> </li>
+    <li> Rating: <%= trip.rating %> </li>
+    <li> Cost: <%= trip.cost %> </li>
+  </strong>
+</ul>
+
+<% end %>

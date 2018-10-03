@@ -1,4 +1,10 @@
-<h3> <%= @type %> Detail Page </h3>
+<h2> <%= @driver.name %> Detail Page </h2>
+
+<ul>
+  <li> <%= @driver.name %> </li>
+  <li> <%= @driver.total_earnings %> </li>
+  <li> <%= @driver.avg_rating %> </li>
+</ul>
 
 <% @trips.each do |trip| %>
 
