@@ -10,7 +10,6 @@ class TripsController < ApplicationController
 
 
 
-
   private
 
   def trip_params

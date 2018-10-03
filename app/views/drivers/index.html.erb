@@ -1,0 +1,28 @@
+<h>Driver page</h>
+
+<%= link_to "(Home Page)", trips_path %>
+
+
+
+<ul>
+  <li>
+    <% @drivers.each do |driver| %>
+
+    <%= link_to "(#{driver.name})", driver_path(driver.id) %>
+
+
+    <strong>
+      <p>Rating:</p>
+
+      <!-- create average rating method in the model: calling it on each instance of the driver  -->
+      <%= driver.average_rating %>
+    </strong>
+
+
+    <%= link_to "Edit", edit_driver_path(driver.id) %>
+    <%= link_to "Delete", driver_path(driver), method: :delete, data: { confirm: "Are you 1000% sure you want to delete the book #{driver.name}?" } %>
+  </li>
+
+  <% end %>
+
+</ul>
