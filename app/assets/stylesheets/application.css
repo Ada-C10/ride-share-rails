@@ -27,8 +27,6 @@ font-family: 'Karla', sans-serif; */
   </div>
   <div class="c4">
   </div>
-  <div class="c5">
-  </div>
 </div>  */
 
 @import url('https://fonts.googleapis.com/css?family=Karla|Lora');
@@ -112,13 +110,8 @@ body {
   background-color: rgba(209, 216, 224,1.0);
 }
 
-.c5 {
-  color: #333;
-  background-color: rgba(209, 216, 224,1.0);
-}
-
 @media (min-width: 600px) {
-  .c2, .c3, .c4, .c5 {
+  .c2, .c3 {
     width: 50%;
   }
 }
@@ -134,15 +127,17 @@ body {
     border-radius: 0px 50px 0px 0px;
     margin-top: .5em;
   }
-  .c3, .c4, .c5 {
+  .c3, .c4 {
     width: 33.33%;
     height: 375px;
   }
+  .c4 {
+    width: 66.66%;
+    height: 375px;
+    border-radius: 0px 0px 50px 0px;
+  }
   .c3 {
     border-radius: 0px 0px 0px 50px;
-  }
-  .c5 {
-    border-radius: 0px 0px 50px 0px;
   }
 }
 
