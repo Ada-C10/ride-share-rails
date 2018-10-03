@@ -1,5 +1,4 @@
 <h1> <%= action_name %> </h1>
-<%# form_with url: "/books", method: :post, class: "book-form" do |f|%>
 
 <%= form_with model: @passenger, class: "passenger-add" do |f|%>
   <p>Please provide the following information to save passenger details to our database:</p>
@@ -9,8 +8,6 @@
 
   <%= f.label :phone_num %>
   <%= f.text_field :phone_num %>
-
-  <%# f.hidden :creator, value: 'Divya' %>
 
   <%= f.submit button_title, class: "passenger-button" %>
 <% end %>
