@@ -1,1 +1,22 @@
-<h2>PASSENGER DETAIL</h2>
+<h2>TRIP DETAILS</h2>
+
+
+<table class="trips_table">
+  <tr>
+    <th>ID</th>
+    <th>Date</th>
+    <th>Driver</th>
+    <th>Passenger</th>
+    <th>Price</th>
+    <th>Rating</th>
+  </tr>
+<tr>
+  <td><%= @trip.id %></td>
+  <td><%= @trip.date %></td>
+  <td><%= link_to @trip.driver.name%></td>
+  <td><%= link_to @trip.passenger.name %></td>
+  <td><%= (@trip.cost.to_f)/100.0 %></td>
+  <td><%= @trip.rating %></td>
+
+</tr>
+</table>
