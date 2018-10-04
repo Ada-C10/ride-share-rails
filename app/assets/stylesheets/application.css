@@ -40,6 +40,23 @@ nav ul li:first-child { float: left; }
    background-color: black;
  }
 
+ .pagination a {
+     margin: 4px;
+     padding: 6px;
+     border: 1px solid;
+ }
+
+ .pagination {
+   padding-bottom: 5%;
+    display: inline-block;
+ }
+
+ .pagination .current {
+     background-color: #ffa659;
+     color: white;
+     margin: 5px;
+     padding: 7px;
+ }
 
  .homebtn {
   border-radius: 4px;
