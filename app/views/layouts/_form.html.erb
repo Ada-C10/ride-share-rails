@@ -8,7 +8,7 @@
   <!-- auto focus -->
 
   <%= f.label field_two_text_field, field_two_label %>
-  <%= f.text_field field_two_text_field, placeholder: field_two_placeholder, required: true %>
+  <%= f.text_field field_two_text_field, placeholder: field_two_placeholder, required: true, maxlength: field_two_maxlength, pattern: field_two_pattern %>
 
   <%= f.submit button_text %>
 
