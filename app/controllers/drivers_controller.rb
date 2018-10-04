@@ -35,7 +35,7 @@ class DriversController < ApplicationController
   def update
     driver = Driver.find(params[:id])
     if driver.update(driver_params)
-      redirect_to trips_path(book.id)
+      redirect_to drivers_path(driver.id)
     else
       render :edit, status: :bad_request
     end
@@ -45,7 +45,7 @@ class DriversController < ApplicationController
     driver = Driver.find_by(id: params[:id])
 
     driver.destroy
-    redirect_to trips_path
+    redirect_to drivers_path
   end
 
 

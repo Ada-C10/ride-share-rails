@@ -37,7 +37,7 @@ class PassengersController < ApplicationController
   def update
     passenger = Passenger.find(params[:id])
     if passenger.update(passenger_params)
-      # redirect_to trips_path(passenger.id)
+      redirect_to passengers_path(passenger.id)
     else
       render :edit, status: :bad_request
     end
@@ -47,7 +47,7 @@ def destroy
   passenger = Passenger.find_by(id: params[:id])
 
   passenger.destroy
-  redirect_to trips_path
+  redirect_to passengers_path
 end
 
 

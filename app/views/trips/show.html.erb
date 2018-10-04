@@ -1,1 +1,18 @@
 <h>TEST for individual Trip detail</h>
+
+
+
+
+<p> <%= link_to "Trip Detail", trip_path %> </p>
+
+<ul>
+
+    <li> Trip id: <%= @trip.id %> </li>
+    <li> Trip date:  <%= @trip.date %></li>
+    <li> Trip rating: <%= @trip.rating %></li>
+    <li> Trip cost: $<%= @trip.cost/100.00 %></li>
+    <li> Trip Driver ID <%= @trip.driver_id %></li>
+    <li> Trip Passenger ID <%= @trip.passenger_id %></li><br>
+
+
+</ul>

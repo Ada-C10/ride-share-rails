@@ -5,9 +5,10 @@ class TripsController < ApplicationController
 
   def show
     @trip = Trip.find(params[:id])
+    if @trip.nil?
+      head :not_found
+    end
   end
-
-
 
 
   private

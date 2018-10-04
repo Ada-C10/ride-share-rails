@@ -1,5 +1,32 @@
 <h2>Passenger show page</h2>
 
 
+<p>Name:
 <%= @passenger.name %>
+</p>
+
+<p>Phone Number:
 <%= @passenger.phone_num %>
+</p>
+
+Passenger Cost: $<%= @passenger.trip_sum %><br>
+
+
+
+<% trips = @passenger.trips %>
+
+<p> <%= link_to "Trip Detail", trip_path %> </p>
+
+<ul>
+  <% trips.each do |trip| %>
+
+    <li> Trip id: <%= trip.id %> </li>
+    <li> Trip date:  <%= trip.date %></li>
+    <li> Trip rating: <%= trip.rating %></li>
+    <li> Trip cost: $<%= trip.cost/100.00 %></li>
+    <li> Trip Driver ID <%= trip.driver_id %></li>
+    <li> Trip Passenger ID <%= trip.passenger_id %></li><br>
+
+  <% end %>
+
+</ul>

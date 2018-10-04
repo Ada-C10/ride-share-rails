@@ -1,3 +1,10 @@
+<%= render partial: 'layouts/form_errors',
+locals: {
+  model: @driver
+}
+%>
+
+
 
 <%= form_with model: @driver, class: 'driver-form' do |f| %>
 
