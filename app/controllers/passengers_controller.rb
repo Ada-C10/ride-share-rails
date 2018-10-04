@@ -35,7 +35,7 @@ class PassengersController < ApplicationController
   def update
     passenger = Passenger.find(params[:id])
     passenger.update(passenger_params)
-    redirect_to passenger_path
+    redirect_to passengers_path
   end
 
   def destroy
