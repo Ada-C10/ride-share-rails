@@ -13,7 +13,7 @@
   <ul>
     <li><strong>Name:</strong> <%= @passenger.name %></li>
     <li><strong>Phone Number:</strong> <%= @passenger.phone_num %></li>
-    <li><strong>Total Spent:</strong> <%=@passenger.total_spent %></li>
+    <li><strong>Total Spent:</strong> <%="#{'%.2f' % (@passenger.total_spent)}"%></li>
     <% if @passenger.status == "active"%>
     <li><%= link_to "Inactivate Your Account", passenger_status_path(@passenger.id), method: :patch %></li>
     <% else @passenger.status == "inactive"%>
@@ -28,7 +28,7 @@
 
     <h4>Trip History:</h4>
     <table style="width:100%">
-      <tr>
+      <tr class="header_font">
         <th>Trip ID</th>
         <th>Passenger ID</th>
         <th>Driver Id</th>
@@ -47,7 +47,7 @@
       </td>
         <td><%=trip.date%></td>
         <td><%=trip.rating%></td>
-        <td><%="#{'%.2f' % (trip.cost * 0.01)}"%></td>
+        <td>$<%="#{'%.2f' % (trip.cost * 0.01)}"%></td>
         <% end  %>
       </tr>
     </table>

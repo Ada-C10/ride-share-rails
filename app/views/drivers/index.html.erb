@@ -14,7 +14,7 @@
 <div class="buttonContainer"><%= link_to "BECOME A DRIVER", new_driver_path, method: :get, class: "button" %></div>
 
 <table style="width:100%" class="table">
-  <tr>
+  <tr class="header_font">
     <th>Driver ID</th>
     <th>Name</th>
     <th>Vin Number</th>
@@ -27,7 +27,7 @@
     <td><%= link_to driver.id, driver_path(driver.id) %></td>
     <td><%= driver.name %></td>
     <td><%= driver.vin %></td>
-    <td><%= "#{'%.2f' % driver.average_rating}"%></td>
+    <td><%="#{'%.2f' % driver.average_rating}"%></td>
     <td><%= link_to "edit", edit_driver_path(driver.id) %></td>
     <td><%= link_to "delete", driver_path(driver.id), method: :delete, data: {confirm: "Please confirm you would like to be deleted as a driver"} %></td>
   </li>

@@ -1,6 +1,6 @@
 <section id="title">
   <h1>Driver <%="#{@driver.id}"%></h1>
-  <sub>Changing The Way You Travel</sub>
+  <sub>Changing The Way People Travel</sub>
 </section>
 
 <nav class="nav">
@@ -27,7 +27,7 @@
 
 <h4>Trip History:</h4>
 <table style="width:100%">
-  <tr>
+  <tr class="header_font">
     <th>Trip ID</th>
     <th>Passenger ID</th>
     <th>Driver Id</th>
@@ -45,7 +45,7 @@
     <td><%=trip.driver_id%></td>
     <td><%=trip.date%></td>
     <td><%="#{'%.2f' % trip.rating}"%></td>
-    <td><%="#{'%.2f' % (trip.cost * 0.01)}"%></td>
+    <td>$<%="#{'%.2f' % (trip.cost * 0.01)}"%></td>
     <% end  %>
   </tr>
 </table>
