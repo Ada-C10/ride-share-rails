@@ -22,6 +22,7 @@
 }
 
 .welcome-header {
+  height: 80px;
   grid-area: h;
   font-family: 'K2D';
   background-color: black;
@@ -40,18 +41,24 @@
   text-align: center;
 }
 
-.welcome-header img {
+.smurf {
   width: 50px;
   height: 50px;
 }
 
-.home-button img {
-  justify-content: flex-end;
-  width: 10px;
-  height: 30px;
+.home-button {
+  margin-left: auto;
+}
+
+.home-button img{
+  width: 35px;
+  height: 35px;
+  padding-right: 50px;
+  padding-top: 20px;
 }
 
 .main-part {
+  height: 500px;
   display: flex;
   align-items: center;
   justify-content: center;
