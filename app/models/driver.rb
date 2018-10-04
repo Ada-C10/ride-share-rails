@@ -12,7 +12,8 @@ class Driver < ApplicationRecord
       if self.trips.length < 1
         return average_rating = 0
       end
-      sum_ratings = self.trips.reduce(0.0){|memo, trip| memo + trip.rating}
+      completed_trips = self.trips.reject { |trip| trip.status == "In Progress"}
+      sum_ratings = completed_trips.reduce(0.0){|memo, trip| memo + trip.rating}
       average_rating = (sum_ratings/self.trips.length).to_f.round(2)
       return average_rating
     end

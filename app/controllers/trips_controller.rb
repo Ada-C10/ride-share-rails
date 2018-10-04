@@ -22,9 +22,9 @@ class TripsController < ApplicationController
 
   def create
     passenger = Passenger.find_by(id: params[:passenger_id].to_i)
-    @trip = passenger.trips.new(date: Date.today, driver_id: Driver.find_driver.id, cost: 0)
+    @trip = passenger.trips.new(date: Date.today, driver_id: Driver.find_driver.id, cost: 0, status: "In Progress")
     if @trip.save
-      redirect_to passenger_trip_inprogress_path(passenger.id)
+      redirect_to passenger_trip_inprogress_path(@trip.passenger.id, @trip.id)
     else
       redirect_to :bad_request
     end

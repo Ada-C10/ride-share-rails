@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root 'trips#home'
 
   resources :passengers do
-  get '/trips/in_progress', to: 'trips#in_progress', as: 'trip_inprogress'
+  get '/trips/:id/in_progress', to: 'trips#in_progress', as: 'trip_inprogress'
     resources :trips, only:  [:create, :show]
 
   end

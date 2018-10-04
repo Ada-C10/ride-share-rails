@@ -1,7 +1,8 @@
 <h1> Trip In Progress</h1>
-<p> Requesting trip for <strong> <%= @trip.passenger.name%></strong></p>
+<p> Requesting trip for <strong> <%= Passenger.find_by(id: params[:passenger_id].to_i).name%></strong></p>
 <ul>
-  <li> Your driver is: <% @trip.driver.name%></li>
-  <li> Driver's Average Rating: <%@trip.driver.average_rating%></li>
+  <%@trip = Trip.find_by(id:params[:id])%>
+  <li> Your driver is: <%= @trip.driver.name%></li>
+  <li> Driver's Average Rating: <%=@trip.driver.average_rating%></li>
   <li> Trip Cost: $5</li>
 </ul>
