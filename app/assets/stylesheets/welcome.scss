@@ -9,7 +9,7 @@
   grid-template-rows: repeat(10, 1fr);
   grid-template-areas:
   "h h h h h h"
-  "h h h h h h"
+  "k k k k k k"
   "d d d p p p"
   "d d d p p p"
   "d d d p p p"
@@ -23,10 +23,32 @@
 
 .welcome-header {
   grid-area: h;
+  font-family: 'K2D';
   background-color: black;
   color: white;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  // text-align: center;
   border-bottom: 10px solid white;
+}
+.welcome-header h1, h2 {
+  text-align: center;
+}
+
+.tagline {
+  grid-area: k;
+  text-align: center;
+}
+
+.welcome-header img {
+  width: 50px;
+  height: 50px;
+}
+
+.home-button img {
+  justify-content: flex-end;
+  width: 10px;
+  height: 30px;
 }
 
 .main-part {
@@ -61,7 +83,7 @@ footer {
   border-top: 10px solid white;
 }
 
-.home-button {
+.welcome-button {
    border-top: 1px solid #96d1f8;
    border-radius: 9px;
    -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
