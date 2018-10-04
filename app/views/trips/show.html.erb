@@ -1,0 +1,10 @@
+<% if @trip.nil? %>
+  <h1> 404 Not found</h1>
+<% else %>
+  <h3>Trip id: <%=@trip.id %></h3>
+  <p>Date: <%= @trip.date %> </p>
+  <p>Passenger id: <%= @trip.passenger_id %> </p>
+  <p>Driver id: <%= @trip.driver_id %> </p>
+  <p>Cost: <%= @trip.cost %> </p>
+  <p>Rating: <%= @trip.rating %> </p>
+<% end %>
