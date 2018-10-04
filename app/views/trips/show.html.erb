@@ -1,0 +1,47 @@
+<h2>TripsController show.html.erb</h2>
+<br>
+<strong>Trip Details</strong>
+<br>
+<table>
+  <thead>
+   <tr>
+     <th>ID</th>
+     <th>Date</th>
+     <th>Driver</th>
+     <th>Passenger</th>
+     <th>Price</th>
+     <th>Rating</th>
+     <th>Edit</th>
+     <th>Delete</th>
+   </tr>
+ </thead>
+ <tbody>
+    <tr>
+      <td>
+        <%= @trip.id %><br>
+      </td>
+      <td>
+        <%= @trip.date.to_s %><br>
+      </td>
+      <td>
+        <%= link_to @trip.driver_id, driver_trips_path(@trip.driver_id) %><br>
+      </td>
+      <td>
+        <%= @trip.passenger_id %><br>
+      </td>
+      <td>
+        <%= ((@trip.cost) / 100) + ((@trip.cost) % 100) / 100.00 %><br>
+      </td>
+      <td>
+        <%= @trip.rating %><br>
+      </td>
+      <td>
+        <p>Edit Links here</p>
+      </td>
+      <td>
+        <p>Delete links here</p>
+      </td>
+    </tr>
+
+ </tbody>
+</table>
