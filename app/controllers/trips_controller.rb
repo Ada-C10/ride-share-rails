@@ -28,7 +28,7 @@ class TripsController < ApplicationController
     result = @trip.update(trip_params)
 
     if result
-      redirect_to driver_trips_path(@driver.id)
+      redirect_to trip_path(@trip.id)
     else
       render :edit
     end
