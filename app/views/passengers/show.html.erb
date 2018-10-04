@@ -1,3 +1,4 @@
+
 <% if @passenger.nil? %>
   <h1> 404 Not found</h1>
 <% else %>
@@ -9,8 +10,9 @@
   <!-- <p><%#= link_to "List of trips", passenger_trips_path(@passenger.id) %></p> -->
 
   <p><%= link_to "Edit", edit_passenger_path(@passenger.id) %><p>
-  <p><%= link_to "Delete", passenger_path(@passenger.id), method: :delete %></p>
-  <p><%= link_to "Add trip" %></p>
+  <p><%= link_to "Delete", passenger_path(@passenger.id), method: :delete, data: {confirm: "Are you sure?"}  %></p>
+
+  <p><%= link_to "Add trip", new_passenger_trip_path(@passenger.id) %></p>
 
   <% @passenger.trips.each do |trip| %>
 

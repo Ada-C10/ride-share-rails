@@ -11,6 +11,20 @@ class TripsController < ApplicationController
     @trip = Trip.find_by(id: params[:id].to_i)
   end
 
+  def new
+    @trip = Trip.new
+  end
+
+  def create
+    @trip = Trip.new(passenger_params)
+    if @trip.save
+      redirect_to passengers_path
+    else
+      puts "#{@trips.errors}"
+      render :new
+    end
+  end  
+
   def update
     @trip = Trip.find_by(id: params[:id].to_i)
     if @trip.update(trip_params)
