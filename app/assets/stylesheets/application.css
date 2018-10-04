@@ -14,8 +14,30 @@
  *= require_self
  */
 
+ a {
+   text-decoration: none;
+ }
+
+
+ header nav {
+   display: flex;
+   background-color: #CCC;
+   margin: 0;
+   padding: 5px;;
+ }
+
+header nav ul {
+  padding: 0;
+  margin: 0;
+}
+
+ #main_container li {
+  float: left;
+  padding: 1rem;
+ }
+
  .errors {
-   color: red; 
+   color: red;
  }
 
 .trip_container {
