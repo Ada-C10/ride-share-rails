@@ -13,18 +13,20 @@
   <ul>
     <li><strong>Name:</strong> <%= @passenger.name %></li>
     <li><strong>Phone Number:</strong> <%= @passenger.phone_num %></li>
-    <li><strong>Total Spent:</strong> <%="#{'%.2f' % (@passenger.total_spent)}"%></li>
-    <% if @passenger.status == "active"%>
-    <li><%= link_to "Inactivate Your Account", passenger_status_path(@passenger.id), method: :patch %></li>
-    <% else @passenger.status == "inactive"%>
-    <li><%= link_to "Actitvate Your Account", passenger_status_path(@passenger.id), method: :patch %></li>
-    <%end%>
-
+    <li><strong>Total Spent:</strong> $<%="#{'%.2f' % (@passenger.total_spent)}"%></li>
     <sub><%= link_to "Edit", edit_passenger_path(@passenger.id) %></sub>
     <sub><%= link_to "Delete", passenger_path(@passenger.id), method: :delete, data: {confirm: "Please confirm you would like to delete." } %></sub>
   </ul>
 
+  <div class="inline">
+  <% if @passenger.status == "active"%>
+  <div class="buttonContainer"><%= link_to "Inactivate Your Account", passenger_status_path(@passenger.id), method: :patch, class: "button" %></div>
+  <% else @passenger.status == "inactive"%>
+  <div class="buttonContainer"><%= link_to "Ride With Us Again", passenger_status_path(@passenger.id), method: :patch, class: "button" %></div>
+  <% end %>
+
   <div class="buttonContainer"><%= link_to "Request A Ride", passenger_trips_path(@passenger.id), method: :post, class: "button" %></div>
+  </div>
 
     <h4>Trip History:</h4>
     <table style="width:100%">

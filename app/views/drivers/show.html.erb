@@ -15,15 +15,15 @@
   <li><strong>Vin Number:</strong> <%= @driver.vin %></li>
   <li><strong>Total Revenue:</strong> <%= @driver.total_revenue %></li>
   <li><strong>Average Rating:</strong> <%= "#{'%.2f' % @driver.average_rating}"%></li>
-  <% if @driver.status == "active"%>
-  <li><%= link_to "Inactivate Your Account", driver_status_path(@driver.id), method: :patch %></li>
-  <% else @driver.status == "inactive"%>
-  <li><%= link_to "Actitvate Your Account", driver_status_path(@driver.id), method: :patch %></li>
-  <%end%>
-
   <sub><%= link_to "Edit", edit_driver_path(@driver.id) %></sub>
   <sub><%= link_to "Delete", driver_path(@driver.id), method: :delete, data: {confirm: "Please confirm you would like to delete." } %></sub>
 </ul>
+
+<% if @driver.status == "active"%>
+<div class="buttonContainer"><%= link_to "Unavilable to Drive", driver_status_path(@driver.id), method: :patch, class: "button"  %></div>
+<% else @driver.status == "inactive"%>
+<div class="buttonContainer"><%= link_to "Available to Drive", driver_status_path(@driver.id), method: :patch,class: "button"  %></div>
+<%end%>
 
 <h4>Trip History:</h4>
 <table style="width:100%">
@@ -40,7 +40,7 @@
     <td><%=link_to trip.id, trip_path(trip.id)%></td>
     <td><%=trip.passenger_id %>
     <% if trip.passenger.status == "inactive"%>
-    (Inactive)
+    (Account Inactive)
     <% end %></td>
     <td><%=trip.driver_id%></td>
     <td><%=trip.date%></td>

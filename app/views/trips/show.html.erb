@@ -20,6 +20,8 @@
     <th>Date</th>
     <th>Rating</th>
     <th>Cost</th>
+    <th>Edit</th>
+    <th>Delete</th>
   </tr>
 
   <tr>
@@ -30,8 +32,7 @@
     <td><%=@trip.date%></td>
     <td><%=@trip.rating%></td>
     <td>$<%="#{'%.2f' % (@trip.cost * 0.01)}"%></td>
+    <td><%= link_to "Update", edit_trip_path(@trip.id) %></td>
+    <td><%= link_to "Delete", trip_path(@trip.id), method: :delete, data: {confirm: "Please confirm you would like to delete this"}%></td>
   </tr>
 </table>
-
-  <sub><%= link_to "Edit", edit_trip_path(@trip.id) %></sub>
-  <sub><%= link_to "Delete", trip_path(@trip.id), method: :delete, data: {confirm: "Please confirm you would like to delete this"}%></sub>

@@ -1,7 +1,26 @@
 // Place all the styles related to the Passengers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+ul > li {
+  list-style: none;
+}
 
+sub > a {
+  text-decoration: none;
+  color: black;
+  border: 1px solid lightgrey;
+  border-radius: 10%;
+  padding-left: 3px;
+  padding-right: 3px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
+
+sub > a:hover {
+  color: white;
+  background: linear-gradient(#11998e,#38ef7d);
+  border: none;
+}
 
 .table {
   padding-top: 30px;
@@ -24,6 +43,10 @@ td > a {
 
 td > a:hover {
   color: hotpink;
+}
+
+.inline > .buttonContainer {
+  display: inline-block;
 }
 
 .buttonContainer{

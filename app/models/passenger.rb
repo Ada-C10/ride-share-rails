@@ -1,8 +1,8 @@
 require 'date'
 
 class Passenger < ApplicationRecord
-  has_many :trips
   has_many :drivers, through: :trips
+  has_many :trips, dependent: :nullify
 
   enum status: %i[inactive active]
 
