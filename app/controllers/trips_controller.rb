@@ -17,6 +17,7 @@ class TripsController < ApplicationController
     if @trip.update(trip_params)
       render :show
     else
+      raise
       render :edit
     end
   end
