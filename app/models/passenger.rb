@@ -19,10 +19,9 @@ class Passenger < ApplicationRecord
   end
 
   def verify_trip
-
     self.trips.each do |trip|
       if trip.in_progress == true
-       
+
         return false
       end
     end
