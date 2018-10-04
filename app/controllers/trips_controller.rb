@@ -18,7 +18,8 @@ class TripsController < ApplicationController
 
     if params[:passenger_id]
       passenger = Passenger.find_by(id: params[:passenger_id])
-
+      @trip = Trip.new
+      #
       @trip = passenger.trips.new(date: Date.today, driver: @trip.assign_driver)
 
       if @trip.save
