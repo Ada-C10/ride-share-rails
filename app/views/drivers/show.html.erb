@@ -2,6 +2,7 @@
   <h1><%= "404: NOT FOUND" %></h1>
 <% else %>
 <h1> <%= @driver.name %></h1>
+<section class="status">Status: <%=@driver.status%> </section>
 <ul>
   <li>VIN: <%= @driver[:vin] %></li>
   <li> Total Earned: $<%= @driver.total_earned%></li>

@@ -1,6 +1,7 @@
 <h1>List of Drivers</h1>
 <% @drivers.each do |driver| %>
   <h3><a href="<%= driver_path(driver.id) %>"><%= driver.name%></a></h3></li>
+  <section class="status">Status: <%=driver.status%> </section>
         <ul>
           <li><a href="<%=edit_driver_path(driver.id)%>">Edit</a></li>
           <li><%= link_to "Delete", driver_path(driver.id), data: {confirm: "Are you sure you want to delete driver: #{driver.name}"}, method: :delete %>
