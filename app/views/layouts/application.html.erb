@@ -10,6 +10,12 @@
 </head>
 
 <body>
+  <% flash.each do |name, msg| %>
+  <ul>
+    <li> <%= msg %> </li>
+  </ul>
+  <% end %>
+
   <header>
     <h1>Rideshare</h1>
     <nav>
