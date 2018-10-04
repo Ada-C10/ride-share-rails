@@ -26,9 +26,9 @@
  <div class="c4">
    <h2>Trip Details</h2>
    <p>
-     <%= @trip.id %> <%= @trip.date %> <%= @trip.cost%> <%= @trip.rating%>
-     Driver id: <%= link_to "#{@trip.driver_id}", driver_path(id: @trip.driver_id) %>
-     Passenger id: <%= link_to "#{@trip.passenger_id}", driver_path(id: @trip.passenger_id) %>
+     Id: <%= @trip.id %> | Date: <%= @trip.date %> <%= @trip.cost%> | Rating: <%= @trip.rating%>
+     | Driver id: <%= link_to "#{@trip.driver_id}", driver_path(id: @trip.driver_id) %>
+     | Passenger id: <%= link_to "#{@trip.passenger_id}", driver_path(id: @trip.passenger_id) %>
    </p>
  </div>
 </div>
