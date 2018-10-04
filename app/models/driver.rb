@@ -27,12 +27,12 @@ class Driver < ApplicationRecord
     return total_earnings
   end
 
-  def available_driver
-
-    trip_with_rating = self.trips.where.not(rating: nil)
-
-    first_available = trip_with_rating.first
-    return first_available.driver_id
-  end
+  # def self.available_driver
+  #
+  #   trip_with_rating = self.trips.where.not(rating: nil)
+  #
+  #   first_available = trip_with_rating.first
+  #   return first_available.driver_id
+  # end
 
 end
