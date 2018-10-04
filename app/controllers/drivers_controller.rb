@@ -4,7 +4,7 @@ class DriversController < ApplicationController
       trip = Trip.find_by(id: params[:trip_id])
       @drivers = trip.drivers
     else
-      @drivers = Driver.all
+      @drivers = Driver.all.order(:name)
     end
   end
 
@@ -32,7 +32,7 @@ class DriversController < ApplicationController
       @driver = trip.drivers.new
     else
       @driver = Driver.find_by(id: params[:id].to_i)
-    end 
+    end
   end
 
   def update
