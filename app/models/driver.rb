@@ -22,5 +22,8 @@ class Driver < ApplicationRecord
     return (sum.to_f / self.trips.length).round(1)
   end
 
-
+  def is_available?
+    return false if self.trips.any? {|trip| trip.rating == nil}
+    return true
+  end
 end
