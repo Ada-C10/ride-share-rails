@@ -38,10 +38,14 @@
   <% @driver.all_driver_trips.each do |trip| %>
   <tr>
     <td><%=link_to trip.id, trip_path(trip.id)%></td>
-    <td><%=trip.passenger_id %>
-    <% if trip.passenger.status == "inactive"%>
-    (Account Inactive)
-    <% end %></td>
+    <% if trip.passenger_id == nil %>
+    <td>Account Deleted</td>
+    <% elsif trip.passenger.status == "inactive"%>
+    (Inactive Account)
+    <% else %>
+    <td><%=link_to trip.passenger_id, passenger_path(trip.passenger.id)%></td>
+    <% end %>
+    </td>
     <td><%=trip.driver_id%></td>
     <td><%=trip.date%></td>
     <td><%="#{'%.2f' % trip.rating}"%></td>

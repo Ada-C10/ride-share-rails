@@ -25,7 +25,14 @@
   <% @trips.each do |trip| %>
   <tr>
     <td><%=link_to trip.id,trip_path(trip.id)%></td>
+    <% if trip.passenger_id == nil %>
+    <td>Account Deleted</td>
+    <% elsif trip.passenger.status == "inactive"%>
+    (Inactive Account)
+    <% else %>
     <td><%=link_to trip.passenger_id, passenger_path(trip.passenger.id)%></td>
+    <% end %>
+    </td>
     <td><%=link_to trip.driver_id, driver_path(trip.driver.id)%></td>
     <td><%=trip.date%></td>
     <td><%=trip.rating%></td>
