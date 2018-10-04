@@ -2,9 +2,15 @@ class Passenger < ApplicationRecord
   has_many :trips
 
   def all_trips
-    @all_trips = []
-    @all_trips << Trip.where(passenger_id: id)
-    return @all_trips
+    temp_trips = []
+    all_trips = []
+    temp_trips << Trip.where(passenger_id: id)
+    temp_trips.each do |trips|
+      trips.each do |trip|
+        all_trips << trip
+      end
+    end
+    return all_trips
   end
 
   def total_spent
@@ -12,11 +18,8 @@ class Passenger < ApplicationRecord
     charges_array = []
 
     rides.each do |ride|
-      ride.each do |individual|
-
-        if individual.cost != nil
-          charges_array << individual.cost
-        end
+      if ride.cost != nil
+        charges_array << ride.cost
       end
     end
     return charges_array.sum
