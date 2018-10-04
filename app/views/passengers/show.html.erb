@@ -19,7 +19,7 @@
     <sub><%= link_to "Delete", passenger_path(@passenger.id), method: :delete, data: {confirm: "Please confirm you would like to delete." } %></sub>
   </ul>
 
-  <div><%= button_to "Request A Ride", passenger_trips_path(@passenger.id), method: :post %></div>
+  <div class="buttonContainer"><%= link_to "Request A Ride", passenger_trips_path(@passenger.id), method: :post, class: "button" %></div>
 
     <h4>Trip History:</h4>
     <table style="width:100%">

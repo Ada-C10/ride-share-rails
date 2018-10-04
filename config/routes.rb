@@ -1,31 +1,38 @@
 Rails.application.routes.draw do
 
   root 'trips#homepage'
+  resources :trips
 
-  get '/drivers', to: 'drivers#index'
-  get '/drivers/new', to: 'drivers#new', as: 'new_driver'
-  post '/drivers', to: 'drivers#create'
-
-  get '/drivers/:id', to: 'drivers#show', as: 'driver'
-  get '/drivers/:id/edit', to: 'drivers#edit', as: 'edit_driver'
-  patch '/drivers/:id', to: 'drivers#update'
-
-  delete '/drivers/:id', to: 'drivers#destroy'
+  resources :drivers
+  patch '/drivers/:id/status', to: 'drivers#status', as: 'driver_status'
+  # delete '/drivers/:id', to: 'drivers#destroy'
 
   resources :passengers do
     resources :trips, only: [:create]
   end
 
-  get '/trips', to: 'trips#index', as: 'trips'
+  patch '/passengers/:id/status', to: 'passengers#status', as: 'passenger_status'
 
-  get '/trips/new', to: 'trips#new', as: 'new_trip'
-  post '/trips', to: 'trips#create'
 
-  get '/trips/:id', to: 'trips#show', as: 'trip'
-  get '/trips/:id/edit', to: 'trips#edit', as: 'edit_trip'
-  patch '/trips/:id', to: 'trips#update'
 
-  delete '/trips/:id', to: 'trips#destroy'
+  # get '/drivers', to: 'drivers#index'
+  # get '/drivers/new', to: 'drivers#new', as: 'new_driver'
+  # post '/drivers', to: 'drivers#create'
+  #
+  # get '/drivers/:id', to: 'drivers#show', as: 'driver'
+  # get '/drivers/:id/edit', to: 'drivers#edit', as: 'edit_driver'
+  # patch '/drivers/:id', to: 'drivers#update'
+
+  # get '/trips', to: 'trips#index', as: 'trips'
+  #
+  # get '/trips/new', to: 'trips#new', as: 'new_trip'
+  # post '/trips', to: 'trips#create'
+  #
+  # get '/trips/:id', to: 'trips#show', as: 'trip'
+  # get '/trips/:id/edit', to: 'trips#edit', as: 'edit_trip'
+  # patch '/trips/:id', to: 'trips#update'
+  #
+  # delete '/trips/:id', to: 'trips#destroy'
 
 
 

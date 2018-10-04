@@ -10,8 +10,8 @@
   <li><%= link_to "TRIPS", trips_path %></li>
 </nav>
 
-<div><%= button_to "Become a Driver", new_driver_path, method: :get %></div>
 
+<div class="buttonContainer"><%= link_to "BECOME A DRIVER", new_driver_path, method: :get, class: "button" %></div>
 
 <table style="width:100%" class="table">
   <tr>
@@ -30,6 +30,7 @@
     <td><%= "#{'%.2f' % driver.average_rating}"%></td>
     <td><%= link_to "edit", edit_driver_path(driver.id) %></td>
     <td><%= link_to "delete", driver_path(driver.id), method: :delete, data: {confirm: "Please confirm you would like to be deleted as a driver"} %></td>
+  </li>
     <% end  %>
   </tr>
 </table>
