@@ -12,7 +12,7 @@
 
 <h4>Trip Details</h4>
 <table style="width:100%">
-  <tr>
+  <tr class="header_font">
     <th>Trip ID</th>
     <th>Driver's ID</th>
     <th>Driver's name</th>
@@ -29,7 +29,7 @@
     <td><%= link_to @trip.passenger.name, passenger_path(@trip.passenger.id)%></td>
     <td><%=@trip.date%></td>
     <td><%=@trip.rating%></td>
-    <td><%=@trip.cost%></td>
+    <td>$<%="#{'%.2f' % (@trip.cost * 0.01)}"%></td>
   </tr>
 </table>
 

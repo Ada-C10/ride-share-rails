@@ -56,3 +56,30 @@ a.button:hover{
 	background-color:rgba(28, 190, 131, 1);
 	background-position: -100% 100%;
 }
+
+.passenger-form {
+  margin-top: 3em;
+  margin-right: 3em;
+  margin-left: 3em;
+  padding-top: 1em;
+  padding-bottom: 2.5em;
+  text-align: center;
+  background: #67D4C4;
+}
+
+.passenger-button:hover {
+  background: blue;
+  border-radius: 15%;
+  color: white;
+  cursor: pointer;
+}
+
+.parah {
+  font-size: 1.25em;
+}
+
+.header_font {
+  text-transform: capitalize;
+  background: lightgrey;
+  position: sticky;
+}

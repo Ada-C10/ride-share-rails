@@ -56,17 +56,17 @@ class PassengersController < ApplicationController
       end
     end
 
-    # def status
-    #   id = params[:id].to_i
-    #   @task = Task.find_by(id: id)
-    #   if @task.due.class == String
-    #     @task.due = nil
-    #   else @task.due == nil
-    #     @task.due = "Completed on #{Date.today}"
-    #   end
-    #   @task.save
-    #   redirect_to root_path
-    # end
+    def status
+      id = params[:id].to_i
+      @passenger = Passenger.find_by(id: id)
+      if @passenger.status == "active"
+        @passenger.status = "inactive"
+      else @passenger.status == "inactive"
+        @passenger.status = "active"
+      end
+      @passenger.save
+      redirect_to passenger_path(@passenger.id)
+    end
 
     private
 
