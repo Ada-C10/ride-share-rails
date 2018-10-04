@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
+  resources :trips
+
   resources :passengers do
-    resources :trips, only: [:index, :new, :create]
+    resources :trips, only: [:index, :create, :new]
   end
 
   # get '/passengers', to: 'passengers#index', as: 'all_passengers'
@@ -22,8 +24,10 @@ Rails.application.routes.draw do
 
 
   # Drivers routes
+  resources :drivers do
+    resources :trips, include: [:new, :index, :show]
+  end
 
-  resources :drivers
   # get '/drivers', to: 'drivers#index', as: 'all_drivers'
   #
   # get '/drivers/new', to: 'drivers#new', as: 'new_driver'
@@ -40,7 +44,7 @@ Rails.application.routes.draw do
 
   # Trips routes
 
-  resources :trips
+
   #
   # get '/trips', to: 'trips#index', as: 'all_trips'
   #
