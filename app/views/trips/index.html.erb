@@ -13,17 +13,14 @@
   </tr>
   <% @trips.each do |trip| %>
     <tr>
-      <!-- Link to trip's path -->
-      <td><%= "#{trip.id}" %></td>
+      <td><%= link_to "#{trip.id}", trip_path(trip.id) %></td>
       <td><%= "#{trip.date}" %></td>
-      <!-- Link to driver's path -->
-      <td><%= "#{trip.driver_id}" %></td>
-      <!-- Link to passengers's path -->
-      <td><%= "#{trip.passenger_id}" %></td>
+      <td><%= link_to "#{trip.driver_id}", driver_path(trip.driver_id) %></td>
+      <td><%= link_to "#{trip.passenger_id}", passenger_path(trip.passenger_id) %></td>
       <td><%= "$#{trip.convert_money(trip.cost)}" %></td>
       <td><%= "#{trip.rating}" %></td>
     </tr>
   <% end %>
 </table>
 
- <!-- TODO  consider adding a landing page for trips eventhough instructions don't call for it -->
+ <!-- TODO  consider adding a landing home page for -->

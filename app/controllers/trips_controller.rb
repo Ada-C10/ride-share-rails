@@ -6,7 +6,7 @@ class TripsController < ApplicationController
       @trips = driver.trips
     elsif params[:passenger_id]
       passenger = Passenger.find_by(id: params[:passenger_id])
-      @trips = passenger.trips 
+      @trips = passenger.trips
     else
       @trips = Trip.all.order(:date)
     end

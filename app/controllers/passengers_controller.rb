@@ -1,5 +1,8 @@
 class PassengersController < ApplicationController
   def index
+    # if params[:trip_id]
+    trip = Trip.find_by(id: params[:trip_id])
+    # passenger_trips = trip.pasenger_trips
     @passengers = Passenger.all.order(:name)
   end
 
