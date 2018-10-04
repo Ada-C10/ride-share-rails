@@ -5,8 +5,9 @@ class PassengersController < ApplicationController
 
   def show
     @passenger = Passenger.find_by(id: params[:id])
+    @trip = Trip.where(passenger_id: params[:id])
 
-    if @passenger.nil?
+    if @passenger.nil? || @trip.nil?
       head :not_found
     end
   end

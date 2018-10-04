@@ -1,13 +1,32 @@
 <h1>Passenger details</h1>
 
 <ul>
-    <li>
-      <%= @passenger.id %>
-    </li>
-    <li>
-      <%= @passenger.name %>
-    </li>
-    <li>
-      <%= @passenger.phone_num %>
-    </li>
+  <li>
+    <%= @passenger.id %>
+  </li>
+  <li>
+    <%= @passenger.name %>
+  </li>
+  <li>
+    <%= @passenger.phone_num %>
+  </li>
+  <li>
+    <%= @passenger.net_expenditures %>
+  </li>
+  <li>
+    <% @trip.each do |trip_details| %>
+    <%= link_to "Trip id: #{trip_details.id}", trip_path(trip_details.id) %>
+    <%= link_to "Driver's id: #{trip_details.driver_id}", trip_path(trip_details.id) %>
+    <%= link_to "Passenger's id: #{trip_details.passenger_id}", trip_path(trip_details.id) %>
+    <%= link_to "Date: #{trip_details.date}", trip_path(trip_details.id) %>
+    <%= link_to "Rating: #{trip_details.rating}", trip_path(trip_details.id) %>
+    <%= link_to "Cost: #{trip_details.cost}", trip_path(trip_details.id) %>
+    <br>
+    <% end %>
+  </li>
 </ul>
+<section>
+  <%= link_to "Add New Trip", new_trip_path %>
+  <%= link_to "Edit", edit_passenger_path(@passenger.id) %>
+  <%= link_to "Delete", passenger_path(@passenger.id), method: :delete, data: { confirm: "Do you want to delete #{@passenger.name}?" } %>
+</section>
