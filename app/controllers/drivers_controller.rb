@@ -50,7 +50,7 @@ class DriversController < ApplicationController
     drivers = Driver.all
     @driver = drivers.find_by(available?: true)
     if @driver
-      @driver.available? = false
+      @driver.params[:available?] = false
       @driver.save
     #else
     end
