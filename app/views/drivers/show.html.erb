@@ -39,7 +39,7 @@
 <% @driver.trips.each do |trip| %>
     <div class="row">
       <div class="cell" data-title="ID">
-        <%= "#{trip.id}" %>
+        <%= link_to "#{trip.id}", trip_path(trip.id) %>
       </div>
       <div class="cell" data-title="Date">
         <%= "#{trip.date}"%>
