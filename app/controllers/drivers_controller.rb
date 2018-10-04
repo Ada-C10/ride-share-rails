@@ -45,6 +45,20 @@ class DriversController < ApplicationController
     redirect_to drivers_path
   end
 
+  def update_status
+    driver = Driver.find_by(id: params[:id])
+
+    if driver.available == false
+      driver.update(available: true)
+    else
+      driver.update(available: false)
+    end
+
+    if driver.update(id: params[:id])
+      redirect_to driver_path(driver.id)
+    end
+  end
+
   private
   def driver_params
     return params.require(:driver).permit(:name, :vin)

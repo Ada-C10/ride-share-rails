@@ -14,27 +14,37 @@
   <br>
 
   Total Earnings: <%= @driver.total_earnings %>
-  <br>
-<table class = "trips_table">
-  <tr>
-    <th>ID</th>
-    <th>Date</th>
-    <th>Driver</th>
-    <th>Passenger</th>
-    <th>Price</th>
-    <th>Rating</th>
-  </tr>
-  <tr>
-    <% @driver.trips.each do |trip| %>
-    <td>Trip ID: <%= trip.id %></td>
-    <td>Date: <%= trip.date %></td>
-    <td>Driver: <%= trip.driver.name %></td>
-    <td>Passenger: <%= link_to trip.passenger.name, passenger_path(trip.passenger.id) %></td>
-    <td>Cost: <%= trip.cost %></td>
-    <td>Rating: <%= trip.rating %></td>
-  </tr>
+<br />
 
-  <% end %>
-</table>
+ <% if @driver[:available] == true %>
+ Status: Available
+ <% else %>
+ Status: Unavailable
+ <% end %>
+
+ <%= link_to "Change Status", update_status_driver_path(@driver.id), method: :patch %>
+
+  <br>
+  <table class = "trips_table">
+    <tr>
+      <th>ID</th>
+      <th>Date</th>
+      <th>Driver</th>
+      <th>Passenger</th>
+      <th>Price</th>
+      <th>Rating</th>
+    </tr>
+    <tr>
+      <% @driver.trips.each do |trip| %>
+      <td>Trip ID: <%= trip.id %></td>
+      <td>Date: <%= trip.date %></td>
+      <td>Driver: <%= trip.driver.name %></td>
+      <td>Passenger: <%= link_to trip.passenger.name, passenger_path(trip.passenger.id) %></td>
+      <td>Cost: <%= trip.cost %></td>
+      <td>Rating: <%= trip.rating %></td>
+    </tr>
+
+    <% end %>
+  </table>
 
 </div>

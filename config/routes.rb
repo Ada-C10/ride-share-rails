@@ -3,10 +3,16 @@ Rails.application.routes.draw do
   root 'rideshare#index'
 
   resources :rideshare, only:[:index]
-  resources :drivers
-  resources :trips
+
+  resources :drivers do
+    member do
+      patch :update_status
+    end
+  end
+  
+  resources :trips, only: [:show]
+
   resources :passengers do
     resources :trips, only: [:create]
-      post 'assign_driver'
   end
 end
