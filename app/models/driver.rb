@@ -17,6 +17,15 @@ class Driver < ApplicationRecord
   end
 
   def earned
+    num_trips = self.trips.length
+    money = 0
+
+    num_trips.times do |i|
+      money += (self.trips[i].cost-165) * 0.80
+    end
+
+    money = money/100
+    return money.round(2)
   end
 
 
