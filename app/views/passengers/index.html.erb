@@ -1,19 +1,6 @@
 <div class="container">
-
-  <div class="div1">
-    <h3>
-      <%= link_to "new passenger", new_passenger_path, class: "new-passenger" %>
-    </h3>
-  </div>
-
-  <div class="div2">
-    <h3>
-      <%= link_to "all passengers", all_passengers_path, class: "homepage" %>
-    </h3>
-  </div>
-
   <div class="div3">
-    <h3>your passengers</h3>
+    <h3>List of Passengers</h3>
     <ol>
       <% i = 0 %>
       <% @passengers.each do |passenger| %>
