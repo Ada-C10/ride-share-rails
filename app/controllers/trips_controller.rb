@@ -15,21 +15,21 @@ class TripsController < ApplicationController
   end
 
   def new
-    @trip = Trip.new
+    if params[:passenger_id]
+      passenger = Passenger.find_by(id: params[:passenger_id])
+      @trips = passenger.trips.new
+    end
   end
 
   def create
-    trip = Trip.new(driver_id: params[:trip][:driver_id], passenger_id: params[:trip][:passenger_id], date: Date.now, rating: nil, cost: rand(5..20)) #instantiate a new trip
+    if params[:passenger_id]
+      passenger = Passenger.find_by(id: params[:passenger_id])
+      @trips = passenger.trips
 
-    successful_save = trip.save
-
-    if successful_save # save returns true if the database insert succeeds
-      redirect_to all_trips_path # go to the index so we can see the trip in the list
-    else # save failed :(
-      render :new # show the new trip form view again
+    else
+      @trips = Trip.all
     end
 
+
   end
-
-
 end
