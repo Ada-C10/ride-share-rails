@@ -3,7 +3,7 @@ class Passenger < ApplicationRecord
 
   def total_spending
 
-    (self.trips.sum(:cost))/100.to_f
+    self.trips.sum(:cost)
 
     #TODO take the visual part in the view for cent to $
 
