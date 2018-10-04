@@ -1,16 +1,21 @@
 <h1>Trips#show</h1>
 <p>Find me in app/views/trips/show.html.erb</p>
 
-<h1>Trip #<%= @trip.id %></h1>
-<%# if @trip.rating == nil %>
+<h1>Trip #<%= @trip.id %> (<%= @trip.status.capitalize %>)</h1>
+<h2>Date :  <%= @trip.date %></h2>
+<h2>Driver : <%= @trip.driver_name %></h2>
+<h2>Passenger : <%= @trip.passenger_name %></h2>
+<h2>Rating : <%= @trip.rating %></h2>
+<h2>Cost : $<%= @trip.formatted_cost %></h2>
+<% if @trip.status == :in_progress %>
   <%= form_with model: @trip, url: trip_path, method: :patch do |f| %>
     <%= f.label :trip_rating, "Add Rating and End Trip" %>
-    <%= f.select :trip_rating, [["0"], ["1"], ["2"], ["3"], ["4"], ["5"]], {:include_blank => "Please select"} %>
+    <%= f.select :trip_rating, [["1"], ["2"], ["3"], ["4"], ["5"]], include_blank: "Please select", required: true %>
     <%= f.submit "End Trip" %>
   <% end %>
-<%# else %>
+<% else %>
   <%= link_to "Edit", edit_trip_path(@trip.id) %>
-<%# end %>
+<% end %>
 <%= link_to "Delete", trip_path(@trip.id), method: :delete, data: {confirm: 'Are you sure you want to delete this passenger?'} %>
 
 <!-- View details of the trip

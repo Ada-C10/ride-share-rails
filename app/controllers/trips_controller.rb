@@ -38,8 +38,11 @@ class TripsController < ApplicationController
   end
 
   def update
-    trip = Trip.find_by(id: params[:id].to_i)
-    trip.update(trip_params)
+    @trip = Trip.find_by(id: params[:id].to_i)
+    formatted_trip_params = trip_params.dup
+    cost = formatted_trip_params[:cost].to_f
+    formatted_trip_params[:cost] = (cost*100).to_i
+    @trip.update(formatted_trip_params)
 
     redirect_to trip_path(@trip.id)
   end
