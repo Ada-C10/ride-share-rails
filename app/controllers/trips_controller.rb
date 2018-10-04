@@ -16,24 +16,23 @@ class TripsController < ApplicationController
   end
 
   def new
-    @passenger = Passenger.find_by(id: params[:passenger_id].to_i)
     @trip = Trip.new
-    @driver =
+
   end
 
   def create
     @trip= Trip.new(trip_params)
-    # trip_params = {
-    #   #driver_id:, #insert mtch driver method find_available_driver(user_id),
-    #   passenger_id: params[:id],
-    #   date: DateTime.now
-    #   #cost: (0.0..10.00).sample
-    #   #rating:nil
-    # if @trip.save
-    #   redirect_to trips_path
-    # else
-    #   render :new
-    # end
+    trip_params = {
+      driver_id: @trip.find_driver.id,
+      passenger_id: Passenger.find_by(id: params[:passenger_id].to_i),
+      date: DateTime.now
+      #cost: (0.0..10.00).sample
+      #rating:nil
+    if @trip.save
+      redirect_to trips_path
+    else
+      render :new
+    end
   end
 
   def edit
