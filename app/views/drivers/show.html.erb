@@ -1,9 +1,6 @@
 <h3>DRIVER DETAILS</h3>
 
-<%= link_to "add new driver", new_driver_path %>
-
 <div>
-  ADD LINK TO TRIP!
   Driver name: <%= @driver.name %>
   <br>
 
@@ -29,19 +26,18 @@
     <tr>
       <th>ID</th>
       <th>Date</th>
-      <th>Driver</th>
       <th>Passenger</th>
       <th>Price</th>
       <th>Rating</th>
     </tr>
+
     <tr>
       <% @driver.trips.each do |trip| %>
-      <td>Trip ID: <%= trip.id %></td>
-      <td>Date: <%= trip.date %></td>
-      <td>Driver: <%= trip.driver.name %></td>
-      <td>Passenger: <%= link_to trip.passenger.name, passenger_path(trip.passenger.id) %></td>
-      <td>Cost: <%= trip.cost %></td>
-      <td>Rating: <%= trip.rating %></td>
+      <td><%= link_to trip.id, trip_path(trip.id) %></td>
+      <td><%= trip.date %></td>
+      <td><%= link_to trip.passenger.name, passenger_path(trip.passenger.id) %></td>
+      <td><%= trip.cost %></td>
+      <td><%= trip.rating %></td>
     </tr>
 
     <% end %>

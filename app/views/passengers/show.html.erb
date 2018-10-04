@@ -36,7 +36,6 @@
     <th>ID</th>
     <th>Date</th>
     <th>Driver</th>
-    <th>Passenger</th>
     <th>Price</th>
     <th>Rating</th>
   </tr>
@@ -45,7 +44,6 @@
   <td><%= link_to trip.id, trip_path(trip.id)%></td>
   <td><%= trip.date %></td>
   <td><%= link_to trip.driver.name, driver_path(trip.driver.id)%></td>
-  <td><%= trip.passenger.name %></td>
   <td><%= (trip.cost.to_i/100.0).round(2) %></td>
   <td><%= trip.rating %></td>
 </tr>
