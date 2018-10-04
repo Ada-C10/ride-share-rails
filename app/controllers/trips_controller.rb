@@ -29,10 +29,10 @@ class TripsController < ApplicationController
   def update
     id = params[:id].to_i
     @trip = Trip.find_by(id: id)
-    @trip.update(task_params)
-    # @task.name = params[:task][:name]
-    # @task.description = params[:task][:description]
-    # @task.due = params[:task][:due]
+    @trip.update(trip_params)
+
+    # trip = Trip.find_by(:id params[:id]
+
     if @trip.save
       redirect_to trips_path # go to the index so we can see the book in the list
     else
