@@ -46,20 +46,10 @@ class DriversController < ApplicationController
     end
   end
 
-  def assign_driver
-    drivers = Driver.all
-    @driver = drivers.find_by(available?: true)
-    if @driver
-      @driver.params[:available?] = false
-      @driver.save
-    #else
-    end
-  end
-
   private
 
   def driver_params
     return params.require(:driver).permit(
-    :name, :vin)
+    :name, :vin, :available?)
   end
 end

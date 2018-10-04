@@ -18,7 +18,7 @@ class TripsController < ApplicationController
   def create
     if params[:passenger_id]
       passenger = Passenger.find_by(id: params[:passenger_id])
-      driver = Driver.find(1)
+      driver = find_available_driver
       @trip = Trip.new(passenger: passenger, driver: driver, cost: 0, date: Date.today)
     else
       filtered_trip_params = trip_params()

@@ -24,4 +24,10 @@ class Driver < ApplicationRecord
     return (total / total_length)
   end
 
+  def find_available_driver
+    drivers = Driver.all
+    @driver = drivers.find_by(available?: true)
+    return @driver
+  end
+
 end
