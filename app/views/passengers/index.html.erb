@@ -1,5 +1,5 @@
 <h1>These are the passengers!</h1>
 <% @passengers.each do |passenger| %>
-  <h2><%= link_to "This IS: #{passenger.name}", passenger_path(passenger.id) %>
+  <h2><%= link_to "This is: #{passenger.name}", passenger_path(passenger.id) %>
   </h2>
-<% end %>
+  <% end %>
