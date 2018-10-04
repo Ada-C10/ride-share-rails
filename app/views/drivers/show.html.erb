@@ -2,12 +2,21 @@
 
 <ul>
     <li>
+      <strong>Driver ID: </strong>
       <%= @driver.id %>
     </li>
     <li>
+      <strong>Name: </strong>
       <%= @driver.name %>
     </li>
     <li>
+      <strong>Vehicle Number</strong>
       <%= @driver.vin %>
+    </li>
+    <li>
+      <%= link_to "Edit Driver Information", edit_driver_path %>
+    </li>
+    <li>
+      <%= link_to "Delete driver", driver_path(@driver.id), method: :delete, data: {confirm: "Are you sure you want to delete this driver?"}%>
     </li>
 </ul>
