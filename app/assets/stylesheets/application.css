@@ -14,33 +14,140 @@
  *= require_self
  */
 
- .dropbtn {
-     background-color: #4CAF50;
-     color: white;
-     padding: 16px;
-     font-size: 16px;
-     border: none;
+body {
+  font-family: 'Niramit', sans-serif;
+}
+
+nav ul li:first-child { float: left; }
+
+ nav ul li {
+   list-style:none;
+   margin:10px;
+   float: right;
  }
+
+ a {
+   text-decoration: none;
+   color: black;
+ }
+
+ a:hover {
+   text-decoration: none;
+   color: #ffa659;
+ }
+
+ .navbackground {
+   background-color: black;
+ }
+
+
+ .homebtn {
+  border-radius: 4px;
+  background-color: ffa659;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.homebtn span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.homebtn span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.homebtn:hover span {
+  padding-right: 25px;
+  text-shadow: 2px 2px 5px black;
+}
+
+.homebtn:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+th {
+  text-align: left;
+}
+
+ .dropbtn {
+     padding: 16px;
+     font-size: 24px;
+     border: none;
+     background-color: #ffa659;
+     color: white;
+     border-radius: 4px;
+ }
+
+.homebtn {
+     padding: 16px;
+     font-size: 24px;
+     border: none;
+     float: left;
+     background-color: #ffa659;
+     color: white;
+ }
+
+ .homebtn a:visited {color: white;}
 
  .dropdown {
     position: relative;
     display: inline-block;
+    min-width: 160px;
 }
 
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #f1f1f1;
+    background-color: #ffa659;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
+    border-radius: 4px;
 }
 
 .dropdown-content a {
-    color: black;
+    color: white;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
 }
 
 .dropdown:hover .dropdown-content {display: block;}
+
+.dropdown-content a:hover {
+    text-shadow: 2px 2px 5px black;
+}
+
+.list {
+  clear: both;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+h1 {
+  display: flex;
+  justify-content: center;
+  padding: 3%;
+}
+
+table {
+  margin-left: 10%;
+  margin-right: 10%;
+}
