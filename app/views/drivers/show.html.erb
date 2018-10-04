@@ -2,8 +2,29 @@
 
   <h2><%= @driver.name %></h2>
 
+  <p>
+    <%= link_to "Add Trip", all_trips_path(@driver.id)%> |
+    <%= link_to "Edit", edit_driver_path(@driver.id), class: "edit-link" %> |
+    <%= link_to "Delete", driver_path(@driver.id), method: :delete, data: {confirm: "Are you sure you want to get rid of driver #{@driver.name}?" } %>
+  </p>
+
   <p class="description-text"><%= @driver.id %> | <%= @driver.vin %></p>
   <p> Average rating: <%= @driver.average_rating %> </p>
+  <p> Average earnings: $<%= @driver.total_earnings/100 %> </p>
+  <p>
+    Trips:
+    <br/>
+    <% @driver.list_trips.each do |trip| %>
+    <br/>
+    Trip_ID: <%= trip.id %> <br/>
+    Date: <%= trip.date %> <br/>
+    Passenger_ID: <%= trip.passenger_id %> <br/>
+    Rating: <%= trip.rating %> <br/>
+    Cost: $<%= (trip.cost/100.to_f) %> <br/>
+    <% end %>
+  </br/>
+</br/>
+</p>
 </div>
 <div class="return-home">
   <h3>
