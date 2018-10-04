@@ -2,6 +2,7 @@ class TripsController < ApplicationController
   def home
   end
 
+# Passenger Show Page
   def index
     if params[:passenger_id]
       @passenger = Passenger.find_by(id: params[:passenger_id])
@@ -18,12 +19,6 @@ class TripsController < ApplicationController
     if @trip.nil?
       render :notfound, status: :not_found
     end
-    #   id = params[:id].to_i
-    #   @passenger = Passenger.find_by(id: id)
-    #
-    #   if @passenger.nil?
-    #     render :notfound, status: :not_found
-    #   end
   end
 
   def create
@@ -32,7 +27,7 @@ class TripsController < ApplicationController
                        driver_id: driver_id, passenger_id: params[:passenger_id]}
     @trip = Trip.new(new_trip_params)
     @trip.save # make sure to validate this later?
-    redirect_to trip_path(@trip.id) #probably works!
+    redirect_to trip_path(@trip.id) # redirects to Trip show page
   end
 
   def edit

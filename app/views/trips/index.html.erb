@@ -49,10 +49,10 @@
         <%= "#{trip.passenger.name}"%>
       </div>
       <div class="cell" data-title="Price">
-        <%= "$" + "%.2f" % "#{trip.cost/100.0}" %>
+        <%= "#{trip.formatted_cost}" %>
       </div>
       <div class="cell" data-title="Rating">
-        <%= "#{trip.rating}" %>
+        <%= "#{trip.formatted_rating}" %>
       </div>
     </div>
 <%end%>

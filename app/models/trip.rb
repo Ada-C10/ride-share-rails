@@ -13,8 +13,16 @@ class Trip < ApplicationRecord
   def formatted_cost
     if self.status == :complete
       return "%.2f" % "#{self.cost/100.0}"
-    elsif self.status == :in_progress
-      return nil
+    else
+      return self.status
+    end
+  end
+
+  def formatted_rating
+    if self.status == :complete
+      return self.rating
+    else
+      return self.status
     end
   end
 
