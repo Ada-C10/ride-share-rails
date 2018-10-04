@@ -14,7 +14,7 @@ class TripsController < ApplicationController
     if params[:passenger_id]
       @passenger_id = params[:passenger_id].to_i
       @passenger = Passenger.find(@passenger_id)
-      if @passenger.verify_trip
+      if Passenger.verify_trip(@passenger_)
         driver = Driver.new_trip_driver
         @trip = Trip.new(driver_id: driver, passenger_id: @passenger_id, date: DateTime.now, cost: 0, in_progress: true)
         @trip.save
@@ -34,8 +34,7 @@ class TripsController < ApplicationController
 
   def update
     if @trip.rating != nil
-      trip_params[:in_progress] = false
-      trip_params[:cost] = rand(9999)
+      trip_params = @trip.end_trip(trip_params)
     end
 
     @trip.update(trip_params)

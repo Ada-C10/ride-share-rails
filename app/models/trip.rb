@@ -15,5 +15,12 @@ class Trip < ApplicationRecord
   # cost must be present and numerical
   validates :cost, presence: true, numericality: true
 
+  def end_trip(params)
+    params[:in_progress] = false
+    if cost == 0
+      params[:cost] = rand(999)
+    end
 
+    return params
+  end
 end
