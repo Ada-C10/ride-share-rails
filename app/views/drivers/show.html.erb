@@ -30,7 +30,7 @@
    Average Rating:  <%= @driver.average_rating %>
    <h2>Driver Trips</h2>
       <% @driver.trips.each do |trip| %>
-      <p>Trip_ID: <%= trip.id %> Trip cost: <%= trip.cost %> Rating: <%= trip.rating %>
+      <p>Trip_ID: <%= trip.id %> Trip cost: <%= trip.cost %> Rating: <%= trip.rating %> <%= link_to "[Details]", trip_path(trip.id) %>
       <%end%>
     </p>
  </div>

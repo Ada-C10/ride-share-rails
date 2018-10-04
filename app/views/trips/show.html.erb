@@ -1,18 +1,33 @@
-
-<h2>Trip Details</h2>
-<p>
-  <%= @trip.id %> <%= @trip.date %> <%= @trip.cost%> <%= @trip.rating%>
-  <%= link_to "Go Back to All Trips", trips_path %>
-  Driver id: <%=@trip.driver_id%>
-  Passenger id: <%=@trip.passenger_id%>
-
-</p>
-
-<p>
-  <%= link_to "Go to this trip's driver", driver_path(id: @trip.driver_id) %>
-</p>
-<p>
-  <%= link_to "Go to this trip's passenger", passenger_path(id: @trip.passenger_id) %>
-
-
-</p>
+<div class="container" role="main">
+<div class="c1">
+  <h1><%=link_to "Rideshare", home_path%></h1>
+</div>
+<div class="c2">
+  <div class="dropdown">
+    <button class="dropbtn">Drivers</button>
+    <div class="dropdown-content">
+      <%=link_to "View All", drivers_path%>
+      <%=link_to "Add Driver", new_driver_path %>
+    </div>
+  </div>
+  <div class="dropdown">
+    <button class="dropbtn">Passengers</button>
+    <div class="dropdown-content">
+      <%=link_to "View All", passengers_path%>
+      <%=link_to "Add Passenger", new_passenger_path%>
+    </div>
+  </div>
+</div>
+ <div class="c3">
+     <%= link_to "View Driver", driver_path(id: @trip.driver_id) %>
+     <%= link_to "View Passenger", passenger_path(id: @trip.passenger_id) %>
+ </div>
+ <div class="c4">
+   <h2>Trip Details</h2>
+   <p>
+     <%= @trip.id %> <%= @trip.date %> <%= @trip.cost%> <%= @trip.rating%>
+     Driver id: <%= link_to "#{@trip.driver_id}", driver_path(id: @trip.driver_id) %>
+     Passenger id: <%= link_to "#{@trip.passenger_id}", driver_path(id: @trip.passenger_id) %>
+   </p>
+ </div>
+</div>
