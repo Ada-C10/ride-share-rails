@@ -2,7 +2,7 @@ class PassengersController < ApplicationController
   before_action :set_passenger, only: [:show, :edit, :update, :destroy]
 
   def index
-    @passengers = Passenger.paginate(:page => params[:page], :per_page => 10)
+    @passengers = Passenger.paginate(:page => params[:page], :per_page => 20)
   end
 
   def show
