@@ -1,11 +1,22 @@
-<h3>Drivers</h3>
+<h1>Drivers</h1>
 
-    <ol>
+  <table>
+    <tr>
+      <th> Name </th>
+      <th> Edit </th>
+      <th> Delete </th>
+    </tr>
       <% @drivers.each do |driver| %>
-      <li>
-        <%= link_to "#{driver.name}", driver_path(driver.id) %>
-        <%= link_to "Edit", edit_driver_path(driver.id) %>
-        <%= link_to "Delete", driver_path(driver.id), method: :delete, data: {confirm: "Delete #{driver.name}?  \n(All of the associated trips will no longer have a driver listed.)"} %>
-      </li>
+      <tr>
+        <th>
+          <%= link_to "#{driver.name}", driver_path(driver.id) %>
+        </th>
+        <th>
+          <%= link_to "Edit", edit_driver_path(driver.id) %>
+        </th>
+        <th>
+          <%= link_to "Delete", driver_path(driver.id), method: :delete, data: {confirm: "Delete #{driver.name}?  \n(All of the associated trips will no longer have a driver listed.)"} %>
+        </th>
+      </tr>
     <% end %>
-    </ol>
+  </table>
