@@ -24,7 +24,7 @@ class TripsController < ApplicationController
       passenger: passenger,
       driver: driver,
       date: Time.now.strftime("%Y-%m-%d"),
-      cost: 0.0
+      cost: rand(3000)
     )
 
     if @trip.save

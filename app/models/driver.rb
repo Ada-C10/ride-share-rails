@@ -11,6 +11,7 @@ class Driver < ApplicationRecord
   end
 
   def avg_rating
-    return 1.0 * self.trips.sum{ |trip| trip.rating } / self.trips.length
+    not_nil = self.trips.find_all{ |trip| !trip.rating.nil? }
+    return 1.0 * not_nil.sum{ |trip| trip.rating } / self.trips.length
   end
 end
