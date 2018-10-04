@@ -1,19 +1,20 @@
 <%= form_with model: @passenger do |f| %>
+<table>
+  <tr>
+    <td>
+      <%= f.label :name %>:
+      <%= f.text_field :name %>
+    </td>
+    <td>
+      <%= f.label :phone_number %>:
+      <%= f.text_field :phone_num %>
+    </td>
+  </tr>
+  <tr>
 
-
-
-  <p>
-	<%= f.label :name %>:
-	<%= f.text_field :name %>
-  </p>
-
-<p>
-	<%= f.label :phone_number %>:
-	<%= f.text_field :phone_num %>
-</p>
-
-<p>
-<%= f.submit action_type %>
-</p>
-
+    <td>
+      <%= f.submit action_type %>
+    </td>
+  </tr>
+</table>
 <% end %>

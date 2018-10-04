@@ -14,10 +14,8 @@
  *= require_self
  */
 
+/* --GENERAL/OVERALL STYLES-- */
 
-* {
-  border: 1px red solid;
-}
  body {
   font-family: helvetica, arial, sans-serif;
   top: 0;
@@ -45,7 +43,8 @@
    background-color: #ffffff;
    display: grid;
 
-   grid-template: 1fr 2fr 3fr;
+   grid-template-rows: auto 1fr auto;
+   grid-template-columns: 1fr;
 
    grid-template-areas:
    "h"
@@ -56,23 +55,47 @@
    min-height: 100%;
  }
 
+/* -- HEADER STYLES -- */
 
  header {
    grid-area: h;
 
    display: flex;
    flex-direction: row;
-   background-color: #68B6B1;
+   justify-content: flex-start;
+   align-items: flex-start;
+
+   background-color: #00B5A8;
    color: #EBF3F9;
 
-   /* margin: 0; */
-
+   margin: 0;
  }
 
- /* header * {
+ header * {
    margin: 0;
- } */
+ }
 
+ header a {
+   color: #ffffff;
+   text-decoration: none;
+ }
+
+ header a:visited {
+   color: #EBF3F9;
+ }
+
+header a:hover {
+  color: #440084;
+}
+
+/* -- NAV STYLES (in header) */
+/* QUESTION: drop down menu?? */
+
+nav ul {
+  list-style: none;
+  padding-left: 2em;
+  padding-right: 2em;
+}
 
  nav .text {
    display: flex;
@@ -88,70 +111,82 @@
    font-size: 1em;
  }
 
-
- nav a {
-   color: #333333;
-   text-decoration: none;
- }
-
- nav a:visited {
-   color: #ffffff;
- }
-
-nav a:hover {
-  color: #3940A3;
-}
-
-nav ul {
-  list-style: none;
-}
+/* -- MAIN STYLES -- */
 
  main {
    grid-area: m;
+
    background-color: #ffffff;
-   color: #000000;
-/*
+   color: #333333;
+
    padding: 3% 3% 3% 3%;
-   border: 1px #000000 solid; */
+   border: 5px #000000 solid;
 
  }
 
- /* main * {
-   margin: 0;
- } */
-
- main h2 {
-   color: #3940A3;
+ main h2, h3 {
+   color: #440084;
  }
 
  main a {
-   color: #333333;
+   color: #440084;
    text-decoration: none;
  }
 
  main a:visited {
-   color: #333333;
+   color: #3C0074;
  }
 
 main a:hover {
-  color: #FF5961;
+  color: #333333;
 }
 
-/* main div {
-  margin: 2% 0 0 0;
-
-  padding: 0;
+main table {
+    border: 0;
+    border-color: #ffffff;
+    border-collapse: collapse;
 }
 
-main div p {
-  margin: 0 0 1% 0;
-  padding: 0;
-} */
+main td, main th {
+  padding: 1em;
+  text-align: left;
+}
 
+/* -- PASSENGER STYLES (in main) -- */
+/* QUESTION: can we add separate stylesheets? */
+
+.passenger_show {
+  display: flex;
+  flex-direction: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.passenger_show *{
+  display: inline-block;
+  padding: 5em;
+}
+
+.show_actions {
+  margin: 0 1em 2em 0;
+}
+
+/* -- ERROR MESSAGE STYLES (in main) -- */
+
+.error_messages {
+  background-color: #FF94A9;
+}
+
+div .field_with_errors {
+  display: inline;
+}
+
+/* -- FOOTER STYLES -- */
 
 footer {
   grid-area: f;
-  background-color: #3940A3;
+  background-color: #440084;
   color: #EBF3F9;
   text-align: center;
 
@@ -159,5 +194,4 @@ footer {
 
 footer * {
   margin: 1% 0 1% 0;
-
 }
