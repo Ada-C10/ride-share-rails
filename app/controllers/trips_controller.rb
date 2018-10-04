@@ -48,7 +48,7 @@ class TripsController < ApplicationController
     trip = Trip.find_by(id: params[:id].to_i)
     trip.destroy
 
-    redirect_to trips_path
+    redirect_to passenger_trips_path(trip.passenger_id)
   end
 
   private

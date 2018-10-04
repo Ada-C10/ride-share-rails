@@ -13,7 +13,7 @@
 
     <div class="row header">
       <div class="cell">
-        ID
+        Trip ID
       </div>
       <div class="cell">
         Date
@@ -30,9 +30,6 @@
       <div class="cell">
         Rating
       </div>
-      <div class="cell">
-        Delete
-      </div>
 
     </div>
 
@@ -40,7 +37,7 @@
 
     <div class="row">
       <div class="cell" data-title="ID">
-        <%= "#{trip.id}" %>
+        <%= link_to "#{trip.id}", trip_path(trip.id) %>
       </div>
       <div class="cell" data-title="Date">
         <%= "#{trip.date}"%>
@@ -56,9 +53,6 @@
       </div>
       <div class="cell" data-title="Rating">
         <%= "#{trip.rating}" %>
-      </div>
-      <div class="cell" data-title="Delete">
-        <%= link_to "Delete", trip_path(trip.id), method: :delete, data: {confirm: 'Are you sure you want to delete this trip?'} %>
       </div>
     </div>
 <%end%>
