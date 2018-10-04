@@ -7,7 +7,11 @@
   <p>Date: <%= @trip.date%></p>
   <p>Cost: $<%= (@trip.cost / 100.00).round(2) %></p>
 
-  <p>Rating: <%= @trip.rating%></p>
+  <% if @trip.rating.nil? %>
+      <%= link_to "Rate Trip #{@trip.id}", edit_trip_path(@trip.id)%>
+  <% else %>
+      <p>Rating: <%= @trip.rating%></p>
+  <% end %>
 
   <br />
   <%= link_to "Driver #{@trip.driver.name}", driver_path(@trip.driver) %>
@@ -15,11 +19,6 @@
 
   <%= link_to "Passenger #{@trip.passenger.name}", passenger_path(@trip.passenger) %>
   <br />
-
-  <% if @trip.rating.nil? %>
-    <%= link_to "Rate Trip #{@trip.id}", edit_trip_path(@trip.id)%>
-  <% end %>
-
 
   <%= link_to "Edit Trip #{@trip.id}", edit_trip_path(@trip.id)%>
   <br />
