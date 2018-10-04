@@ -1,11 +1,16 @@
-<h1>Trips#edit</h1>
+<h1>Edit Trip rating</h1>
 <%= form_with model: @trip, class: "trip-form" do |f|%>
   <p>Please rate your trip from 1-5. </p>
 
+<ul>
+  <li> <%= @trip.date %></li>
+  <li> The passenger is: <%= link_to "#{@trip.passenger.name}", passenger_path(@trip.passenger.id) %> </li>
+  <li> The driver is: <%= link_to "#{@trip.driver.name}", driver_path(@trip.driver.id)%></li>
+  <li> The cost was: <%= @trip.cost %> </li>
+</ul>
+
   <%= f.label :rating %>
   <%= f.text_field :rating %>
-
-
 
   <%= f.submit "Edit", class: "Edit" %>
 <% end %>
