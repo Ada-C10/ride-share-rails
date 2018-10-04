@@ -18,7 +18,7 @@ class Passenger < ApplicationRecord
     end
   end
 
-  def verify_trip
+  def self.verify_trip(passenger_id)
     if self.trips.last.cost == nil
       return false
     else

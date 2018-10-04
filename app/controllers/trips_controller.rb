@@ -48,11 +48,10 @@ class TripsController < ApplicationController
 
 
   def create
-    if Passenger.verify_trip == false
-      raise
-    end
+    
     if params[:passenger_id]
       @passenger_id = params[:passenger_id].to_i
+      @passenger.verify_trip
       driver = Driver.new_trip_driver
       @trip = Trip.new(driver_id: driver, passenger_id: @passenger_id, date: DateTime.now, cost: 0)
       if @trip.save
