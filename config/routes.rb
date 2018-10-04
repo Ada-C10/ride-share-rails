@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 
   post 'drivers/:id/make_unavailable', to: 'drivers#make_unavailable', as: 'unavailable'
 
+  # post '/passengers/:passenger_id/trips/new', to: 'trips#create', as: 'passenger_new_trip'
+
   resources :passengers do
     resources :trips, only: [:index, :new]
   end
