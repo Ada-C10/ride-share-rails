@@ -1,2 +1,69 @@
-<h1>Trips#index</h1>
-<p>Find me in app/views/trips/index.html.erb</p>
+
+<h1><%= @passenger.name %></h1>
+<h2>Total Charged : $<%= @passenger.total_cost%></h2>
+
+<%= link_to "Request a Ride", passenger_trips_path(@passenger.id), method: :post %>
+<%= link_to "Edit", edit_passenger_path(@passenger.id) %>
+<%= link_to "Delete", passenger_path(@passenger.id), method: :delete, data: {confirm: 'Are you sure you want to delete this passenger?'} %>
+
+
+<div class="wrapper">
+
+  <div class="table">
+
+    <div class="row header">
+      <div class="cell">
+        ID
+      </div>
+      <div class="cell">
+        Date
+      </div>
+      <div class="cell">
+        Driver
+      </div>
+      <div class="cell">
+        Passenger
+      </div>
+      <div class="cell">
+        Price
+      </div>
+      <div class="cell">
+        Rating
+      </div>
+      <div class="cell">
+        Delete
+      </div>
+
+    </div>
+
+<% @trips.each do |trip| %>
+    <div class="row">
+      <div class="cell" data-title="ID">
+        <%= "#{trip.id}" %>
+      </div>
+      <div class="cell" data-title="Date">
+        <%= "#{trip.date}"%>
+      </div>
+      <div class="cell" data-title="Driver">
+        <%= "#{trip.passenger.name}"%>
+      </div>
+      <div class="cell" data-title="Passenger">
+        <%= "#{trip.passenger.name}"%>
+      </div>
+      <div class="cell" data-title="Price">
+        <%= "$" + "%.2f" % "#{trip.cost/100.0}" %>
+      </div>
+      <div class="cell" data-title="Rating">
+        <%= "#{trip.rating}" %>
+      </div>
+      <div class="cell" data-title="Delete">
+        <%= link_to "Delete", trip_path(trip.id), method: :delete, data: {confirm: 'Are you sure you want to delete this trip?'} %>
+      </div>
+    </div>
+<%end%>
+
+
+  </div>
+
+
+</div>
