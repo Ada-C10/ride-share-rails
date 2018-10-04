@@ -1,0 +1,24 @@
+<%= render partial: 'layouts/form_errors',
+locals: {
+  model: @trip
+}
+%>
+
+<%= form_with model: @trip do |f| %>
+
+  <p>Please complete this form to request a trip</p>
+
+  <%= f.hidden_field :driver_id, :value => 12 %>
+  <%= f.hidden_field :passenger_id, :value => 12 %>
+
+  <%= f.label :rating %>
+  <%= f.text_field :rating %>
+
+  <%= f.label :cost %>
+  <%= f.text_field :cost %>
+
+  <%= f.label :date %>
+  <%= f.text_field :date %>
+
+  <%= f.submit "request new trip", class: "submit-button" %>
+<% end %>
