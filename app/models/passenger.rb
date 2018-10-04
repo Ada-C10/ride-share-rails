@@ -5,8 +5,13 @@ class Passenger < ApplicationRecord
   validates :phone_num, presence: true, length: { in: 10..25 }
 
   def self.active_passenger
-    
+
     return Passenger.all.select {|passenger| passenger.status == true}
+  end
+
+  def total_spending
+    total = self.trips.sum {|trip| trip.cost} /100
+    return total
   end
 
 end
