@@ -9,6 +9,13 @@
   </strong>
 
 </p>
+
+<p>
+  <%= @passenger.all_trips %>
+
+</p>
+
+
 <div class="links">
 
   <%= link_to "delete ", @passenger, method: :delete, data: { confirm: "Are you really really sure that you want to delete?" } %>
