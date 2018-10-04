@@ -4,9 +4,6 @@ class Driver < ApplicationRecord
   validates :name, presence: true
   validates :vin, presence: true
 
-  def trip_cost
-  end
-
   def total_earnings
     total = 0
     self.trips.each do |trip|

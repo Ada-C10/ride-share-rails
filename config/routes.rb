@@ -3,11 +3,7 @@ Rails.application.routes.draw do
 
   get 'welcome/index'
   # why are the paths different between resource trips and the trips I wrote?
-  resource :trips
-  get 'trips/:id', to: 'trips#show', as: 'trip'
-  get 'trips/:id/edit', to: 'trips#edit', as: 'edit_trip'
-  patch 'trips/:id', to: 'trips#update'
-  delete 'trips/:id', to: 'trips#destroy'
+  resources :trips
 
   resources :drivers
 
