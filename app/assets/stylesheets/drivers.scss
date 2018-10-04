@@ -1,6 +1,28 @@
 // Place all the styles related to the Drivers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-header {
-  text-align: center
+.driver-header {
+  text-align: center;
+}
+
+main {
+  text-align: center;
+}
+
+table {
+  border: 15px solid white;
+  border-radius: 8px;
+  // border-collapse: collapse;
+  // border-spacing: 5px;
+  margin: 2em 10em 2em 10em;
+  width: 75%
+}
+
+th, td {
+  padding: 20px;
+  border-bottom: 5px double black;
+}
+
+tr:hover {
+  background-color: #8FBC8F;
 }

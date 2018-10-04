@@ -1,11 +1,21 @@
-<header>
-  <h1>Drivers</h1>
-  <p><%= link_to "Add a New Driver", new_driver_path %></p>
-  <p><%= link_to "Home", root_path %></p>
-</header>
 <body>
-  <% @drivers.each do |driver| %>
-  <h2><%=link_to "#{driver.name}", driver_path(driver.id) %></h2>
-  <p>VIN: <%= driver.vin %></p>
-  <% end %>
+  <section class="driver-header">
+    <h1>Drivers</h1>
+    <p><%= link_to "Add a New Driver", new_driver_path %></p>
+  </section>
+  <main>
+    <table>
+      <tr>
+        <th>Driver Name</th>
+        <th>VIN</th>
+      </tr>
+      <% @drivers.each do |driver| %>
+      <tr>
+        <td><%=link_to "#{driver.name}", driver_path(driver.id) %></th>
+        <td><%= driver.vin %></th>
+      </tr>
+      <% end %>
+    </table>
+
+  </main>
 </body>
