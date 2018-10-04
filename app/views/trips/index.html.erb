@@ -13,6 +13,43 @@
   <br>
 
   <h2>Driver Trips</h2>
+  <table>
+    <thead>
+     <tr>
+       <th>ID</th>
+       <th>Date</th>
+       <th>Driver</th>
+       <th>Passenger</th>
+       <th>Price</th>
+       <th>Rating</th>
+       <th>Delete</th>
+     </tr>
+   </thead>
+   <tbody>
+     <% @trips.each do |trip| %>
+        <tr>
+          <td>
+            <%= trip.id %><br>
+          </td>
+          <td>
+            <%= trip.date.to_s %><br>
+          </td>
+          <td>
+            <%= trip.driver_id %><br>
+          </td>
+          <td>
+            <%= trip.passenger_id %><br>
+          </td>
+          <td>
+            <%= trip.cost %><br>
+          </td>
+          <td>
+            <%= trip.rating %><br>
+          </td>
+        </tr>
+       <% end %>
+   </tbody>
+  </table>
 <% else %>
   <h2>All Trips by All Driver</h2>
   <%= @trips %>
