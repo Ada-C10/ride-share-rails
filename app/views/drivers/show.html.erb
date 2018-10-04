@@ -1,12 +1,12 @@
 <h2><%= @driver.name%></h2>
 
-<% if @driver.is_available? == false %>
+<% if @driver.is_available == false %>
 <%= link_to "Go ONLINE", change_status_path(@driver.id), method: :patch %>
 <% else %>
 <%= link_to "Go OFFLINE", change_status_path(@driver.id), method: :patch %>
 <% end %>
 
-<p>STATUS: <%= @driver.is_available? %></p>
+<p>STATUS: <%= @driver.is_available %></p>
 <p>VIN: <%= @driver.vin %></p>
 <p>AVERAGE RATING: <strong><%= rating(@driver.average_rating) %></strong> </p>
 <p>TOTAL EARNED: <strong><%= currency(@driver.total_earnings) %></strong> </p>

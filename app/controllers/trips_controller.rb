@@ -4,17 +4,20 @@ class TripsController < ApplicationController
   end
 
   def show
-    id = params[:id]
-    @trip = Trip.find(id)
+    # if in nested route show nested route w/ option to edit rating
+    if params[:passenger_id]
+      passenger = Passenger.find_by(id: params[:passenger_id])
+      @trip = Trip.find_by(passenger_id: passenger.id, id: params[:id] )
+    else
+      #else show trip without option to edit
+      @trip = Trip.find_by(id: params[:id])
+    end
+
   end
 
   def new
-    if params[:passenger_id]
-      passenger = Passenger.find_by(id: params[:passenger_id])
-      @trip = passenger.trips.new
-    else
-      @trip = Trip.new
-    end
+    passenger = Passenger.find_by(id: params[:passenger_id])
+    @trip = passenger.trips.new
   end
 
   def create
@@ -43,12 +46,17 @@ class TripsController < ApplicationController
   end
 
   def edit
-    @trip = Trip.find_by(id: params[:id])
+    passenger = Passenger.find_by(id: params[:passenger_id])
+    @trip = Trip.find_by(passenger_id: passenger.id, id: params[:id] )
   end
 
   def update
     @trip = Trip.find_by(id: params[:id])
-    @trip.driver.toggle_availablity
+
+    if @trip.rating.nil?
+      @trip.driver.toggle_availablity
+    end
+    
     if @trip.update(trip_params)
       redirect_to passenger_path(@trip[:passenger_id])
     else

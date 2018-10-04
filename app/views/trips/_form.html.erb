@@ -12,46 +12,8 @@
 
 <%= form_with model: @trip, class: 'trip-form', data: { remote: false } do |f| %>
 
-<%= f.label :passenger_id %>
-
-<% if !params[:passenger_id] %>
-  <%= f.select :passenger_id, Passenger.all.map { |passenger| [passenger.name, passenger.id]} %>
-
-<% else %>
-  <% single_passenger = Passenger.find_by(id: params[:passenger_id]) %>
-  <%= "#{single_passenger.name}" %>
-  <%= f.hidden_field :passenger_id %>
-<% end %>
-
-<%= f.label :driver_id %>
-<% if !params[:passenger_id] %>
-  <%= f.select :driver_id, Driver.all.map { |driver| [driver.name, driver.id]} %>
-<% else %>
-  <% assigned_driver = Driver.first_available_driver.name %>
-  <%= "#{assigned_driver}" %>
-  <%= f.hidden_field :driver_id %>
-<% end %>
-
-<%= f.label :date %>
-<% if !params[:passenger_id] %>
-  <%= f.date_field :date %>
-<% else %>
-  <% assigned_date = Date.today %>
-  <%= "#{assigned_date}" %>
-  <%= f.hidden_field :date %>
-<% end %>
-
 <%= f.label :rating %>
-<% if !params[:passenger_id] %>
   <%= f.number_field :rating, min: 1, max: 5 %>
-<% else %>
-  <% no_rating = :rating, nil %>
-  <%= "#{assigned_driver}" %>
-  <%= f.hidden_field :rating %>
-<% end %>
-
-<%= f.label :cost %>
-  <%= f.number_field :cost, :step => 0.01 %>
 
 <%= f.submit %>
 

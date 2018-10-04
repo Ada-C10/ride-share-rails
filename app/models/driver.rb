@@ -9,11 +9,11 @@ class Driver < ApplicationRecord
   self.per_page = 10
 
   def toggle_availablity
-    self.toggle(:is_available?).save
+    self.toggle(:is_available).save
   end
 
   def self.first_available_driver
-    return Driver.find_by(is_available?: true)
+    return Driver.find_by(is_available: true)
   end
 
   def total_earnings

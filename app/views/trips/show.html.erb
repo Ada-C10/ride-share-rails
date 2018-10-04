@@ -1,3 +1,4 @@
+
 <h2><%= @trip.date%></h2>
 <p>Trip ID: <%= @trip.id %></p>
 <p>Trip Cost: <%= currency(@trip.cost) %></p>
@@ -17,13 +18,15 @@
 <p>Cost:  <%= currency(@trip.cost) %></p>
 <p>Rating: <%= @trip.rating %></p>
 
+<% if params[:passenger_id] %>
 <h3>Modify trip:  </h3>
 <ul>
   <li>
-    <%= link_to "Edit", edit_trip_path %>
+    <%= link_to "Edit", edit_passenger_trip_path(@trip.passenger) %>
   </li>
 
   <li>
     <%= link_to "Delete", trip_path(@trip.id), method: :delete, data: { confirm: 'Are you sure?' } %>
   </li>
 </ul>
+<% end %>
