@@ -6,9 +6,9 @@
 <%= link_to "Delete", driver_path(@driver.id), method: :delete, data: {confirm: "Are you sure?"} %>
 <br /><br />
 
-<strong>Total Earnings: $<%= @driver.total_earnings %></strong>
+<strong>Total Earnings: $<%= '%.2f' % @driver.total_earnings %></strong>
 <br />
-<strong>Average Rating: <%= @driver.average_rating %></strong>
+<strong>Average Rating: <%= '%.2f' % @driver.average_rating %></strong>
 <br /><br />
 
 <% active_trips = @trips.where(active: true).order(:date) %>

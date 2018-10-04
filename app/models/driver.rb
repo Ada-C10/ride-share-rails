@@ -8,20 +8,26 @@ class Driver < ApplicationRecord
   # scope :active_and_status, -> { active.where(status: true) }
 
   def total_earnings
-    total = 0
-    self.trips.each do |trip|
-      cost = trip.cost / 100
-      total += (cost - 1.65) * 0.80
+    if self.trips == []
+      return 0
+    else
+      total = 0
+      self.trips.each do |trip|
+        cost = trip.cost / 100
+        total += (cost - 1.65) * 0.80
+      end
+      return total
     end
-    return total.round(2)
   end
 
   def average_rating
     sum = 0
-    self.trips.each do |trip|
+    completed_trips = self.trips.where(in_progress: false)
+
+    completed_trips.each do |trip|
       sum += trip.rating
     end
-    return (sum / self.trips.count).round(2)
+    return (sum / completed_trips.count)
   end
 
   def self.new_trip_driver
