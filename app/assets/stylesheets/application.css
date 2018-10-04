@@ -102,6 +102,10 @@ th {
   text-align: left;
 }
 
+tr:nth-child(odd) {
+background-color: #ffcda3;
+}
+
  .dropbtn {
      padding: 16px;
      font-size: 24px;
