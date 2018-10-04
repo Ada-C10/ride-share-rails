@@ -8,4 +8,13 @@ ul {
 
 .drivers-list {
   display: flex;
+  justify-content: space-around;
+}
+
+a:visited, a:link {
+  color: black;
+}
+
+a:hover{
+  color: blue;
 }
