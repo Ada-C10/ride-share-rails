@@ -1,9 +1,17 @@
-<h1>These are the drivers!</h1>
-<ul class="driver_container">
-  <% @drivers.each do |driver| %>
-  <li>
-    <h2><%= link_to "#{driver.name}", driver_path(driver.id) %> </h2>
-    <p> <%= "#{driver.vin}"  %> </p>
-  </li>
-  <% end %>
-</ul>
+<h1>Drivers</h1>
+<table>
+  <tr>
+    <th>Driver ID</th>
+    <th>Vin Number</th>
+  </tr>
+    <% @drivers.each do |driver| %>
+      <tr>  
+        <td>
+          <h2><%= link_to "#{driver.name}", driver_path(driver.id) %> </h2>
+        </td>
+        <td>
+          <p> <%= "#{driver.vin}"  %> </p>
+        </td>
+      </tr>
+    <% end %>
+</table>

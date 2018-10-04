@@ -5,25 +5,45 @@
   <h1> 404 Not found</h1>
 <% else %>
   <h1><%=@driver.name %></h1>
-  <p>Vin: <%= @driver.vin %> </p>
-  <p>Average Rating: <%= "#{@driver.average_rating}"%></p>
-  <p>Total Earned: <%= "$#{@driver.amount_earned}" %></p>
-  <%= link_to "Edit #{@driver.name}", edit_driver_path(@driver.id) %>
-  <div></div>
-  <!--TODO FIgure out how to delete drivers without impacting driver trips.   -->
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Vin Number</th>
+      <th>Average Rating</th>
+      <th>Total Earned</th>
+    </tr>
+    <tr>
+      <td>
+        <%= "#{@driver.id}" %>
+      </td>
+      <td>
+        <%= "#{@driver.vin}" %>
+      </td>
+      <td>
+        <%= "#{@driver.average_rating}"%>
+      </td>
+      <td>
+        <%= "$#{@driver.amount_earned}" %>
+      </td>
+    </tr>
+  </table>
+  <!-- TODO FIgure out how to delete drivers without impacting driver trips.   -->
   <!--  Maybe set driver id to null then delete? -->
+  <%= link_to "Edit #{@driver.name}", edit_driver_path(@driver.id) %>
   <%= link_to "Delete #{@driver.name}", driver_path(@driver.id), method: :delete %>
 
   <!-- Show driver trips here. Have driver_trips_path.  -->
   <h1>Driver Trips</h1>
-  <% @driver.trips.each do |trip| %>
+  <!-- <%# render driver_trips_path %> -->
+  <!-- How do we show a list of driver trips using the driver_trips path? -->
+  <!-- <% @driver.trips.each do |trip| %>
     <div class = "trip_container">
       <p><%= link_to "Trip ID: #{trip.id}", trip_path(trip.id)%></p>
-      <!-- TODO Create a link to passenger from below. Need access to passenger id in this view.   -->
-      <p>Passenger ID: <%="#{trip.passenger_id}"%></p>
+      <! TODO Create a link to passenger from below. Need access to passenger id in this view.   -->
+      <!-- <p>Passenger ID: <%="#{trip.passenger_id}"%></p>
       <p>Date: <%="#{trip.date}"%></p>
       <p>Rating: <%="#{trip.rating}"%></p>
       <p>Cost: <%="$#{trip.convert_money(trip.cost)}"%></p>
     </div>
-  <% end %>
+  <% end %> -->
 <% end %>
