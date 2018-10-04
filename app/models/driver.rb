@@ -16,4 +16,8 @@ class Driver < ApplicationRecord
       average_rating = (sum_ratings/self.trips.length).to_f.round(2)
       return average_rating
     end
+
+  def make_unavailable
+    self.status = "UNAVAILABLE"
+  end
 end
