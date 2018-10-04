@@ -32,16 +32,8 @@ class TripsController < ApplicationController
   end
 
   def destroy
-    trip = Trip.find_by(id: params[:id])
-    trip.destroy
-
-    if params[:driver_id]
-      driver_id = params[:driver_id].to_i
-      redirect_to driver_path(driver_id)
-    elsif params[:passenger_id] #This doesn't work
-      passenger_id = params[:passenger_id].to_i
-      redirect_to driver_path(passenger_id)
-    else
+    @trip.active = false
+    if @trip.save
       redirect_to root_path
     end
   end

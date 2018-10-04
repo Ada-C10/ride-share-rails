@@ -11,7 +11,7 @@
 <strong>Average Rating: <%= @driver.average_rating %></strong>
 <br /><br />
 
-<% trips_by_date = @driver.trips.order(:date) %>
+<% active_trips = @trips.where(active: true).order(:date) %>
 
 <table class="show_table">
   <tr>
@@ -21,6 +21,6 @@
     <th>Passenger ID</th>
   </tr>
   <tbody>
-    <%= render partial: "dtrips", collection: trips_by_date %>
+    <%= render partial: "dtrips", collection: active_trips %>
   </tbody>
 </table>

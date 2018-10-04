@@ -5,6 +5,7 @@ class DriversController < ApplicationController
 
   def show
     @driver = Driver.find_by(id: params[:id])
+    @trips = @driver.trips
 
     if @driver.nil?
       render :notfound, status: :not_found

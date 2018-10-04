@@ -21,6 +21,7 @@
   <%= link_to "🔥", @passenger, method: :delete, data: {confirm: "You sure about that? Select OK to remove task #{@passenger.name.upcase} ForEVVVeeeR!"}, id: "delete", class: "hover_name1" %>
 </section>
 
+<% active_trips = @trips.where(active: true).order(:date) %>
 
 <table class="show_table">
   <tr>
@@ -37,9 +38,9 @@
       <td><%= "No Trips on Record" %></td>
     </tr>
   <% else %>
-    <% @passenger.trips.each do |trip| %>
+    <% active_trips.each do |trip| %>
       <tr>
-        <td> <%= link_to "#{trip.id}", passenger_trip_path(trip.passenger_id, trip.id) %></td>
+        <td> <%= link_to "#{trip.id}", trip_path(trip.passenger_id, trip.id) %></td>
         <td> <%= trip.driver_id %></td>
         <td> <%= trip.date %></td>
         <td> <%= trip.rating %></td>

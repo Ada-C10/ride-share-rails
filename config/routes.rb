@@ -2,12 +2,10 @@ Rails.application.routes.draw do
   root 'pages#home'
 
   resources :passengers do
-    resources :trips, only: [:create, :destroy, :show]
+    resources :trips, only: [:create]
   end
 
   resources :trips, except: [:index, :new]
 
-  resources :drivers do
-    resources :trips, only: [:show, :destroy]
-  end
+  resources :drivers
 end

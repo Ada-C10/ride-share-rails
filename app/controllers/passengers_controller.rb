@@ -4,7 +4,7 @@ class PassengersController < ApplicationController
     @passenger = Passenger.find(params[:id].to_i)
   end
 
-  
+
   def index
     @passengers = Passenger.all.order(:name)
   end
@@ -12,6 +12,7 @@ class PassengersController < ApplicationController
   def show
     id = params[:id].to_i
     @passenger = Passenger.find_by(id: id)
+    @trips = @passenger.trips
     if @passenger.nil?
       render :notfound, status: :not_found
     end
@@ -24,9 +25,9 @@ class PassengersController < ApplicationController
     @passenger.active = false
     if @passenger.save
       redirect_to passenger_path
-    end 
+    end
   end
-    
+
   def update
     if @passenger.update(passenger_params)
       redirect_to passenger_path
@@ -57,4 +58,3 @@ class PassengersController < ApplicationController
                                         :phone_num)
   end
 end
-
