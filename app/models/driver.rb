@@ -26,4 +26,13 @@ class Driver < ApplicationRecord
     total_earnings = (total_earnings * 0.8) - 1.65
     return total_earnings
   end
+
+  def available_driver
+
+    trip_with_rating = self.trips.where.not(rating: nil)
+
+    first_available = trip_with_rating.first
+    return first_available.driver_id
+  end
+
 end

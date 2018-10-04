@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :drivers
   resources :trips
   resources :passengers do
-    resources :trips, only: [:new]
+    resources :trips, only: [:create]
+      post 'assign_driver'
   end
 end

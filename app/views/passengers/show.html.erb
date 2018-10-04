@@ -22,7 +22,7 @@
 
 
 <button>
-  <%= link_to "Request Trip", passenger_trip_path(@passenger)%>
+  <%= link_to "Request Trip", passenger_trips_path(@passenger), method: :post%>
 </button>
 
 <button>
@@ -42,11 +42,11 @@
   </tr>
 <tr>
   <% @passenger.trips.each do |trip| %>
-  <td><%= link_to trip.id%></td>
+  <td><%= link_to trip.id, trip_path(trip.id)%></td>
   <td><%= trip.date %></td>
   <td><%= link_to trip.driver.name, driver_path(trip.driver.id)%></td>
   <td><%= trip.passenger.name %></td>
-  <td><%= (trip.cost/100.0).round(2) %></td>
+  <td><%= (trip.cost.to_i/100.0).round(2) %></td>
   <td><%= trip.rating %></td>
 </tr>
 <%end%>

@@ -13,25 +13,26 @@ class TripsController < ApplicationController
 
   end
 
-  def new
-    if params[:passenger_id]
-      passenger = Passenger.find_by(id: params[:passenger_id])
-      @trip = passenger.trips.new
-    end
-  end
+  # def new
+  #   if params[:passenger_id]
+  #     passenger = Passenger.find_by(id: params[:passenger_id])
+  #     @trip = passenger.trips.new
+  #   end
+  # end
 
 
   def create
 
     if params[:passenger_id]
       passenger = Passenger.find_by(id: params[:passenger_id])
-      @trip = passenger.trips.new(trip_params())
+
+      @trip = passenger.trips.new(date: Date.today, driver: Driver.all.sample)
 
       if @trip.save
         redirect_to passenger_path(passenger.id)
       else
         #TODO validation
-        render :new
+        render :bad_request
       end
     end
   end
