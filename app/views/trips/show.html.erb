@@ -24,7 +24,7 @@
         <%= @trip.date.to_s %><br>
       </td>
       <td>
-        <%= @trip.driver_id %><br>
+        <%= link_to @trip.driver_id, driver_trips_path(@trip.driver_id) %><br>
       </td>
       <td>
         <%= @trip.passenger_id %><br>
