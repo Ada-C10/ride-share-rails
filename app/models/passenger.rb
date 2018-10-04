@@ -4,12 +4,7 @@ class Passenger < ApplicationRecord
   def total_cost
     #The driver gets 80% of the trip cost after a fee of $1.65 is subtracted
      total_cost = self.trips.reduce(0) { |sum, trip|
-       if trip.cost == nil
-         sum + 0
-       else
-         sum + trip.cost
-       end
-     }
+       trip.cost == nil ? sum : sum + trip.cost }
      total_cost /= 100.0
      return total_cost.round(2)
   end
