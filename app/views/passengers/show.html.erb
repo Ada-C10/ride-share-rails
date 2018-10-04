@@ -14,6 +14,11 @@
     <li><strong>Name:</strong> <%= @passenger.name %></li>
     <li><strong>Phone Number:</strong> <%= @passenger.phone_num %></li>
     <li><strong>Total Spent:</strong> <%=@passenger.total_spent %></li>
+    <% if @passenger.status == "active"%>
+    <li><%= link_to "Inactivate Your Account", passenger_status_path(@passenger.id), method: :patch %></li>
+    <% else @passenger.status == "inactive"%>
+    <li><%= link_to "Actitvate Your Account", passenger_status_path(@passenger.id), method: :patch %></li>
+    <%end%>
 
     <sub><%= link_to "Edit", edit_passenger_path(@passenger.id) %></sub>
     <sub><%= link_to "Delete", passenger_path(@passenger.id), method: :delete, data: {confirm: "Please confirm you would like to delete." } %></sub>

@@ -16,9 +16,9 @@
   <li><strong>Total Revenue:</strong> <%= @driver.total_revenue %></li>
   <li><strong>Average Rating:</strong> <%= "#{'%.2f' % @driver.average_rating}"%></li>
   <% if @driver.status == "active"%>
-  <li><%= link_to "Become Inactive", driver_status_path(@driver.id), method: :patch %></li>
+  <li><%= link_to "Inactivate Your Account", driver_status_path(@driver.id), method: :patch %></li>
   <% else @driver.status == "inactive"%>
-  <li><%= link_to "Become Active", driver_status_path(@driver.id), method: :patch %></li>
+  <li><%= link_to "Actitvate Your Account", driver_status_path(@driver.id), method: :patch %></li>
   <%end%>
 
   <sub><%= link_to "Edit", edit_driver_path(@driver.id) %></sub>
@@ -38,7 +38,10 @@
   <% @driver.all_driver_trips.each do |trip| %>
   <tr>
     <td><%=link_to trip.id, trip_path(trip.id)%></td>
-    <td><%=trip.passenger_id %></td>
+    <td><%=trip.passenger_id %>
+    <% if trip.passenger.status == "inactive"%>
+    (Inactive)
+    <% end %></td>
     <td><%=trip.driver_id%></td>
     <td><%=trip.date%></td>
     <td><%="#{'%.2f' % trip.rating}"%></td>

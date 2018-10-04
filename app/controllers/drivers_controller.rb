@@ -56,17 +56,17 @@ class DriversController < ApplicationController
     end
   end
 
-  # def status
-  #   id = params[:id].to_i
-  #   @task = Task.find_by(id: id)
-  #   if @task.due.class == String
-  #     @task.due = nil
-  #   else @task.due == nil
-  #     @task.due = "Completed on #{Date.today}"
-  #   end
-  #   @task.save
-  #   redirect_to root_path
-  # end
+  def status
+    id = params[:id].to_i
+    @driver = Driver.find_by(id: id)
+    if @driver.status == "active"
+      @driver.status = "inactive"
+    else @driver.status == "inactive"
+      @driver.status = "active"
+    end
+    @driver.save
+    redirect_to driver_path(@driver.id)
+  end
 
   private
 
