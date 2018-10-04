@@ -35,5 +35,11 @@ Rails.application.routes.draw do
   # Trips routes
   get '/trips', to: 'trips#index', as: 'all_trips'
 
+  get '/trips/new', to: 'trips#new', as: 'new_trip'
+  post '/trips', to: 'trips#create'
+
+  get '/trips/:id/edit', to: 'trips#edit', as: 'edit_trip'
+  patch '/trips/:id', to: 'trips#update'
+
   get '/trips/:id', to: 'trips#show', as: 'trip'
 end
