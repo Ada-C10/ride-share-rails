@@ -44,6 +44,10 @@ nav ul li:first-child { float: left; }
    align-self: center;
  }
 
+ form {
+   align-self: center;
+ }
+
  .pagination a {
      margin: 4px;
      padding: 6px;
