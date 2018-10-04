@@ -1,5 +1,7 @@
 <h2>Drivers List</h2>
-<%= will_paginate @drivers %>
+<div class="apple_pagination">
+  <%= will_paginate @drivers %>
+</div>
 <table>
   <tbody>
     <% @drivers.each do |driver| %>

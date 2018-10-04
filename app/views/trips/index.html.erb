@@ -3,13 +3,15 @@
 <div class="apple_pagination">
   <%= will_paginate @trips %>
 </div>
-<ul>
+<ul class="trip-list">
   <% @trips.each do |trip| %>
   <li class="trip">
-    <div class="trip-id"><%= trip.id %></div>
-    <div class="name">
+    <span class="trip-id">
+      <%= trip.id %>
+    </span> &nbsp; &nbsp;
+    <span class="name">
       <%=  link_to trip.date, trip_path(trip.id), class: 'name-link' %>
-    </div>
+    </span>
   </li>
   <% end %>
 </ul>
