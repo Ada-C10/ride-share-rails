@@ -5,13 +5,15 @@ Rails.application.routes.draw do
 
   resources :homepages
 
-  resources :drivers do
-    resources :trips
+  resources :passengers do
+    resources :trips, only: [:index]
   end
 
-  resources :passengers do
-    resources :trips
+  resources :drivers do
+    resources :trips, only: [:index]
   end
+
+
 
 
   resources :drivers
