@@ -3,18 +3,9 @@ class Passenger < ApplicationRecord
 
 def all_trips
   @all_trips = []
-  @all_trips << Trip.where(@passenger.id)
+  @all_trips << Trip.where(passenger_id: id)
   return @all_trips
 end
-
-
-
-
-
-
-
-
-
 
 
 
