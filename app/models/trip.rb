@@ -14,4 +14,6 @@ class Trip < ApplicationRecord
 
   # cost must be present and numerical
   validates :cost, presence: true, numericality: true
+
+
 end
