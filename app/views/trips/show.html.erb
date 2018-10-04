@@ -30,7 +30,7 @@
         <%= @trip.passenger_id %><br>
       </td>
       <td>
-        <%= ((@trip.cost) / 100) + ((@trip.cost) % 100) / 100.00 %><br>
+        <%= (@trip.cost).to_f / 100 %><br>
       </td>
       <td>
         <%= @trip.rating %><br>
