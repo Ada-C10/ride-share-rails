@@ -28,5 +28,4 @@ class Driver < ApplicationRecord
     return money.round(2)
   end
 
-
 end
