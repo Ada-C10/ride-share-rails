@@ -5,15 +5,24 @@
 <h3><%= @user.name %></h3>
 
 <% @trips.each do |t| %>
-  <% if t.passenger %>
+  <% if t.passenger.id == @user.id %>
+    <%= t.driver.name %>
+    <%= t.id %>
     <%= t.cost %>
     <%= t.date %>
+    <%= link_to "Edit", edit_passenger_path(t.id) %>
     <br />
 
-  <% elsif t.driver %>
+  <% elsif t.driver.id == @user.id %>
     <%= t.cost %>
-    <%= t.driver.name %>
+    <br>
+    <%= t.passenger.name %>
+    <br>
     <%= t.rating %>
+    <br>
+    <%= link_to "Edit", edit_driver_path(t.id) %>
+    <br>
+    <br>
   <% end %>
 
 <% end %>
