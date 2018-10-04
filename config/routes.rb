@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   resources :passengers, :drivers, :trips
   #
+  # this is get '/authors/:author_id/books', to: 'books#authors '
   # resources:authors do
   #   resources :books, only :[index, :new]
 
