@@ -1,3 +1,17 @@
 // Place all the styles related to the Passengers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.passenger {
+  background-image: url("spacex-bfr.jpg");
+  height: 100%;
+  color: white;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.passenger_index {
+  background: radial-gradient(circle, white, black);
+  color: white;
+}
+  

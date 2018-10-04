@@ -48,6 +48,9 @@ class TripsController < ApplicationController
 
 
   def create
+    if Passenger.verify_trip == false
+      raise
+    end
     if params[:passenger_id]
       @passenger_id = params[:passenger_id].to_i
       driver = Driver.new_trip_driver

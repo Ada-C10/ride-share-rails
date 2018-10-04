@@ -8,6 +8,30 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+  <header>
+    <nav>
+      <ul>
+        <li class="brand">
+          <h3><%= link_to "COMET", root_path %> </h3>
+        </li>
+        <li class="dropdown passengers">
+          <button class="drop_heading">Passengers</button>
+          <div class="drop_content">
+            <%= link_to "View All", passengers_path %>
+            <%= link_to "Create New", new_passenger_path %>
+          </div>
+        </li>
+        <li class="dropdown drivers">
+          <button class="drop_heading">Drivers</button>
+          <div class="drop_content">
+            <%= link_to "View All", drivers_path %>
+            <%= link_to "Create New", new_driver_path %>
+          </div>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
 
   <% if params[:controller] == "pages" %>
     <body class="home">

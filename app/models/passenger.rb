@@ -17,4 +17,14 @@ class Passenger < ApplicationRecord
       return 0
     end
   end
+
+  def verify_trip
+    if self.trips.last.cost == nil
+      return false
+    else
+      return true
+    end
+  end
+
+
 end
