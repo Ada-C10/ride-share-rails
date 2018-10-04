@@ -27,6 +27,9 @@ class DriversController < ApplicationController
     end
   end
 
+
+
+
   def edit
     @driver = Driver.find_by(id: params[:id])
   end
@@ -55,7 +58,7 @@ class DriversController < ApplicationController
 
 
   end
-  
+
 
   private
 

@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
 
 
-    patch '/drivers/:id/complete', to: 'drivers#complete', as: 'driver_status'
+    patch '/trips/new', to: 'drivers#complete', as: 'driver_status'
 
 
 end
