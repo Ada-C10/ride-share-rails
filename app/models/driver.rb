@@ -2,6 +2,8 @@ class Driver < ApplicationRecord
  has_many :trips
  has_many :passengers, through: :trips
 
+ enum status: %i[inactive active]
+
  validates :name, presence: true
  validates :vin, presence: true
 

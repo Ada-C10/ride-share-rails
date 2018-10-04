@@ -15,10 +15,14 @@
   <li><strong>Vin Number:</strong> <%= @driver.vin %></li>
   <li><strong>Total Revenue:</strong> <%= @driver.total_revenue %></li>
   <li><strong>Average Rating:</strong> <%= "#{'%.2f' % @driver.average_rating}"%></li>
+  <% if @driver.status == "active"%>
+  <li><%= link_to "Become Inactive", driver_status_path(@driver.id), method: :patch %></li>
+  <% else @driver.status == "inactive"%>
+  <li><%= link_to "Become Active", driver_status_path(@driver.id), method: :patch %></li>
+  <%end%>
 
-
-  <sub><%= link_to "Edit", edit_passenger_path(@driver.id) %></sub>
-  <sub><%= link_to "Delete", passenger_path(@driver.id), method: :destroy, data: {confirm: "Please confirm you would like to delete." } %></sub>
+  <sub><%= link_to "Edit", edit_driver_path(@driver.id) %></sub>
+  <sub><%= link_to "Delete", driver_path(@driver.id), method: :delete, data: {confirm: "Please confirm you would like to delete." } %></sub>
 </ul>
 
 <h4>Trip History:</h4>
