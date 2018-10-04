@@ -14,7 +14,7 @@
 <p><%= link_to "Passenger: DELETED PASSENGER", passengers_path %></p>
 <% end %>
 
-<p>Cost:  <%= @trip.cost %></p>
+<p>Cost:  <%= currency(@trip.cost) %></p>
 <p>Rating: <%= @trip.rating %></p>
 
 <h3>Modify trip:  </h3>
