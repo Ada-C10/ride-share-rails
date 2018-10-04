@@ -5,10 +5,12 @@
   <h3>Passenger id <%= @passenger.id %></h3>
   <h3>Passenger name <%= @passenger.name %></h3>
   <p>Phone number <%= @passenger.phone_num %> </p>
-  <p>Total amount passenger has been charged:</p>
-  <p>List of trips</p>
+  <p>
+  Total amount passenger has been charged:</p>
 
-  <%= link_to "Edit", edit_passenger_path(@passenger.id) %>
-  <div></div>
-  <%= link_to "Delete", passenger_path(@passenger.id), method: :delete  %>
+  <p><%= link_to "List of trips", passenger_trips_path(@passenger.id) %></p>
+
+  <p><%= link_to "Edit", edit_passenger_path(@passenger.id) %><p>
+  <p><%= link_to "Delete", passenger_path(@passenger.id), method: :delete %></p>
+  <p><%= link_to "Add trip" %></p>
 <% end %>

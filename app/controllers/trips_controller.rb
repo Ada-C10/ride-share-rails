@@ -12,7 +12,7 @@ class TripsController < ApplicationController
     if @trip.update(trip_params)
       redirect_to trip_path
     else
-      render :dit
+      render :edit
     end
   end
 
