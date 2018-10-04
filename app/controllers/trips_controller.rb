@@ -22,6 +22,10 @@ class TripsController < ApplicationController
 
   def update
     trip = Trip.find_by(id: params[:id])
+    if trip.rating != nil
+      trip_params[:in_progress] = false
+    end
+
     trip.update(trip_params)
 
     if trip.save
@@ -43,7 +47,7 @@ class TripsController < ApplicationController
     if params[:passenger_id]
       @passenger_id = params[:passenger_id].to_i
       driver = Driver.new_trip_driver
-      @trip = Trip.new(driver_id: driver, passenger_id: @passenger_id, date: DateTime.now, cost: 0)
+      @trip = Trip.new(driver_id: driver, passenger_id: @passenger_id, date: DateTime.now, cost: 0, in_progress: true)
       if @trip.save
         redirect_to root_path
       else
@@ -55,7 +59,7 @@ class TripsController < ApplicationController
 
   end
 
-  # private
-  # def trip_params
-  #   return params.require(:trip).permit(:driver_id, :passenger_id)
-  #  end
+  private
+  def trip_params
+    return params.require(:trip).permit(:driver_id, :passenger_id, :rating, :in_progress, :active, :cost)
+   end
