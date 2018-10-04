@@ -9,8 +9,10 @@ Rails.application.routes.draw do
       patch :update_status
     end
   end
-  
-  resources :trips, only: [:show]
+
+  resources :trips, only: [:show] do
+    post 'rate', to: 'trips#update', as: 'rate'
+  end
 
   resources :passengers do
     resources :trips, only: [:create]

@@ -54,7 +54,7 @@
 
 
   <td><%= (trip.cost.to_i/100.0).round(2) %></td>
-  <td><%= trip.rating %></td>
+  <td><%= rate_me(trip) %></td>
 </tr>
 <%end%>
 </table>
