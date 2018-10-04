@@ -1,25 +1,29 @@
-<% if @driver.errors.any? %>
-  <ul class="errors">
-    <% @driver.errors.each do |column, message| %>
-      <li>
-        <strong><%= column.capitalize %></strong> <%= message %>
-      </li>
+<body>
+  <section class="form-fill">
+    <% if @driver.errors.any? %>
+      <ul class="errors">
+        <% @driver.errors.each do |column, message| %>
+          <li>
+            <strong><%= column.capitalize %></strong> <%= message %>
+          </li>
+        <% end %>
+      </ul>
     <% end %>
-  </ul>
-<% end %>
 
-<h1><%= page_title %></h1>
-<%= form_with model: @driver do |f| %>
-  <p>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :vin %>
-    <%= f.text_field :vin %>
-  </p>
-  <p>
-    <%= f.submit "Save Driver", class: "button" %>
-  </p>
+    <h1><%= page_title %></h1>
+    <%= form_with model: @driver do |f| %>
+      <p>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+      </p>
+      <p>
+        <%= f.label :vin %>
+        <%= f.text_field :vin %>
+      </p>
+      <p>
+        <%= f.submit "Save Driver", class: "button" %>
+      </p>
 
-<% end %>
+    <% end %>
+  </section>
+</body>

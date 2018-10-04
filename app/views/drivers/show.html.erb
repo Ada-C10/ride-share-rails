@@ -1,4 +1,4 @@
-<% if @passenger.nil? %>
+<% if @driver.nil? %>
   <h1> 404 Not found</h1>
 <% else %>
   <body>
@@ -32,7 +32,7 @@
         <td><%= trip.passenger_id %></td>
         <td><%= trip.date %></td>
         <td><%= trip.rating %></td>
-        <td><%= trip.cost %></td>
+        <td>〄<%= trip.cost %></td>
       </tr>
       <% end %>
     </table>

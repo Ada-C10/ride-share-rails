@@ -13,7 +13,7 @@
       <p>ID: <%= @passenger.id %></p>
       <p>Name: <%= @passenger.name %></p>
       <p>Phone Number: <%= @passenger.phone_num %></p>
-      <p>Total Amount Charged: <%= @passenger.total_charges %></p>
+      <p>Total Amount Charged: 〄<%= @passenger.total_charges %></p>
     </section>
 
     <h2>Trip Details</h2>
@@ -32,7 +32,7 @@
         <td><%= trip.driver_id %></td>
         <td><%= trip.date %></td>
         <td><%= trip.rating %></td>
-        <td><%= trip.cost %></td>
+        <td>〄<%= trip.cost %></td>
       </tr>
       <% end %>
     </table>
