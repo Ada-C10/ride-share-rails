@@ -1,8 +1,13 @@
 <h1> Trip In Progress</h1>
-<p> Requesting trip for <strong> <%= Passenger.find_by(id: params[:passenger_id].to_i).name%></strong></p>
+<p> Requesting trip for <strong> <%= @passenger.name%></strong></p>
 <ul>
-  <%@trip = Trip.find_by(id:params[:id])%>
-  <li> Your driver is: <%= @trip.driver.name%></li>
-  <li> Driver's Average Rating: <%=@trip.driver.average_rating%></li>
+  <li> You've been matched with:<strong> <%= @trip.driver.name%></strong></li>
+  <li> Your Driver's Average Rating:<strong><%=@trip.driver.average_rating%></strong></li>
   <li> Trip Cost: $5</li>
+  <li>  <%= form_with model: @trip do |f|%>
+    <%= f.label :rating, "Your trips rating:"%>
+    <%= f.select :rating, [1,2,3,4,5]%>
+    <%= f.submit "End Trip" %>
+    <%end%>
+    </li>
 </ul>

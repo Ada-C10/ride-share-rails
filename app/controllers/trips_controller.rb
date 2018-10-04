@@ -32,7 +32,8 @@ class TripsController < ApplicationController
   end
 
   def in_progress
-    @trip = Trip.find_by(id: params[:trip_id])
+    @trip = Trip.find_by(id: params[:id])
+    @passenger = Passenger.find_by(id: params[:passenger_id].to_i)
   end
 
   def edit
@@ -44,15 +45,16 @@ class TripsController < ApplicationController
   end
 
   def update
-    @trip = Trip.find_by(id: params[:id])
+    @trip = Trip.find_by(id: params[:id].to_i)
     @trip.update(trip_params)
-    binding.pry
     if @trip.save
-      redirect_to trip_path
+      redirect_to passenger_trip_path(@trip.passenger.id, @trip.id)
     else
       render :new
     end
   end
+
+
 
   private
 
