@@ -1,25 +1,53 @@
-<h2> Trip Detail Page </h2>
+<div class="trip-show">
 
-<ul>
-  <strong>
-    <li> Driver Name:</li>
-    <li><%= link_to @trip.driver.name, driver_path(@trip.driver.id) %></li>
-    <li> Passenger Name:</li>
-    <li><%= link_to @trip.passenger.name, passenger_path(@trip.passenger.id) %></li>
-    <li> Date: <%= @trip.date %> </li>
-    <li> Cost: <%= @trip.cost %> </li>
+  <h2> Trip # <%= @trip.id %> </h2>
 
-      <% if @trip.rating.nil? %>
+  <table>
+    <tr>
+      <th>Driver</th>
+      <th>Passenger</th>
+      <th>Date</th>
+      <th>Cost</th>
+      <th>Rating</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+
+    <tr>
+
+      <td>
+        <%= link_to driver_path(@trip.driver.id) do %>
+        <%= @trip.driver.name %>
+        <% end %>
+      </td>
+
+      <td>
+
+        <%= link_to passenger_path(@trip.passenger.id)  do %>
+        <%= @trip.passenger.name %>
+        <% end %>
+      </td>
+
+
+      <td> <%= @trip.date %> </td>
+      <td> <%= @trip.cost %>  </td>
+
+      <td>
+        <% if @trip.rating.nil? %>
         <%= form_with model: @trip, class: 'trip-form' do |f| %>
         <%= f.label :rating %>
         <%= f.select :rating, [*1..5] %>
         <%= f.submit "Submit Rating" %>
-      <% end %>
-      <% else %>
-        <li> Rating: <%= @trip.rating %> </li>
-      <% end %>
+        <% end %>
+        <% else %>
+        <%= @trip.rating %>
+        <% end %>
+      </td>
 
-    <li><%= link_to "Edit", edit_trip_path(@trip.id) %></li>
-    <li><%= link_to "Delete", trip_path(@trip.id), method: :delete, data: { confirm: "Are you sure you want to delete #{@trip.id}?" } %></li>
-  </strong>
-</ul>
+      <td> <%= link_to "Edit", edit_trip_path(@trip.id) %> </td>
+      <td> <%= link_to "Delete", trip_path(@trip.id), method: :delete, data: { confirm: "Are you sure you want to delete #{@trip.id}?" } %> </td>
+
+
+    </tr>
+  </table>
+</div>
