@@ -16,5 +16,20 @@
   <br />
   <strong>VIN:</strong>
   <%= @driver.vin%>
+</p>
 
+<h2>Trips for this Driver</h2>
+<p>
+  <ul>
+    <% @driver.trips.sort.each do |trip| %>
+      <li><strong>Trip #: <%=trip.id %></strong></li>
+      <li>Date: <%=trip.date %></li>
+      <li>Rating: <%=trip.rating %></li>
+      <li>Cost: <%=trip.cost %></li>
+      <li>Passenger id: <%=trip.passenger_id %></li>
+       <!-- driver name? -->
+      <br/>
+
+    <% end %>
+  </ul>
 </p>

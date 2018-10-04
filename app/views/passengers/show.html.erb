@@ -23,4 +23,19 @@
   phone number: <%= @passenger.phone_num %>
 </p>
 
-<%= @passenger.trips %>
+<!-- # <%= @passenger.trips %> -->
+<h2>Trips for this Passenger</h2>
+<p>
+  <ul>
+    <% @passenger.trips.sort.each do |trip| %>
+      <li><strong>Trip #: <%=trip.id %></strong></li>
+      <li>Date: <%=trip.date %></li>
+      <li>Rating: <%=trip.rating %></li>
+      <li>Cost: <%=trip.cost %></li>
+      <li>Driver id: <%=trip.driver_id %></li>
+       <!-- passenger name? -->
+      <br/>
+
+    <% end %>
+  </ul>
+</p>
