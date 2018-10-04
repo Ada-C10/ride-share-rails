@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :passengers do
     resources :trips, only: [:index, :create]
+    get 'passengers/:passenger_id/trips/in_progress', to: 'trips#in_progress', as: 'passenger_trip_inprogress'
   end
 
   resources :drivers do
