@@ -22,10 +22,18 @@ class Driver < ApplicationRecord
   end
 
   def average_rating
+    sum = 0
+    count = 0
     completed_trips = self.trips.where(in_progress: false)
-    rating_sum = completed_trips.reduce(0) { |sum, trip| sum + trip.rating }
-    
-    return (rating_sum / completed_trips.count)
+
+    completed_trips.each do |trip|
+      if trip.rating != nil
+        sum += trip.rating
+        count += 1
+      end
+    end
+
+    return (sum / count)
   end
 
   def self.new_trip_driver
