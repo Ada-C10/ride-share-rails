@@ -34,6 +34,12 @@ class TripsController < ApplicationController
     end
   end
 
+  def destroy
+    trip = Trip.find_by(id: params[:id])
+    trip.destroy
+    redirect_to driver_trips_path(trip.driver_id)
+  end
+
   def avg_trip_rating(trips)
     num_of_trips = trips.count
 
