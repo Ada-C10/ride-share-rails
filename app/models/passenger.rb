@@ -9,4 +9,14 @@ class Passenger < ApplicationRecord
     end
     return total
   end
+
+  def list_trips
+    trips = []
+    self.trips.each do |trip|
+      if trip.passenger_id == self.id
+        trips << trip
+      end
+    end
+    return trips
+  end
 end
