@@ -9,7 +9,7 @@
 
   <strong>Name: <%= @driver.name %></strong>
   <br>
-  <strong>Rating:</strong>
+  <strong>Rating: </strong>
   <br>
 
   <h2>Driver Trips</h2>
@@ -30,7 +30,7 @@
      <% @trips.each do |trip| %>
         <tr>
           <td>
-            <%= trip.id %><br>
+            <%= link_to trip.id, trip_path(trip.id) %><br>
           </td>
           <td>
             <%= trip.date.to_s %><br>

@@ -7,4 +7,9 @@ class TripsController < ApplicationController
       @trips = Trip.all
     end
   end
+
+  def show
+    trip_id = params[:id]
+    @trip = Trip.find_by(id: trip_id)
+  end
 end
