@@ -3,8 +3,8 @@
 
 <h1>Trip #<%= @trip.id %> (<%= @trip.status.to_s.gsub("_", "-") %>)</h1>
 <h2>Date :  <%= @trip.date %></h2>
-<h2>Driver : <%= @trip.driver_name %></h2>
-<h2>Passenger : <%= @trip.passenger_name %></h2>
+<h2>Driver : <%= link_to @trip.driver.name, driver_path(@trip.driver.id) %></h2>
+<h2>Passenger : <%= link_to @trip.passenger.name, passenger_path(@trip.passenger.id) %></h2>
 <h2>Rating : <%= @trip.rating %></h2>
 <h2>Cost : $<%= @trip.formatted_cost %></h2>
 <% if @trip.status == :in_progress %>
