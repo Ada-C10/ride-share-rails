@@ -12,7 +12,11 @@
       [No Driver]
     <% end %>
 
+    <% if trip.passenger_id %>
     <%=link_to "Passenger", passenger_trips_path(trip.passenger_id) %>
+    <% else %>
+      [No Passenger]
+    <% end %>
 
     <%= link_to "Edit trip", edit_trip_path(trip) %>
 
