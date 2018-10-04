@@ -12,11 +12,12 @@
 <p>
   <ul>
     <% @driver.trips.sort.each do |trip| %>
-    <li><strong>Trip #: <%=trip.id %></strong></li>
-    <li>Date: <%=trip.date %></li>
-    <li>Rating: <%=trip.rating %></li>
-    <li>Cost: <%=trip.cost %></li>
-    <li>Passenger id: <%=trip.passenger_id %></li>
+      <li><strong>Trip #: <%=trip.id %></strong></li>
+      <li>Date: <%=trip.date %></li>
+      <li>Rating: <%=trip.rating %></li>
+      <li>Cost: <%=trip.cost %></li>
+      <li>Passenger id: <%=trip.passenger_id %></li>
+    <%end%>
     <!-- turn into link that links to passenger show page.  push in parameter as parameter_id-->
     <br/>
 
