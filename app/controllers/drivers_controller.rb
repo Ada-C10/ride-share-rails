@@ -1,6 +1,11 @@
 class DriversController < ApplicationController
   def index
-    @drivers = Driver.all
+    if params[:trip_id]
+      trip = Trip.find_by(id: params[:trip_id])
+      @drivers = trip.drivers
+    else
+      @drivers = Driver.all
+    end
   end
 
   def show
@@ -22,7 +27,12 @@ class DriversController < ApplicationController
   end
 
   def edit
-    @driver = Driver.find_by(id: params[:id].to_i)
+    if params[:trip_id]
+      trip = Trip.find_by(id: params[:trip_id])
+      @driver = trip.drivers.new
+    else
+      @driver = Driver.find_by(id: params[:id].to_i)
+    end 
   end
 
   def update

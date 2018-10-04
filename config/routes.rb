@@ -2,11 +2,11 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   get 'welcome/index'
-  # resource :trips do
-  #   resources :drivers, only: [:index, :new]
+  # why are the paths different between resource trips and the trips I wrote?
+  resource :trips
   get 'trips/:id', to: 'trips#show', as: 'trip'
   get 'trips/:id/edit', to: 'trips#edit', as: 'edit_trip'
-  patch 'trips/:id', to: 'books#update'
+  patch 'trips/:id', to: 'trips#update'
   delete 'trips/:id', to: 'trips#destroy'
 
   resources :drivers

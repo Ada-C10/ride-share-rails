@@ -1,4 +1,8 @@
 class TripsController < ApplicationController
+  def index
+    @trips = Trip.all
+  end
+
   def show
     @trip = Trip.find_by(id: params[:id].to_i)
   end
@@ -12,7 +16,7 @@ class TripsController < ApplicationController
     if @trip.update(trip_params)
       redirect_to trip_path
     else
-      render :dit
+      render :edit
     end
   end
 
