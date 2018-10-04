@@ -5,9 +5,18 @@
     <p><%= link_to "Home", root_path %></p>
   </section>
   <main>
-    <% @drivers.each do |driver| %>
-    <h2><%=link_to "#{driver.name}", driver_path(driver.id) %></h2>
-    <p>VIN: <%= driver.vin %></p>
-    <% end %>
+    <table>
+      <tr>
+        <th>Driver Name</th>
+        <th>VIN</th>
+      </tr>
+      <% @drivers.each do |driver| %>
+      <tr>
+        <td><%=link_to "#{driver.name}", driver_path(driver.id) %></th>
+        <td><%= driver.vin %></th>
+      </tr>
+      <% end %>
+    </table>
+
   </main>
 </body>
