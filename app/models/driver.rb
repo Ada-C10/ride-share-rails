@@ -1,11 +1,12 @@
 class Driver < ApplicationRecord
+  # relation to trips
   has_many :trips
-  validates :name, presence: true, uniqueness: true
-  validates :vin, presence: true, uniqueness: true
 
-  # use scope to find active and drivers w/ available status
-  # scope :active, -> { where(active: true) }
-  # scope :active_and_status, -> { active.where(status: true) }
+  # name must be unique and present
+  validates :name, presence: true, uniqueness: true
+
+  # vin must be unique and present
+  validates :vin, presence: true, uniqueness: true
 
   def total_earnings
     if self.trips == []
@@ -21,19 +22,16 @@ class Driver < ApplicationRecord
   end
 
   def average_rating
-    sum = 0
     completed_trips = self.trips.where(in_progress: false)
-
-    completed_trips.each do |trip|
-      sum += trip.rating
-    end
-    return (sum / completed_trips.count)
+    rating_sum = completed_trips.reduce(0) { |sum, trip| sum + trip.rating }
+    
+    return (rating_sum / completed_trips.count)
   end
 
   def self.new_trip_driver
     avail_drivers = self.where(active: true, status: true)
     driver = avail_drivers.first
-    # binding.pry
+
     return driver.id
   end
 end

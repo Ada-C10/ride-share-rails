@@ -1,9 +1,14 @@
 class Trip < ApplicationRecord
+  # relation to passengers and drivers
   belongs_to :passenger
   belongs_to :driver
 
+  # date must be present
   validates :date, presence: true
-  validates :passenger_id, presence: true
-  validates :driver_id, presence: true
 
+  # passenger_id must be present
+  validates :passenger_id, presence: true
+
+  # driver_id must be present
+  validates :driver_id, presence: true
 end

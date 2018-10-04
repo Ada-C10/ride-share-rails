@@ -8,7 +8,7 @@
 <h3>ID: <%= @passenger.id%></h3>
 <% end %>
 <div>
-<h2>Total Cost: <%= "🚀"'%.2f' %  (@passenger.total_cost/100) %></h2>
+<h2>Total Spent: <%= "🚀"'%.2f' %  (@passenger.total_cost/100) %></h2>
 </div>
 </section>
 
@@ -38,7 +38,7 @@
 
   <% if @passenger.trips.empty? %>
     <%= "No Trips on Record" %>
-    
+
   <% else %>
     <% active_trips.each do |trip| %>
       <tr>
