@@ -1,2 +1,7 @@
-<h1>Trips#new</h1>
-<p>Find me in app/views/trips/new.html.erb</p>
+
+<%= render partial: "form",
+  locals: { model_name: @trip,
+    action_name: 'Request a Trip',
+    number_variable: :phone_num,
+    number_title: "Phone Number",
+    button_title: 'Request Trip' } %>

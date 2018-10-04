@@ -15,9 +15,6 @@ class TripsController < ApplicationController
     end
   end
 
-
-#passenger/123
-#driver/1345
   def new
     @trip = Trip.new
   end
@@ -36,6 +33,16 @@ class TripsController < ApplicationController
       @trip = Trip.find_by(id: params[:passenger_id])
     else
       @trip = Trip.find_by(id: params[:id].to_i)
+    end
+  end
+
+  def update
+    @trip = Trip.find_by(id: params[:id])
+    @trip.update(trip_params)
+    if @trip.save
+      redirect_to trip_path
+    else
+      render :new
     end
   end
 
