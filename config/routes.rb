@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  root 'passengers#index'
-  # root 'Passengers#index'
+  root 'trips#home'
+
   resources :passengers do
     resources :trips, only: [:index, :new, :create]
   end
@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :trips, only: [:index]
   end
 
+  get 'trips/home', to: 'trips#home', as: 'trips_home'
   resources :trips
 
 end

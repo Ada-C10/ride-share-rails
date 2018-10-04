@@ -32,7 +32,11 @@ class TripsController < ApplicationController
   end
 
   def edit
-    @trip = Trip.find_by(id: params[:id].to_i)
+    if params[:passenger_id]
+      @trip = Trip.find_by(id: params[:passenger_id])
+    else
+      @trip = Trip.find_by(id: params[:id].to_i)
+    end
   end
 
   private

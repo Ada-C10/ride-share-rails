@@ -1,9 +1,9 @@
 <h1>List of Passengers</h1>
 <% @passengers.each do |passenger| %>
-      <a href= "/passengers/ <%=passenger.id %>">
+    <h3><a href= "/passengers/ <%=passenger.id %>">
           <%= passenger[:name] %>
         </a>
-      </h2>
+      </h3>
       <ul>
         <li>Phone Number: <%= passenger[:phone_num] %></li>
       </ul>
