@@ -1,0 +1,20 @@
+<%= render partial: 'layouts/form_errors',
+locals: {
+  model: @trip
+}
+%>
+
+<%= form_with model: @trip, class: 'trip-form' do |f| %>
+
+<h3> Edit Trip </h3>
+
+<%= f.label :cost %>
+<%= f.text_field :cost %>
+
+<%= f.label :rating %>
+<%= f.select :rating, [*1..5] %>
+
+<%= f.submit 'Edit Trip', class: "trip-form-submit-button" %>
+
+
+<% end %>
