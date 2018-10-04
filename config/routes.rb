@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :trips
 
   resources :passengers do
-    resources :trips, only: [:index, :create, :new]
+    resources :trips, include: [:index, :create, :new]
   end
 
   # get '/passengers', to: 'passengers#index', as: 'all_passengers'

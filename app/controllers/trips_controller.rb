@@ -15,21 +15,19 @@ class TripsController < ApplicationController
   end
 
   def new
-    if params[:passenger_id]
-      passenger = Passenger.find_by(id: params[:passenger_id])
-      @trips = passenger.trips.new
-    end
+    @trip = Trip.new
   end
 
   def create
     if params[:passenger_id]
       passenger = Passenger.find_by(id: params[:passenger_id])
-      @trips = passenger.trips
-
+      driver = Driver.all.sample
+      @trip = passenger.trips.new(driver_id: driver.id, passenger_id: passenger.id, date: Time.now, rating: 0, cost: 0)
+      if @trip.save
+        redirect_to passenger_path(passenger.id)
+      end
     else
-      @trips = Trip.all
+      render :new
     end
-
-
   end
 end

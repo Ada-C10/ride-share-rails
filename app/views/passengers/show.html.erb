@@ -2,7 +2,7 @@
 
   <h2><%= @passenger.name %> | <%= @passenger.id %></h2>
   <p>
-    <%= link_to "Add Trip", new_trip_path(@passenger.id)%> |
+    <%= link_to "Add Trip", passenger_trips_path(@passenger.id), method: :post %>|
     <%= link_to "Edit", edit_passenger_path(@passenger.id), class: "edit-link" %> |
     <%= link_to "Delete", passenger_path(@passenger.id), method: :delete, data: {confirm: "Are you sure you want to get rid of passenger #{@passenger.name}?" } %>
   </p>

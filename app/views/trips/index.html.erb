@@ -3,6 +3,15 @@
   <div class="div3">
     <h3>WELCOME!</h3>
 
+    <ol>
+      <% i = 0 %>
+      <% @trips.each do |trip| %>
+      <li>
+        <p>
+          <%= "#{trip}" %>
+        </p>
+      </li>
+      <% end %>
+    </ol>
   </div>
-
 </div>
