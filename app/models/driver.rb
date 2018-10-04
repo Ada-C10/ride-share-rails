@@ -37,9 +37,9 @@ class Driver < ApplicationRecord
   end
 
   def self.new_trip_driver
-    avail_drivers = self.where(active: true, status: true)
+    avail_drivers = self.where(active: true, status: true )
     driver = avail_drivers.first
-    driver.active = false
+    driver.status = false
     driver.save
     # binding.pry
 

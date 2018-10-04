@@ -18,13 +18,15 @@ class Passenger < ApplicationRecord
     end
   end
 
-  def self.verify_trip(passenger_id)
-    if self.trips.last.cost == nil
-      return false
-    else
-      return true
+  def verify_trip
+    self.trips.each do |trip|
+      if trip.in_progress == true
+        return false
+      end
     end
-  end
+
+    return true
+end
 
 
 end

@@ -11,4 +11,7 @@ class Trip < ApplicationRecord
 
   # driver_id must be present
   validates :driver_id, presence: true
+
+  # cost must be present and numerical
+  validates :cost, presence: true, numericality: true
 end
