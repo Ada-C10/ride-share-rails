@@ -3,9 +3,9 @@
 <h1>All Trips</h1>
 
 
-<%= will_paginate @trips %>
+<%= will_paginate @trips, :params => {:anchor => 'triptable'} %>
 
-<table>
+<table id='triptable'>
   <tr>
     <th>Trip ID</th>
     <th>Date</th>

@@ -1,5 +1,4 @@
-<h1>Viewing Passenger <%= @passenger.id %></h1>
-<h3>Name: <%= @passenger.name %></h3>
+<h1>Passenger: <%= @passenger.name %></h1>
 <h3>Phone Number: <%= @passenger.phone_num %></h3>
 <button>
   <%= link_to "Request Ride", passenger_trips_path(@passenger.id), method: :post %> </h2>
@@ -25,7 +24,7 @@
     <% else %>
       <td>Inactive Driver</td>
     <% end %>
-    
+
     <td><%= trip.cost_in_dollars %> </td>
     <td><%= trip.rating %> </td>
     <td><%= link_to "Delete Trip", trip_path(trip.id), method: :delete, data: {confirm: "Delete Trip with #{trip.id}?"}%></td>

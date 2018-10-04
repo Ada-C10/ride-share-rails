@@ -40,6 +40,10 @@ nav ul li:first-child { float: left; }
    background-color: black;
  }
 
+ h2, h3 {
+   align-self: center;
+ }
+
  .pagination a {
      margin: 4px;
      padding: 6px;
@@ -47,8 +51,9 @@ nav ul li:first-child { float: left; }
  }
 
  .pagination {
-   padding-bottom: 5%;
-    display: inline-block;
+      padding-bottom: 5%;
+      display: inline-block;
+      align-self: center;
  }
 
  .pagination .current {
