@@ -21,20 +21,18 @@ class TripsController < ApplicationController
   end
 
   def create
-    trip_params = {
-      driver_id: Driver.find_driver.id,
-      passenger_id: Passenger.find_by(id: params[:passenger_id].to_i),
-      date: DateTime.now,
-      cost: 5,
-      rating: nil
-    }
-    @trip = Trip.new(trip_params)
+    passenger = Passenger.find_by(id: params[:passenger_id].to_i)
+    @trip = passenger.trips.new(date: Date.today, driver_id: Driver.find_driver.id, cost: 0)
+    if @trip.save
+      redirect_to passenger_trip_inprogress_path(passenger.id)
+    else
+      redirect_to :bad_request
+    end
 
-    # if @trip.save
-    #   redirect_to passenger_trips_path
-    # else
-    #   render :new
-    # end
+  end
+
+  def in_progress
+    @trip = Trip.find_by(id: params[:trip_id])
   end
 
   def edit
@@ -48,6 +46,7 @@ class TripsController < ApplicationController
   def update
     @trip = Trip.find_by(id: params[:id])
     @trip.update(trip_params)
+    binding.pry
     if @trip.save
       redirect_to trip_path
     else
