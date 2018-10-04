@@ -16,13 +16,19 @@ class TripsController < ApplicationController
   end
 
   def create
-    filtered_trip_params = trip_params()
-    @trip = Trip.new(filtered_trip_params)
+    if params[:passenger_id]
+      passenger = Passenger.find_by(id: params[:passenger_id])
+      driver = Driver.find(1)
+      @trip = Trip.new(passenger: passenger, driver: driver, cost: 0, date: Date.today)
+    else
+      filtered_trip_params = trip_params()
+      @trip = Trip.new(filtered_trip_params)
+    end
 
     is_successful_save = @trip.save
 
     if is_successful_save
-      redirect_to trips_path
+      redirect_to passenger_path(@trip.passenger_id)
     else
       render :new
     end
@@ -52,6 +58,8 @@ class TripsController < ApplicationController
   # # through
   def trip_params
     return params.require(:trip).permit(
+      :passenger_id,
+      :driver_id,
       :date,
       :rating,
       :cost
