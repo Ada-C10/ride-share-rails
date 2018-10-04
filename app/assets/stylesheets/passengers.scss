@@ -58,13 +58,22 @@ a.button:hover{
 }
 
 .passenger-form {
-  padding-top: 3em;
+  margin-top: 3em;
+  margin-right: 3em;
+  margin-left: 3em;
+  padding-top: 1em;
+  padding-bottom: 2.5em;
   text-align: center;
+  background: #67D4C4;
 }
 
 .passenger-button:hover {
-  background: orange;
+  background: blue;
   border-radius: 15%;
   color: white;
   cursor: pointer;
+}
+
+.parah {
+  font-size: 1.25em;
 }

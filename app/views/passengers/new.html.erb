@@ -21,9 +21,11 @@
   </ul>
 <% end %>
 
+<img id="selfie" src="https://www.amigoexpress.com/file?action=view&id=eHCEJJLiKnw=" alt="Image of a car">
+
 
 <%= form_with model: @passenger, class: "passenger-form" do |f|%>
-  <p>Please provide the following information to become a passenger on RideShare!</p>
+  <p class="parah">Please provide the following information to become a passenger on RideShare!</p>
 
   <%= f.label :name %>
   <%= f.text_field :name %>
