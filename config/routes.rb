@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   get '/trips', to: 'trips#index', as: 'trips'
 
   get '/trips/new', to: 'trips#new', as: 'new_trip'
-  post '/trips', to: 'trips#create'
+  post '/passengers/:passenger_id/trips/create', to: 'trips#create', as: 'request_trip'
 
   get '/trips/:id/edit', to: 'trips#edit', as: 'edit_trip'
 
@@ -43,6 +43,7 @@ Rails.application.routes.draw do
   put '/drivers/:id', to: 'drivers#update'
 
   delete '/drivers/:id', to: 'drivers#destroy'
+
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

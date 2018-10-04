@@ -31,13 +31,13 @@ class TripsController < ApplicationController
   end
 
   def create
-    @trip = Trip.new(trip_params)
+    offset = rand(Driver.count)
+    driver = Driver.offset(offset).first
+    new_trip = {driver_id: driver.id, passenger_id: params[:passenger_id].to_i, date: DateTime.now, cost: rand(500..3000),rating: 0}
+    @trip = Trip.new(new_trip)
+    @trip.save
+    redirect_to edit_trip_path(@trip.id)
 
-    if @trip.save
-      redirect_to passenger_path(@passenger.id)
-    else
-      render :new
-    end
   end
 
   def destroy
@@ -50,6 +50,6 @@ class TripsController < ApplicationController
   private
 
   def trip_params
-    return params.require(:trip).permit(:id, :date, :rating)
+    return params.require(:trip).permit(:id, :driver_id, :passenger_id, :cost, :date, :rating)
   end
 end
