@@ -2,11 +2,8 @@ class TripsController < ApplicationController
   before_action :set_trip, only: [:show, :edit, :update, :destroy]
 
   def create
-    available_drivers = Driver.select { |driver| driver.is_available? }
-    driver = available_drivers.sample
-    trip_hash = {driver_id: driver.id, passenger_id: params[:passenger_id].to_i, date: DateTime.now, cost: rand(200..5000)}
-    @trip = Trip.new(trip_hash)
-    @trip.save
+    @trip = Trip.new
+    @trip.update(@trip.fill_trip_hash)
     redirect_to trip_path(@trip.id)
   end
 
