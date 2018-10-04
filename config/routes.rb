@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   resources :passengers do
   get '/trips/in_progress', to: 'trips#in_progress', as: 'trip_inprogress'
-    resources :trips, only:  [:create]
+    resources :trips, only:  [:create, :show]
 
   end
 

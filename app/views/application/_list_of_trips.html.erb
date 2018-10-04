@@ -1,7 +1,7 @@
 <h1> <%= user %> Trips </h1>
 <% @trips.each do |trip|%>
 <ul>
-  <li><%= link_to "Trip #{trip.id}", trip_path(trip.id)%>
+  <li><%= link_to "Trip #{trip.id}", passenger_trip_path(trip.passenger.id, trip.id)%>
   <li> Trip Date: <%= trip.date%></li>
   <li> Driver: <%= trip.driver.name%></li>
   <li> Passenger: <%= trip.passenger.name%></li>
