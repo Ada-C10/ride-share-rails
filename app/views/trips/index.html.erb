@@ -3,13 +3,16 @@
 <ul>
   <% @trips.each do |trip| %>
   <li>
-    trip id: <%= trip.id %>
-    driver: <%= trip.driver_id %>
-    passenger: <%= trip.passenger_id %>
+    Trip #<%=trip.id%>:
+    <%=link_to "View Trip details", trip_path(trip.id) %>
 
-    <%= link_to "Edit", edit_trip_path(trip) %>
+    <%=link_to "Driver", driver_trips_path(trip.driver_id) %>
 
-    <%= link_to "Delete", trip_path(trip), method: :delete, data: { confirm: "Are you sure you want to delete this trip?" } %>
+    <%=link_to "Passenger", passenger_trips_path(trip.passenger_id) %>
+
+    <%= link_to "Edit trip", edit_trip_path(trip) %>
+
+    <%= link_to "Delete trip", trip_path(trip), method: :delete, data: { confirm: "Are you sure you want to delete this trip?" } %>
 
   </li>
   <% end %>
