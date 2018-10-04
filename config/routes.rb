@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'trips#index'
+  root 'trips#home'
   resources :trips, except: [:create, :new]
   resources :drivers
   resources :passengers, except: [:show] do

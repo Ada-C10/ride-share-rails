@@ -1,4 +1,7 @@
 class TripsController < ApplicationController
+  def home
+  end
+  
   def index
     if params[:passenger_id]
       @passenger = Passenger.find_by(id: params[:passenger_id])
