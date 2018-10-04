@@ -12,15 +12,24 @@
 Passenger Cost: $<%= @passenger.trip_sum %><br>
 
 
+<%= link_to "Add a new trip", new_trip_path %>
 
-<% trips = @passenger.trips %>
 
-<p> <%= link_to "Trip Detail", trip_path %> </p>
+<%= link_to "Edit", edit_passenger_path %>
+  <%= link_to "Delete", passenger_path(@passenger), method: :delete, data: { confirm: "Are you 1000% sure you want to delete the passenger #{@passenger.name}?" } %>
+
+  <% trips = @passenger.trips %>
+
+<% if trips.length != 0 %>
+<% puts trips %>
+<% else %>
+<% end %>
+
 
 <ul>
   <% trips.each do |trip| %>
 
-    <li> Trip id: <%= trip.id %> </li>
+    <li> Trip id: <%= link_to "#{trip.id}", trip_path %> </li>
     <li> Trip date:  <%= trip.date %></li>
     <li> Trip rating: <%= trip.rating %></li>
     <li> Trip cost: $<%= trip.cost/100.00 %></li>

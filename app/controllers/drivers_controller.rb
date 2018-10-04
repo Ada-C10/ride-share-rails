@@ -31,7 +31,7 @@ class DriversController < ApplicationController
     @driver = Driver.find_by(id: params[:id])
   end
 
-#edit from here on
+  #edit from here on
   def update
     driver = Driver.find(params[:id])
     if driver.update(driver_params)
@@ -44,20 +44,28 @@ class DriversController < ApplicationController
   def destroy
     driver = Driver.find_by(id: params[:id])
 
-    driver.destroy
-    redirect_to drivers_path
-  end
+    if driver.trips.length == 0
+      driver.destroy
+      redirect_to drivers_path
 
-
-    private
-
-    # Strong params: only let certain attributes
-    # through
-    def driver_params
-      return params.require(:driver).permit(
-        :name,
-        :vin
-      )
+    else
+      #need to tell the client why they can't delete passenger as they are associated with other trips
+      head :bad_request
     end
+
+
+  end
+  
+
+  private
+
+  # Strong params: only let certain attributes
+  # through
+  def driver_params
+    return params.require(:driver).permit(
+      :name,
+      :vin
+    )
+  end
 
 end

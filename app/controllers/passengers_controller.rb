@@ -33,22 +33,28 @@ class PassengersController < ApplicationController
   end
 
 
-#question about path, edit from here
+  #question about path, edit from here
   def update
     passenger = Passenger.find(params[:id])
     if passenger.update(passenger_params)
-      redirect_to passengers_path(passenger.id)
+      redirect_to passenger_path
     else
       render :edit, status: :bad_request
     end
   end
 
-def destroy
-  passenger = Passenger.find_by(id: params[:id])
+  def destroy
+    passenger = Passenger.find_by(id: params[:id])
 
-  passenger.destroy
-  redirect_to passengers_path
-end
+    if passenger.trips.length == 0
+      passenger.destroy
+      redirect_to passengers_path
+
+    else
+      #need to tell the client why they can't delete passenger as they are associated with other trips
+      head :bad_request
+    end
+  end
 
 
   private

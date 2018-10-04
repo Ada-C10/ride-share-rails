@@ -3,3 +3,29 @@
 
 <%= @driver.name %>
 <%= @driver.vin %>
+Rating: <%= @driver.average_rating %>
+
+
+
+
+<% trips = @driver.trips %>
+
+
+<ul>
+  <% trips.each do |trip| %>
+
+    <li> Trip id: <%= link_to "#{trip.id}", trip_path %> </li>
+    <li> Trip date:  <%= trip.date %></li>
+    <li> Trip rating: <%= trip.rating %></li>
+    <li> Trip cost: $<%= trip.cost/100.00 %></li>
+    <li> Trip Driver ID <%= trip.driver_id %></li>
+    <li> Trip Passenger ID <%= trip.passenger_id %></li><br>
+
+  <% end %>
+
+</ul>
+
+
+
+<%= link_to "Edit", edit_driver_path %>
+  <%= link_to "Delete", driver_path(@driver), method: :delete, data: { confirm: "Are you 1000% sure you want to delete the passenger #{@driver.name}?" } %>

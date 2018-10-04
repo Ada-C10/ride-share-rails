@@ -8,4 +8,9 @@ Rails.application.routes.draw do
     resources :drivers
     resources :passengers
 
+
+
+    patch '/drivers/:id/complete', to: 'drivers#complete', as: 'driver_status'
+
+
 end
