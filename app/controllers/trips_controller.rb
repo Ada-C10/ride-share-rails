@@ -18,7 +18,7 @@ class TripsController < ApplicationController
   def create
 
     passenger = Passenger.find_by(id: params[:passenger_id])
-    driver = Driver.all.first
+    driver = Driver.all.shuffle.first
 
     @trip = Trip.new(
       passenger: passenger,
