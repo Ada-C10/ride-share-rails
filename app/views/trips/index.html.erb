@@ -1,9 +1,27 @@
 <!-- <h1>Trips#index</h1>
 <p>Find me in app/views/trips/index.html.erb</p> -->
+<!-- id date rating cost driver_id passenger_id  -->
 <h1>These are the trips!</h1>
-<% @trips.each do |trip| %>
-  <h2><%= link_to "#{trip.date}", trip_path(trip.id) %> </h2>
-  <!-- <p> <%# "#{trip.date}"  %> </p> -->
-<% end %>
+<table>
+  <tr>
+    <th>Trip</th>
+    <th>Date</th>
+    <th>Driver</th>
+    <th>Passenger</th>
+    <th>Price</th>
+    <th>Rating</th>
+  </tr>
+  <% @trips.each do |trip| %>
+    <tr>
+      <td><%= "#{trip.id}" %></td>
+      <td><%= "#{trip.date}" %></td>
+      <td><%= "#{trip.driver_id}" %></td>
+      <td><%= "#{trip.passenger_id}" %></td>
+      <td><%= "$#{trip.convert_money(trip.cost)}" %></td>
+      <td><%= "#{trip.rating}" %></td>
+    </tr>
+    <!-- <p> <%# "#{trip.date}"  %> </p> -->
+  <% end %>
+</table>
 
  <!-- TODO  consider adding a landing page for trips eventhough instructions don't call for it -->

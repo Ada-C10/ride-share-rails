@@ -23,3 +23,23 @@
 .trip_container p {
   padding: 2px;
 }
+
+table {
+  margin: 1rem;
+}
+
+th {
+  text-transform: uppercase;
+  text-align: center;
+  background-color: black;
+  color: white;
+}
+
+td {
+  text-align: center;
+  padding: 5px;
+}
+
+tr:nth-child(odd) {
+  background-color: #CCC;
+}
