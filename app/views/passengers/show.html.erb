@@ -2,43 +2,40 @@
 <% if @passenger.nil? %>
   <h1> 404 Not found</h1>
 <% else %>
-<body>
-  <section class="driver-header">
-    <h1>Passenger Info</h1>
-    <button class="driver-button"><%= link_to 'Edit', edit_driver_path(@passenger.id) %></button>
-    <button class="driver-button"><%= link_to "Delete", driver_path(@passenger.id), method: :delete, data: {confirm: "Are you sure?"} %></button>
-    <button class ="driver-button"><%= link_to "Add trip", new_passenger_trip_path(@passenger.id) %></button>
+  <body>
+    <section class="driver-header">
+      <h1>Passenger Info</h1>
+      <button class="driver-button"><%= link_to 'Edit', edit_driver_path(@passenger.id) %></button>
+      <button class="driver-button"><%= link_to "Delete", driver_path(@passenger.id), method: :delete, data: {confirm: "Are you sure?"} %></button>
+      <button class ="driver-button"><%= link_to "Add trip", new_passenger_trip_path(@passenger.id) %></button>
+    </section>
+    <section class="driver-info">
+      <p>ID: <%= @passenger.id %></p>
+      <p>Name: <%= @passenger.name %></p>
+      <p>Phone Number: <%= @passenger.phone_num %></p>
+      <p>Total Amount Charged: <%= @passenger.total_charges %></p>
+    </section>
 
-  </section>
-  <section "driver-info">
-    <p>ID: <%= @passenger.id %></p>
-    <p>Name: <%= @passenger.name %></p>
-    <p>Phone Number: <%= @passenger.phone_num %></p>
-    <p>Total Amount Charged: <%= @passenger.total_charges %></p>
-  </section>
+    <h2>Trip Details</h2>
 
-  <h2>Trip Details</h2>
-
-  <table>
-    <tr>
-      <th>ID</th>
-      <th>Passenger</th>
-      <th>Driver</th>
-      <th>Date</th>
-      <th>Rating</th>
-      <th>Cost</th>
-    </tr>
-    <% @passenger.trips.each do |trip| %>
-    <tr>
-      <td><%=link_to "#{trip.id}", trip_path(trip.id) %></td>
-      <td><%= trip.passenger_id %></td>
-      <td><%= trip.driver_id %></td>
-      <td><%= trip.date %></td>
-      <td><%= trip.rating %></td>
-      <td><%= trip.cost %></td>
-    </tr>
-    <% end %>
-  </table>
-</body>
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>Driver</th>
+        <th>Date</th>
+        <th>Rating</th>
+        <th>Cost</th>
+      </tr>
+      <% @passenger.trips.each do |trip| %>
+      <tr>
+        <td><%=link_to "#{trip.id}", trip_path(trip.id) %></td>
+        <td><%= trip.driver_id %></td>
+        <td><%= trip.date %></td>
+        <td><%= trip.rating %></td>
+        <td><%= trip.cost %></td>
+      </tr>
+      <% end %>
+    </table>
+  </body>
 
 <% end %>
