@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'drivers#index'
+  root 'trips#index'
 
   get '/passengers', to: 'passengers#index', as: 'passengers'
 

@@ -5,6 +5,7 @@
 <% else %>
   <h1><%=@passenger.name %></h1>
   <h3> <%= @passenger.phone_num %></h3>
+  <h3> <%= @passenger.status %></h3>
   <h4> <%= "#{@passenger.name} has been charged a total of $ #{@passenger.charges}" %> </h4>
 
   <% @passenger.trips.each do |trip| %>
