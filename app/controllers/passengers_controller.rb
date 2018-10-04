@@ -1,6 +1,6 @@
 class PassengersController < ApplicationController
   def index
-    @passengers = Passenger.all
+    @passengers = Passenger.where(status: true)
   end
 
   def show
@@ -42,10 +42,11 @@ class PassengersController < ApplicationController
 
   def destroy
     passenger = Passenger.find_by(id: params[:id].to_i)
-    @deleted_passenger = passenger.destroy
-
+    passenger.status = false
+    if passenger.save
     redirect_to passengers_path
   end
+end
 
   private
 

@@ -1,6 +1,6 @@
 class DriversController < ApplicationController
   def index
-    @drivers = Driver.all
+    @drivers = Driver.where(status: true)
   end
 
   def show
@@ -42,10 +42,11 @@ class DriversController < ApplicationController
 
   def destroy
     driver = Driver.find_by(id: params[:id].to_i)
-    @deleted_driver = driver.destroy
-
+    driver.status = false
+    if driver.save
     redirect_to drivers_path
   end
+end
 
   private
 
