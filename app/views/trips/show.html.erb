@@ -1,6 +1,6 @@
 <h2><%= @trip.date%></h2>
 <p>Trip ID: <%= @trip.id %></p>
-<p>Trip Cost: $<%= @trip.cost / 100 %></p>
+<p>Trip Cost: <%= currency(@trip.cost) %></p>
 
 <% if @trip.driver_id != nil %>
 <p><%= link_to "Driver: #{@trip.driver.name}", driver_path(@trip.driver_id) %></p>
