@@ -20,7 +20,7 @@ class Driver < ApplicationRecord
   end
 
   def is_available?
-    return driver.trips.where(cost: nil).length > 0
+    return self.trips.where(cost: nil).length == 0
   end
 
   def self.first_available

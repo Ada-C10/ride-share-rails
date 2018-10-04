@@ -1,13 +1,13 @@
 class TripsController < ApplicationController
   def home
   end
-  
+
   def index
     if params[:passenger_id]
       @passenger = Passenger.find_by(id: params[:passenger_id])
       @trips = @passenger.trips
     else
-      @trips = Trip.all.order(:date, :desc)
+      @trips = Trip.all.order(:date, :desc) #why doesn't this work to display a home page??!
     end
   end
 
@@ -26,15 +26,14 @@ class TripsController < ApplicationController
     #   end
   end
 
-  # def create
-  #   driver_id = Driver.first_available.id
-  #   passenger_id = params[:data] # this might not work
-  #   new_trip_params = {date: Date.today, rating: nil, cost: nil,
-  #                      driver_id: driver_id, passenger_id: passenger_id}
-  #   @trip = Trip.new(new_trip_params)
-  #   @trip.save # make sure to validate this later?
-  #   redirect_to passenger_path(@trip.passenger.id) #probably works!
-  # end
+  def create
+    driver_id = Driver.first_available.id
+    new_trip_params = {date: Date.today, rating: nil, cost: nil,
+                       driver_id: driver_id, passenger_id: params[:passenger_id]}
+    @trip = Trip.new(new_trip_params)
+    @trip.save # make sure to validate this later?
+    redirect_to trip_path(@trip.id) #probably works!
+  end
 
   def edit
     @trip = Trip.find(params[:id].to_i)
