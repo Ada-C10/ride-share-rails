@@ -14,3 +14,11 @@ li{
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 50%;
 }
+
+.available-button{
+  display: inline-block;
+  text-align: center;
+  padding: 10px 15px;
+  border: 1px black double;
+  border-radius: 10px;
+}
