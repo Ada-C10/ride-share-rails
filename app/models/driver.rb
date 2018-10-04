@@ -3,7 +3,7 @@ class Driver < ApplicationRecord
 
   def total_earnings
   #The driver gets 80% of the trip cost after a fee of $1.65 is subtracted
-    if self.trips.any? { |trip| trip.cost == nil }
+    if self.is_available? == false
       return nil
     else
       total_cost = self.trips.reduce(0) { |sum, trip| sum + trip.cost }
@@ -14,7 +14,7 @@ class Driver < ApplicationRecord
   end
 
   def average_rating
-    if self.trips.any? { |trip| trip.rating == nil }
+    if self.is_available? == false
       return "- in-progress -" # TODO: discount nil trips and return a rating
     else
       sum_rating = self.trips.reduce(0) { |sum, trip| sum + trip.rating }
