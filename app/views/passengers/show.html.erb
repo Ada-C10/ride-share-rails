@@ -1,6 +1,26 @@
 <% if @passenger.nil? %>
   <h1> 404 Not found</h1>
 <% else %>
+<body>
+  <section class="driver-header">
+    <h1>Passenger Info</h1>
+    <button class="driver-button"><%= link_to 'Edit', edit_driver_path(@passenger.id) %></button>
+    <button class="driver-button"><%= link_to "Delete", driver_path(@passenger.id), method: :delete, data: {confirm: "Are you sure?"} %></button>
+  </section>
+  <section "driver-info">
+    <p>ID: <%= @passenger.id %></p>
+    <p>Name: <%= @passenger.name %></p>
+    <p>Phone Number: <%= @passenger.phone_num %></p>
+    <p>Total Amount Charged: <%= @passenger.total_amt_paid %></p>
+  </section>
+
+  <p>Trip Details</p>
+
+
+
+
+</body>
+
   <h1><%=@passenger.id %></h1>
   <h3>Passenger id <%= @passenger.id %></h3>
   <h3>Passenger name <%= @passenger.name %></h3>

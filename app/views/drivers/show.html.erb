@@ -1,27 +1,41 @@
-<h1>Driver Info</h1>
-<p>ID: <%= @driver.id %></p>
-<p>Name: <%= @driver.name %></p>
-<p>VIN: <%= @driver.vin %></p>
-<p>Total Earnings: 〄 <%= @driver.total_earnings %></p>
-<p>Average Ratings: <%= @driver.average_rating %></p>
 
-<p>
-  <%= link_to 'Edit', edit_driver_path(@driver.id) %>
-</p>
-<p>
-  <%= link_to "Delete", driver_path(@driver.id), method: :delete, data: {confirm: "Are you sure?"} %>
-</p>
+<body>
+  <section class="driver-header">
+    <h1>Driver Info</h1>
+    <button class="driver-button"><%= link_to 'Edit', edit_driver_path(@driver.id) %></button>
+    <button class="driver-button"><%= link_to "Delete", driver_path(@driver.id), method: :delete, data: {confirm: "Are you sure?"} %></button>
+  </section>
+  <section "driver-info">
+    <p>ID: <%= @driver.id %></p>
+    <p>Name: <%= @driver.name %></p>
+    <p>VIN: <%= @driver.vin %></p>
+    <p>Total Earnings: <%= @driver.total_earnings %></p>
+    <p>Average Ratings: <%= @driver.average_rating %></p>
+  </section>
 
-<p>Trip Details</p>
-<p>
-  <% @driver.trips.each do |trip| %>
-  <p>
-    <sub>ID: <%=link_to "#{trip.id}", trip_path(trip.id)%></sub>
-    <sub>Passenger: <%= trip.passenger_id %></sub>
-    <sub>Driver: <%= trip.driver_id %></sub>
-    <sub>Date: <%= trip.date %></sub>
-    <sub>Rating: <%= trip.rating %></sub>
-    <sub>Cost: <%= trip.cost %></sub>
-  </p>
-  <% end %>
-</p>
+
+  <p>Trip Details</p>
+
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Passenger</th>
+      <th>Driver</th>
+      <th>Date</th>
+      <th>Rating</th>
+      <th>Cost</th>
+    </tr>
+    <% @driver.trips.each do |trip| %>
+    <tr>
+      <td><%=link_to "#{trip.id}", trip_path(trip.id) %></td>
+      <td><%= trip.passenger_id %></td>
+      <td><%= trip.driver_id %></td>
+      <td><%= trip.date %></td>
+      <td><%= trip.rating %></td>
+      <td><%= trip.cost %></td>
+    </tr>
+    <% end %>
+  </table>
+
+
+</body>
