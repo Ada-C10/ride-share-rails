@@ -6,7 +6,7 @@ class Passenger < ApplicationRecord
   def total_charges
     sum = 0
     self.trips.each do |trip|
-      sum += trip.cost
+        sum += trip.cost
     end
     sum
   end

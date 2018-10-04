@@ -15,7 +15,9 @@ class Driver < ApplicationRecord
   def average_rating
     sum = 0
     self.trips.each do |trip|
-      sum += trip.rating
+      if trip.rating != nil
+        sum += trip.rating
+      end
     end
     return (sum.to_f / self.trips.length).round(1)
   end
