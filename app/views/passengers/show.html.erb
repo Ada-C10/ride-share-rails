@@ -9,7 +9,7 @@
 <h3>ID: <%= @passenger.id%></h3>
 <% end %>
 <div>
-<h2>Total Cost: <%= "🚀"'%.2f' %  (@passenger.total_cost/100) %></h2>
+<h2>Total Spent: <%= "🚀"'%.2f' %  (@passenger.total_cost/100) %></h2>
 </div>
 </section>
 
@@ -25,6 +25,7 @@
   <%= link_to "🔥 Delete Passenger", @passenger, method: :delete, data: {confirm: "You sure about that? Select OK to remove task #{@passenger.name.upcase} ForEVVVeeeR!"}, id: "delete", class: "hover_name1" %>
 </section>
 
+<% active_trips = @trips.where(active: true).order(:date) %>
 
 <table class="show_table">
   <tr>
@@ -38,8 +39,12 @@
 
   <% if @passenger.trips.empty? %>
     <%= "No Trips on Record" %>
+<<<<<<< HEAD
+=======
+
+>>>>>>> a5d5bc5a650509ae4e9e2e005a359030b786a341
   <% else %>
-    <% @passenger.trips.each do |trip| %>
+    <% active_trips.each do |trip| %>
       <tr>
         <td> <%= link_to "#{trip.id}", trip_path(trip.id) %></td>
         <td> <%= trip.driver_id %></td>

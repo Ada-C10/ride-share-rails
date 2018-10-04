@@ -1,4 +1,6 @@
-<h1>Edit Trip</h1>
+<h1>Edit Trip Info</h1>
+
+<% formatted_cost = '%.2f' % (@trip.cost / 100) %>
 
 <%= form_with model: @trip do |f|%>
   <%= f.label :date %>
@@ -11,10 +13,10 @@
   <%= f.text_field :driver_id %>
   <br />
   <%= f.label :cost %>
-  <%= f.text_field :cost %>
+  <%= f.text_field :cost, :value => formatted_cost%>
   <br />
   <%= f.label :rating %>
   <%= f.text_field :rating %>
   <br />
-  <%= f.submit %>
+  <%= f.submit "Update Trip!"%>
 <% end %>

@@ -1,10 +1,15 @@
 class DriversController < ApplicationController
+  before_action :get_driver, only: [:show, :edit]
+  def get_driver
+    @driver = Driver.find(params[:id].to_i)
+  end
+
   def index
     @drivers = Driver.all.order(:name)
   end
 
   def show
-    @driver = Driver.find_by(id: params[:id])
+    @trips = @driver.trips
 
     if @driver.nil?
       render :notfound, status: :not_found
@@ -26,8 +31,6 @@ class DriversController < ApplicationController
   end
 
   def edit
-    @driver = Driver.find_by(id: params[:id])
-
     if @driver.nil?
       render :notfound, status: :not_found
     end
@@ -35,9 +38,8 @@ class DriversController < ApplicationController
 
   def update
     driver = Driver.find_by(id: params[:id])
-    driver.update(driver_params)
 
-    if driver.save
+    if driver.update(driver_params)
       redirect_to driver_path
     else
       render :edit
@@ -48,6 +50,7 @@ class DriversController < ApplicationController
     driver = Driver.find_by(id: params[:id])
     driver.active = false
     driver.status = false
+    
     if driver.save
       redirect_to drivers_path
     end

@@ -2,7 +2,7 @@
 
 <%= link_to "Edit", edit_trip_path(@trip.id) %>
 <%= "|" %>
-<%= link_to "Delete",  driver_trip_path(@trip.driver_id, @trip.id), method: :delete, data: {confirm: "Are you sure?"} %>
+<%= link_to "Delete",  trip_path(@trip.id), method: :delete, data: {confirm: "Are you sure?"} %>
 <br /><br />
 
 <table class="show_table">
@@ -20,7 +20,7 @@
       <td><%= @trip.date %></td>
       <td><%= link_to @trip.passenger_id, passenger_path(@trip.passenger_id) %></td>
       <td><%= link_to @trip.driver_id, driver_path(@trip.driver_id) %></td>
-      <td>$<%= @trip.format_cost %></td>
+      <td>$<%= '%.2f' % (@trip.cost / 100) %></td>
       <td>
         <% if @trip.rating.nil? %>
           <%= form_with model: @trip do |f| %>

@@ -1,23 +1,21 @@
+<<<<<<< HEAD
 <body class="passenger_index">
+=======
+<h1>List of Passengers</h1>
+
+<% active_passengers = @passengers.where(active: true) %>
+
+>>>>>>> a5d5bc5a650509ae4e9e2e005a359030b786a341
 <table class="index_table">
     <tr>
       <th>PASSENGER NAME</th>
       <th>PASSENGER ID</th>
     </tr>
     <tbody>
-<tr>
-<% active_passengers = @passengers.where(active: true) %>
-<% active_passengers.each do |passenger| %>
-  <tr>
-    <td>
-      <%= link_to "#{passenger.name}", passenger_path(passenger.id) %>
-    </td>
-    <td>
-      <%= link_to "#{passenger.id}", passenger_path(passenger.id) %>
-    </td>
-  
-  </tr>
-<%end%>
-
+      <%= render partial: "passenger", collection: active_passengers %>
+    </tbody>
 </table>
+<<<<<<< HEAD
 </body>
+=======
+>>>>>>> a5d5bc5a650509ae4e9e2e005a359030b786a341
