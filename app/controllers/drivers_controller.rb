@@ -17,11 +17,10 @@ class DriversController < ApplicationController
   end
 
   def create
-    @driver = Driver.new(name: params[:driver][:name],
-                    vin: params[:driver][:vin])
+    @driver = Driver.new(name: params[:driver][:name], vin: params[:driver][:vin])
     if @driver.save
       flash[:notice] = "Driver created successfully!"
-      redirect_to all_drivers_path
+      redirect_to drivers_path
     else
       render :new
     end
@@ -45,7 +44,7 @@ class DriversController < ApplicationController
     driver = Driver.find_by(id: params[:id])
 
     driver.destroy
-    redirect_to all_drivers_path
+    redirect_to drivers_path
   end
 
   private

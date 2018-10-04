@@ -1,19 +1,6 @@
 <div class="container">
-
-  <div class="div1">
-    <h3>
-      <%= link_to "Add New Driver", new_driver_path, class: "new-driver" %>
-    </h3>
-  </div>
-
-  <div class="div2">
-    <h3>
-      <%= link_to "All Drivers", drivers_path, class: "homepage" %>
-    </h3>
-  </div>
-
   <div class="div3">
-    <h3>Drivers</h3>
+    <h3>List of Drivers</h3>
     <ol>
       <% i = 0 %>
       <% @drivers.each do |driver| %>

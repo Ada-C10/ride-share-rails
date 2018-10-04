@@ -22,7 +22,7 @@ class PassengersController < ApplicationController
     successful_save = passenger.save
 
     if successful_save # save returns true if the database insert succeeds
-      redirect_to all_passengers_path # go to the index so we can see the passenger in the list
+      redirect_to passengers_path # go to the index so we can see the passenger in the list
     else # save failed :(
       render :new # show the new passenger form view again
     end
