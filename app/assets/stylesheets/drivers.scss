@@ -18,3 +18,19 @@ a:visited, a:link {
 a:hover{
   color: blue;
 }
+
+#driver-trips-table td, #driver-trips-table th {
+    padding: 8px;
+}
+
+#driver-trips-table tr:nth-child(even){
+  background-color: #f2f2f2;
+}
+
+#driver-trips-table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: gray;
+    color: white;
+}
