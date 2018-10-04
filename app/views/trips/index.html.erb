@@ -1,7 +1,7 @@
 <!-- <h1>Trips#index</h1>
 <p>Find me in app/views/trips/index.html.erb</p> -->
 <!-- id date rating cost driver_id passenger_id  -->
-<h1>These are the trips!</h1>
+<h1>Trips</h1>
 <table>
   <tr>
     <th>Trip</th>
@@ -13,9 +13,12 @@
   </tr>
   <% @trips.each do |trip| %>
     <tr>
+      <!-- Link to trip's path -->
       <td><%= "#{trip.id}" %></td>
       <td><%= "#{trip.date}" %></td>
+      <!-- Link to driver's path -->
       <td><%= "#{trip.driver_id}" %></td>
+      <!-- Link to passengers's path -->
       <td><%= "#{trip.passenger_id}" %></td>
       <td><%= "$#{trip.convert_money(trip.cost)}" %></td>
       <td><%= "#{trip.rating}" %></td>
