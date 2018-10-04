@@ -1,15 +1,46 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>RideShareRails</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>RideShareRails</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
-    <%= yield %>
-  </body>
+<body>
+  <div class="site-container">
+
+    <header>
+      <h1>Rideshare Rails!</h1>
+
+      <nav>
+        <ul class="text">
+          <li>Drivers</li>
+          <ul class="links">
+            <li><%= link_to "Add Driver", new_driver_path %></li>
+            <li><%= link_to "Manage Drivers", drivers_path %></li>
+          </ul>
+
+          <li>Passengers</li>
+          <ul class="links">
+            <li><%= link_to "Add Passenger", new_passenger_path %></li>
+            <li><%= link_to "Manage Passengers", passengers_path %></li>
+          </ul>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <%= yield %>
+    </main>
+
+
+
+    <footer>
+      <p>&copy; 2018</p>
+    </footer>
+  </div>
+</body>
 </html>

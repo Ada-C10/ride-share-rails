@@ -13,3 +13,151 @@
  *= require_tree .
  *= require_self
  */
+
+
+* {
+  border: 1px red solid;
+}
+ body {
+  font-family: helvetica, arial, sans-serif;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  position: absolute;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  padding: 0;
+  margin: 0;
+
+  background-color: #ffffff;
+
+  max-height: 100%;
+  max-width: 100%;
+
+  font-size: 1em;
+  line-height: 1.5;
+ }
+
+ .site-container {
+   background-color: #ffffff;
+   display: grid;
+
+   grid-template: 1fr 2fr 3fr;
+
+   grid-template-areas:
+   "h"
+   "m"
+   "f";
+
+   max-width: 100%;
+   min-height: 100%;
+ }
+
+
+ header {
+   grid-area: h;
+
+   display: flex;
+   flex-direction: row;
+   background-color: #68B6B1;
+   color: #EBF3F9;
+
+   /* margin: 0; */
+
+ }
+
+ /* header * {
+   margin: 0;
+ } */
+
+
+ nav .text {
+   display: flex;
+   flex-direction: row;
+   font-size: 2em;
+ }
+
+ nav .text li{
+   font-size: 1.5em;
+ }
+
+ nav .text .links li {
+   font-size: 1em;
+ }
+
+
+ nav a {
+   color: #333333;
+   text-decoration: none;
+ }
+
+ nav a:visited {
+   color: #ffffff;
+ }
+
+nav a:hover {
+  color: #3940A3;
+}
+
+nav ul {
+  list-style: none;
+}
+
+ main {
+   grid-area: m;
+   background-color: #ffffff;
+   color: #000000;
+/*
+   padding: 3% 3% 3% 3%;
+   border: 1px #000000 solid; */
+
+ }
+
+ /* main * {
+   margin: 0;
+ } */
+
+ main h2 {
+   color: #3940A3;
+ }
+
+ main a {
+   color: #333333;
+   text-decoration: none;
+ }
+
+ main a:visited {
+   color: #333333;
+ }
+
+main a:hover {
+  color: #FF5961;
+}
+
+/* main div {
+  margin: 2% 0 0 0;
+
+  padding: 0;
+}
+
+main div p {
+  margin: 0 0 1% 0;
+  padding: 0;
+} */
+
+
+footer {
+  grid-area: f;
+  background-color: #3940A3;
+  color: #EBF3F9;
+  text-align: center;
+
+}
+
+footer * {
+  margin: 1% 0 1% 0;
+
+}
