@@ -3,7 +3,12 @@
 <% else %>
   <h1><%=@passenger.name %></h1>
   <p><%= @passenger.phone_num %> </p>
-  <%= link_to "Edit", edit_passenger_path(@passenger.id) %>
-  <div></div>
-  <%= link_to "Delete #{@passenger.name}", passenger_path(@passenger.id), method: :delete , data: {confirm: "Are you sure?"}%>
+  <p>Total Spending in USD: $<%= @passenger.total_spending %> </p>
+
+  <%= link_to "Edit Passenger", edit_passenger_path(@passenger.id) %>
+
+  <%= link_to "Delete Passenger", passenger_path(@passenger.id), method: :delete , data: {confirm: "Are you sure?"}%>
+  <p><%= link_to "Trips", passenger_trips_path(@passenger.id) %> </p>
+  <p><%= link_to "Request New Trip", passenger_trips_path(@passenger.id), method: :create %> </p>
+
 <% end %>

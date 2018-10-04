@@ -1,2 +1,5 @@
 <h2><%= @driver.name %></h2>
 <p><%= "vin: " + @driver.vin %></p>
+<p>Total Earnings in USD: $<%= @driver.total_earning %> </p>
+<p>Average Rating: <%= @driver.average_rate %> </p>
+<p><%= link_to "Trips", driver_trips_path(@driver.id) %> </p>
