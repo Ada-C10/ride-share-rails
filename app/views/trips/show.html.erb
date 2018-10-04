@@ -5,7 +5,7 @@
 <h2>Date :  <%= @trip.date %></h2>
 <h2>Driver : <%= link_to @trip.driver.name, driver_path(@trip.driver.id) %></h2>
 <h2>Passenger : <%= link_to @trip.passenger.name, passenger_trips_path(@trip.passenger.id) %></h2>
-<h2>Rating : <%= @trip.rating %></h2>
+<h2>Rating : <%= @trip.formatted_rating %></h2>
 <h2>Cost : $<%= @trip.formatted_cost %></h2>
 <% if @trip.status == :in_progress %>
   <%= form_with model: @trip, url: trip_path, method: :patch do |f| %>
