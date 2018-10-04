@@ -58,17 +58,16 @@ class TripsController < ApplicationController
 
 
   def create
-
     if params[:passenger_id]
       @passenger_id = params[:passenger_id].to_i
       @passenger = Passenger.find(@passenger_id)
-      @passenger.verify_trip
-      driver = Driver.new_trip_driver
-      @trip = Trip.new(driver_id: driver, passenger_id: @passenger_id, date: DateTime.now, cost: 0)
-      if @trip.save
-        redirect_to passenger_path
+      if @passenger.verify_trip
+        driver = Driver.new_trip_driver
+        @trip = Trip.new(driver_id: driver, passenger_id: @passenger_id, date: DateTime.now, cost: 0, in_progress: true)
+        @trip.save
+        redirect_to passenger_path(@passenger_id)
       else
-        # render :new
+        redirect_to root_path
       end
     end
   end
