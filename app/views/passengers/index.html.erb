@@ -7,10 +7,19 @@
 <%# end %>
 </ul> -->
 
-<h1>These are the passengers!</h1>
-<% @passengers.each do |passenger| %>
-  <h2><%= link_to "#{passenger.name}", passenger_path(passenger.id) %></h2>
-  <p>
-     <%= "#{passenger.phone_num}"  %> 
-  </p>
-<% end %>
+<h1>Passengers</h1>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Phone Number</th>
+  </tr>
+  <% @passengers.each do |passenger| %>
+    <tr>
+      <td><%= link_to "#{passenger.id}", passenger_path(passenger.id)%></td>
+      <td><%= "#{passenger.name}"%></td>
+      <td><%= "#{passenger.phone_num}"%></td>
+    </tr>
+
+  <% end %>
+</table>
