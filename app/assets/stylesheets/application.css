@@ -105,6 +105,8 @@ nav ul li:first-child { float: left; }
 
 th {
   text-align: left;
+  background-color: #ffa659;
+  border: 1px solid;
 }
 
 tr:nth-child(odd) {
