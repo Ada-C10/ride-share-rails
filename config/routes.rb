@@ -22,6 +22,10 @@ Rails.application.routes.draw do
   # get 'drivers/destroy'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :drivers
-  resources :passengers
+
   resources :trips
+
+  resources :passengers do
+    resources :trips, only: [:create]
+  end
 end

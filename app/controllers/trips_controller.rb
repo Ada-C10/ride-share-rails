@@ -11,20 +11,32 @@ class TripsController < ApplicationController
     end
   end
 
-  def new
-    @trip = Trip.new
-    @trip.rating = 0
-  end
+
 
   def create
-    filtered_trip_params = trip_params()
-    @trip = Trip.new(filtered_trip_params)
+    if params[:passenger_id]
+      passenger = Passenger.find_by(id: params[:passenger_id])
+      driver = Driver.all.sample
+      @trip = passenger.trips.new(driver_id: driver.id, passenger_id: passenger.id, date: "2017-02-02", rating: 0, cost: 0)
 
-    if @trip.save
-      redirect_to trips_path
+      if @trip.save
+        redirect_to passenger_path(passenger.id)
+      else
+        render :new
+      end
+      # Same thing as above:
+      # @book = Book.new(author: author)
     else
-      render :new
+      @trip = Trip.new
     end
+
+    # @trip = Trip.new(driver_id: 1, passenger_id: 293, date: "2017-02-02", rating: 0, cost: 0)
+    #
+    # if @trip.save
+    #   redirect_to passenger_path(293)
+    # else
+    #   render :new
+    # end
   end
 
   def edit
