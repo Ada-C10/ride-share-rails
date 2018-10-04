@@ -35,10 +35,23 @@
       <% @driver.trips.each do |trip| %>
       <td><%= link_to trip.id, trip_path(trip.id) %></td>
       <td><%= trip.date %></td>
-      <td><%= link_to trip.passenger.name, passenger_path(trip.passenger.id) %></td>
+
+      <td><% if trip.passenger != nil %>
+        <%= link_to trip.passenger.name, passenger_path(trip.passenger.id)%>
+        <% else %>
+        not available
+        <% end %>
+      </td>
+
       <td><%= trip.cost %></td>
       <td><%= trip.rating %></td>
     </tr>
+
+
+
+
+
+
 
     <% end %>
   </table>
