@@ -10,6 +10,7 @@ class DriversController < ApplicationController
     if @drivers.nil?
       head :not_found
     end
+
   end
 
   def new
