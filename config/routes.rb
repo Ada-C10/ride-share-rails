@@ -4,12 +4,14 @@ Rails.application.routes.draw do
   # assigning temp root to the drivers page, replace with the homepage once its set up
   root 'passengers#index'
 
+
   resources :trips
+
   resources :drivers do
     resources :trips, only: [:index]
   end
 
   resources :passengers do
-    resources :trips, only: [:index, :new]
+    resources :trips, only: [:index, :new, :create]
   end
 end
