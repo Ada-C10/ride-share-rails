@@ -10,15 +10,23 @@
 
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,400,700,900" rel="stylesheet">
   </head>
-  <nav>
-    <ul>
-      <%= link_to "Ride Share Rails Home", root_path %>
-      <%= link_to "List All Passengers", passengers_path %>
-      <%= link_to "List All Drivers", drivers_path %>
-      <%= link_to "Create New Passenger", new_passenger_path %>
-      <%= link_to "Create New Driver", new_driver_path %>
-    </ul>
-  </nav>
+  <header>
+    <section>
+      <a href=root_path id="logo" target="_blank">Take a Little Trip</a>
+      <label for="toggle-1" class="toggle-menu"><ul><li></li> <li></li> <li></li></ul></label>
+      <input type="checkbox" id="toggle-1">
+      <nav>
+        <ul>
+          <li><%= link_to "Home", root_path %></li>
+          <li><%= link_to "Passengers", passengers_path %></li>
+          <li><%= link_to "Drivers", drivers_path %></li>
+          <li><%= link_to "Create New Passenger", new_passenger_path %></li>
+          <li><%= link_to "Create New Driver", new_driver_path %></li>
+        </ul>
+      </nav>
+    </header>
+
+  </section>
   <body>
     <%= yield %>
   </body>
