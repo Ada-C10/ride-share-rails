@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  */
+
 table {
     margin: 20px;
     border-collapse: collapse;
@@ -59,7 +60,7 @@ a[href]{
     text-decoration: none;
 }
 
-ul {
+ul.nav_bar {
   display: grid;
   list-style-type: none;
   grid-template-columns: repeat(4, 1fr);
@@ -110,6 +111,8 @@ nav ul li {
     background-color: transparent;
     min-width: 1rem;
     z-index: 1;
+    position: absolute;
+    padding-left: 4.5rem;
 }
 
 .drop_content a[href] {
@@ -119,7 +122,9 @@ nav ul li {
     display: block;
 }
 
-.drop_content a:hover {background-color: rgba(0, 0, 0, 0.3)}
+.drop_content a:hover {
+  background-color: rgba(0, 0, 0, 0.3)
+}
 
 .dropdown:hover .drop_content {
     display: block;
