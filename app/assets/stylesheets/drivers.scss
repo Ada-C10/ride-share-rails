@@ -1,3 +1,44 @@
 // Place all the styles related to the Drivers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+h2 {
+  text-align: center;
+}
+
+.pagination {
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: 300px;
+  padding-right: 300px;
+}
+
+.driver-index .all-drivers {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 3fr 2fr 1fr 1fr;
+  padding-left: 150px;
+  padding-right: 150px;
+}
+
+.column-label {
+  font-weight: bold;
+}
+
+.name {
+  grid-column: 1 / 2;
+}
+
+.rating {
+  grid-column: 2 / 3;
+}
+
+.edit {
+  grid-column: 3 / 4;
+}
+
+.delete {
+  grid-column: 4 / 5;
+}
