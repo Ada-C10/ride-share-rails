@@ -33,7 +33,7 @@ class TripsController < ApplicationController
   def create
     offset = rand(Driver.count)
     driver = Driver.offset(offset).first
-    new_trip = {driver_id: driver.id, passenger_id: params[:passenger_id].to_i, date: DateTime.now, cost: rand(500..3000),rating: 0}
+    new_trip = {driver_id: driver.id, passenger_id: params[:passenger_id].to_i, date: DateTime.now, cost: rand(500..3000),rating: 1}
     @trip = Trip.new(new_trip)
     @trip.save
     redirect_to edit_trip_path(@trip.id)
