@@ -1,4 +1,3 @@
-<%= render partial: "layouts/nav" %>
 
 <h1>Passenger show page</h1>
 
@@ -23,8 +22,7 @@
     <li>Date: <%=trip.date %></li>
     <li>Rating: <%=trip.rating %></li>
     <li>Cost: <%=trip.cost %></li>
-    <li>Driver id: <%=trip.driver_id %></li>
-    <!-- turn into link that links to driver show page.  push in parameter as driver_id-->
+    <%=link_to "Driver", driver_trips_path(trip.driver_id) %>
     <br/>
 
     <% end %>
