@@ -1,0 +1,17 @@
+<h1>Add Driver</h1>
+
+<%= form_with model: @driver do |f| %>
+
+  <section class="form-action">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </section>
+
+  <section class="form-description">
+    <%= f.label :vin %>
+    <%= f.text_field :vin %>
+  </section>
+
+<%= f.submit action_name, class: "driver-button" %>
+
+<% end %>

@@ -1,1 +1,9 @@
-<h1>Driver Index</h1>
+<h1>Show all drivers</h1>
+
+<% @drivers.each do  |d| %>
+  <%= link_to "#{d.name}", driver_trips_path(d.id) %>
+  <%= link_to "Edit", edit_driver_path(d.id) %>
+  <br>
+  <%= d.vin %>
+  <br />
+<% end   %>
