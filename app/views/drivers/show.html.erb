@@ -1,16 +1,25 @@
-
 <p>
   <strong>Driver:</strong>
   <%= @driver.name%>
   <br />
   <strong>VIN:</strong>
   <%= @driver.vin%>
+  <br />
+  <strong>Rating:</strong>
+  <%= @driver.rating %>
+  <br />
+  <strong>Money earned:</strong>
+  $<%= @driver.earned %>
+  <br />
+  <strong>Available?:</strong>
+  <%= @driver.status %>
 </p>
 
 <h2>Trips for this Driver</h2>
 <p>
   <ul>
     <% @driver.trips.sort.each do |trip| %>
+
       <li><strong>Trip #: <%=trip.id %></strong></li>
       <li>Date: <%=trip.date %></li>
       <li>Rating: <%=trip.rating %></li>
@@ -18,12 +27,5 @@
       <%=link_to "Passenger", passenger_trips_path(trip.passenger_id) %>
     <%end%>
     <br/>
-
-    <strong>Rating:</strong>
-    <%= @driver.rating %>
-
-    <br />
-    <strong>Money earned:</strong>
-    $<%= @driver.earned %>
-
-  </p>
+  </ul>
+</p>

@@ -1,17 +1,19 @@
 
 <h1>Passenger show page</h1>
-
 <p>
-  id: <%= @passenger.id %>
+  <strong>ID:</strong>
+  <%= @passenger.id %>
+  <br />
+  <strong>Passenger:</strong>
+  <%= @passenger.name %>
+  <br />
+  <strong>Phone Number:</strong>
+  <%= @passenger.phone_num %>
+  <br />
+  <strong>Money spent:</strong>
+  $<%= @passenger.spent %>
 </p>
 
-<p>
-  name: <%= @passenger.name %>
-</p>
-
-<p>
-  phone number: <%= @passenger.phone_num %>
-</p>
 
 <!-- # <%= @passenger.trips %> -->
 <h2>Trips for this Passenger</h2>
@@ -28,7 +30,3 @@
     <% end %>
   </ul>
 </p>
-
-
-<strong>Money spent:</strong>
-$<%= @passenger.spent %>
