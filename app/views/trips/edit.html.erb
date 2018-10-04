@@ -6,6 +6,10 @@
       <%= f.label :date %>
       <%= f.text_field :date %>
 
+      <%= f.label :driver %>
+      <%= f.select :driver_id, Driver.all.order(:name).map {|d| [d.name, d.id] } %>
+
+
       <%= f.label :rating %>
       <%= f.select :rating, [1, 2, 3, 4, 5] %>
 
