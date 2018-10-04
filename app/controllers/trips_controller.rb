@@ -5,6 +5,7 @@ class TripsController < ApplicationController
       @trips = @driver.trips
 
       @avg_trip_rating = avg_trip_rating(@trips)
+      @total_trip_earnings = total_trip_earnings(@trips)
     else
       @trips = Trip.all
     end
@@ -17,6 +18,7 @@ class TripsController < ApplicationController
 
   def avg_trip_rating(trips)
     num_of_trips = trips.count
+
     trip_rating_array = trips.map do |trip|
       trip.rating
     end
@@ -27,5 +29,21 @@ class TripsController < ApplicationController
     end
 
     return sum_of_ratings / num_of_trips
+  end
+
+  def total_trip_earnings(trips)
+    total_num_of_trips = trips.count
+
+    trip_cost_array = trips.map do |trip|
+      (trip.cost.to_f) / 100
+    end
+
+    sum_of_all_trips = 0
+    trip_cost_array.each do |cost|
+      sum_of_all_trips += cost
+    end
+
+    revenue = (sum_of_all_trips - (total_num_of_trips * 1.65)) * 0.8
+    return revenue.round(2)
   end
 end
