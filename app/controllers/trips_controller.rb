@@ -18,17 +18,17 @@ class TripsController < ApplicationController
     end
   end
 
-  def new
-    if params[:pessenger_id]
-      # This is the nested route
-      passenger = Passenger.find_by(id: params[:passenger_id])
-      @trips = passenger.trips.new
-
-    else
-      # This is the 'regular' route, /books/new
-      @trips = Trip.new
-    end
-  end
+  # def new
+  #   if params[:pessenger_id]
+  #
+  #     passenger = Passenger.find_by(id: params[:passenger_id])
+  #     @trips = passenger.trips.new
+  #
+  #   else
+  #
+  #     @trips = Trip.new
+  #   end
+  # end
 
   def show
     id = params[:id].to_i
@@ -41,11 +41,11 @@ class TripsController < ApplicationController
 
 
   def edit
-    @passenger = Trip.find(params[:id].to_i)
+    @trip = Trip.find(params[:id].to_i)
   end
 
   def destroy
-    passenger = Trip.find_by(id: params[:id].to_i)
+    trip = Trip.find_by(id: params[:id].to_i)
 
      @deleted_trip = trip.destroy
 

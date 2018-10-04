@@ -21,7 +21,7 @@ class Driver < ApplicationRecord
   end
 
   def total_earning
-    total = self.trips.sum {|trip| trip.cost} /100
+    total = (self.trips.sum {|trip| (trip.cost-165)*0.8} )/100
     return total
   end
 
