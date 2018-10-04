@@ -17,6 +17,10 @@ class Driver < ApplicationRecord
       return average_rating
     end
 
+  def self.find_driver
+    @driver = self.find { |driver| driver.status == "AVAILABLE" }
+  end
+
   def make_unavailable
     self.status = "UNAVAILABLE"
   end

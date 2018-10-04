@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root 'trips#home'
 
   resources :passengers do
-    resources :trips, only: [:index, :new, :create]
+    resources :trips, only: [:index, :create]
   end
 
   resources :drivers do

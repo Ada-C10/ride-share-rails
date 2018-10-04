@@ -21,18 +21,20 @@ class TripsController < ApplicationController
   end
 
   def create
+    trip_params = {
+      driver_id: Driver.find_driver.id,
+      passenger_id: Passenger.find_by(id: params[:passenger_id].to_i),
+      date: DateTime.now,
+      cost: 5,
+      rating: nil
+    }
     @trip = Trip.new(trip_params)
-    # trip_params = {
-    #   driver_id: @trip.find_driver.id,
-    #   passenger_id: Passenger.find_by(id: params[:passenger_id].to_i),
-    #   date: DateTime.now
-    #   #cost: (0.0..10.00).sample
-    #   #rating:nil
-    if @trip.save
-      redirect_to trips_path
-    else
-      render :new
-    end
+
+    # if @trip.save
+    #   redirect_to passenger_trips_path
+    # else
+    #   render :new
+    # end
   end
 
   def edit
