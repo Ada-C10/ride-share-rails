@@ -32,6 +32,7 @@ class TripsController < ApplicationController
   def update
     if @trip.rating != nil
       trip_params[:in_progress] = false
+      trip_params[:cost] = rand(9999)
     end
 
     @trip.update(trip_params)
@@ -54,7 +55,7 @@ class TripsController < ApplicationController
 
 
   def create
-    
+
     if params[:passenger_id]
       @passenger_id = params[:passenger_id].to_i
       @passenger.verify_trip
