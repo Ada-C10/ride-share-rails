@@ -39,18 +39,30 @@
   <!--  Maybe set driver id to null then delete? -->
 
   <!-- Show driver trips here. Have driver_trips_path somehow?  -->
-  <h1>Driver Trips</h1>
-  render driver_trips_path
+  <h1>Trips</h1>
+  <table>
+    <tr>
+      <th>Date</th>
+      <th>Trip ID</th>
+      <th>Driver</th>
+      <th>Passenger</th>
+      <th>Cost</th>
+      <th>Rating</th>
+    </tr>
+    <% @trips.each do |trip| %>
+      <tr>
+        <td><%="#{trip.date}"%></td>
+        <td><%= link_to "#{trip.id}", trip_path(trip.id)%></td>
+        <td><%= link_to "#{trip.driver_id}", driver_path(trip.driver_id)%></td>
+        <td><%= link_to "#{trip.passenger_id}", passenger_path(trip.passenger_id)%></td>
+        <td><%= "$#{trip.convert_money(trip.cost)}" %></td>
+        <td><%="#{trip.rating}"%></td>
+      </tr>
+
+    <% end %>
+  </table>
+  <!-- render driver_trips_path -->
   <!-- <%# render driver_trips_path %> -->
   <!-- How do we show a list of driver trips using the driver_trips path? -->
-  <!-- <% @driver.trips.each do |trip| %>
-    <div class = "trip_container">
-      <p><%= link_to "Trip ID: #{trip.id}", trip_path(trip.id)%></p>
-      <! TODO Create a link to passenger from below. Need access to passenger id in this view.   -->
-      <!-- <p>Passenger ID: <%="#{trip.passenger_id}"%></p>
-      <p>Date: <%="#{trip.date}"%></p>
-      <p>Rating: <%="#{trip.rating}"%></p>
-      <p>Cost: <%="$#{trip.convert_money(trip.cost)}"%></p>
-    </div>
-  <% end %> -->
+
 <% end %>
