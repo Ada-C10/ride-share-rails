@@ -8,7 +8,7 @@ class Driver < ApplicationRecord
   end
 
   def total_earnings
-    total_profit = trips.sum(&:cost).to_f
+    total_profit = (trips.sum(&:cost).to_f) * 0.01
     driver_profit = (total_profit - 1.65) * 0.8
     return driver_profit
   end
