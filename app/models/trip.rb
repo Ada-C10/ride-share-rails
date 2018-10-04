@@ -8,5 +8,4 @@ class Trip < ApplicationRecord
   validates :rating, presence: true
   validates :cost, presence: true
 
-
 end
