@@ -5,9 +5,20 @@
   <h1> 404 Not found</h1>
 <% else %>
   <h1><%=@passenger.name %></h1>
-  <h3> by <%= link_to "#{@passenger.name}", passenger_path(@passenger.id) %></h3>
-  <p><%= @passenger.phone_num %> </p>
-  <p><%= "$#{@passenger.total_charged}" %>  </p>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Phone Number</th>
+      <th>Total Spent</th>
+    </tr>
+    <tr>
+      <td><%= "#{@passenger.id}" %></td>
+      <td><%= "#{@passenger.phone_num}" %></td>
+      <td><%= "$#{@passenger.total_charged}" %></td>  
+    </tr>
+
+  </table>
+
   <%= link_to "Edit", edit_passenger_path(@passenger.id) %>
   <!--TODO FIgure out how to delete passengers without impacting driver trips.   -->
   <!--  Maybe set passenger id to null then delete? -->
