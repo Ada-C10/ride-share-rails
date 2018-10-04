@@ -20,6 +20,7 @@
   </div>
   <div class="c3">
     <h2>New Passenger</h2>
+    <%=link_to "Return", request.referer.present? ? request.referer : home_path%>
   </div>
   <div class="c4">
     <%= render partial: "passenger_form", locals: {

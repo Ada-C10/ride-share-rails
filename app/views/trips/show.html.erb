@@ -21,6 +21,7 @@
  <div class="c3">
      <%= link_to "View Driver", driver_path(id: @trip.driver_id) %>
      <%= link_to "View Passenger", passenger_path(id: @trip.passenger_id) %>
+     <%= link_to "Return", request.referer.present? ? request.referer : home_path %>
  </div>
  <div class="c4">
    <h2>Trip Details</h2>
