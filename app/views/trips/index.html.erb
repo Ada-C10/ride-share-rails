@@ -6,7 +6,11 @@
     Trip #<%=trip.id%>:
     <%=link_to "View Trip details", trip_path(trip.id) %>
 
-    <%=link_to "Driver", driver_trips_path(trip.driver_id) %>
+    <% if trip.driver_id %>
+      <%=link_to "Driver", driver_trips_path(trip.driver_id) %>
+    <% else %>
+      [No Driver]
+    <% end %>
 
     <%=link_to "Passenger", passenger_trips_path(trip.passenger_id) %>
 

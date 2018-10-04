@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get '/homes', to: 'homes#index'
 
   resources :drivers
-  resources :trips
+  resources :trips, except: [:new, :create]
   resources :passengers
 
   post 'drivers/:id/make_available', to: 'drivers#make_available', as: 'available'
@@ -16,11 +16,11 @@ Rails.application.routes.draw do
   # post '/passengers/:passenger_id/trips/new', to: 'trips#create', as: 'passenger_new_trip'
 
   resources :passengers do
-    resources :trips, only: [:index, :new]
+    resources :trips, only: [:index, :create]
   end
 
   resources :drivers do
-    resources :trips, only: [:index, :new]
+    resources :trips, only: [:index]
   end
 
 end
