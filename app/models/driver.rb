@@ -4,10 +4,12 @@ class Driver < ApplicationRecord
   validates :vin, presence: true, uniqueness: true, length: {is: 17}
 
   def average_rating
-    trips.sum(&:rating).to_f/ trips.length
+    return trips.sum(&:rating).to_f/ trips.length
   end
 
   def total_earnings
-    trips.sum(&:cost)
+    total_profit = trips.sum(&:cost).to_f
+    driver_profit = (total_profit - 1.65) * 0.8
+    return driver_profit
   end
 end

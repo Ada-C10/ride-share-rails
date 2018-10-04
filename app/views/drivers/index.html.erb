@@ -14,7 +14,7 @@
       <li><strong>Driver Average Rating: </strong>
         <% @drivers.each do |driver| %>
         <li>
-          <%= rand(1..5) %>
+          <%= driver.average_rating.round(1) %>
         </li>
         <% end %>
       </ul>

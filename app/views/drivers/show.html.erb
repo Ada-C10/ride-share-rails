@@ -19,7 +19,7 @@
     </li>
     <li>
       <strong>Total Earnings: </strong>
-      <%= @driver.total_earnings %>
+      <%= @driver.total_earnings.round(2) %>
     </li>
     <li>
       <%= link_to "Edit Driver Information", edit_driver_path %>
