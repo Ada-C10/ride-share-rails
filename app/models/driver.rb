@@ -3,19 +3,27 @@ class Driver < ApplicationRecord
 
   def total_earnings
   #The driver gets 80% of the trip cost after a fee of $1.65 is subtracted
-   total_cost = self.trips.reduce(0) { |sum, trip| sum + trip.cost }
-   num_trips = self.trips.length
-   total_earnings = ((total_cost - (num_trips * 1.65)) * 0.8) / 100
-   return total_earnings.round(2)
+    if self.trips.any? { |trip| trip.cost == nil }
+      return nil
+    else
+      total_cost = self.trips.reduce(0) { |sum, trip| sum + trip.cost }
+      num_trips = self.trips.length
+      total_earnings = ((total_cost - (num_trips * 1.65)) * 0.8) / 100
+      return total_earnings.round(2)
+    end
   end
 
   def average_rating
-    sum_rating = self.trips.reduce(0) { |sum, trip| sum + trip.rating }
-    num_trips = self.trips.length.to_f
-    if num_trips == 0
-      return "N/A"
+    if self.trips.any? { |trip| trip.rating == nil }
+      return "- in-progress -" # TODO: discount nil trips and return a rating
     else
-      return '%.2f' % "#{sum_rating/num_trips}"
+      sum_rating = self.trips.reduce(0) { |sum, trip| sum + trip.rating }
+      num_trips = self.trips.length.to_f
+      if num_trips == 0
+        return "- no trips -"
+      else
+        return '%.2f' % "#{sum_rating/num_trips}"
+      end
     end
   end
 
