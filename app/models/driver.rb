@@ -4,7 +4,7 @@ class Driver < ApplicationRecord
   validates :vin, presence: true, uniqueness: true, length: {is: 17}
 
   def average_rating
-    trips.sum(&:rating)/ trips.length
+    trips.sum(&:rating).to_f/ trips.length
   end
 
   def total_earnings
