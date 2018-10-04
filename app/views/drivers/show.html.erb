@@ -3,7 +3,6 @@
   <h2><%= @driver.name %></h2>
 
   <p>
-    <%= link_to "Add Trip", new_trip_path(@driver.id)%> |
     <%= link_to "Edit", edit_driver_path(@driver.id), class: "edit-link" %> |
     <%= link_to "Delete", driver_path(@driver.id), method: :delete, data: {confirm: "Are you sure you want to get rid of driver #{@driver.name}?" } %>
   </p>
@@ -28,6 +27,6 @@
 </div>
 <div class="return-home">
   <h3>
-    <%= link_to "Return Home", trip_path, class: "homepage" %>
+    <%= link_to "Return Home", trips_path, class: "homepage" %>
   </h3>
 </div>
