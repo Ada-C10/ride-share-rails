@@ -1,5 +1,5 @@
 
-<h1><%= @passenger.name %></h1>
+<h1><%= @passenger.name %> (<%= @passenger.status.to_s.gsub("_", "-") %>)</h1>
 <h2>Total Charged : <%= "$" + "%.2f" % @passenger.total_cost%></h2>
 
 <%= link_to "Request a Ride", passenger_trips_path(@passenger.id), method: :post %>

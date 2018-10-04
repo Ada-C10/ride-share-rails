@@ -35,4 +35,12 @@ class Driver < ApplicationRecord
     return Driver.all.find { |driver| driver.is_available? }
   end
 
+  def status
+    if self.trips.any? { |trip| trip.cost == nil || trip.rating == nil }
+      return :in_progress
+    else
+      return :available
+    end
+  end
+
 end
