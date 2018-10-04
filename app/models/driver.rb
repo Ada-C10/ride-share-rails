@@ -23,4 +23,7 @@ class Driver < ApplicationRecord
 
     return (total / total_length)
   end
+
+  def assign_driver
+  end 
 end

@@ -46,6 +46,16 @@ class DriversController < ApplicationController
     end
   end
 
+  def assign_driver
+    drivers = Driver.all
+    @driver = drivers.find_by(available?: true)
+    if @driver
+      @driver.available? = false
+      @driver.save
+    #else
+    end
+  end
+
   private
 
   def driver_params
