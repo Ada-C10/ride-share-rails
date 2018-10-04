@@ -2,12 +2,15 @@
 <% if @passenger.nil? %>
 <h1> 404 not found </h1>
 <% else %>
-<h2><%= @passenger.name%></h2>
-<h3><%= @passenger.phone_num%></h3>
+<section class="passenger_details">
+<h2>Name: <%= @passenger.name%></h2>
+<h3>Phone: <%= @passenger.phone_num%></h3>
+<h3>ID: <%= @passenger.id%></h3>
 <% end %>
 <div>
 <h2>Total Cost: <%= "🚀"'%.2f' %  (@passenger.total_cost/100) %></h2>
 </div>
+</section>
 
 
 <section class="ride_request">
@@ -34,9 +37,8 @@
 <tbody>
 
   <% if @passenger.trips.empty? %>
-    <tr>
-      <td><%= "No Trips on Record" %></td>
-    </tr>
+    <%= "No Trips on Record" %>
+    
   <% else %>
     <% active_trips.each do |trip| %>
       <tr>
