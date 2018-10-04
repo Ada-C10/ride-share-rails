@@ -11,11 +11,6 @@
 <% end %>
 
 <%= form_with model: @trip do |f| %>
-      <%= f.label "Cost (in cents!)"%>
-      <%= f.text_field :cost %>
-
-      <%= f.label :date %>
-      <%= f.text_field :date %>
 
       <%= f.label :driver %>
       <%= f.select :driver_id, Driver.all.order(:name).map {|d| [d.name, d.id] } %>
