@@ -41,7 +41,6 @@ class Driver < ApplicationRecord
     driver = avail_drivers.first
     driver.status = false
     driver.save
-    # binding.pry
 
     return driver.id
   end
