@@ -1,10 +1,22 @@
-<h2> This is my trip controller view</h2>
+<h2> <%=@user.name %> Trips </h2>
 
 <h3><%= @user.name %></h3>
 
 <% @trips.each do |t| %>
+  <% if t.passenger %>
+    <%= t.cost %>
+    <%= link_to "#{t.passenger.name}", driver_trip_path, class: "btn btn-primary" %>
+    <%= t.date %>
+    <br />
 
-<%= t.cost %>
-<br />
+  <% elsif t.driver %>
+    <%= t.cost %>
+    <%= t.driver.name %>
+    <%= t.rating %>
+  <% end %>
 
 <% end %>
+
+
+
+<h1><%= link_to "Request Ride", driver_trips_path, method: :post, class: "btn btn-primary" %></h1>
