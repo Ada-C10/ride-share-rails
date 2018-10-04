@@ -13,6 +13,7 @@ class TripsController < ApplicationController
 
   def new
     @trip = Trip.new
+    @trip.rating = 0
   end
 
   def create

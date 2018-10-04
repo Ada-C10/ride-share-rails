@@ -1,15 +1,11 @@
 <h1>New Trip</h1>
 
 <%= form_with model: @trip, class: 'task-form' do |f| %>
-  <p><%= f.label :driver_id %>:
-    <%= f.text_field :driver_id%></p>
-  <p><%= f.label :passenger_id %>:
-    <%= f.text_field :passenger_id %></p>
   <p><%= f.label :date %>:
     <%= f.text_field :date %></p>
   <p><%= f.label :rating %>:
     <%= f.text_field :rating %></p>
   <p><%= f.label :cost %>:
     <%= f.text_field :cost %></p>
-  <%= f.submit "Save Passenger" %>
+  <%= f.submit "Save Trip" %>
 <% end %>
