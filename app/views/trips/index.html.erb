@@ -1,4 +1,10 @@
-<h1>Trips</h1>
-<p><%= @trips.each do |trip| %></p>
-<p><%= trip.date %></p>
-<p><%end%></p>
+<!-- <h1>Trips#index</h1> -->
+<!-- <p>Find me in app/views/trips/index.html.erb</p> -->
+<h2>Trips</h2>
+<ul>
+  <% @trips.each do |trip| %>
+    <p><
+    <p><%= trip.date %></p>
+    <li><%= link_to trip.id, trip_path(trip.id) %>
+  <% end %>
+</ul>

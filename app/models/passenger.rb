@@ -4,20 +4,13 @@ class Passenger < ApplicationRecord
   validates :name, presence: true
   validates :phone_num, presence: true
 
-
-  def total_amt_paid
-    sum = 0
-    self.trips.each do |trip|
-
+  def total_charges
+    trips = self.trips
+    trips_total = 0
+    trips.each do |trip|
+      trips_total += trip.cost
     end
-    return sum
+    return trips_total
   end
 
-  def average_rating
-    ratings = 0
-    self.trips.each do |trip|
-
-    end
-    return
-  end
 end
