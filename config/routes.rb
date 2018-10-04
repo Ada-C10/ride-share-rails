@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :homepages
 
   resources :passengers do
-    resources :trips, only: [:index]
+    resources :trips, only: [:index, :create]
   end
 
   resources :drivers do

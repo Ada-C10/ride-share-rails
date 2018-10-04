@@ -31,22 +31,22 @@ class TripsController < ApplicationController
   end
 
   def create
-    #change all this to passenger information
-    @user = Driver.find_by(id: params[:driver_id])
-    @user_2 = Passenger.find(2)
-    @trip = @user.trips.new()
 
-    @trip.driver = @user
-    @trip.passenger = @user_2
+    @passenger = Passenger.find_by(id: params[:passenger_id])
+    @driver = Driver.find_by(status: params[:status, "available"])
+    @trip = @passenger.trips.new()
+
+    @trip.driver = @driver
+    @trip.passenger = @passenger
     @trip.date = Date.today
     @trip.rating = nil
-    @trip.cost = 1000000000
+    @trip.cost = rand(1..10)
 
 
     if @trip.save
-      redirect_to driver_trips_path
+      redirect_to passenger_trips_path
     else
-      render :index
+      # raise an error message
     end
   end
 

@@ -4,23 +4,35 @@
 
 <h3><%= @user.name %></h3>
 
-<% @trips.each do |t| %>
-  <% if t.passenger.id == @user.id %>
-    <%= t.driver.name %>
-    <%= t.id %>
-    <%= t.cost %>
-    <%= t.date %>
-  
-    <br />
 
-  <% elsif t.driver.id == @user.id %>
+<% if @trips.first.passenger == @user %>
+<%= link_to "Request Ride", passenger_trips_path(@user.id), method: :post %>
+<%= link_to "Edit This Passenger", edit_passenger_path(@user.id) %>
+  <% @trips.each do |t| %>
+      <%= t.driver.name %>
+      <%= t.id %>
+      <%= t.cost %>
+      <%= t.date %>
+      <br />
+  <% end %>
+
+<% elsif @trips.first.driver == @user %>
+  <%= link_to "Edit This Driver", edit_driver_path(@user.id) %>
+  <br>
+  <% if @user.status %>
+    <%= "Available" %>
+    <br>
+    <% else %>
+    <%= "Unavailable" %>
+    <% end %>
+  <br>
+  <% @trips.each do |t| %>
     <%= t.cost %>
     <br>
     <%= t.passenger.name %>
     <br>
     <%= t.rating %>
     <br>
-    <%= link_to "Edit", edit_driver_path(t.id) %>
     <br>
     <br>
   <% end %>
