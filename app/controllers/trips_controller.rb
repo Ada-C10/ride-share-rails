@@ -21,6 +21,12 @@ class TripsController < ApplicationController
 
   def create
     @trip= Trip.new(trip_params)
+    trip_params = {
+      driver_id:, #insert mtch driver method find_available_driver(user_id),
+      passenger_id: params[:id],
+      date: DateTime.now
+      cost: (0.0..10.00).sample
+      rating:nil
     if @trip.save
       redirect_to trips_path
     else

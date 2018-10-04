@@ -2,7 +2,7 @@
   <h1><%= "404: NOT FOUND" %></h1>
 <% else %>
 <h1> <%= @passenger.name %></h1>
-<section> <%= link_to "Request Trip", new_trip_path%>
+<section> <%= link_to "Request Trip", new_passenger_trip_path%>
 <ul>
   <li>Phone Number: <%= @passenger[:phone_num] %></li>
   <li> Total Charged: $ <%=@passenger.total_charged%></li>
