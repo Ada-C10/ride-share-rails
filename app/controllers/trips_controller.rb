@@ -16,21 +16,25 @@ class TripsController < ApplicationController
   end
 
   def create
+
+    #through passenger path
     if params[:passenger_id]
       passenger = Passenger.find_by(id: params[:passenger_id])
       driver = find_available_driver
+
       @trip = Trip.new(passenger: passenger, driver: driver, cost: 0, date: Date.today)
+      if driver == nil
+        render :invalid_trip_page, status: :not_found
+      else
+        @trip.save
+        redirect_to passenger_path(@trip.passenger_id)
+      end
     else
+      #through trip path
       filtered_trip_params = trip_params()
       @trip = Trip.new(filtered_trip_params)
-    end
-
-    is_successful_save = @trip.save
-
-    if is_successful_save
+      @trip.save
       redirect_to passenger_path(@trip.passenger_id)
-    else
-      render :new
     end
   end
   #
