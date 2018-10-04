@@ -11,8 +11,8 @@
       </tr>
       <% @drivers.each do |driver| %>
       <tr>
-        <td><%=link_to "#{driver.name}", driver_path(driver.id) %></th>
-        <td><%= driver.vin %></th>
+        <td><%=link_to "#{driver.name}", driver_path(driver.id) %></td>
+        <td><%= driver.vin %></td>
       </tr>
       <% end %>
     </table>
