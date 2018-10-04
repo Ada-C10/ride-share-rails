@@ -2,7 +2,7 @@ class DriversController < ApplicationController
   before_action :set_driver, only: [:show, :edit, :update, :destroy]
 
   def index
-    @drivers = Driver.all
+    @drivers = Driver.paginate(:page => params[:page], :per_page => 10)
   end
 
   def show
