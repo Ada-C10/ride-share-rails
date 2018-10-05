@@ -5,6 +5,7 @@
 <% elsif @passenger.status == false %>
   <h1> <%= "Rider no. #{@passenger.id} is no longer active" %>
 <% else %>
+<section class='user-info'>
   <h1><%=@passenger.name %></h1>
   <h3> <%= @passenger.phone_num %></h3>
   <h3> <%= @passenger.status %></h3>
@@ -15,13 +16,15 @@
 <% end %>
 
   <% @passenger.trips.each do |trip| %>
-  <ul>
-    <li> <%= link_to "#{trip.id}", trip_path(trip.id)%></li>
-    <li> <%= trip.date %></li>
-    <li> <%= link_to "#{trip.driver.name}", driver_path(trip.driver.id)%></li>
-    <li> <%= trip.cost %> </li>
-    <li> <%= trip.rating%></li>
-  </ul>
-<% end %>
+    <table class='trip-list'>
+      <tr>
+        <td> <%= link_to trip.date.strftime("%b %d, %Y"), trip_path(trip.id) %></td>
+        <td> <%= link_to "#{trip.driver.name}", driver_path(trip.driver.id)%></td>
+        <td> <%= trip.cost %> </td>
+        <td> <%= trip.rating%></td>
+      </tr>
+    </table>
+  <% end %>
+</section>
 
 <br>

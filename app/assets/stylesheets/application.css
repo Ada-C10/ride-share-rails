@@ -18,20 +18,21 @@
  colors: #FF9F19(orange), #06D6A0(turq.), #FFBF69(beige), #FF476F(raspberry), #F8FFE5(grey)
 -------- */
 
-body {
+html, body {
   color: #f8ffe5;
   background-color: #ff9f19;
   font-family: 'Raleway', sans-serif;
   margin: 1em;
 }
 
- .navigation {
+ nav {
    display: flex;
    font-weight: 500; /* medium */
    font-size: 4em;
    font-family: 'Quicksand', sans-serif;
    line-height: 1.5;
-   background: center/70% url('../images/city-cars.jpg');
+   background-color: skyblue;
+   /* background-image: url("../images/city-cars.jpg"); */
  }
 
  .navigation a:visited {
@@ -42,9 +43,13 @@ body {
    font-weight: 700; /* bold */
  }
 
- .navigation a:active{
+ .navigation a:active {
    font-weight: 700; /* bold */
    color: #ff476f;
+ }
+
+ .app-name {
+   font-family: 'Kaushan Script', cursive;
  }
 
  ul {
@@ -57,10 +62,37 @@ body {
    text-decoration: none;
  }
 
-a:hover {
+ a:hover {
   font-weight: 600;
 }
 
  a:visited {
    color: #ff476f;
+ }
+
+ table {
+   border-spacing: 1em;
+   width: 50%;
+   grid-column-start: 2;
+ }
+
+ .names-list {
+   display: flex;
+   grid-row-start: 2;
+   justify-content: space-between;
+   /* grid-column-end: 4; */
+   flex-direction: row;
+   align-items: baseline;
+   flex-wrap: wrap;
+ }
+
+ .passenger-form, .driver-form {
+   padding: 1em;
+   background: #06D6A0;
+   border: solid 3px #FFBF69;
+   box-shadow: .3em .2em .2em #717469;
+ }
+
+ @keyframes vroom {
+
  }

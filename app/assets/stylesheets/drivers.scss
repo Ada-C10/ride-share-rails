@@ -1,3 +1,9 @@
 // Place all the styles related to the Drivers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.drivers-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 5em 1fr;
+}
