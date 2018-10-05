@@ -25,15 +25,19 @@ class TripsController < ApplicationController
 
   def create
     passenger = Passenger.find_by(id: params[:passenger_id])
-    driver = Driver.all.sample
+    driver = Driver.find_by(status: true)
 
-    @trip = Trip.new(cost: 0, rating: 5, date: '2000-01-01', driver_id: driver.id, passenger_id: passenger.id)
-
-    if @trip.save
-      redirect_to passenger_trips_path
+    if driver
+      @trip = Trip.new(cost: 0, rating: 5, date: '2000-01-01', driver_id: driver.id, passenger_id: passenger.id)
+      if @trip.save
+        redirect_to passenger_trips_path
+      else
+        render :new, status: :bad_request
+      end
     else
-      render :new, status: :bad_request
+      redirect_to root_path
     end
+
   end
 
   def edit

@@ -1,41 +1,44 @@
 
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>RideShareRails</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>RideShareRails</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-  <main class = "container">
-    <header>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
 
-      <h1>Mr. Toad's Wild Ride Share</h1>
 
-      <nav>
-        <ul>
-          <li><%= image_tag "https://c1.staticflickr.com/4/3379/3640003283_e186fe1d8a_b.jpg", alt: "Mr. Toad" %></li>
-          <li><%=link_to "Home", homes_path %></li>
-          <li><%=link_to "All Passengers", passengers_path %></li>
-          <li><%=link_to "All Drivers", drivers_path %></li>
-          <li><%=link_to "All Trips", trips_path %></li>
-          <li><%=link_to "Enter a new passenger", new_passenger_path %></li>
-          <li><%=link_to "Enter a new driver", new_driver_path %></li>
-        </ul>
-      </nav>
-    </header>
+</head>
+<main class = "container">
+  <header>
 
-    <body>
-      <%= yield %>
-    </body>
+    <h1>Mr. Toad's Wild Ride Share</h1>
 
-    <footer>
-      <p>2018. Mr. Toad's Wild Ride Share, by Goeun and Carly</p>
+    <nav>
+      <ul>
+        <li><%= image_tag "https://c1.staticflickr.com/4/3379/3640003283_e186fe1d8a_b.jpg", alt: "Mr. Toad" %></li>
+        <li><%=link_to "Home", homes_path %></li>
+        <li><%=link_to "All Passengers", passengers_path %></li>
+        <li><%=link_to "All Drivers", drivers_path %></li>
+        <li><%=link_to "All Trips", trips_path %></li>
+        <li><%=link_to "Enter a new passenger", new_passenger_path %></li>
+        <li><%=link_to "Enter a new driver", new_driver_path %></li>
+      </ul>
+    </nav>
+  </header>
 
-    </footer>
+  <body>
+    <%= yield %>
+  </body>
 
-  </main>
+  <footer>
+    <p>2018. Mr. Toad's Wild Ride Share, by Goeun and Carly</p>
+
+  </footer>
+
+</main>
 
 </html>

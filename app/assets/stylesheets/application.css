@@ -1,5 +1,7 @@
 *{
   list-style-type: none;
+  font-family: 'Inconsolata', monospace;
+  font-weight: lighter;
 }
 
 a {
@@ -26,6 +28,7 @@ li {
 .container {
   display: grid;
   grid-template: 15% 75% 10% / 100%;
+  padding: 30px;
 }
 
 header {
