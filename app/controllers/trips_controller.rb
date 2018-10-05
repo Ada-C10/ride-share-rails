@@ -14,7 +14,10 @@ class TripsController < ApplicationController
   def create
     if params[:passenger_id]
       passenger = Passenger.find_by(id: params[:passenger_id])
-      driver = Driver.all.sample
+
+
+      driver = (Driver.all.select { |d| d.availability == true }).sample
+
       @trip = passenger.trips.new(driver_id: driver.id, passenger_id: passenger.id, date: "2017-02-02", rating: 0, cost: 0)
 
       if @trip.save
@@ -42,7 +45,7 @@ class TripsController < ApplicationController
     trip = Trip.find_by(id: params[:id])
 
     trip.destroy
-    redirect_to trips_path
+    redirect_to passenger_path(passenger.id)
   end
 
   private
