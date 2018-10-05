@@ -26,7 +26,6 @@ class TripsController < ApplicationController
   end
 
   def create
-    ##### TODO Add error messages for if it does not save ####
     @trip = Trip.new(trip_params)
     if @trip.save
       redirect_to trips_path
