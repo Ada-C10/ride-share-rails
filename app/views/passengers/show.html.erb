@@ -46,7 +46,13 @@
       <% end %>
       </td>
         <td><%=trip.date%></td>
-        <td><%=trip.rating%></td>
+        <td>
+          <%if trip.rating.nil?%>
+              <%= link_to "Add Rating", trip_edit_rating_path(trip.id)  %>
+            <%else%>
+              <%=trip.rating%>
+            <% end%>
+        </td>
 
 
         <td>$<%="#{'%.2f' % (trip.cost * 0.01)}"%></td>

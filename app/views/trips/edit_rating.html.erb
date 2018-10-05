@@ -1,0 +1,21 @@
+<section id="title">
+  <h1>Trip Update</h1>
+  <sub>Changing The Way You Travel</sub>
+</section>
+
+<nav class="nav">
+  <li><%= link_to "HOME", root_path %></li>
+  <li><%= link_to "DRIVER", drivers_path %></li>
+  <li><%= link_to "PASSENGER", passengers_path %></li>
+</nav>
+
+<%= form_for ({controller: "trip", action: "update_rating"}, method: "patch") do |f|%>
+
+  <p>Please add your rating to this trip</p>
+
+  <%= f.label :rating %>
+  <%= f.text_field :rating %>
+
+
+  <%= f.submit "Add Rating", class: "rating-button" %>
+<% end %>

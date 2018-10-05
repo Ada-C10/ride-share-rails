@@ -44,7 +44,21 @@ class TripsController < ApplicationController
     id = params[:passenger_id].to_i
     @passenger = Passenger.find_by(id: id)
     @passenger.assign_trip
-      redirect_to passenger_path(@passenger.id)
+    redirect_to passenger_path(@passenger.id)
+  end
+
+  def edit_rating
+    id = params[:id].to_i
+    @trip = Trip.find_by(id: id)
+  end
+
+  def update_rating
+    id = params[:id].to_i
+    trip = Trip.find_by(id: id)
+    new_rating = params[:rating].to_i
+    trip.rating = new_rating
+    trip.save
+    redirect_to trip_path(trip.id)
   end
 
   def destroy
