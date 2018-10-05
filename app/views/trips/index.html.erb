@@ -2,9 +2,13 @@
 
   <h1 class ="index-header">Passenger Detail</h1>
 
-  <div class="table list-pages">
+<h1 class="user-name"><%= @passenger.name %></h1>
+ <% if @passenger.status == :available %>
+  <span class="dot_available"></span>
+<% else %>
+  <span class="dot_unavailable"></span>
+<%end%>
     <%= form_with model: @passenger, url: passenger_trips_path(@passenger.id), method: :post, class: "form", id: "form1" do |f| %>
-    <h3><%= @passenger.name %> (<%= @passenger.status.to_s.gsub("_", "-") %>)</h3>
     <h3 class="detail-before-buttons">Total Charged : <%= "$" + "%.2f" % @passenger.total_cost%></h3>
 
     <% if @passenger.status == :available %>
@@ -23,5 +27,5 @@
             } %>
 
     <% end %>
-  </div>
+
 </div>

@@ -458,6 +458,15 @@ input:focus, textarea:focus {
   align-items: center
 }
 
+.user-name {
+  display: inline-block;
+}
+
+.user-name::after {
+  content: " ";
+  white-space: pre;
+}
+
 /* -------------------------- */
 /* Sammi-Jo's CSS for gray/orange "form" elements */
 
@@ -475,6 +484,7 @@ input:focus, textarea:focus {
   padding-top: 30px;
   padding-bottom: 40px;
   margin-bottom: 50px;
+  text-align: center;
 }
 
 h1.index-header {
