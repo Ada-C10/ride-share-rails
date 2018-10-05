@@ -37,7 +37,7 @@ class TripsController < ApplicationController
   def update
     @trip = Trip.find(params[:id])
     if @trip.update(trip_params)
-      redirect_to trip_path(trip.id)
+      redirect_to trip_path(@trip.id)
     else
       render :edit, status: :bad_request
     end
