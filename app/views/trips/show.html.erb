@@ -4,6 +4,7 @@
 <% if @trip.nil? %>
   <h1> 404 Not found</h1>
 <% else %>
+<div class="container">
   <table>
     <tr>
       <th>ID</th>
@@ -25,9 +26,7 @@
       <td><%= link_to "Edit", edit_trip_path(@trip.id) %></td>
       <td><%= link_to "Delete", trip_path(@trip.id), method: :delete %></td>
     </tr>
-
-<!--TODO FIgure out how to delete trips without impacting driver trips.   -->
-<!--  Maybe set trip id to null then delete? -->
   </table>
+</div>
 
 <% end %>
