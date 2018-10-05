@@ -41,3 +41,11 @@ div.field_with_errors {
     margin: 0 auto;
   }
 }
+
+.driver_details a:link, .driver_details a:visited {
+  color: #EFEFEF;
+}
+
+.driver_details a:hover {
+  color: rgba(218, 38, 30, 1);
+}

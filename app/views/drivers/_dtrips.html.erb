@@ -1,8 +1,7 @@
 <tr>
   <td><%= link_to dtrips.id, trip_path(dtrips.id) %></td>
   <td><%= dtrips.date %></td>
-  <td><%= dtrips.driver_id %></td>
-  <td><%= dtrips.passenger_id %></td>
+  <td><%= link_to dtrips.passenger_id, passenger_path(dtrips.passenger_id) %></td>
   <% if dtrips.in_progress == true %>
     <td id='in_progress'> <i class="w3-xxlarge material-icons w3-spin icons">refresh</i></td>
   <% else %>

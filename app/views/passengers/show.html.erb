@@ -21,7 +21,7 @@
 
 <section class="ride_request">
   <div class="ride_button">
-    <strong class="button_size"><%= link_to "Request a Trip", passenger_trips_path(@passenger.id), method: :post %></strong>
+    <strong class="button_color"><%= link_to "Request a Trip", passenger_trips_path(@passenger.id), method: :post %></strong>
   </div>
 </section>
 
@@ -44,7 +44,7 @@
       <% active_trips.each do |trip| %>
         <tr>
           <td> <%= link_to "#{trip.id}", trip_path(trip.id) %></td>
-          <td> <%= trip.driver_id %></td>
+          <td> <%= link_to trip.driver_id, driver_path(trip.driver_id) %></td>
           <td> <%= trip.date %></td>
           <td> <%= trip.rating %></td>
           <td> <%= "🚀"'%.2f' % (trip.cost/100) %></td>

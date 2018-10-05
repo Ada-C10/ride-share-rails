@@ -1,18 +1,17 @@
 <section class="driver_details">
-<h1><%= @driver.name %></h1>
-<%= link_to "All Drivers", drivers_path %>
-<%= "|" %>
-<%= link_to "Edit", edit_driver_path(@driver.id) %>
-<%= "|" %>
-<%= link_to "Delete", driver_path(@driver.id), method: :delete, data: {confirm: "Are you sure?"} %>
-<br /><br />
+  <h1><%= @driver.name %></h1>
+  <%= link_to "All Drivers", drivers_path %>
+  <%= "|" %>
+  <%= link_to "Edit", edit_driver_path(@driver.id) %>
+  <%= "|" %>
+  <%= link_to "Delete", driver_path(@driver.id), method: :delete, data: {confirm: "Are you sure?"} %>
+  <br /><br />
 
-<strong>Total Earnings: $<%= '%.2f' % @driver.total_earnings %></strong>
-<br />
-<strong>Average Rating: <%= '%.2f' % @driver.average_rating %></strong>
-<br /><br />
-<!-- <strong>Status: <%#= @driver.change_status %> </strong>
-<br /><br /> -->
+  <strong>Total Earnings: $<%= '%.2f' % @driver.total_earnings %></strong>
+  <br />
+  <strong>Average Rating: <%= '%.2f' % @driver.average_rating %></strong>
+  <br /><br />
+</section>
 
 
 <% active_trips = @trips.where(active: true).order(:date) %>
@@ -21,7 +20,6 @@
   <tr>
     <th>Trip ID</th>
     <th>Date</th>
-    <th>Driver ID</th>
     <th>Passenger ID</th>
     <th>Trip Status</th>
   </tr>
@@ -29,4 +27,3 @@
     <%= render partial: "dtrips", collection: active_trips %>
   </tbody>
 </table>
-</section>

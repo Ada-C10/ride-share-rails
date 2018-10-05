@@ -71,3 +71,11 @@ h1 {
 .flickr_pagination .next_page {
   margin-left: 1em;
 }
+
+.edit_actions a:link, .edit_actions a:visited, .button_color a:link, .button_color a:visited {
+  color: #EFEFEF;
+}
+
+.edit_actions a:hover {
+  color: rgba(218, 38, 30, 1);
+}
