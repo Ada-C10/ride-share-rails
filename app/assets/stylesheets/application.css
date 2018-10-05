@@ -50,13 +50,6 @@ body {
   font-family: 'Exo 2', sans-serif;
 }
 
-.background_img {
-  background-image: url("moon.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  z-index: 1;
-}
-
 table {
   margin: 20px;
   border-collapse: collapse;
