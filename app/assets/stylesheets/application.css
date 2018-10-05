@@ -1,5 +1,6 @@
 body, html {
   height: 100%;
+     background-color: black;
 }
 .bg {
   /* The image used */
@@ -12,6 +13,7 @@ body, html {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+
 }
 
 
@@ -32,12 +34,8 @@ body, html {
  */
  @import url('https://fonts.googleapis.com/css?family=Alegreya|Monoton|Permanent+Marker|Vollkorn')
 
- body {
-    padding: 50px;
-    font-family: 'Alegreya', serif;
- }
 
- header {
+.navbar-header {
      background-color: white;
      position: fixed;
      top: 0;
@@ -53,32 +51,41 @@ body, html {
   float: left;
   font-family: 'Permanent Marker', cursive;
   /* font-family: 'Monoton', cursive; */
+
 }
 
-.navbar-header {
+.logo:active {
+  color: white;
+}
+
+/* .navbar-header {
+  display: flex;
    padding-left: 5rem;
-   float: right;
- }
+
+ } */
 
  /* header * {
     display: inline-block;
 } */
 
-.navbar-header li {
+.navbar-header ul li {
+    padding-right: 3rem;
+    margin: 1rem;
+}
+
+.navbar-header ul {
     display: flex;
     margin: 20px;
 }
 
 .navbar-header li a {
-    color: black;
+    padding-right: 4rem;
+    color: white;
     text-decoration: none;
 }
 
-.navbar-header li {
-    margin: 20px;
-}
-
 main {
-  /* background-color: lightblue; */
+  background-color: white;
   padding: 10px;
+
 }
