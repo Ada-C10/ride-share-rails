@@ -41,4 +41,16 @@ class TripsController < ApplicationController
           head :not_found
         end
       end
+
+      private
+
+    def trip_params
+      return params.require(:trip).permit(
+        :rating,
+        :cost,
+        )
+      end
+
+
+
 end
