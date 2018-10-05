@@ -8,7 +8,7 @@ class TripsController < ApplicationController
       @passenger = Passenger.find_by(id: params[:passenger_id])
       @trips = @passenger.trips
     else
-      @trips = Trip.all.order(:date, :desc) #why doesn't this work to display a home page??!
+      render :notfound, status: :not_found
     end
   end
 

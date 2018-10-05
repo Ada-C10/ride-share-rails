@@ -12,6 +12,7 @@
   <!-- maxlength: number, size: number, pattern: regex -->
   <!-- auto focus -->
 
+<<<<<<< HEAD
   <%= f.label field_two_text_field, field_two_label, class: "phone"%>
   <%= f.text_field field_two_text_field, placeholder: field_two_placeholder, required: true, class: "feedback-input", id: icon_image %>
 
@@ -39,6 +40,10 @@
       <p class="text">
         <textarea name="text" class="validate[required,length[6,300]] feedback-input" id="comment" placeholder="Comment"></textarea>
       </p>
+=======
+  <%= f.label field_two_text_field, field_two_label %>
+  <%= f.text_field field_two_text_field, placeholder: field_two_placeholder, required: true, maxlength: field_two_maxlength, pattern: field_two_pattern %>
+>>>>>>> 988adbe19e1f29c9112ebc3c6ea812579f5ff83b
 
 
       <div class="submit">
