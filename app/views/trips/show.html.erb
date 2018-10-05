@@ -30,7 +30,7 @@
 
 
       <td> <%= @trip.date %> </td>
-      <td> <%= @trip.cost %>  </td>
+      <td> <%= number_to_currency(@trip.cost) %>  </td>
 
       <td>
         <% if @trip.rating.nil? %>
