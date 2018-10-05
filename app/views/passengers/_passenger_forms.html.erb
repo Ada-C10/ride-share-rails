@@ -1,12 +1,22 @@
 <%= form_with model: @passenger, class: 'pass_form' do |f| %>
+<% if @passenger.errors.any?%>
+<h4>Errors: </h4>
+<ul>
+  <% @passenger.errors.each do |column, message| %>
+  <li>
+    <strong><%= column.capitalize %></strong><%= message%>
+  </li>
+  <% end %>
+</ul>
+<%end%>
 
-<div class="field">
+<div class="new_passenger">
 
-<%=f.label :name%>
-<%=f.text_field :name%>
+  <%=f.label :name%>
+  <%=f.text_field :name%>
 
-<%=f.label :phone_num%>
-<%=f.text_field :phone_num%>
+  <%=f.label :phone_num%>
+  <%=f.text_field :phone_num%>
 
 </div>
 
