@@ -42,15 +42,12 @@ class TripsController < ApplicationController
         @trip.save
         redirect_to passenger_path(@trip.passenger_id)
       end
-    elsif !params[:passenger_id]
+    else
       #through trip_path
       filtered_trip_params = trip_params()
       @trip = Trip.new(filtered_trip_params)
       @trip.save
       redirect_to passenger_path(@trip.passenger_id)
-    else
-      #through nested path or if no driver found / hit back twice 
-        redirect_to passengers_path
     end
   end
   #
