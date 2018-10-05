@@ -1,6 +1,7 @@
 <div class="description-container">
 
   <h2>Trip #: <%= @trip.id %></h2>
+  <%= link_to "Delete This Trip", trip_path(@trip.id), method: :delete, data: {confirm: "Are you sure you want to get rid of this trip #{@trip.id}?" } %> | <%= link_to "Edit This Trip", edit_trip_path(@trip.id), class: "edit-link" %> 
 
   <p class="description-text">Driver_id: <%= @trip.driver_id %> | Passenger_id: <%= @trip.passenger_id %> | Date: <%= @trip.date %> | Trip Cost: $<%= "%.2f" % ((@trip.cost) / 100.00) %> |
 

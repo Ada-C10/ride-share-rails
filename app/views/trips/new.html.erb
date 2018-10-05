@@ -6,7 +6,7 @@
   <h2>New Trip Form</h2>
 
   <%= f.label :driver %>
-  <%= f.select :driver_id, Driver.all.map{ |dvr| [dvr.name, dvr.id] } %>
+  <%= f.select :driver_id, Driver.all.map{ |dvr| [driver.name, driver.id] } %>
 
   <%= f.label :date %>
   <%= f.text_field :date %>
