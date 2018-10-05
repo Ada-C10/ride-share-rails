@@ -5,10 +5,10 @@
       <%= @trip.id %>
     </li>
     <li>
-      <%= @trip.driver_id %>
+      <%= link_to "#{@trip.driver_id}", driver_path(@trip.driver_id) %>
     </li>
     <li>
-      <%= @trip.passenger_id %>
+      <%= link_to "#{@trip.passenger_id}", passenger_path(@trip.passenger_id) %>
     </li>
     <li>
       <%= @trip.date %>
