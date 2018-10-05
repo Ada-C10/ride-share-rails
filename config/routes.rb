@@ -10,10 +10,12 @@ Rails.application.routes.draw do
   end
 
   resources :drivers do
-    resources :trips, only: [:index]
+    resources :trips, only: [:index, :assign_rating]
   end
 
-  resources :drivers
-  resources :passengers
+  resources :drivers, except: [:show] do
+    post 'assign_rating'
+  end
+  resources :passengers, except: [:show]
   resources :trips
 end

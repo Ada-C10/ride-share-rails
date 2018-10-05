@@ -1,6 +1,6 @@
 class TripsController < ApplicationController
-  def index
 
+  def index
     if params[:passenger_id]
       @user = Passenger.find_by(id: params[:passenger_id])
       @trips = @user.trips
@@ -19,7 +19,6 @@ class TripsController < ApplicationController
   end
 
   def create
-
     @passenger = Passenger.find_by(id: params[:passenger_id])
     @driver = Driver.find_by(status: true)
     @trip = @passenger.trips.new()
@@ -28,7 +27,7 @@ class TripsController < ApplicationController
     @trip.passenger = @passenger
     @trip.date = Date.today
     @trip.rating = nil
-    @trip.cost = rand(1.0..10.0)
+    @trip.cost = rand(1000.0..3000.0)
 
     @driver.update_attribute(:status, false)
 
@@ -37,7 +36,23 @@ class TripsController < ApplicationController
     else
       # raise an error message
     end
+  end
 
+  def destroy
+    trip = Trip.find_by(id: params[:id])
+
+    if trip.nil?
+      head :not_found
+    end
+
+    if trip.destroy
+      redirect_to root_path
+    else
+      render :show
+    end
+  end
+
+  def change_status
   end
 
 

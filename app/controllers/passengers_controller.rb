@@ -1,16 +1,7 @@
 class PassengersController < ApplicationController
 
-
-  def index
+ def index
     @passengers = Passenger.all
-
-  end
-
-  def show
-    @passenger = Passenger.find_by(id: params[:id])
-    if @passenger.nil?
-      head :not_found
-    end
   end
 
   def new
@@ -18,36 +9,55 @@ class PassengersController < ApplicationController
   end
 
   def create
-    @passenger = Passenger.new(passenger_params
-    )
+    @passenger = Passenger.new(passenger_params)
 
     if @passenger.save
-      redirect_to passengers_path # go to the index so we can see the book in the list
-    else # save failed :(
-      render :new # show the new book form view again
+      redirect_to passengers_path
+    else
+      # error message
     end
   end
 
   def edit
     @passenger = Passenger.find_by(id: params[:id])
+    if @passenger.nil?
+      head :not_found
+    end
   end
 
   def update
     passenger = Passenger.find(params[:id])
-    passenger.update(passenger_params)
-    redirect_to passengers_path
+
+    if passenger.nil?
+      head :not_found
+    end
+
+    is_updated = passenger.update(passenger_params)
+
+    if is_updated
+      redirect_to passenger_trips_path(passenger)
+    else
+      render :edit
+    end
   end
 
   def destroy
     passenger = Passenger.find_by(id: params[:id])
-    passenger.destroy
-    redirect_to passengers_path
+
+    if passenger.nil?
+      head :not_found
+    end
+
+    if passenger.destroy
+      redirect_to passengers_path
+    else
+      render :show
+    end
   end
 
   private
 
   def passenger_params
-    # only take in these params. Lesson attacks on site
     return params.require(:passenger).permit(
       :name,
       :phone_num

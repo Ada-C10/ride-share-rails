@@ -1,13 +1,16 @@
 <h1>Trip Details</h1>
+<%= link_to "Delete This Trip", trip_path, method: :delete,
+   data: { confirm: "Are you sure you want to delete this trip?" } %>
+
 
 <%= "Trip ID:" %>
 <%=  @trip.id %>
 <br />
 <%= "DATE:" %>
-<%=  @trip.date %>
+<%=  @trip.date.strftime("%b %d %Y")%>
 <br>
 <%= "COST:" %>
-<%=  @trip.cost %>
+<%=  number_to_currency(@trip.cost/100) %>
 
 <br>
 <%= "Passenger:" %>

@@ -1,5 +1,6 @@
 class Passenger < ApplicationRecord
-  has_many :trips
+  has_many :trips, dependent: :destroy
+
 
   def total_charges
     trips = self.trips.where.not(cost: nil)
