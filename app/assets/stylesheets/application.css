@@ -21,7 +21,6 @@
 }
 html {
   font-family: 'Raleway', sans-serif;
-
 }
 
 body {
@@ -39,6 +38,7 @@ section {
   display: table;
   position: relative;
 }
+
 h1 {
   margin: 0px auto;
   display: table;
