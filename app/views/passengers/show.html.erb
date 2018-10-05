@@ -26,15 +26,19 @@
   <tbody>
     <% @trips.each do |trip| %>
       <tr>
-        <td><%= link_to trip.id, passenger_trip_path(trip.passenger_id, trip.id), class: 'trip-link' %></td>
+        <td><%= link_to trip.id, passenger_trip_path(@passenger.id, trip.id), class: 'trip-link' %></td>
         <td><%= trip.date %></td>
         <td><%= trip.driver_id %></td>
         <td><%= trip.passenger_id %></td>
         <td> <strong><%= currency(trip.cost) %></strong> </td>
-        <td><% if trip.rating == nil %>
-          <%= form_for trip do |f| %>
-            <%= f.number_field :rating, min: 1, max: 5 %>
-            <%= f.submit %>
+        <td>
+          <% if trip.rating == nil %>
+          <%= @passenger.id %>
+          <%= trip.id %>
+
+        <%= form_for trip, url: passenger_trip_path(trip.passenger_id, trip.id) do |f| %>
+          <%= f.select :rating, (1..5) %>
+          <%= f.submit %>
           <% end %>
         <% else %>
           <%= trip.rating %>
@@ -50,7 +54,6 @@
   <li>
     <%= link_to "Edit", edit_passenger_path %>
   </li>
-
   <li>
     <%= link_to "Delete", passenger_path(@passenger.id), method: :delete, data: { confirm: 'Are you sure?' } %>
   </li>

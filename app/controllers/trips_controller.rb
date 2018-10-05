@@ -10,7 +10,7 @@ class TripsController < ApplicationController
       @trip = Trip.find_by(passenger_id: passenger.id, id: params[:id] )
     else
       #else show trip without option to edit
-      @trip = Trip.find_by(id: params[:id])
+      @trip = Trip.find_by(driver_id: params[:driver_id], id: params[:id] )
     end
 
   end
@@ -51,17 +51,20 @@ class TripsController < ApplicationController
   end
 
   def update
-    @trip = Trip.find_by(id: params[:id])
+    @trip = Trip.find_by(passenger_id: params[:passenger_id], id: params[:id])
 
-    if @trip.rating.nil?
-      @trip.driver.toggle_availablity
+    # if @trip.rating.nil?
+    #   @trip.driver.toggle_availablity
+    # end
+
+    if params[:passenger_id]
+      if @trip.update(trip_params)
+        redirect_to passenger_trip_path(params[:passenger_id], params[:id])
+        # else
+        #   render :edit
+      end
     end
-    
-    if @trip.update(trip_params)
-      redirect_to passenger_path(@trip[:passenger_id])
-    else
-      render :edit
-    end
+
   end
 
   def destroy

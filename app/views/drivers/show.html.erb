@@ -28,17 +28,14 @@
   <tbody>
     <% @trips.each do |trip| %>
     <tr>
-      <td><%= link_to trip.id,trip_path(trip.id), class: 'trip-link' %></td>
+      <td><%= link_to trip.id, driver_trip_path(@driver.id, trip.id), class: 'trip-link' %></td>
       <td><%= trip.date %></td>
       <td><%= trip.driver_id %></td>
       <td><%= trip.passenger_id %></td>
       <td> <strong><%= currency(trip.cost) %></strong> </td>
       <td><% if trip.rating == nil %>
-        <%= form_for trip do |f| %>
-        <%= f.number_field :rating, min: 1, max: 5 %>
-        <%= f.submit %>
-        <% end %>
-        <% else %>
+        Ride in progress...
+        <% else  %>
         <%= trip.rating %>
         <% end %>
       </td>
