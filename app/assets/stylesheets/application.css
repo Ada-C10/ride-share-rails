@@ -14,20 +14,17 @@
 *= require_self
 */
 
-
-body, html {
-  width: 70em;
-  height: 700px;
-  margin: 0px;
-}
-
+html,
 body {
-  margin: 0px;
-  height: inherit;
-  background-color: white;
+  margin: 0;
+  padding: 0;
+  height: 100%;
 }
+
+
 
 header {
+  position: relative; top: -22px;
   height: 300px;
   margin: 0px;
   text-transform: uppercase;
@@ -61,6 +58,7 @@ nav li {
   border-radius: 10px;
   list-style: none;
   padding: 10px;
+  margin-top: 2em;
 }
 
 footer {
