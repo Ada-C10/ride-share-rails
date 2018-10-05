@@ -280,6 +280,7 @@ label {
 	-ms-box-sizing: border-box;
 	box-sizing: border-box;
   border: 3px solid rgba(0,0,0,0);
+  border-radius: 5px;
 }
 
 .feedback-input:focus{
@@ -351,6 +352,12 @@ input:focus, textarea:focus {
   background-color:white;
 }
 
+.name, .phone , .car {
+  color: white;
+  font-weight: bold;
+  float: left;
+}
+
 #button-orange{
 	font-family: 'Montserrat', Arial, Helvetica, sans-serif;
 	float:left;
@@ -365,8 +372,9 @@ input:focus, textarea:focus {
 	-webkit-transition: all 0.3s;
 	-moz-transition: all 0.3s;
 	transition: all 0.3s;
-  margin-top:-4px;
+  margin-top: -4px;
   font-weight:700;
+  border-radius: 5px;
 }
 
 #button-orange:hover{

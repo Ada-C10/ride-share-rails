@@ -31,7 +31,7 @@ class PassengersController < ApplicationController
   def create
     @passenger = Passenger.new(passenger_params)
     if @passenger.save
-      redirect_to passenger_path(@passenger.id) #does this need to be to integer?
+      redirect_to passenger_trips_path(@passenger.id) #does this need to be to integer?
     else
       render :new
     end

@@ -1,5 +1,10 @@
 <h1>Driver</h1>
-<h1><%= @driver.name %> (<%= @driver.status.to_s.gsub("_", "-") %>)</h1>
+<h1><%= @driver.name %></h1>
+ <% if @driver.is_available? == true %>
+  <span class="dot_available"></span>
+<% else %>
+  <span class="dot_unavailable"></span>
+<%end%>
 <h2>Total Earnings : $<%= @driver.total_earnings %></h2>
 <h2>Average Ratings : <%= @driver.average_rating %></h2>
 
