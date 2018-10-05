@@ -14,11 +14,29 @@
  *= require_self
  */
  .header {
+   display:flex;
+   flex-flow: row;
    border:1px solid black;
    background: cadetblue;
+   margin:10%;
  }
 
 nav a {
+
   color: black;
   background: cadetblue;
+
+}
+
+body {
+  margin: 5%;
+  font-size: 150%;
+  text-align: center;
+
+}
+
+table {
+ text-align: left;
+ margin-left: auto;
+ margin-right: auto;
 }
