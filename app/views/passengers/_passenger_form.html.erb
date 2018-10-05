@@ -6,13 +6,17 @@ locals: {
 
 <%= form_with model: @passenger, class: 'passenger-form' do |f| %>
 
-<h3><%= form_title %></h3>
+<h2><%= form_title %></h2>
 
+<div class="passenger-name">
 <%= f.label :name %>
 <%= f.text_field :name %>
+</div>
 
+<div class="passenger-phone">
 <%= f.label :phone_num %>
 <%= f.text_field :phone_num %>
+</div>
 
 <%= f.submit action_type, class: "passenger-form-submit-button" %>
 
