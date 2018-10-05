@@ -26,6 +26,7 @@
   </li>
 </ul>
 <section>
+  <%= link_to "Return to All Passengers", passengers_path %>
   <%= link_to "Add New Trip", passenger_trips_path(@passenger.id), method: :post %>
   <%= link_to "Edit", edit_passenger_path(@passenger.id) %>
   <%= link_to "Delete", passenger_path(@passenger.id), method: :delete, data: { confirm: "Do you want to delete #{@passenger.name}?" } %>
