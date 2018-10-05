@@ -13,9 +13,7 @@ Rails.application.routes.draw do
     resources :trips, only: [:index]
   end
 
-
-
-
   resources :drivers
   resources :passengers
+  resources :trips
 end
