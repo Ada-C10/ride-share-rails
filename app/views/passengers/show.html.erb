@@ -14,14 +14,20 @@
 
 
 <section class="ride_request">
+<div class="ride_button">
 <h3><%= link_to "Request a Trip", passenger_trips_path(@passenger.id), method: :post %></h3>
+</div>
 </section>
 
 
 
+
 <section class="edit_actions">
-  <%= link_to "✏️ Edit Passenger", edit_passenger_path(@passenger.id), id: "change", class: "hover_name1"%>
-  <%= link_to "🔥 Delete Passenger", @passenger, method: :delete, data: {confirm: "You sure about that? Select OK to remove task #{@passenger.name.upcase} ForEVVVeeeR!"}, id: "delete", class: "hover_name1" %>
+  <%= link_to "All Passengers", passengers_path %>
+  <%= "|" %>
+  <%= link_to "Edit", edit_passenger_path(@passenger.id) %>
+  <%= "|" %>
+  <%= link_to "Delete", passenger_path(@passenger.id), method: :delete, data: {confirm: "Are you sure?"} %>
 </section>
 
 <% active_trips = @trips.where(active: true).order(:date) %>
@@ -49,9 +55,9 @@
         <td> <%= trip.rating %></td>
         <td> <%= "🚀"'%.2f' % (trip.cost/100) %></td>
         <% if trip.in_progress == true %>
-        <td> <%= "⚪️ In Progress" %></td>
+        <td id='in_progress'> <%= "⚪️ In Progress" %></td>
         <% else %>
-        <td> <%= "⚫️ Complete" %></td>
+        <td id='complete'> <%= "⚫️ Complete" %></td>
         <% end %>
       </tr>
       <% end %>

@@ -84,11 +84,13 @@ table {
   background-color: #017CC2;
 }
 
-.index_table tr:nth-child(even) {
+.index_table tr:nth-child(even),
+.show_table tr:nth-child(even) {
   background-color: rgba(232, 233, 243, 0.425);
 }
 
-.index_table tr:nth-child(odd) {
+.index_table tr:nth-child(odd),
+.show_table tr:nth-child(odd) {
   background-color: rgba(255, 255, 255, 0.534);
 }
 
@@ -193,4 +195,35 @@ li.second {
 
 .dropdown:hover .drop_content {
   display: block;
+}
+
+.passenger_details,
+.driver_details {
+  color: rgba(1, 124, 194, 1);
+  text-align: center;
+}
+
+.edit_actions {
+  text-align: center;
+}
+
+.ride_request {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ride_button {
+  border: 1px solid white;
+  background-color: green;
+  padding: 1px 10px;
+  border-radius: 10px;
+}
+
+#complete {
+  color: rgba(218, 38, 30, 1);
+}
+
+#in_progress{
+    color: green;
 }

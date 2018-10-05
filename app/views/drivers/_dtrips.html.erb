@@ -3,4 +3,9 @@
   <td><%= dtrips.date %></td>
   <td><%= dtrips.driver_id %></td>
   <td><%= dtrips.passenger_id %></td>
+  <% if dtrips.in_progress == true %>
+   <td id='in_progress'> <%= "⚪️ In Progress" %></td>
+  <% else %>
+   <td id='complete'> <%= "⚫️ Complete" %></td>
+  <% end %>
 </tr>

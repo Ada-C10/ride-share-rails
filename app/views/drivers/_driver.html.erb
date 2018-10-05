@@ -1,4 +1,9 @@
 <tr>
   <td><%= link_to driver.name, driver_path(driver.id) %></td>
   <td><%= link_to driver.id, driver_path(driver.id)%></td>
+  <% if driver.active == true %>
+       <td> <%= "🔵 Available" %></td>
+  <% else %>
+      <td> <%= "🔴 Unavaible" %></td>
+  <% end %>
 </tr>
