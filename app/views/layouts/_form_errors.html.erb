@@ -1,6 +1,6 @@
-<% if @driver.errors.any? %>
+<% if model.errors.any? %>
  <ul class = "errors">
-    <% @driver.errors.each do |column, message| %>
+    <% model.errors.each do |column, message| %>
       <li>
         <strong><%= column.capitalize %></strong>
         <%= message %>
