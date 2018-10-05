@@ -468,3 +468,21 @@ input:focus, textarea:focus {
 .submit {
   margin-top: 5px;
 }
+
+/* The gray background box on all list pages */
+.wrapper.list-pages {
+  margin-top: 15px;
+  padding-top: 30px;
+  padding-bottom: 40px;
+  margin-bottom: 50px;
+}
+
+h1.index-header {
+  padding-top: 0px;
+  padding-bottom: 30px;
+}
+
+.table.list-pages {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
