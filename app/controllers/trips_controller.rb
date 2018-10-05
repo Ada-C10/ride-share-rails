@@ -3,6 +3,10 @@ class TripsController < ApplicationController
     @trip = Trip.find_by(id: params[:id].to_i)
   end
 
+  def home
+    render :home
+  end
+
   def index
     if params[:driver_id]
       driver_id = params[:driver_id]
