@@ -16,7 +16,19 @@ class TripsController < ApplicationController
     @trip.date = Date.today
     @trip.rating = 0
     @trip.cost = 5
+    @trip.passenger_id = params[:passenger_id]
   end
+
+  # def new
+  #   pass_id = params[:passenger_id]
+  #
+  #
+  #     #@trip.passenger_id = pass_id
+  #     #@trip.driver = Driver.next_driver
+  #     @trip.date = Date.today
+  #     @trip.cost = 5
+  #     @trip.rating = 0
+  # end
 
   def create
     @trip = Trip.new(passenger_params)
