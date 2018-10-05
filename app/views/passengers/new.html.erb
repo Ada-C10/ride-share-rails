@@ -19,13 +19,12 @@
     </div>
   </div>
   <div class="c3">
-    <h2>New Passenger</h2>
-    <%=link_to "Return", request.referer.present? ? request.referer : home_path%>
+    <%=link_to "Return", request.referer.present? ? request.referer : home_path, :class => 'add-driver-or-passenger-return-link'%>
   </div>
   <div class="c4">
     <%= render partial: "passenger_form", locals: {
       action_type: "Create",
-      form_title: "Add New Passenger"
+      form_title: "New Passenger"
       }
     %>
   </div>

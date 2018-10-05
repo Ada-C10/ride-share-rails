@@ -18,30 +18,30 @@ rgba(130, 204, 221,1.0), rgba(165, 177, 194,1.0), rgba(209, 216, 224,1.0) */
 /* fonts: font-family: 'Lora', serif;
 font-family: 'Karla', sans-serif; */
 /* <!-- container scaffolding -->
- <div class="container" role="main">
- <div class="c1">
-   <h1><%=link_to "Rideshare", home_path%></h1>
- </div>
- <div class="c2">
-   <div class="dropdown">
-     <button class="dropbtn">Drivers</button>
-     <div class="dropdown-content">
-       <%=link_to "View All", drivers_path%>
-       <%=link_to "Add Driver", new_driver_path %>
-     </div>
-   </div>
-   <div class="dropdown">
-     <button class="dropbtn">Passengers</button>
-     <div class="dropdown-content">
-       <%=link_to "View All", passengers_path%>
-       <%=link_to "Add Passenger", new_passenger_path%>
-     </div>
-   </div>
- </div>
-  <div class="c3">
-  </div>
-  <div class="c4">
-  </div>
+<div class="container" role="main">
+<div class="c1">
+<h1><%=link_to "Rideshare", home_path%></h1>
+</div>
+<div class="c2">
+<div class="dropdown">
+<button class="dropbtn">Drivers</button>
+<div class="dropdown-content">
+<%=link_to "View All", drivers_path%>
+<%=link_to "Add Driver", new_driver_path %>
+</div>
+</div>
+<div class="dropdown">
+<button class="dropbtn">Passengers</button>
+<div class="dropdown-content">
+<%=link_to "View All", passengers_path%>
+<%=link_to "Add Passenger", new_passenger_path%>
+</div>
+</div>
+</div>
+<div class="c3">
+</div>
+<div class="c4">
+</div>
 </div>  */
 
 @import url('https://fonts.googleapis.com/css?family=Karla|Lora');
@@ -258,73 +258,41 @@ input[type=submit]:active {
 
 
 .pagination {
-  background: white;
-  cursor: default;
-  height: 22px;
-  a, span, em {
-    padding: 0.2em 0.5em;
-    display: block;
-    float: left;
-    margin-right: 1px;
-  }
-  .disabled {
-    display: none;
-  }
-  .current {
-    font-style: normal;
-    font-weight: bold;
-    background: #2e6ab1;
-    color: white;
-    border: 1px solid #2e6ab1;
-  }
-  a {
-    text-decoration: none;
-    color: #105cb6;
-    border: 1px solid #9aafe5;
-    &:hover, &:focus {
-      color: #000033;
-      border-color: #000033;
-    }
-  }
-  .page_info {
-    background: #2e6ab1;
-    color: white;
-    padding: 0.4em 0.6em;
-    width: 22em;
-    margin-bottom: 0.3em;
-    text-align: center;
-    b {
-      color: #000033;
-      background: #2e6ab1 + 60;
-      padding: 0.1em 0.25em;
-    }
-  }
-}
-
-.pagination {
-  background: #f1f1f1;
-  border: 1px solid #e5e5e5;
+  background: rgba(0, 0, 0, 0);
   text-align: center;
   padding: 1em;
-  cursor: default; }
-  .pagination a, .pagination span {
-    padding: 0.2em 0.3em; }
-  .pagination .disabled {
-    color: #aaaaaa; }
-  .pagination .current {
-    font-style: normal;
-    font-weight: bold;
-    background-color: #bebebe;
-    display: inline-block;
-    width: 1.4em;
-    height: 1.4em;
-    line-height: 1.5;
-    -moz-border-radius: 1em;
-    -webkit-border-radius: 1em;
-    border-radius: 1em;
-    text-shadow: rgba(255, 255, 255, 0.8) 1px 1px 1px; }
-  .pagination a {
-    text-decoration: none;
-    color: black; }
-    .pagination a:hover, .pagination a:focus {
-      text-decoration: underline; }
+  cursor: default;
+}
+
+.pagination a, .pagination span {
+  padding: 0.2em 0.3em;
+}
+
+.pagination .disabled {
+  display: none;
+}
+
+.pagination .current {
+  font-style: normal;
+  font-weight: bold;
+  background-color: rgba(130, 204, 221,1.0);
+  display: inline-block;
+  width: 1.4em;
+  height: 1.4em;
+  line-height: 1.5;
+  -moz-border-radius: 1em;
+  -webkit-border-radius: 1em;
+  border-radius: 1em;
+  text-shadow: rgba(0, 0, 0, 0.25) 1px 1px 1px;
+}
+.pagination a {
+  text-decoration: none;
+  color: rgba(10, 61, 98,1.0);
+}
+.pagination a:hover, .pagination a:focus {
+  text-decoration: underline;
+}
+
+.add-driver-or-passenger-return-link {
+  margin-top: 7.2em;
+}
