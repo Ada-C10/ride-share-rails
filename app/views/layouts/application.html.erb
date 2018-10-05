@@ -4,35 +4,46 @@
   <title>RideShareRails</title>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
-
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <link href="https://fonts.googleapis.com/css?family=Merriweather|Merriweather+Sans|Montserrat|PT+Sans|PT+Sans+Narrow" rel="stylesheet">  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
 </head>
 
-<body>
-  <h1>SEMLIND Rideshare Application</h1>
-  <nav class="side_buttons">
-    <button>
-      <a href="/passengers/new">Add New Passenger</a>
-    </button>
+  <body>
+    <div class = "container">
 
-    <button>
-      <a href="/passengers">Manage Passengers</a>
-    </button>
+      <nav>
+        <div class = "navigation">
+          <p><a href = "/">home</a></p>
+          <div class = "other-links">
+            <div class = "drivers-link"><a href="/drivers">all drivers</a></div>
+            <div class = "passengers-link"><a href="/passengers">all passengers</a></div>
+          </div>
+        </div>
+      </nav>
 
-    <button>
-      <a href="/drivers/new">Add New Drivers</a>
-    </button>
+      <header>
+        <h1>SEMLIND Rideshare Application</h1>
+      </header>
 
-    <button>
-      <a href="/drivers">Manage Drivers</a>
-    </button>
-  </nav>
+      <main>
+        <%= yield %>
+      </main>
 
-  <%= yield %>
+      <div class = "sidebar">
+        <button class = "sidebar-button">
+          <a href="/passengers/new">add new passenger</a>
+        </button>
 
-  <div class="footer">
-    &copy 2018, SEMLIND Incorporated.
-  </div>
-</body>
+        <button class = "sidebar-button">
+          <a href="/drivers/new">add new driver</a>
+        </button>
+      </div>
+
+      <footer>
+        &copy 2018, SEMLIND Incorporated.
+      </footer>
+
+    </div>
+  </body>
 </html>
