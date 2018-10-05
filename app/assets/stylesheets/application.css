@@ -14,17 +14,6 @@
  *= require_self
  */
 
-
- * {
-   font-family: 'Fauna One', serif;
- }
-
-
- h1, h2, h3, h4, h5, th {
-   font-family: 'Playfair Display', serif;
- }
-
-
 .trip-button, .driver-button, .passenger-button {
   padding: 0.5rem;
   margin: 1rem;
@@ -84,10 +73,6 @@ header nav ul {
   margin: 0;
 }
 
-header h1 {
-  text-align: center;
-}
-
  #main_container li {
   display: flex;
   justify-content: space-around;
@@ -121,6 +106,8 @@ label {
 th {
   text-transform: uppercase;
   text-align: center;
+  background-color: black;
+  color: white;
   padding: 1rem;
 }
 
@@ -131,9 +118,4 @@ td {
 
 tr:nth-child(odd) {
   background-color: #CCC;
-}
-
-#table_header {
-  background-color: black;
-  color: white;
 }
