@@ -4,11 +4,11 @@ Congratulations! You're submitting your assignment! These comprehension question
 ## Comprehension Questions
 Question | Answer
 :------------- | :-------------
-Describe the types of entity relationships you set up in your project and why you set up the relationships that way |
-Describe the role of model validations in your application |
-How did your team break up the work to be done? |
-What features did you choose to prioritize in your project, and what features, if any, did you have to set aside to meet the deadline? |
-What was one thing that your team collectively gained more clarity on after completing this assignment? |
-What is your Trello board URL? | 
-What is the Heroku URL of your deployed application? |
-What are two discussion points that you and your pair discussed when giving/receiving feedback from each other that you would be willing to share? |
+Describe the types of entity relationships you set up in your project and why you set up the relationships that way | A driver has many trips, a passenger has many trips, and each trip has one and only one driver and passenger. We set it up this way to be able to view and access data between models. |
+Describe the role of model validations in your application | To prevent incomplete or inaccurate data types from being saved into the database by the user. |
+How did your team break up the work to be done? | We set up the project foundations together, which allowed us to think and talk about what pieces of the app were similar enough to be done by one person (e.g. driver/passenger view pages). For the work we did independently, we decided what parts of the app were independent enough that our work wouldn't conflict. For example, typically only one person was styling CSS at a time. |
+What features did you choose to prioritize in your project, and what features, if any, did you have to set aside to meet the deadline? | We prioritized the project requirements before any styling. Once the minimum required back-end code was written, we also prioritized any CSS styling that was high-impact or high-satisfaction so that our site would look good and be fun to work on. |
+What was one thing that your team collectively gained more clarity on after completing this assignment? | We gained a better understanding on routes along with how to use models and access those models from other controllers. We also felt like we were able to plan this project better and manage our time with the different parts (back-end, front-end).
+What is your Trello board URL? | [https://trello.com/b/lX9w1iZz/sammi-jo-danielle](https://trello.com/b/lX9w1iZz/sammi-jo-danielle) |
+What is the Heroku URL of your deployed application? | [https://take-a-little-trip.herokuapp.com/](https://take-a-little-trip.herokuapp.com/) |
+What are two discussion points that you and your pair discussed when giving/receiving feedback from each other that you would be willing to share? | **Sammi-Jo:** <br>**Danielle:** | 
