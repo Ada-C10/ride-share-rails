@@ -14,4 +14,6 @@ Rails.application.routes.draw do
     resources :trips, only: [:index]
   end
 
+  patch 'trips/:id/rating', to: 'trips#add_rating', as: 'add_rating'
+
 end

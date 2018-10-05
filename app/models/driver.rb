@@ -21,7 +21,7 @@ class Driver < ApplicationRecord
   end
 
   def total_earning
-    total = (self.trips.sum {|trip| (trip.cost-165)*0.8} )/100
+    total = (self.trips.sum {|trip| (trip.cost-165)*0.8} )
     return total
   end
 
@@ -32,7 +32,7 @@ class Driver < ApplicationRecord
       return nil
     else
       rate = trip_with_rate.sum {|trip| trip.rating} / trip_with_rate.length
-      return rate.round(2)
+      return rate.round(0)
     end
   end
 
