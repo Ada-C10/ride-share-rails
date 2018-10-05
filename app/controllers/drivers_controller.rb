@@ -4,6 +4,7 @@ class DriversController < ApplicationController
   end
   def show
     @driver = Driver.find_by(id: params[:id])
+        @driver_trips = @driver.trips.order("date").page(params[:page]).per_page(4)
     if @driver.nil?
     head :not_found
     end
