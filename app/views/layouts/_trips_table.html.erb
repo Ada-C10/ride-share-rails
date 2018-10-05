@@ -35,7 +35,7 @@
     <td> <%= trip.date %> </td>
     <td> <%= trip.cost %>  </td>
     <td>
-      <% if trip.rating.nil? %>  
+      <% if trip.rating.nil? %>
       <button><%= link_to "Rate Trip #{trip.id}", trip_path(trip.id) %></button>
       <% else %>
       <%= trip.rating %>
