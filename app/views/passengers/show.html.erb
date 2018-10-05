@@ -1,26 +1,33 @@
-<h1> Here is info on a passenger!</h1>
+<h1> <%="Here is info on  #{@passenger.name}"%>!</h1>
 
 <% if @passenger.nil? %>
   <h1> 404 Not found</h1>
 <% elsif @passenger.status == false %>
   <h1> <%= "Rider no. #{@passenger.id} is no longer active" %>
 <% else %>
-<section class='user-info'>
-  <h1><%=@passenger.name %></h1>
-  <h3> <%= @passenger.phone_num %></h3>
-  <h3> <%= @passenger.status %></h3>
-  <h4> <%= "#{@passenger.name} has been charged a total of $ #{@passenger.charges}" %> </h4>
-  <%= link_to "Request a Trip", request_trip_path(@passenger.id), method: :create %>
-  <%= link_to "Edit", edit_passenger_path(@passenger.id) %>
-  <%= link_to "Delete #{@passenger.name}", passenger_path(@passenger.id), method: :delete, data: { confirm: 'Are you sure? This cannot be undone!'} %>
+<ul class='user-info'>
+  <li> <%= @passenger.phone_num %></li>
+  <li> <%= "#{@passenger.name} has been charged a total of $ #{@passenger.charges}" %> </li>
+</ul>
+<section class='user-links'>
+  <%= link_to "Request a Trip |", request_trip_path(@passenger.id), method: :create %>
+  <%= link_to "Edit |", edit_passenger_path(@passenger.id) %>
+  <%= link_to "Delete User", passenger_path(@passenger.id), method: :delete, data: { confirm: 'Are you sure? This cannot be undone!'} %>
+</section>
 <% end %>
-
-  <% @passenger.trips.each do |trip| %>
-    <table class='trip-list'>
+<h2> Trip History: </h2>
+<% @passenger.trips.each do |trip| %>
+<table class='trip-list'>
+      <tr>
+        <th>Date</th>
+        <th>Driver</th>
+        <th>Cost</th>
+        <th>Rating</th>
+      </tr>
       <tr>
         <td> <%= link_to trip.date.strftime("%b %d, %Y"), trip_path(trip.id) %></td>
         <td> <%= link_to "#{trip.driver.name}", driver_path(trip.driver.id)%></td>
-        <td> <%= trip.cost %> </td>
+        <td> <%= "$#{trip.cost}" %> </td>
         <td> <%= trip.rating%></td>
       </tr>
     </table>

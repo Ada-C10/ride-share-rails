@@ -1,23 +1,30 @@
-<h1> Here is info on a driver!</h1>
+<h1> <%="Here is info on  #{@driver.name}!"%></h1>
 <body>
   <% if @driver.nil? %>
     <h1> 404 Not found</h1>
   <% elsif @driver.status == false %>
       <h1> <%= "Driver no. #{@driver.id} is no longer active" %>
   <% else %>
-  <section class='user-info'>
-    <h1> <%=@driver.name %></h1>
-    <h3> <%= @driver.vin %></h3>
-    <h4> <%= "#{@driver.name}'s rating is #{@driver.ratings}" %> </h4>
-    <h4> <%= "#{@driver.name} has made a total of $ #{@driver.earnings}" %> </h4>
-    <%= link_to "Edit", edit_driver_path(@driver.id) %>
-    <div></div>
-    <%= link_to "Delete #{@driver.name}", driver_path(@driver.id), method: :delete, data: { confirm: 'Are you sure? This cannot be undone!'} %>
+  <ul class='user-info'>
+    <li> <%= "Vin: #{@driver.vin}" %></li>
+    <li> <%= "#{@driver.name}'s rating is #{@driver.ratings}" %> </li>
+    <li> <%= "#{@driver.name} has made a total of $ #{@driver.earnings}" %> </li>
+  </ul>
+  <section class='user-links'>
+    <%= link_to "Edit |", edit_driver_path(@driver.id) %>
+    <%= link_to "Delete", driver_path(@driver.id), method: :delete, data: { confirm: 'Are you sure? This cannot be undone!'} %>
   <% end %>
   </section>
 
+<h2> Trip History: </h2>
     <% @driver.trips.each do |trip| %>
     <table class='trip-list'>
+      <tr>
+        <th>Date</th>
+        <th>Passenger</th>
+        <th>Cost</th>
+        <th>Rating</th>
+      </tr>
       <tr>
         <td> <%= link_to trip.date.strftime("%b %d, %Y"), trip_path(trip.id) %></td>
         <td> <%= link_to "#{trip.passenger.name}", passenger_path(trip.passenger.id)%></td>
