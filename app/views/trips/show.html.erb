@@ -19,6 +19,7 @@
     <tr>
       <td><%= link_to "#{@trip.id}", trip_path(@trip.id) %></td>
       <td><%="#{@trip.date}" %></td>
+      <!-- TODO Allow user to enter a trip if it's empty -->
       <td><%="#{@trip.rating}" %></td>
       <td><%="$#{@trip.convert_money(@trip.cost)}" %></td>
       <td><%=link_to "#{@trip.driver_id}", driver_path(@trip.driver_id) %></td>
