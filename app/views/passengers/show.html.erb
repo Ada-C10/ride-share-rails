@@ -1,57 +1,61 @@
-<h2>Passenger Details</h2>
+<div class = "show-container">
 
-<p>
-  <strong> ID:</strong>
-  <%= @passenger.id%>
-</p>
-<p>
-  <strong> Name:</strong>
-  <%= @passenger.name%>
-</p>
+  <div class = "main-button">
+    <% unrated_trips = @passenger.trips.where(rating: nil) %>
+    <% if unrated_trips.length == 0 %>
+        <%= link_to "Request Trip", passenger_trips_path(@passenger), class: "page-button", method: :post%>
+        <% else %>
+        <strong class = "page-button">Please rate your past trips before requesting another one. </strong>
+    <% end %>
+  </div>
 
-<p>
-  <strong> Phone:</strong>
-  <%= @passenger.phone_num%>
-</p>
+  <div class = "details">
+    <h2>Passenger Details</h2>
+    <strong> ID:</strong><%= @passenger.id%>
+    <br>
 
-<p>
-  <strong> Total Spendings: $</strong>
-  <%= ((@total).to_f/100).round(2) %>
-</p>
+    <strong> Name:</strong><%= @passenger.name%>
+    <br>
 
-<% unrated_trips = @passenger.trips.where(rating: nil) %>
-<% if unrated_trips.length == 0 %>
-  <button>
-    <%= link_to "Request Trip", passenger_trips_path(@passenger), method: :post%>
-  </button>
-<% end %>
+    <strong> Phone:</strong><%= @passenger.phone_num%>
+    <br>
 
+    <strong> Total Spendings: $</strong><%= ((@total).to_f/100).round(2) %>
+  </div>
 
-<button>
-  <%= link_to "Edit Passenger Info", edit_passenger_path(@passenger)%>
-</button>
+  <div class = "buttons">
+    <div><%= link_to "Edit Passenger Info", edit_passenger_path(@passenger), class: "page-button"%>
+    </div>
 
-<table>
-  <tr>
-    <th>ID</th>
-    <th>Date</th>
-    <th>Driver</th>
-    <th>Price</th>
-    <th>Rating</th>
-  </tr>
-  <tr>
-    <% @passenger.trips.each do |trip| %>
-    <td><%= link_to trip.id, trip_path(trip.id)%></td>
-    <td><%= trip.date %></td>
+    <div><%= link_to "Delete Passenger", passenger_path(@passenger), class: "page-button", method: :delete, data: { confirm: "are you sure you want to delete #{@passenger.name}"} %>
+    </div>
+  </div>
 
-    <td><% if trip.driver != nil %>
-      <%= link_to trip.driver.name, driver_path(trip.driver.id)%>
-      <% else %>
-      not available
-      <% end %>
-    </td>
-  <td><%= (trip.cost.to_i/100.0).round(2) %></td>
-  <td><%= rate_me(trip) %></td>
-</tr>
-<%end%>
-</table>
+  <div class = "trips-table">
+
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>Date</th>
+        <th>Driver</th>
+        <th>Price</th>
+        <th>Rating</th>
+      </tr>
+      <tr>
+        <% @passenger.trips.each do |trip| %>
+        <td><%= link_to trip.id, trip_path(trip.id)%></td>
+        <td><%= trip.date %></td>
+
+        <td><% if trip.driver != nil %>
+          <%= link_to trip.driver.name, driver_path(trip.driver.id)%>
+          <% else %>
+          not available
+          <% end %>
+        </td>
+      <td><%= (trip.cost.to_i/100.0).round(2) %></td>
+      <td><%= rate_me(trip) %></td>
+    </tr>
+    <%end%>
+    </table>
+  </div>
+</div>
