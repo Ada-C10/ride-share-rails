@@ -33,10 +33,10 @@ class TripsController < ApplicationController
       end
     else
       #through trip_path
-      filtered_trip_params = trip_params()
-      @trip = Trip.new(filtered_trip_params)
-      @trip.save
-      redirect_to passenger_path(@trip.passenger_id)
+      # filtered_trip_params = trip_params()
+      # @trip = Trip.new(filtered_trip_params)
+      # @trip.save
+      # redirect_to passenger_path(@trip.passenger_id)
     end
   end
   #
