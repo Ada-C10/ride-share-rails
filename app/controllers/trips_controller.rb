@@ -41,7 +41,7 @@ class TripsController < ApplicationController
   def update
     trip = Trip.find(params[:id])
     if trip.update(trip_params)
-      redirect_to trip_path(trip.id)
+      redirect_to passenger_path(trip.passenger_id)
     else
       head :not_acceptable
     end
@@ -51,7 +51,7 @@ class TripsController < ApplicationController
     trip = Trip.find_by(id: params[:id])
 
     trip.destroy
-    redirect_to trips_path
+    redirect_to passenger_path(trip.passenger_id)
   end
 
   def rated
