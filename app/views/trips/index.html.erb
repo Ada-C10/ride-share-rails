@@ -14,7 +14,7 @@
   <strong>Driver Earnings: <%= @driver.total_trip_earnings %></strong>
   <br>
   <strong>Available? <%= @driver.available %></strong>
-  <%= link_to "Change Availability", availability_path(@driver) %>
+  <%= link_to "Change Availability", availability_path(@driver), method: :patch %>
 
 
   <h2>Driver Trips</h2>
