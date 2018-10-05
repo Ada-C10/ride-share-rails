@@ -13,7 +13,7 @@
 <ul>
   <li><strong>Name:</strong> <%= @driver.name %></li>
   <li><strong>Vin Number:</strong> <%= @driver.vin %></li>
-  <li><strong>Total Revenue:</strong> <%= @driver.total_revenue %></li>
+  <li><strong>Total Revenue:</strong> <%= "$" + @driver.total_revenue %></li>
   <li><strong>Average Rating:</strong> <%= "#{'%.2f' % @driver.average_rating}"%></li>
   <% if @driver.status == "active"%>
   <li><%= link_to "Inactivate Your Account", driver_status_path(@driver.id), method: :patch %></li>
@@ -45,8 +45,6 @@
     <td><%=trip.driver_id%></td>
     <td><%=trip.date%></td>
     <td><%=trip.rating%></td>
-    <td><%=trip.cost%></td>
-    <td><%="#{'%.2f' % trip.rating}"%></td>
     <td>$<%="#{'%.2f' % (trip.cost * 0.01)}"%></td>
     <% end  %>
   </tr>

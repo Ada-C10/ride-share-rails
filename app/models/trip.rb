@@ -12,3 +12,5 @@ class Trip < ApplicationRecord
     end
   end
 end
+#example driver show
+# <td>$<%="#{'%.2f' % (trip.cost * 0.01)}"%></td>
