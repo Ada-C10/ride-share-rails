@@ -7,7 +7,7 @@ class Driver < ApplicationRecord
   PERCENTAGE = 0.80
 
   def total_earnings
-    return self.trips.sum { |trip| trip.cost } * PERCENTAGE - FEE
+    return self.trips.sum { |trip| trip.cost - FEE } * PERCENTAGE
   end
 
   def avg_rating
