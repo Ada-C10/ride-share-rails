@@ -1,11 +1,11 @@
 class PassengersController < ApplicationController
-  before_action :get_passenger, only: [:show, :edit]
+  before_action :get_passenger, only: [:show, :edit, :update, :destroy]
   def get_passenger
     @passenger = Passenger.find(params[:id].to_i)
   end
 
   def index
-    @passengers = Passenger.all.order(:name)
+    @passengers = Passenger.search(params[:term], params[:page])
   end
 
   def show
@@ -22,7 +22,6 @@ class PassengersController < ApplicationController
 
   def create
     @passenger = Passenger.new(passenger_params)
-
     if @passenger.save
       redirect_to passengers_path
     else
@@ -37,8 +36,6 @@ class PassengersController < ApplicationController
   end
 
   def update
-    @passenger = Passenger.find(params[:id].to_i)
-
     if @passenger.update(passenger_params)
       redirect_to passenger_path
     else
@@ -47,10 +44,8 @@ class PassengersController < ApplicationController
   end
 
   def destroy
-    passenger = Passenger.find(params[:id].to_i)
-    passenger.active = false
-
-    if passenger.save
+    @passenger.active = false
+    if @passenger.save
       redirect_to passengers_path
     end
   end

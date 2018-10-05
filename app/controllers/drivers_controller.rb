@@ -1,11 +1,11 @@
 class DriversController < ApplicationController
-  before_action :get_driver, only: [:show, :edit]
+  before_action :get_driver, only: [:show, :edit, :update, :destroy]
   def get_driver
     @driver = Driver.find(params[:id].to_i)
   end
 
   def index
-    @drivers = Driver.all.order(:name)
+    @drivers = Driver.search(params[:term], params[:page])
   end
 
   def show
@@ -37,8 +37,6 @@ class DriversController < ApplicationController
   end
 
   def update
-    @driver = Driver.find_by(id: params[:id])
-
     if @driver.update(driver_params)
       redirect_to driver_path
     else
@@ -47,17 +45,17 @@ class DriversController < ApplicationController
   end
 
   def destroy
-    driver = Driver.find_by(id: params[:id])
-    driver.active = false
-    driver.status = false
-
-    if driver.save
-      redirect_to drivers_path
+    @driver.active = false
+    @driver.status = false
+    if @driver.save
+        redirect_to drivers_path
     end
   end
+ 
 
   private
   def driver_params
     return params.required(:driver).permit(:name, :vin)
   end
+
 end

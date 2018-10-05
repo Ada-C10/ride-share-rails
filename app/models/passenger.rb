@@ -27,7 +27,24 @@ class Passenger < ApplicationRecord
     end
 
     return true
-end
+  end
 
+
+  # def self.search(term, current_page)
+  #   if term
+  #     page(current_page).where('name LIKE ?', "%#{term}%").order(:name)
+  #   else
+  #     page(current_page).order(:name)
+  #   end
+  # end
+
+
+  def self.search(term, page)
+    if term
+      where('name LIKE ?', "%#{term}%").paginate(page: page, per_page: 10).order(:name)
+    else
+      paginate(page: page, per_page: 10).order(:name) 
+    end
+  end
 
 end

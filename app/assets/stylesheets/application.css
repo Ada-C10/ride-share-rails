@@ -13,50 +13,80 @@
  *= require_tree .
  *= require_self
  */
+
+/* RGB */
+
+colors {
+  color: rgba(1, 124, 194, 1);
+  color: rgba(218, 38, 30, 1);
+  color: rgba(2, 63, 98, 1);
+  color: rgba(239, 239, 239, 1);
+  color: rgba(33, 33, 33, 1);
+  color: rgb(0, 49, 76);
+}
+
+h1,
+.search {
+  text-align: center;
+}
+
 table {
-    margin: 20px;
-    border-collapse: collapse;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
+  margin: 20px;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 
 .show_table th {
-    font-size: large;
-    background-color: lightgrey;
+  font-size: large;
+  background-color: rgba(188, 181, 248, 0.068);
+  /* background-color: rgba(33, 33, 33, 1); */
+  color: rgba(239, 239, 239, 1);
+  text-align: center;
 }
 
-.show_table th, .show_table td {
-    padding-left: 30px;
-    padding-right: 30px;
-    border-bottom: 1px solid darkolivegreen;
-    text-align: left;
+.show_table th,
+.show_table td {
+  padding-left: 30px;
+  padding-right: 30px;
+  border-bottom: 1px solid rgba(2, 63, 98, 1);
+  text-align: left;
 }
 
 .index_table th {
-    font-size: large;
-    background-color: lightseagreen;
+  font-size: large;
+  background-color: rgba(0, 49, 76, 0.1);
+  /* background-color: rgba(0, 49, 76, 0.274); */
+  text-align: center;
 }
 
-.index_table tr:hover {
-    background-color: #8CD867;
+.index_table tr:hover td {
+  background-color: #017CC2;
 }
 
-.index_table tr:nth-child(even){
-    background-color: rgb(178, 179, 184);
-}
-.index_table th, .index_table td {
-    padding: 1em;
-    border-bottom: 1px solid darkolivegreen;
-    text-align: left;
-}
-.index_table .index_actions a[href]{
-    padding: 5px;
+.index_table tr:nth-child(even) {
+  background-color: rgba(232, 233, 243, 0.425);
 }
 
-a[href]{
-    color: #2E2F30;
-    text-decoration: none;
+.index_table tr:nth-child(odd) {
+  background-color: rgba(255, 255, 255, 0.534);
+}
+
+.index_table th,
+.index_table td {
+  padding: 1em;
+  border-bottom: 1px solid rgba(2, 63, 98, 1);
+  text-align: left;
+}
+
+.index_table .index_actions a[href] {
+  padding: 5px;
+}
+
+a[href] {
+  color: #2E2F30;
+  text-decoration: none;
 }
 
 ul {
@@ -94,33 +124,35 @@ nav ul li {
 }
 
 .dropdown {
-    text-align: center;
+  text-align: center;
 }
 
 .drop_heading {
-    background-color: transparent;
-    color: white;
-    padding: 16px;
-    font-size: 1.4rem;
-    border: none;
+  background-color: transparent;
+  color: white;
+  padding: 16px;
+  font-size: 1.4rem;
+  border: none;
 }
 
 .drop_content {
-    display: none;
-    background-color: transparent;
-    min-width: 1rem;
-    z-index: 1;
+  display: none;
+  background-color: transparent;
+  min-width: 1rem;
+  z-index: 1;
 }
 
 .drop_content a[href] {
-    color: white;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
 }
 
-.drop_content a:hover {background-color: rgba(0, 0, 0, 0.3)}
+.drop_content a:hover {
+  background-color: rgba(0, 0, 0, 0.3)
+}
 
 .dropdown:hover .drop_content {
-    display: block;
+  display: block;
 }

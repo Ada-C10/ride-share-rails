@@ -34,6 +34,7 @@
     <th>DATE</th>
     <th>RATING</th>
     <th>COST</th>
+    <th>TRIP STATUS</th>
   </tr>
 <tbody>
 
@@ -47,6 +48,7 @@
         <td> <%= trip.date %></td>
         <td> <%= trip.rating %></td>
         <td> <%= "🚀"'%.2f' % (trip.cost/100) %></td>
+        <td> <%= trip.in_progress %></td>
       </tr>
     <% end %>
 
