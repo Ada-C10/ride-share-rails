@@ -4,15 +4,19 @@ locals: {
 }
 %>
 
-<%= form_with model: @trip, class: 'trip-form' do |f| %>
+<%= form_with model: @trip, class: 'db-form' do |f| %>
 
-<h3> Edit Trip </h3>
+<h2> Edit Trip </h2>
 
+<div class="field-one">
 <%= f.label :cost %>
 <%= f.text_field :cost %>
+</div>
 
+<div class="field-two">
 <%= f.label :rating %>
 <%= f.select :rating, [*1..5] %>
+</div>
 
 <%= f.submit 'Edit Trip', class: "trip-form-submit-button" %>
 

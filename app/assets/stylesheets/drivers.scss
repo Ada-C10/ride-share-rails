@@ -2,33 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-// Move to application.css
-
-a {
-  text-decoration: none;
-  color: black;
-}
-
-ul {
-  list-style: none;
-}
-
-.driver:hover, .passenger:hover, .trip:hover {
-  font-size: 15pt;
-  font-weight: bold;
-}
-
-.form-errors {
-  text-align: center;
-  border: 1px solid black;
-  margin-left: 100px;
-  margin-right: 100px;
-}
-
-.form-errors strong {
-  text-transform: capitalize;
-}
-
 // For the index views
 
 .pagination a:hover {
