@@ -3,7 +3,14 @@
 <% else %>
 <h1> <%= @passenger.name %></h1>
 <p> Passenger Status: <%=@passenger.status%></p>
-<section> <%= link_to "Request Trip", passenger_trips_path(@passenger), method: :post%>
+<% if @passenger.status == "On Trip" %>
+  <strong>You're on a trip!</strong>
+<% else %>
+<section class="button">
+  <strong><%= link_to "Request Trip", passenger_trips_path(@passenger), method: :post%></strong>
+</section>
+<% end %>
+
 <ul>
   <li>Phone Number: <%= @passenger[:phone_num] %></li>
   <li> Total Charged: $<%=@passenger.total_charged/100%> </li>

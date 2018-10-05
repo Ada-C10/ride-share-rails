@@ -42,6 +42,19 @@ class TripsController < ApplicationController
     @passenger = Passenger.find_by(id: params[:passenger_id].to_i)
   end
 
+  def end_trip
+    @trip = Trip.find_by(id: params[:id].to_i)
+    @trip.passenger.status = "Standby"
+    @trip.driver.status = "AVAILABLE"
+    @trip.status = "Complete"
+    @trip.update(trip_params)
+    if @trip.save
+      redirect_to passenger_trip_path(@trip.passenger.id, @trip.id)
+    else
+      render :edit
+    end
+  end
+
   def edit
     if params[:passenger_id]
       @trip = Trip.find_by(id: params[:passenger_id])

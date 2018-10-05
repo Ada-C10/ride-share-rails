@@ -14,4 +14,5 @@ class Passenger < ApplicationRecord
       # total /= 100
     # end
   end
+
 end
