@@ -31,6 +31,8 @@ class TripsController < ApplicationController
 
     if driver
       @trip = Trip.new(cost: nil, rating: nil, date: Date.current, driver_id: driver.id, passenger_id: passenger.id)
+      driver.update(status: false)
+
       if @trip.save
         redirect_to passenger_trips_path
       else
