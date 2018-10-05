@@ -14,7 +14,7 @@ class TripsController < ApplicationController
     if params[:passenger_id]
       @passenger_id = params[:passenger_id].to_i
       @passenger = Passenger.find(@passenger_id)
-      if Passenger.verify_trip(@passenger_)
+      if @passenger.verify_trip
         driver = Driver.new_trip_driver
         @trip = Trip.new(driver_id: driver, passenger_id: @passenger_id, date: DateTime.now, cost: 0, in_progress: true)
         @trip.save
