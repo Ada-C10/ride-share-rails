@@ -10,6 +10,7 @@
 .driver-links a {
   text-decoration: none;
 }
+
 .driver-links a:nth-child(3):hover{
   color: rgba(183, 21, 64,1.0);
 }
@@ -22,8 +23,13 @@
   background-color: rgba(165, 177, 194,1.0);
 }
 
-.c4 strong {
+.driver-links strong {
   font-size: 18px;
+}
+
+.c4 h2 {
+  margin-top: .5em;
+  font-size: 28px;
 }
 
 
