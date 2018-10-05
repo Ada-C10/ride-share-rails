@@ -53,7 +53,8 @@ class DriversController < ApplicationController
 
     else
       #need to tell the client why they can't delete passenger as they are associated with other trips
-      head :bad_request
+
+      render :error, status: :bad_request
     end
 
 

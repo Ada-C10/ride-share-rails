@@ -21,4 +21,24 @@ class Driver < ApplicationRecord
     return average
   end
 
+
+  def total_earnings
+    total = 0
+
+    if self.trips.length == 0
+      return 0
+    end
+    total_earns = 0
+    self.trips.each do |trip|
+      total = (trip.cost - 1.65) * 0.8
+      total_earns += total
+    end
+    return (total_earns/100).round(2)
+  end
+
+
+#method to make the status be available
+# create to find an available driver--assing to a new trip 
+
+
 end

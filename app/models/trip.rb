@@ -2,7 +2,8 @@ class Trip < ApplicationRecord
   belongs_to :driver
   belongs_to :passenger
 
-  validates :rating, presence: true, length: { in: 1..5 }
+#validate here, or in controller, new and edit, or in schema.
+  validates :rating, length: { in: 1..5 }
 
 
   def assign_rating

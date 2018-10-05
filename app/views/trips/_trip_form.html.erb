@@ -14,18 +14,16 @@ locals: {
 
 <%= f.select :passenger_id, Passenger.all.map{ |pass| [pass.name, pass.id] } %>
 
-
 <%= f.label :driver_id %>
 <%= f.text_field :driver_id %>
-
 
 <%= f.label :cost %>
 <%= f.text_field :cost %>
 
-
+<% if show_review %>
 <%= f.label :rating %>
 <%= f.select(:rating, ['1', '2', '3', '4', '5']) %>
-
+<% end %>
 
 <%= f.submit action_type, class: "trip-form-submit-button" %>
 
