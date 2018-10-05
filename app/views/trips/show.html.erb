@@ -1,6 +1,17 @@
 <h1>Trip Details</h1>
 
- <%= "Passenger:" %>
+<%= "Trip ID:" %>
+<%=  @trip.id %>
+<br />
+<%= "DATE:" %>
+<%=  @trip.date %>
+<br>
+<%= "COST:" %>
+<%=  @trip.cost %>
+
+<br>
+<%= "Passenger:" %>
 <%= @trip.passenger.name %>
+<br>
 <%= "Driver:" %>
 <%=  @trip.driver.name %>
