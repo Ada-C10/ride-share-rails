@@ -37,10 +37,15 @@ class TripsController < ApplicationController
   def update
     @trip = Trip.find_by(id: params[:id].to_i)
     formatted_trip_params = trip_params.dup
-    cost = formatted_trip_params[:cost].to_f
-    formatted_trip_params[:cost] = (cost*100).to_i
-    @trip.update(formatted_trip_params)
+    if @trip.cost == nil
+    # maybe don't need to dup? test it.
+      formatted_trip_params[:cost] = @trip.assign_random_cost
+    else
+      cost = formatted_trip_params[:cost].to_f
+      formatted_trip_params[:cost] = (cost*100).to_i
 
+    end
+    @trip.update(formatted_trip_params)
     redirect_to trip_path(@trip.id)
   end
 

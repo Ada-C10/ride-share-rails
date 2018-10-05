@@ -10,6 +10,10 @@ class Trip < ApplicationRecord
     end
   end
 
+  def assign_random_cost
+    return rand(500..10000)
+  end
+
   def formatted_cost
     if self.status == :complete
       return "%.2f" % "#{self.cost/100.0}"

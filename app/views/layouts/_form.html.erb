@@ -2,6 +2,7 @@
   <div id="form-div">
 
 
+
   <%= form_with model: model, url: url, method: method, class:"form" , id:"form1" do |f| %>
   <%= message %>
   <%= f.label field_one_text_field, field_one_label, class: "name"%>
@@ -16,9 +17,10 @@
 
   <div class="submit">
     <%= f.submit button_text, id: "button-orange"  %>
+
     <div class="ease"></div>
   </div>
   <% end %>
-  
+
 </div>
 </div>
