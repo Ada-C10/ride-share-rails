@@ -1,13 +1,10 @@
 <div class="wrapper_index">
   <h2>PASSENGERS</h2>
-  <ol>
-    <% @passengers.each_with_index do |passenger, index| %>
-      <%=link_to "#{index +1}. " + passenger.name, passenger_path(passenger.id)%>
-    </div>
-    <div class="links">
-      <%= link_to "view details ", passenger %>
-
-    </div>
-  </li>
-  <% end %>
-</ol>
+  <ul>
+    <%@passengers.each_with_index do |passenger, index| %>
+      <li class="passengers">
+        <%=link_to "#{index +1}. " + passenger.name, passenger_path(passenger.id)%>
+      </li>
+    <% end %>
+  </ul>
+</div>

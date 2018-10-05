@@ -12,6 +12,10 @@
   padding: 5px;
 }
 
+li a {
+  flex-direction: row;
+}
+
 nav {
     align-items: flex-start;
     justify-content:space-between;

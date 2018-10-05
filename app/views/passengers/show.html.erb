@@ -24,6 +24,5 @@
     <% @passenger.all_trips.each do |trip| %>
       <%=link_to trip.date, trip_path(trip.id)%>
     </div>
-  </li>
   <% end %>
 </ol>

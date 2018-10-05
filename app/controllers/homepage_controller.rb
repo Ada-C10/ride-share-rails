@@ -1,3 +1,2 @@
 class HomepageController < ApplicationController
-  
 end
