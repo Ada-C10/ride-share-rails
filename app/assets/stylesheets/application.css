@@ -15,6 +15,8 @@
 */
 /* colors: rgba(10, 61, 98,1.0), rgba(60, 99, 130,1.0), rgba(96, 163, 188,1.0)
 rgba(130, 204, 221,1.0), rgba(165, 177, 194,1.0), rgba(209, 216, 224,1.0) */
+/* complementary and error colors: rgba(229, 80, 57,1.0), rgba(183, 21, 64,1.0)
+*/
 /* fonts: font-family: 'Lora', serif;
 font-family: 'Karla', sans-serif; */
 /* <!-- container scaffolding -->
@@ -273,11 +275,58 @@ input[type=submit]:active {
   margin-left: 2em;
 }
 
+.c4 a{
+  color: rgba(60, 99, 130,1.0);
+}
+.c4 a:visited{
+  color: rgba(10, 61, 98,1.0);
+}
+.c4 a:hover{
+  color: rgba(96, 163, 188,1.0);
+}
+
+.driver-links{
+  margin-left: 2em;
+}
+.driver-links a {
+  text-decoration: none;
+}
+.driver-links a:nth-child(3):hover{
+  color: rgba(183, 21, 64,1.0);
+}
+.driver-links:nth-child(odd){
+  padding-top: .2em;
+  padding-bottom: .2em;
+  padding-left: .4em;
+  margin-left: 1.6em;
+  margin-right: 2em;
+  background-color: rgba(165, 177, 194,1.0);
+}
+.passenger-links{
+  margin-left: 2em;
+}
+.passenger-links a {
+  text-decoration: none;
+}
+.passenger-links a:nth-child(3):hover{
+  color: rgba(183, 21, 64,1.0);
+}
+
+.passenger-links:nth-child(odd){
+  padding-top: .2em;
+  padding-bottom: .2em;
+  padding-left: .4em;
+  margin-left: 1.6em;
+  margin-right: 2em;
+  background-color: rgba(165, 177, 194,1.0);
+}
+
 .pagination {
   background: rgba(0, 0, 0, 0);
   text-align: center;
   padding: 1em;
   cursor: default;
+  margin-top: -1em;
 }
 
 .pagination a, .pagination span {

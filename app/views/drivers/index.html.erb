@@ -1,37 +1,37 @@
 <div class="container" role="main">
-<div class="c1">
-  <h1><%=link_to "Rideshare", home_path%></h1>
-</div>
-<div class="c2">
-  <div class="dropdown">
-    <button class="dropbtn">Drivers</button>
-    <div class="dropdown-content">
-      <%=link_to "View All", drivers_path%>
-      <%=link_to "Add Driver", new_driver_path %>
+  <div class="c1">
+    <h1><%=link_to "Rideshare", home_path%></h1>
+  </div>
+  <div class="c2">
+    <div class="dropdown">
+      <button class="dropbtn">Drivers</button>
+      <div class="dropdown-content">
+        <%=link_to "View All", drivers_path%>
+        <%=link_to "Add Driver", new_driver_path %>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropbtn">Passengers</button>
+      <div class="dropdown-content">
+        <%=link_to "View All", passengers_path%>
+        <%=link_to "Add Passenger", new_passenger_path%>
+      </div>
     </div>
   </div>
-  <div class="dropdown">
-    <button class="dropbtn">Passengers</button>
-    <div class="dropdown-content">
-      <%=link_to "View All", passengers_path%>
-      <%=link_to "Add Passenger", new_passenger_path%>
-    </div>
+  <div class="c3">
+    <%= link_to "Add New Driver", new_driver_path %>
+    <%=link_to "Return", home_path%>
   </div>
-</div>
- <div class="c3">
-   <%= link_to "Add New Driver", new_driver_path %>
-   <%=link_to "Return", home_path%>
- </div>
- <div class="c4">
-   <h2>Drivers</h2>
+  <div class="c4">
+    <h2>Drivers</h2>
 
-     <%@drivers.each do |driver|%>
-     <p>
-       <strong><%= link_to "#{driver.name}", driver_path(driver.id) %></strong> <%=driver.average_rating%>
-       <%= link_to "[Edit]", edit_driver_path(driver.id) %>
-       <%= link_to "[Delete]", driver_path(driver.id), method: :delete, data: {confirm: "Are you sure you want to delete #{driver.name}"} %>
-     </p>
-     <%end%>
-     <%= will_paginate @drivers, previous_label: h("<"), next_label: h(">") %>
- </div>
+    <%@drivers.each do |driver|%>
+    <p class="driver-links">
+      <strong><%= link_to "#{driver.name}", driver_path(driver.id) %></strong> <%=driver.average_rating%>
+      <%= link_to "[Edit]", edit_driver_path(driver.id) %>
+      <%= link_to "[Delete]", driver_path(driver.id), method: :delete, data: {confirm: "Are you sure you want to delete #{driver.name}"} %>
+      <%end%>
+    </p>
+    <%= will_paginate @drivers, previous_label: h("<"), next_label: h(">") %>
+  </div>
 </div>
