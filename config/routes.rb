@@ -9,7 +9,7 @@ Rails.application.routes.draw do
    resources :passengers, except: :destroy  do
     resources :trips, only: :create
     member do
-      get :trips, to: '../views/home/index.html.erb'
+      get :trips
     end
   end
   resources :drivers
