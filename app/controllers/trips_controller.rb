@@ -17,6 +17,7 @@ class TripsController < ApplicationController
     @trip.cost = 5
     @trip.passenger_id = params[:passenger_id]
     @trip.driver_id = rand(1..100)
+    @trip.rating = 0
   end
 
   def create

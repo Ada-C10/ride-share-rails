@@ -27,8 +27,10 @@
     <%= f.text_field :cost %>
   </p>
   <p>
-    <%= f.label :rating %>
-    <%= f.text_field :rating %>
+    <% if is_edit == 1  %>
+      <%= f.label :rating %>
+      <%= f.select(:rating, Trip::RATING) %>
+    <% end %>
   </p>
   <p>
     <%= f.submit "Save Trip", class: "button" %>
