@@ -41,13 +41,14 @@ class Driver < ApplicationRecord
   # create to find an available driver--assing to a new trip
 
 
-  def avail_status
-    if self.status
-      return self.name
-    else
-      return "no drivers available"
-    end
-  end
+  # def avail_status
+  #   if self.status
+  #     self.status == false
+  #     return self.name
+  #   else
+  #     return "no drivers available"
+  #   end
+  # end
 
 
 end
