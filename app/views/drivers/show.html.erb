@@ -1,11 +1,11 @@
 
- <div class="available-button">
-   <% if @driver.status == true %>
+<div class="available-button">
+  <% if @driver.status == true %>
   <%= link_to "Driver is available", unavailable_path(@driver), method: :make_unavailable %>
   <% else %>
-    <%= link_to "Driver is unavailable", available_path(@driver), method: :make_available %>
+  <%= link_to "Driver is unavailable", available_path(@driver), method: :make_available %>
   <% end%>
- </div>
+</div>
 
 <p>
   <strong>Driver:</strong>
@@ -28,13 +28,13 @@
 <p>
   <ul>
     <% @driver.trips.sort.each do |trip| %>
-
+    <p>
       <li><strong>Trip #: <%=trip.id %></strong></li>
       <li>Date: <%=trip.date %></li>
       <li>Rating: <%=trip.rating %></li>
       <li>Cost: <%=trip.cost %></li>
       <%=link_to "Passenger", passenger_trips_path(trip.passenger_id) %>
+    </p>
     <%end%>
-    <br/>
   </ul>
 </p>

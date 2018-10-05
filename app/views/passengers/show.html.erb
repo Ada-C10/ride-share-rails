@@ -1,5 +1,4 @@
-
-<h1>Passenger show page</h1>
+<h1>Passenger <%= @passenger.id %>: <%= @passenger.name %></h1>
 <p>
   <strong>ID:</strong>
   <%= @passenger.id %>
@@ -15,39 +14,40 @@
 </p>
 
 <%= form_for @trip, url: passenger_trips_path(@passenger.id) do |f| %>
-
-
-<%= f.submit "request new trip", class: "submit-button" %>
+  <%= f.submit "Request New Trip", class: "submit-button" %>
 <% end %>
 
-
-<h2>Trips for this Passenger</h2>
-<p>
+<h2>Trips for this <%= @passenger.name %></h2>
   <ul>
     <% @passenger.trips.sort.each do |trip| %>
-    <li><strong>Trip #: <%=trip.id %></strong></li>
-    <li>Date: <%=trip.date %></li>
-    <% if trip.rating == nil %>
+    <p>
+      <li><strong>Trip: <%=trip.id %></strong></li>
+      <li>Date: <%=trip.date %></li>
+      <% if trip.cost == nil %>
+        <li>Cost: Ride in progress</li>
+      <% else %>
+        <li>Cost: $<%=(trip.cost/100.0).round(2) %></li>
+      <% end %>
 
-    <%= form_for @trip, url: trip_path(trip.id), :method => :patch do |f| %>
-    <li>
-      <%= f.label :rating %><br>
-      <%= f.select :rating, [ '1', '2', '3', '4', '5'], :prompt => 'Select rating' %>
-      <%= f.submit "Update rating", class: "submit-button" %>
-    </li>
-    <% end %>
+      <div class='rating-dropdown'>
+        <% if trip.rating == nil %>
+          <%= form_for @trip, url: trip_path(trip.id), :method => :patch do |f| %>
+          <li>
+            <%= f.label :rating %><br>
+            <%= f.select :rating, [ '1', '2', '3', '4', '5'], :prompt => 'Select rating' %>
+            <%= f.submit "Update rating", class: "submit-button" %>
+          </li>
+          <% end %>
+        <% else %>
+          <li>Rating: <%= trip.rating %></li>
+        <% end %>
+      </div>
 
-    <% else %>
-    <li>Rating: <%=trip.rating %></li>
-    <% end %>
-
-    <li>Cost: <%=trip.cost %></li>
-    <% if trip.driver_id %>
-    <%=link_to "Driver", driver_trips_path(trip.driver_id) %>
-    <% else %>
-    [No Driver]
-    <% end %>
-
+      <% if trip.driver_id %>
+        <%=link_to "Driver", driver_trips_path(trip.driver_id) %>
+      <% else %>
+        [No Driver]
+      <% end %>
+    </p>
     <% end %>
   </ul>
-</p>

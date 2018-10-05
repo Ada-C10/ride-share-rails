@@ -70,3 +70,8 @@ img {
 footer {
   text-align: right;
 }
+
+.rating-dropdown{
+  display: flex;
+
+}
