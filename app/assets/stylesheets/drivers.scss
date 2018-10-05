@@ -4,10 +4,13 @@
 .driver-header {
   text-align: center;
   font-family: 'K2D';
+  background-image: url("https://images.unsplash.com/photo-1536244123426-10030d193abe?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=de4f3ffa1d587e12a8bb4896091992b2&w=1000&q=80");
+  padding: 3em;
 }
 
 .driver-header h1 {
   font-size: 50px;
+  color: white;
 }
 
 .driver-info {
@@ -82,12 +85,16 @@ th {
 }
 
 tr:hover {
-  background-color: grey;
+  background-color: #DEB887;
 }
 
 .form-fill {
   border: 5px solid black;
   margin: 5% 30% 5% 30%;
+  -moz-box-shadow:    3px 3px 5px 6px #ccc;
+ -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+ box-shadow:         3px 3px 5px 6px #ccc;
+ background-color: #DEB887;
 }
 
 .form-fill h1 {
