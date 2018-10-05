@@ -15,4 +15,13 @@ class Trip < ApplicationRecord
   # cost must be present and numerical
   validates :cost, presence: true, numericality: true
 
+  def end_trip(rating)
+    driver = Driver.find(self.driver_id)
+    if rating != nil
+      self.in_progress = false
+      self.cost = rand(9999) if self.cost == 0
+      driver.status = true
+      driver.save
+    end
+  end
 end

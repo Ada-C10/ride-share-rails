@@ -1,4 +1,3 @@
-<body class="passenger"
 <h1>Passenger Details</h1>
 <% if @passenger.nil? %>
 <h1> 404 not found </h1>
@@ -36,7 +35,8 @@
     <th>COST</th>
     <th>TRIP STATUS</th>
   </tr>
-<tbody>
+
+  <tbody>
 
   <% if @passenger.trips.empty? %>
     <%= "No Trips on Record" %>
@@ -48,11 +48,14 @@
         <td> <%= trip.date %></td>
         <td> <%= trip.rating %></td>
         <td> <%= "🚀"'%.2f' % (trip.cost/100) %></td>
-        <td> <%= trip.in_progress %></td>
+        <% if trip.in_progress == true %>
+        <td> <%= "⚪️ In Progress" %></td>
+        <% else %>
+        <td> <%= "⚫️ Complete" %></td>
+        <% end %>
       </tr>
+      <% end %>
     <% end %>
-
-  <% end %>
   </tbody>
 </table>
-</body>
+

@@ -14,8 +14,7 @@
  *= require_self
  */
 
-/* RGB */
-
+@import url('https://fonts.googleapis.com/css?family=Exo+2:500');
 colors {
   color: rgba(1, 124, 194, 1);
   color: rgba(218, 38, 30, 1);
@@ -28,6 +27,26 @@ colors {
 h1,
 .search {
   text-align: center;
+}
+
+header {
+  font-family: 'Exo 2', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: black;
+  font-family: 'Exo 2', sans-serif;
+}
+
+.background_img {
+  background-image: url("moon.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 1;
 }
 
 table {
@@ -89,42 +108,40 @@ a[href] {
   text-decoration: none;
 }
 
+a:visited {
+  color: #EFEFEF;
+}
+
+.menu {
+  display: flex;
+}
+
+.nav h2 {
+  margin-left: 0;
+  margin-top: 0.4rem;
+  font-size: 3.5rem;
+}
+
+.nav h2 a:link,
+.nav h2 a:visited {
+  color: rgba(218, 38, 30, 1);
+}
+
 ul {
-  display: grid;
   list-style-type: none;
-  grid-template-columns: repeat(4, 1fr);
-  padding: 0;
 }
 
-nav ul li {
-  padding: 0.5rem 2rem;
-}
-
-.brand {
-  grid-column: 1 / 2;
-  font-family: 'Space Mono', monospace;
-  color: rgb(204, 85, 0);
-  font-size: 1.8rem;
-  padding: 0 5rem;
-}
-
-.brand h3 {
-  margin: 0;
-  margin-top: 1rem;
-}
-
-.passengers {
-  grid-column: 3 / 4;
-  font-family: 'Roboto Slab', serif;
-}
-
-.drivers {
-  grid-column: 4 / 5;
-  font-family: 'Roboto Slab', serif;
+.first {
+  margin-left: auto;
 }
 
 .dropdown {
   text-align: center;
+}
+
+li.second {
+  padding-right: 6rem;
+  padding-left: 2rem;
 }
 
 .drop_heading {
@@ -150,7 +167,28 @@ nav ul li {
 }
 
 .drop_content a:hover {
-  background-color: rgba(0, 0, 0, 0.3)
+  background-color: rgba(0, 0, 0, 0.3);
+  color: rgba(239, 239, 239, 1);
+  padding: 16px;
+  font-size: 1.4rem;
+  border: none;
+  font-family: 'Exo 2', sans-serif;
+}
+
+.drop_content {
+  display: none;
+  background-color: transparent;
+  min-width: 1rem;
+  z-index: 1;
+  position: absolute;
+}
+
+.drop_content li {
+  padding: 0.5rem;
+}
+
+.drop_content a:hover {
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 .dropdown:hover .drop_content {

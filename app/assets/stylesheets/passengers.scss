@@ -10,12 +10,12 @@ colors {
 }
 
 .passenger {
-  background-image: url("moon.jpg");
+  // background-image: url("moon.jpg");
   height: 100%;
   color: white;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+//   background-position: center;
+//   background-repeat: no-repeat;
+//   background-size: cover;
 }
 
 .passenger_index {
@@ -23,9 +23,9 @@ colors {
   //   rgba(33, 33, 33, 1), rgba(33, 33, 33, 1) 50%, 
   //   rgba(239, 239, 239, 1) 75%, rgba(33, 33, 33, 1) 75%); 
   // background: radial-gradient(rgba(239, 239, 239, 1), rgba(33, 33, 33, 1));
-  // background-image: url('moon.jpg');
-  background-image: url("moon.jpg");
-  background-size: cover;
+
+  // background-image: url("moon.jpg");
+  // background-size: cover;
   color: white;
 }
 
