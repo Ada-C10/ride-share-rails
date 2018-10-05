@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Faster+One|Krub');/*
-* This is a manifest file that'll be compiled into application.css, which will include all the files
+/* @import url('https://fonts.googleapis.com/css?family=Faster+One|Krub');/* */
+/* * This is a manifest file that'll be compiled into application.css, which will include all the files
 * listed below.
 *
 * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
@@ -15,14 +15,11 @@
 */
 
 
-html,
-body {
-  margin: 0;
-  padding: 0;
+html, body {
+  margin: 0px;
+  padding: 0px;
   height: 100%;
 }
-
-
 
 header {
   position: relative; top: -22px;
@@ -52,6 +49,7 @@ nav ul {
   justify-content: flex-end;
   align-content: center;
   margin-right: 1em;
+  color: rgb(255, 179, 48);
 }
 
 nav li {
@@ -69,6 +67,7 @@ footer {
   background-color: #5BC0BE;
   height: 100px;
   margin: 0;
+  border: 1px solid red;
 }
 
 footer p {

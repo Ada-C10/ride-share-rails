@@ -13,10 +13,26 @@ table {
 
 td, th {
   border: 1px solid #0B132B;
-  text-align: left;
+  text-align: center;
   // padding: 8px;
 }
 
 .trip_table tr:nth-child(even) {
   background-color: gray;
+}
+
+h3 {
+  color: rgb(193, 9, 9);
+}
+
+.new-trip-submit-button, .homepage {
+  color: rgb(193, 9, 9);
+}
+
+.edit-link {
+  color: rgb(193, 9, 9);
+}
+
+.delete-link {
+  color: rgb(193, 9, 9);
 }
