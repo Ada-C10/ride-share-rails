@@ -33,6 +33,6 @@
   </p>
 
   <%end %>
-  <%= will_paginate @passengers, previous_label: h("<"), next_label: h(">") %>
+  <%= will_paginate @passengers, :class => 'passenger-pagination', previous_label: h("<"), next_label: h(">") %>
 </div>
 </div>
