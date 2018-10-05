@@ -7,4 +7,9 @@ Rails.application.routes.draw do
     resources :trips, include: [:index, :show]
   end
 
+  # NOTE: added nested routes for passengers+trips
+  resources :passengers do
+    resources :trips, include: [:index, :show, :new, :delete]
+  end
+
 end

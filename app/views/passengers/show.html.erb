@@ -12,7 +12,7 @@
     </tr>
     <tr>
       <td>Phone Number: <%= @passenger.phone_num%></td>
-      <td>Total Charged: $<%= @passenger.total_spent(@passenger.id)/100.to_f %></td>
+      <td>Total Charged: $<%= @passenger.total_spent/100.to_f %></td>
     </tr>
 </table>
 
@@ -44,10 +44,12 @@
   </thead>
   <tbody>
 
-<% @passenger.generate_trips(@passenger.id).each do |trip| %>
+<!-- QUESTION: change driver and pass ids to names?? -->
+<% @passenger.trips.each do |trip| %>
   <tr>
     <td>
-      <%= trip.id %>
+      <!-- QUESTION: maybe add a link in trip show detail page back to driver+passenger?? -->
+      <%= link_to "#{trip.id}", trip_path(trip) %>
     </td>
     <td>
       <%= trip.date %>
@@ -65,7 +67,7 @@
       <%= trip.rating %>
     </td>
     <td>
-      get names for pass, driver. set up nested routes for delete. get back to barbara ab deletions.
+      <%= link_to "Delete", trip_path(trip), method: :delete, data: { confirm: "Are you sure you want to delete this trip?" } %>
     </td>
   </tr>
   <% end %>
