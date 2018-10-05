@@ -37,8 +37,17 @@ class Driver < ApplicationRecord
   end
 
 
-#method to make the status be available
-# create to find an available driver--assing to a new trip 
+  #method to make the status be available
+  # create to find an available driver--assing to a new trip
+
+
+  def avail_status
+    if self.status
+      return self.name
+    else
+      return "no drivers available"
+    end
+  end
 
 
 end

@@ -9,3 +9,19 @@
 
   }
 %>
+
+
+
+<ul>
+<p>TEST</p>
+  <%= @trip.driver.avail_status %>
+
+    <li> Trip id: <%= @trip.id %> </li>
+    <li> Trip date:  <%= @trip.date %></li>
+    <li> Trip rating: <%= @trip.rating %></li>
+    <li> Trip cost: $<%= @trip.cost/100.00 %></li>
+    <li> Trip Driver ID <%= link_to "#{@trip.driver_id}", driver_path %></li>
+    <li> Trip Passenger ID <%= link_to "#{@trip.passenger_id}", passenger_path %></li><br>
+
+
+</ul>
