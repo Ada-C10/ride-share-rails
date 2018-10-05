@@ -7,12 +7,19 @@ class TripsController < ApplicationController
     # if in nested route show nested route w/ option to edit rating
     if params[:passenger_id]
       passenger = Passenger.find_by(id: params[:passenger_id])
-      @trip = Trip.find_by(passenger_id: passenger.id, id: params[:id] )
+
+      if passenger.nil?
+        redirect_to passengers_path, alert: "There are no trips by that Passenger"
+      else
+        @trip = Trip.find_by(passenger_id: passenger.id, id: params[:id] )
+      end
+
+
+
     else
       #else show trip without option to edit
       @trip = Trip.find_by(driver_id: params[:driver_id], id: params[:id] )
     end
-
   end
 
   def new

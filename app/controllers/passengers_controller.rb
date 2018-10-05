@@ -38,6 +38,14 @@ class PassengersController < ApplicationController
 
   def destroy
     @passenger = Passenger.find_by(id: params[:id])
+
+
+     @passenger.trips.each do |trip|
+       trip.destroy
+     end
+
+
+    # @driver = Driver.where(id: )
     @passenger.destroy
     redirect_back fallback_location: :passengers_path
   end

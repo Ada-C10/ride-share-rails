@@ -1,3 +1,7 @@
+<% if !@trip %>
+NO TRIPS
+<% else %>
+
 
 <h2><%= @trip.date%></h2>
 <p>Trip ID: <%= @trip.id %></p>
@@ -26,4 +30,5 @@
   </li>
 
 </ul>
+<% end %>
 <% end %>
