@@ -2,6 +2,8 @@
 <p><%= "vin: " + @driver.vin %></p>
 <p>Total Earnings in USD: $<%= @driver.total_earning %> </p>
 <p>Average Rating: <%= @driver.average_rate %> </p>
+<%= button_to "Edit Driver", edit_driver_path(@driver.id), method: :get %>
+<%= button_to "Delete Driver", driver_path(@driver.id), method: :delete, data: { confirm: "Are you sure?"}%>
 <table>
 <tr class="header"><td>Date</td><td>Passanger</td><td>Rating</td><td>Cost</td></tr>
 <p><%@driver.trips.map do |trip| %>
