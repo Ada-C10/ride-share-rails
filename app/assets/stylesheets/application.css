@@ -220,3 +220,29 @@ table a {
   background: orange;
   padding-top: 1em;
 }
+
+.edit-button {
+  background-color: #ffffff;
+  font-size: 1em;
+  margin: 2em 1em 1em 0;
+  padding: 1em;
+  border: .2em solid #35324D;
+}
+
+
+.form {
+  font-size: 2em;
+}
+
+.form input {
+  font-size: .5em;
+  padding: .5em;
+}
+
+.form label {
+  font-size: .5em;
+  color: #FF9F05;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+
+}
