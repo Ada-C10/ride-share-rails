@@ -42,7 +42,6 @@ class TripsController < ApplicationController
     @passenger = Passenger.find_by(id: params[:passenger_id].to_i)
   end
 
-  
 
   def edit
     if params[:passenger_id]
