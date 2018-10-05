@@ -1,3 +1,19 @@
+<<<<<<< HEAD
+body, html {
+  height: 100%;
+}
+.bg {
+  /* The image used */
+  background-image: url("yellow_car.jpeg");
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+=======
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -57,6 +73,7 @@ header li a {
 
  nav li {
     margin: 20px;
+>>>>>>> b35586e3a547d6b0f5bdb64dd0bf58a54bf81aa2
 }
 
 main {
