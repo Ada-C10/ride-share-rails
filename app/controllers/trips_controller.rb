@@ -18,16 +18,53 @@ class TripsController < ApplicationController
     @trip = Trip.new
   end
 
-  def create
-    if params[:passenger_id]
-      passenger = Passenger.find_by(id: params[:passenger_id])
-      driver = Driver.all.sample
-      @trip = passenger.trips.new(driver_id: driver.id, passenger_id: passenger.id, date: Time.now, rating: 0, cost: 0)
+  def self.find_available_driver
+   drivers = Driver.all
+   driver = drivers.find_by(available?: true)
+   if driver
+     driver.update(available?: false)
+     driver.save
+     return driver
+   end
+ end
+
+ def create
+   if params[:passenger_id]
+     passenger = Passenger.find_by(id: params[:passenger_id])
+     driver = Driver.all.sample
+     @trip = passenger.trips.new(driver_id: driver.id, passenger_id: passenger.id, date: Time.now, cost: 0.0)
       if @trip.save
         redirect_to passenger_path(passenger.id)
       end
     else
       render :new
     end
+  end
+
+  def update
+    trip = Trip.find(params[:id])
+    if trip.update(trip_params)
+      redirect_to trip_path(trip.id)
+    else
+      head :not_found
+    end
+  end
+
+  def rated
+    trip = Trip.find_by(id: params[:id])
+     trip.update(rating: params[:rating])
+    redirect_to trip_path(trip.id)
+  end
+
+  private
+
+  def trip_params
+    return params.require(:trip).permit(
+      :passenger_id,
+      :driver_id,
+      :date,
+      :rating,
+      :cost
+    )
   end
 end
