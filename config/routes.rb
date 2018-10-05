@@ -6,7 +6,6 @@ Rails.application.routes.draw do
 
   resources :homepage, only: [:index]
 
-
   resources :trips
 
   resources :drivers do
