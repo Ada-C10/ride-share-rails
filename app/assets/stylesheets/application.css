@@ -19,8 +19,8 @@
 *= require_self
 */
 /* @font-face {
-    font-family: 'Faster One', cursive;;
-    src: url('https://fonts.googleapis.com/css?family=Faster+One|Krub');
+font-family: 'Faster One', cursive;;
+src: url('https://fonts.googleapis.com/css?family=Faster+One|Krub');
 } */
 
 html, body {
@@ -75,9 +75,10 @@ nav li {
 
 footer {
   background-color: #5BC0BE;
-  height: 100px;
-  margin: 0;
-  border: 1px solid red;
+  margin: 0px;
+  position:absolute;
+  width:100%;
+  height:60px;   /* Height of the footer */
 }
 
 footer p {
