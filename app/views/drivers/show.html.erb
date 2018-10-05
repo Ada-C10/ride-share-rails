@@ -3,12 +3,13 @@
 <p>Total Earnings in USD: $<%= @driver.total_earning %> </p>
 <p>Average Rating: <%= @driver.average_rate %> </p>
 <table>
+<tr><td>Date</td><td>Passanger</td><td>Rating</td><td>Cost</td></tr>
 <p><%@driver.trips.map do |trip| %>
   <tr>
   <td><%=trip.date%></td>
   <td><%=trip.passenger%></td>
   <td><%=trip.rating%></td>
-  <td><%=trip.cost%></td>
+  <td>$<%=trip.cost / 100%></td>
   </tr>
 <%end%>
 </table>
