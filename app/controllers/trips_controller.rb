@@ -1,3 +1,5 @@
+require 'date'
+
 class TripsController < ApplicationController
 
   def index
@@ -28,7 +30,7 @@ class TripsController < ApplicationController
     driver = Driver.find_by(status: true)
 
     if driver
-      @trip = Trip.new(cost: 0, rating: 5, date: '2000-01-01', driver_id: driver.id, passenger_id: passenger.id)
+      @trip = Trip.new(cost: nil, rating: 5, date: Date.current, driver_id: driver.id, passenger_id: passenger.id)
       if @trip.save
         redirect_to passenger_trips_path
       else
