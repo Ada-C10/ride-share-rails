@@ -17,23 +17,13 @@ class TripsController < ApplicationController
     @trip.rating = 0
     @trip.cost = 5
     @trip.passenger_id = params[:passenger_id]
+    @trip.driver_id = rand(1..100)
   end
 
-  # def new
-  #   pass_id = params[:passenger_id]
-  #
-  #
-  #     #@trip.passenger_id = pass_id
-  #     #@trip.driver = Driver.next_driver
-  #     @trip.date = Date.today
-  #     @trip.cost = 5
-  #     @trip.rating = 0
-  # end
-
   def create
-    @trip = Trip.new(passenger_params)
+    @trip = Trip.new(trip_params)
     if @trip.save
-      redirect_to passenger_trips_path
+      redirect_to passenger_path(@trip.passenger_id)
     else
       puts "#{@trips.errors}"
       render :new
