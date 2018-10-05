@@ -11,8 +11,6 @@ class TripsController < ApplicationController
     end
   end
 
-
-
   def create
     if params[:passenger_id]
       passenger = Passenger.find_by(id: params[:passenger_id])
@@ -27,16 +25,8 @@ class TripsController < ApplicationController
       # Same thing as above:
       # @book = Book.new(author: author)
     else
-      @trip = Trip.new
+      render :new
     end
-
-    # @trip = Trip.new(driver_id: 1, passenger_id: 293, date: "2017-02-02", rating: 0, cost: 0)
-    #
-    # if @trip.save
-    #   redirect_to passenger_path(293)
-    # else
-    #   render :new
-    # end
   end
 
   def edit
