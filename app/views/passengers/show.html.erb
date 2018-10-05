@@ -1,8 +1,9 @@
 <header>
   <h1>
+  Rideshare Rails!
   <%= link_to "Drivers", drivers_path %>
   <%= link_to "Passengers", passengers_path %>
-  </h2>
+  </h1>
 </header>
 
 <section>
@@ -12,7 +13,7 @@
 
 <h1>Passenger details</h1>
 
-<ul>
+<ul class="passenger-details">
   <li>
     <%= @passenger.id %>
   </li>
