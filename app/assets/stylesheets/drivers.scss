@@ -9,7 +9,10 @@ body {
   color: #2B303A;
   -webkit-font-smoothing: antialiased;
   font-smoothing: antialiased;
-  background: #2B303A;
+  background-image: url("../images/background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
 }
 @media screen and (max-width: 580px) {
   body {

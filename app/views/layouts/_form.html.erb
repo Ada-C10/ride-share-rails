@@ -1,15 +1,49 @@
-<%= form_with model: model, url: url, method: method do |f| %>
+<div id="form-main">
+  <div id="form-div">
+
+
+  <form class="form" id="form1">
+  <%= form_with model: model, url: url, method: method do |f| %>
   <%= message %>
-  <%= f.label field_one_text_field, field_one_label %>
-  <%= f.text_field field_one_text_field, placeholder: field_one_placeholder, required: true %>
+  <%= f.label field_one_text_field, field_one_label, class: "name"%>
+  <%= f.text_field field_one_text_field, placeholder: field_one_placeholder, required: true, class: "feedback-input", id: "name"%>
 
   <!-- TODO: Add cool features -->
   <!-- maxlength: number, size: number, pattern: regex -->
   <!-- auto focus -->
 
-  <%= f.label field_two_text_field, field_two_label %>
-  <%= f.text_field field_two_text_field, placeholder: field_two_placeholder, required: true %>
+  <%= f.label field_two_text_field, field_two_label, class: "phone"%>
+  <%= f.text_field field_two_text_field, placeholder: field_two_placeholder, required: true, class: "feedback-input", id: icon_image %>
 
-  <%= f.submit button_text %>
+  <div class="submit">
+    <%= f.submit button_text, id: "button-orange"  %>
+    <div class: "ease"></div>
+  </div>
+  <% end %>
+  </form>
+</div>
+</div>
 
-<% end %>
+<!-- <div id="form-main">
+  <div id="form-div">
+    <form class="form" id="form1">
+
+      <p class="name">
+        <input name="name" type="text" class="validate[required,custom[onlyLetter],length[0,100]] feedback-input" placeholder="Name" id="name" />
+      </p>
+
+      <p class="email">
+        <input name="email" type="text" class="validate[required,custom[email]] feedback-input" id="email" placeholder="Email" />
+      </p>
+
+      <p class="text">
+        <textarea name="text" class="validate[required,length[6,300]] feedback-input" id="comment" placeholder="Comment"></textarea>
+      </p>
+
+
+      <div class="submit">
+        <input type="submit" value="SEND" id="button-blue"/>
+        <div class="ease"></div>
+      </div>
+    </form>
+  </div> -->
