@@ -1,6 +1,5 @@
 class TripsController < ApplicationController
   def index
-    # If a driver id is provider, show driver's trips
     if params[:driver_id]
       driver = Driver.find_by(id: params[:driver_id])
       @trips = driver.trips
@@ -47,7 +46,6 @@ class TripsController < ApplicationController
   def update
     trip = Trip.find_by(id: params[:id].to_i)
     trip.update(trip_params)
-    ###### TODO Add error message for if it does not save  #####
     redirect_to trip_path(trip.id)
   end
 

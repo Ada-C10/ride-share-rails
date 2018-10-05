@@ -25,9 +25,9 @@
   <%= f.text_field :cost%>
 
   <%= f.label :driver_id %>
-  <%= f.text_field :driver_id %>
+  <%= f.select :driver_id, Driver.all.map{ |driv| [driv.name, driv.id] }.sort %>
 
-  <%= f.label :passenger_id %>
+  <%= f.select :passenger_id, Passenger.all.map{ |pass| [pass.name, pass.id] }.sort %>
   <%= f.text_field :passenger_id %>
 
   <%= f.submit button_title, class: "trip-button" %>

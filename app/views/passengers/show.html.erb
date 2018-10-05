@@ -1,7 +1,4 @@
-<!-- <h1>Passengers#show</h1>
-<p>Find me in app/views/passengers/show.html.erb</p> -->
   <div class = "container">
-
   <% if @passenger.nil? %>
     <h1> 404 Not found</h1>
   <% else %>
@@ -24,14 +21,7 @@
         <td><%= link_to "Edit", edit_passenger_path(@passenger.id) %></td>
         <td><%= link_to "Delete", passenger_path(@passenger.id), method: :delete %></td>
       </tr>
-
     </table>
-
-
     <%= render partial: "trips/trips" %>
-
-    <!--TODO FIgure out how to delete passengers without impacting driver trips.   -->
-    <!--  Maybe set passenger id to null then delete? -->
   </div>
-
 <% end %>

@@ -1,15 +1,14 @@
 class PassengersController < ApplicationController
   def index
-    # if params[:trip_id]
+    # TODO Update so only active passengers show 
     trip = Trip.find_by(id: params[:trip_id])
-    # passenger_trips = trip.pasenger_trips
     @passengers = Passenger.all.order(:name)
   end
 
   def show
     id = params[:id].to_i
     @passenger = Passenger.find_by(id: id)
-    @trips = @passenger.trips.all 
+    @trips = @passenger.trips.all
     if @passenger.nil?
       render :notfound, status: :not_found
     end
@@ -20,7 +19,6 @@ class PassengersController < ApplicationController
   end
 
   def create
-    ###### TODO Add error message for if it does not save  #####
     @passenger = Passenger.new(passenger_params)
     if @passenger.save
       redirect_to passengers_path
@@ -30,19 +28,20 @@ class PassengersController < ApplicationController
   end
 
   def new
+    # TODO Edit so defaults to first available driver
     @passenger = Passenger.new
   end
 
   def destroy
     passenger = Passenger.find_by(id: params[:id].to_i)
-    passenger.destroy
+    # passenger.destroy
+    passenger.status = "inactive"
     redirect_to passengers_path
   end
 
   def update
     passenger = Passenger.find_by(id: params[:id].to_i)
     passenger.update(passenger_params)
-    ###### TODO Add error message for if it does not save  #####
     redirect_to passenger_path(passenger.id)
   end
 

@@ -3,7 +3,7 @@ class DriversController < ApplicationController
   def index
     if params[:driver_id]
       @driver = Driver.find_by(id: params[:driver_id])
-      @trips = @driver.trips 
+      @trips = @driver.trips
     # How do we use our nested routes here?
     else
       @drivers = Driver.all.order(:name)
@@ -43,7 +43,9 @@ class DriversController < ApplicationController
 
   def destroy
     driver = Driver.find_by(id: params[:id].to_i)
-    driver.destroy
+    # driver.destroy
+    # Instead of deleting, set status to inactive
+    driver.status = "inactive"
     redirect_to drivers_path
   end
 

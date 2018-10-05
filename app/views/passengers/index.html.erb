@@ -1,25 +1,17 @@
-<!-- <h1>Passengers#index</h1>
-<p>Find me in app/views/passengers/index.html.erb</p> -->
-<!-- <%# name = 'bob' %>
-<ul>
-<%# 5.times do |i| %>
-  <li> <%#= "#{name} is number #{i}".upcase %>  </li>
-<%# end %>
-</ul> -->
-
-<h1>Passengers</h1>
-<table>
-  <tr>
-    <th>ID</th>
-    <th>Name</th>
-    <th>Phone Number</th>
-  </tr>
-  <% @passengers.each do |passenger| %>
+<div class="container">
+  <h1>Passengers</h1>
+  <table>
     <tr>
-      <td><%= link_to "#{passenger.id}", passenger_path(passenger.id)%></td>
-      <td><%= "#{passenger.name}"%></td>
-      <td><%= "#{passenger.phone_num}"%></td>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Phone Number</th>
     </tr>
-
-  <% end %>
-</table>
+    <% @passengers.each do |passenger| %>
+      <tr>
+        <td><%= link_to "#{passenger.id}", passenger_path(passenger.id)%></td>
+        <td><%= "#{passenger.name}"%></td>
+        <td><%= "#{passenger.phone_num}"%></td>
+      </tr>
+    <% end %>
+  </table>
+</div>

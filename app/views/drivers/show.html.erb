@@ -1,9 +1,7 @@
-<!-- <h1>drivers#show</h1>
-<p>Find me in app/views/drivers/show.html.erb</p> -->
-
 <% if @driver.nil? %>
   <h1> 404 Not found</h1>
 <% else %>
+<div class="container">
   <h1><%=@driver.name %></h1>
   <table>
     <tr>
@@ -35,13 +33,6 @@
       </td>
     </tr>
   </table>
-  <!-- TODO FIgure out how to delete drivers without impacting driver trips.   -->
-  <!--  Maybe set driver id to null then delete? -->
-
-  <!-- Show driver trips here. Have driver_trips_path somehow?  -->
-    <%= render partial: "trips/trips" %>
-  <!-- render driver_trips_path -->
-  <!-- <%# render driver_trips_path %> -->
-  <!-- How do we show a list of driver trips using the driver_trips path? -->
-
+  <%= render partial: "trips/trips" %>
+  </div>
 <% end %>
