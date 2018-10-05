@@ -27,7 +27,7 @@
 <h2>Trips for this Driver</h2>
 <p>
   <ul>
-    <% @driver.trips.sort.each do |trip| %>
+    <% @driver.trips.sort_by(:date).reverse.each do |trip| %>
 
       <li><strong>Trip #: <%=trip.id %></strong></li>
       <li>Date: <%=trip.date %></li>
