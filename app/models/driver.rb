@@ -23,11 +23,9 @@ class Driver < ApplicationRecord
     return sum_averages / trips.length
   end
 
-  # Get amount driver earned
-  # driver where id = driver.id
-  # sum = 0
-  # driver.trips.each do |trip|
-    # sum += cost
-    # end
-    # minus a fee, multiply by .80
+  # TODO Method to select first active driver
+  # Driver.all.select { |drv| drv.status == "active" }.fist
+  # Unsure how to do this with current setup as _form is being used for new and edit.
+  # Would probably need to be applied based on whether it's a create vs update .
+
 end

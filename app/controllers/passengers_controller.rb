@@ -1,6 +1,5 @@
 class PassengersController < ApplicationController
   def index
-    # TODO Update so only active passengers show 
     trip = Trip.find_by(id: params[:trip_id])
     @passengers = Passenger.all.order(:name)
   end
@@ -28,7 +27,6 @@ class PassengersController < ApplicationController
   end
 
   def new
-    # TODO Edit so defaults to first available driver
     @passenger = Passenger.new
   end
 
