@@ -19,10 +19,13 @@
   <%= ((@total).to_f/100).round(2) %>
 </p>
 
+<% unrated_trips = @passenger.trips.where(rating: nil) %>
+<% if unrated_trips.length == 0 %>
+  <button>
+    <%= link_to "Request Trip", passenger_trips_path(@passenger), method: :post%>
+  </button>
+<% end %>
 
-<button>
-  <%= link_to "Request Trip", passenger_trips_path(@passenger), method: :post%>
-</button>
 
 <button>
   <%= link_to "Edit Passenger Info", edit_passenger_path(@passenger)%>
