@@ -1,16 +1,8 @@
 <div class="edit-container">
-  <%= form_with model: @passenger, class: 'edit-form' do |f| %>
-
   <p>Please edit the information for the selected task here:</p>
 
-  <h2>Edit Passenger Form</h2>
-
-  <%= f.label :name %>
-  <%= f.text_field :name, class: "add-name" %>
-
-  <%= f.label :phone_number %>
-  <%= f.text_field :phone_num, class: "passenger-phone_num" %>
-
-  <%= f.submit "Save Passenger", class: "passenger-button" %>
-  <% end %>
-</div>
+  <%= render partial: "passenger_form", locals: {
+    action_type: "Edit Passenger",
+    form_title: "Edit Passenger form"
+    } %>
+  </div>

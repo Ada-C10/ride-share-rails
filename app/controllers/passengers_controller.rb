@@ -17,14 +17,12 @@ class PassengersController < ApplicationController
   end
 
   def create
-    passenger = Passenger.new(name: params[:passenger][:name], phone_num: params[:passenger][:phone_num]) #instantiate a new passenger
+    @passenger = Passenger.new(name: params[:passenger][:name], phone_num: params[:passenger][:phone_num]) #instantiate a new passenger
 
-    successful_save = passenger.save
-
-    if successful_save # save returns true if the database insert succeeds
+    if @passenger.save # save returns true if the database insert succeeds
       redirect_to passengers_path # go to the index so we can see the passenger in the list
     else # save failed :(
-      render :new # show the new passenger form view again
+      render :new
     end
 
   end

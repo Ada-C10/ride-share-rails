@@ -1,0 +1,17 @@
+<%= render partial: 'layouts/form_errors',
+locals: {
+  model: @passenger
+}
+%>
+
+<%= form_with model: @passenger, class: 'new-passsenger-form' do |f| %>
+
+<%= f.label :name %>
+<%= f.text_field :name %>
+
+<%= f.label :phone_number %>
+<%= f.text_field :phone_num %>
+
+<%= f.submit action_type, class: "new-passenger-submit-button" %>
+
+<% end %>
