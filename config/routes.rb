@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
   get 'home/index'
   root to: 'home#index'
-  resources :trips, except: [:new, :create, :edit, :update]
-  resources :drivers
+
+  resources :drivers do
+      resources :trips, only: [:show]
+    end
+    
   resources :passengers do
     resources :trips, only: [:create, :edit, :update, :show]
   end
