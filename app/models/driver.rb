@@ -1,5 +1,6 @@
 class Driver < ApplicationRecord
-  has_many :trips
+  has_many :trips, dependent: :nullify
+
 
   def all_trips
     temp_trips = []
@@ -32,8 +33,10 @@ class Driver < ApplicationRecord
     profit_array = []
 
     trips.each do |trip|
-      temp = trip.cost - 165
-      profit_array << temp * 0.8
+      if trip.cost != nil
+        temp = trip.cost - 165
+        profit_array << temp * 0.8
+      end
     end
     return profit_array.sum
   end
