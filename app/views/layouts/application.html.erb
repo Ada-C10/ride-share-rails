@@ -1,24 +1,27 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>RideShareRails</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>RideShareRails</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
-    <header>
-      <nav>
-        <%= link_to "Passengers", passengers_path%>
-        <%= link_to "Add New Passenger", new_passenger_path%>
-        <%= link_to "Drivers", drivers_path%>
-        <%= link_to "Add New Driver", new_driver_path%>
-      </nav>
+<body>
+  <header>
+    <h1 class="logo"><%= link_to "Fuuber", root_path%></h1>
+    <nav>
+      <ul>
+        <li><%= link_to "Passengers", passengers_path%></li>
+        <li><%= link_to "Add New Passenger", new_passenger_path%></li>
+        <li><%= link_to "Drivers", drivers_path%></li>
+        <li><%= link_to "Add New Driver", new_driver_path%></li>
+      </ul>
+    </nav>
 
-    </header>
-    <%= yield %>
-  </body>
+  </header>
+  <%= yield %>
+</body>
 </html>
