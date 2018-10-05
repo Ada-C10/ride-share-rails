@@ -4,7 +4,12 @@ class Trip < ApplicationRecord
 
   def assign_driver
    available_drivers = Driver.where(available: true)
-   driver = available_drivers.first
+   driver = available_drivers.sample
    return driver
  end
+
+  # def rating_completed?
+  #
+  #
+  # end
 end

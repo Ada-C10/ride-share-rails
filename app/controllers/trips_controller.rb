@@ -13,39 +13,54 @@ class TripsController < ApplicationController
 
   end
 
+  def rating_completed?
+    @trips = Trip.where(id: params[:passenger_id])
 
-  def create
-
-    if params[:passenger_id]
-      passenger = Passenger.find_by(id: params[:passenger_id])
-      @trip = Trip.new
-      #
-      @trip = passenger.trips.new(date: Date.today, driver: @trip.assign_driver)
-
-      if @trip.save
-        redirect_to passenger_path(passenger.id)
-      else
-        #TODO validation
-        render :bad_request
+    @trips.each do |trip|
+      if trip.rating == nil
+        return false
       end
     end
+    return true
   end
 
-  def update
+  def create
+    if rating_completed?
       if params[:passenger_id]
         passenger = Passenger.find_by(id: params[:passenger_id])
+        @trip = Trip.new
+        #
+        @trip = passenger.trips.new(date: Date.today, driver: @trip.assign_driver, cost: rand(1000..9999))
 
-        trip = passenger.trips.find_by(:id)
-
-        trip.update(trip_params())
-
-        if trip.save
+        if @trip.save
           redirect_to passenger_path(passenger.id)
         else
+          #TODO validation
           render :bad_request
         end
       end
+    else
+      #TODO validation
+      render :bad_request
     end
+  end
+
+
+
+  def update
+
+    trip = Trip.find_by(id: params[:id])
+
+    trip.update(trip_params)
+
+    passenger = trip.passenger
+
+    if trip.save
+      redirect_to passenger_path(passenger.id)
+    else
+      render :bad_request
+    end
+  end
 
 
   private
