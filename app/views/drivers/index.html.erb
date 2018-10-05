@@ -1,10 +1,12 @@
+
 <div class="driver-index">
+  <section class="heading">
+    <h2>Drivers</h2>
 
-  <h2>Drivers</h2>
+    <%= will_paginate @drivers %>
+  </section>
 
-  <%= will_paginate @drivers %>
-
-  <ul class="all-drivers">
+  <ul class="list">
     <li class="column-label">Name</li>
     <li class="column-label">Rating</li>
     <% @drivers.each do |driver| %>
@@ -15,5 +17,5 @@
       <%= link_to "Delete", driver_path(driver.id), method: :delete, data: {confirm: "Are you sure you want to delete #{driver.name}"} %></li>
     <% end %>
   </ul>
-  
+
 </div>
