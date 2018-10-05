@@ -2,25 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.passenger-form {
-  text-align: center;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-}
-
-h2, .passenger-name, .passenger-phone {
-  grid-column: 2 / 3;
-  padding-bottom: 10px;
-}
+// For the passenger forms
 
 label[for="passenger_phone_num"] {
   text-transform: capitalize;
 }
 
+// For the show page
+
 .request-trip:hover {
   font-size: 20pt;
-}
-
-.passenger:hover {
-  font-size: 15pt;
 }

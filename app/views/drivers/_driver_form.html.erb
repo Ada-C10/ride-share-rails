@@ -4,16 +4,16 @@ locals: {
 }
 %>
 
-<%= form_with model: @driver, class: 'driver-form' do |f| %>
+<%= form_with model: @driver, class: 'db-form' do |f| %>
 
 <h2><%= form_title %></h2>
 
-<div class="driver-name">
+<div class="field-one">
 <%= f.label :name %>
 <%= f.text_field :name %>
 </div>
 
-<div class="driver-vin">
+<div class="field-two">
 <%= f.label :vin %>
 <%= f.text_field :vin %>
 </div>

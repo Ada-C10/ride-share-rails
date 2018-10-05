@@ -4,16 +4,16 @@ locals: {
 }
 %>
 
-<%= form_with model: @passenger, class: 'passenger-form' do |f| %>
+<%= form_with model: @passenger, class: 'db-form' do |f| %>
 
 <h2><%= form_title %></h2>
 
-<div class="passenger-name">
+<div class="field-one">
 <%= f.label :name %>
 <%= f.text_field :name %>
 </div>
 
-<div class="passenger-phone">
+<div class="field-two">
 <%= f.label :phone_num %>
 <%= f.text_field :phone_num %>
 </div>
