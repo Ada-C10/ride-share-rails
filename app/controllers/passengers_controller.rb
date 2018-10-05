@@ -23,7 +23,7 @@ class PassengersController < ApplicationController
     if @passenger.save
       redirect_to passengers_path
     else
-      puts "#{@passengers.errors}"
+      puts "#{@passenger.errors}"
       render :new
     end
   end

@@ -25,7 +25,7 @@ class TripsController < ApplicationController
     if @trip.save
       redirect_to passenger_path(@trip.passenger_id)
     else
-      puts "#{@trips.errors}"
+      puts "#{@trip.errors}"
       render :new
     end
   end
