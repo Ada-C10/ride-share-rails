@@ -32,7 +32,7 @@ class Driver < ApplicationRecord
     profit_array = []
 
     trips.each do |trip|
-      temp = trip.cost - 1.65
+      temp = trip.cost - 165
       profit_array << temp * 0.8
     end
     return profit_array.sum
