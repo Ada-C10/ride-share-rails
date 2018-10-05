@@ -8,12 +8,15 @@ locals: {
 
   <h3><%= form_title %></h3>
   <p>Please enter the following details:</p>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
 
-  <%= f.label :phone_number %>
-  <%= f.text_field :phone_num %>
-
-  <%= f.submit action_type, class: "passenger-form-submit-button" %>
+    <%= f.label :phone_number %>
+    <%= f.text_field :phone_num %>
+  </p>
+  <p>
+    <%= f.submit action_type, class: "passenger-form-submit-button" %>
+  </p>
 
 <% end %>

@@ -8,17 +8,21 @@ locals: {
 
 <h3><%= form_title %></h3>
 <p>Please enter the following details:</p>
-<%= field.label :name%>
-<%=field.text_field :name, placeholder: "Jenny" %>
+<p>
+  <%= field.label :name%>
+  <%=field.text_field :name, placeholder: "Jenny" %>
 
-<%= field.label :vin%>
-<%=field.text_field :vin, placeholder: "123456-789" %>
+  <%= field.label :vin%>
+  <%=field.text_field :vin, placeholder: "123456-789" %>
+</p>
+<p>
+  <%= field.label :car_make%>
+  <%=field.text_field :car_make, placeholder: "Tesla" %>
 
-<%= field.label :car_make%>
-<%=field.text_field :car_make, placeholder: "Tesla" %>
-
-<%= field.label :car_model%>
-<%=field.text_field :car_model, placeholder: "Model 3" %>
-
-<%=field.submit submit_type%>
+  <%= field.label :car_model%>
+  <%=field.text_field :car_model, placeholder: "Model 3" %>
+</p>
+<p>
+  <%=field.submit submit_type%>
+</p>
 <%end%>
