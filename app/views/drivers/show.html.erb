@@ -11,7 +11,6 @@
 </p>
 
 <p>
-  <p>All Trips: <%= (@driver.all_trips)%> </p>
   <p>Average Rating: <%= (@driver.average_rating) %> </p>
   <p>Total Earnings: $<%= "%.2f" % ((@driver.total_earnings) / 100) %> </p>
 
@@ -25,3 +24,13 @@
   <%= link_to "Edit Drivers ", edit_driver_path(@driver.id) %>
 
 </div>
+
+<div class="wrapper_index">
+  <h2>YOUR TRIPS</h2>
+  <ol>
+    <% @driver.all_trips.each do |trip| %>
+      <%=link_to trip.date, trip_path(trip.id)%>
+    </div>
+  </li>
+  <% end %>
+</ol>
