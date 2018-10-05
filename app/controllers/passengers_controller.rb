@@ -8,7 +8,7 @@ class PassengersController < ApplicationController
     @passenger = Passenger.find(passenger_id)
     @passenger_trips = @passenger.trips.order("date").page(params[:page]).per_page(4)
     if @passenger == nil
-      head :not_found
+      render 'layouts/not_found_page', status: :not_found
     end
   end
 

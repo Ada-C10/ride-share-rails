@@ -2,11 +2,12 @@ class DriversController < ApplicationController
   def index
     @drivers = Driver.order("name").page(params[:page]).per_page(7)
   end
+
   def show
     @driver = Driver.find_by(id: params[:id])
         @driver_trips = @driver.trips.order("date").page(params[:page]).per_page(4)
     if @driver.nil?
-    head :not_found
+    render 'layouts/not_found_page', status: :not_found
     end
   end
 
