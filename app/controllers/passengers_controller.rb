@@ -49,6 +49,10 @@ class PassengersController < ApplicationController
     redirect_to passengers_path
   end
 
+  def trips
+    redirect_to passengers_path
+  end
+
   private
   #
   # # Strong params: only let certain attributes
