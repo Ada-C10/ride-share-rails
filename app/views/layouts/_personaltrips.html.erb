@@ -42,11 +42,11 @@
       <div class="cell" data-title="Rating">
         <%= "#{trip.formatted_rating}" %>
       </div>
-      <div class="cell" data-title="ID">
-        <%= link_to "#{trip.id}", trip_path(trip.id) %>
+      <div class="cell" data-title="Edit">
+        <%= link_to "Edit Trip", edit_trip_path(trip.id) %>
       </div>
-      <div class="cell" data-title="ID">
-        <%= link_to "#{trip.id}", trip_path(trip.id) %>
+      <div class="cell" data-title="Delete">
+        <%= link_to "Delete Trip", trip_path(trip.id), method: :delete %>
       </div>
     </div>
 <%end%>
