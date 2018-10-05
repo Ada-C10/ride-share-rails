@@ -1,6 +1,6 @@
 class Passenger < ApplicationRecord
   has_many :trips, dependent: :destroy
-
+  validates :name, :phone_num, presence: true, uniqueness: true 
 
   def total_charges
     trips = self.trips.where.not(cost: nil)
