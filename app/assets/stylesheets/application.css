@@ -50,8 +50,14 @@
   font-size: 1.5rem;
 }
 
-.index-links a {
-  text-decoration: none;
+.index-links a:hover {
+  font-size: 25pt;
+  font-weight: 600;
+}
+
+.nav-bar li:hover {
+  font-size: 25pt;
+  font-weight: 600;
 }
 
 .form-errors {
