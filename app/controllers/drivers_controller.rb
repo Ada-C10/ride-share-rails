@@ -40,6 +40,23 @@ class DriversController < ApplicationController
     end
   end
 
+  def availability
+    # (driver_instance)
+    x = Driver.find_by(id: params[:id])
+
+    x.toggle!(:available).save
+    # if x.available
+    #   x.available = false
+    #   x.save
+    # else
+    #   x.available = true
+    #   x.save
+    # end
+
+    redirect_to driver_trips_path(driver_instance.id)
+  end
+
+
   private
   def driver_params
     return params.require(:driver).permit(

@@ -1,10 +1,10 @@
-<h2>In Trips View Template, index.html.erb</h2>
+
 
 <%= link_to "Homepage", root_path %>
 
 
 
-<% if @driver != nil %>
+<% if @driver %>
   <h2>Driver Information</h2>
 
   <strong>Name: <%= @driver.name %></strong>
@@ -13,6 +13,8 @@
   <br>
   <strong>Driver Earnings: <%= @driver.total_trip_earnings %></strong>
   <br>
+  <strong>Available? <%= @driver.available %></strong>
+  <%= link_to "Change Availability", availability_path(@driver) %>
 
 
   <h2>Driver Trips</h2>

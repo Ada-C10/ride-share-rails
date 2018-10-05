@@ -10,6 +10,10 @@ class Driver < ApplicationRecord
     driver_trips = self.trips.where(driver_id: id)
     num_of_trips = driver_trips.count
 
+    if num_of_trips == 0
+      return 0
+    end
+
     driver_trips.each do |trip|
       sum += trip.rating
     end
