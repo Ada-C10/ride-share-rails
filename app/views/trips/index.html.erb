@@ -13,7 +13,7 @@
 </li>
 <% end %>
 </ol> -->
-<table>
+<table class="trip_table">
   <tr>
     <th>ID</th>
     <th>Date</th>
@@ -22,10 +22,8 @@
     <th>Rating</th>
     <th>Cost</th>
   </tr>
-</table>
-<% @trips.each do |trip| %>
-<table>
   <tr>
+    <% @trips.each do |trip| %>
     <td><%= "#{trip.id}" %></td>
     <td><%= "#{trip.date}" %></td>
     <td><%= "#{trip.passenger.name}" %></td>
@@ -33,7 +31,7 @@
     <td><%= "#{trip.rating}" %></td>
     <td><%= "#{trip.cost}" %></td>
   </tr>
+  <% end %>
 </table>
-<% end %>
 </div>
 </div>
