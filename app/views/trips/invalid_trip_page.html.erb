@@ -1,0 +1,33 @@
+<div class="container" role="main">
+  <div class="c1">
+    <h1><%=link_to "Rideshare", home_path%></h1>
+  </div>
+  <div class="c2">
+    <div class="dropdown">
+      <button class="dropbtn">Drivers</button>
+      <div class="dropdown-content">
+        <%=link_to "View All", drivers_path%>
+        <%=link_to "Add Driver", new_driver_path %>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropbtn">Passengers</button>
+      <div class="dropdown-content">
+        <%=link_to "View All", passengers_path%>
+        <%=link_to "Add Passenger", new_passenger_path%>
+      </div>
+    </div>
+  </div>
+  <div class="c3">
+    <%= link_to "#{Passenger.find(@trip[:passenger_id]).name} Page", passenger_path(@trip[:passenger_id]) %>
+    <%= link_to "Passengers", passengers_path %>
+    <%=link_to "Return", request.referer.present? ? request.referer : home_path%>
+  </div>
+  <div class="c4">
+    <h2>Passenger Details</h2>
+    <p>
+      Sorry, no available drivers could be found. Please use one of these links to go back.
+    </p>
+  </p>
+</div>
+</div>
