@@ -2,7 +2,10 @@
 <p> Requesting trip for <strong> <%= @passenger.name%></strong></p>
 <ul>
   <li> You've been matched with:<strong> <%= @trip.driver.name%></strong></li>
-  <li> Your Driver's Average Rating:<strong><%=@trip.driver.average_rating%></strong></li>
+  <li> Your Driver's Average Rating: <strong><%=@trip.driver.average_rating%></strong></li>
+  <% @trip.driver.average_rating.round.times do  %>
+    ⭐️
+  <% end %>
   <li> Trip Cost: $5</li>
   <li>  <%= form_with model: @trip do |f|%>
     <%= f.label :rating, "Your trips rating:"%>

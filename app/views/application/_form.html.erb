@@ -1,3 +1,13 @@
+<% if model_name.errors.any? %>
+  <ul class="errors">
+    <% model.errors.each do |column, message| %>
+      <li>
+        <strong><%= column.capitalize %></strong> <%= message %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
 <%= form_with model: model_name do |f|%>
 <h1><%= action_name %></h1>
 <p> Please provide the following information:</p>

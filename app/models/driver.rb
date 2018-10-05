@@ -1,5 +1,7 @@
 class Driver < ApplicationRecord
   has_many :trips
+  validates :name, presence: true
+  validates :vin, presence: true, uniqueness: true
 
   def total_earned
     before_fees = (self.trips.reduce(0.0) { |sum, trip| sum + trip.cost }) / 100

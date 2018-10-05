@@ -7,6 +7,9 @@
   <li>VIN: <%= @driver[:vin] %></li>
   <li> Total Earned: $<%= @driver.total_earned%></li>
   <li> Average Rating: <%= @driver.average_rating%></li>
+  <% @driver.average_rating.round.times do  %>
+    ⭐️
+  <% end %>
   </ul>
   <section>
     <%= render partial: "list_of_trips", locals: { user: "Driver"} %>
