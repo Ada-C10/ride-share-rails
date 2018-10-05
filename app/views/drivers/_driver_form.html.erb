@@ -14,5 +14,11 @@ locals: {
 <%= field.label :vin%>
 <%=field.text_field :vin, placeholder: "123456-789" %>
 
+<%= field.label :car_make%>
+<%=field.text_field :car_make, placeholder: "Tesla" %>
+
+<%= field.label :car_model%>
+<%=field.text_field :car_model, placeholder: "Model 3" %>
+
 <%=field.submit submit_type%>
 <%end%>
