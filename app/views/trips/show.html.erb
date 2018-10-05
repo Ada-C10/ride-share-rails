@@ -2,8 +2,21 @@
 
   <h2>Trip #: <%= @trip.id %></h2>
 
-  <p class="description-text">Driver_id: <%= @trip.driver_id %> | Passenger_id: <%= @trip.passenger_id %> | Date: <%= @trip.date %> | Trip Rating: <%= @trip.rating %> out of 5 | Trip Cost: $<%= "%.2f" % ((@trip.cost) / 100.00) %></p>
-</div>
+  <p class="description-text">Driver_id: <%= @trip.driver_id %> | Passenger_id: <%= @trip.passenger_id %> | Date: <%= @trip.date %> | Trip Cost: $<%= "%.2f" % ((@trip.cost) / 100.00) %> |
+
+    <% if @trip.rating.nil? %>
+      <%= form_with model: @trip, class: 'trip-form' do |f| %>
+      <%= f.label :rating %>
+      <%= f.select :rating, [*1..5] %>
+      <%= f.submit "Submit Rating" %>
+      <% end %>
+    <% else %>
+      </li>Trip Rating: <%= @trip.rating %> out of 5
+    <% end %>
+  </p>
+
+  </div>
+
 <div class="return-home">
   <h3>
     <%= link_to "Return To Passenger", passenger_path(@trip.passenger_id), class: "passengers_page" %>
