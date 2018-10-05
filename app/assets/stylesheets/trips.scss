@@ -1,3 +1,21 @@
 // Place all the styles related to the Trips controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+* {
+  background-color: #D0D3D4;
+  color: #1A5276;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 5px;
+}
+
+nav {
+    align-items: flex-start;
+    justify-content:space-between;
+    align-items: flex-start;
+    text-decoration: none;
+    color: #28B463;
+}

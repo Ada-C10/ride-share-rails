@@ -1,3 +1,27 @@
 // Place all the styles related to the Drivers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+* {
+  background-color: #D0D3D4;
+  color: #1A5276;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 5px;
+}
+
+nav {
+    align-items: flex-start;
+    justify-content:space-between;
+    align-items: flex-start;
+
+}
+
+nav a {
+  text-decoration: none;
+  color: #2980B9;
+}
+
+a:hover{
+    color: #95A5A6;
+}
