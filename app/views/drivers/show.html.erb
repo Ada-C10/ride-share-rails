@@ -37,11 +37,6 @@
       <td><%= trip.date %></td>
 
 
-      
-      <td><%= (trip.cost.to_i/100.0).round(2) %></td>
-
-
-
 
       <td><% if trip.passenger != nil %>
         <%= link_to trip.passenger.name, passenger_path(trip.passenger.id)%>
@@ -50,7 +45,7 @@
         <% end %>
       </td>
 
-      <td><%= trip.cost %></td>
+      <td><%= (trip.cost.to_i/100.0).round(2) %></td>
 
       <td><%= trip.rating %></td>
     </tr>
