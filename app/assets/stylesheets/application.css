@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Faster+One|Krub');/*
+@import url('https://fonts.googleapis.com/css?family=Faster+One|Krub');
+/*
 * This is a manifest file that'll be compiled into application.css, which will include all the files
 * listed below.
 *
@@ -13,13 +14,17 @@
 *= require_tree .
 *= require_self
 */
-
+/* @font-face {
+    font-family: 'Faster One', cursive;;
+    src: url('https://fonts.googleapis.com/css?family=Faster+One|Krub');
+} */
 
 html,
 body {
   margin: 0;
   padding: 0;
   height: 100%;
+  font-family: 'Krub', sans-serif;
 }
 
 

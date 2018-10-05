@@ -1,22 +1,23 @@
-
+// @import url('https://fonts.googleapis.com/css?family=Faster+One|Krub');
 // Place all the styles related to the Trips controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 table {
-  font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 100%;
   table-layout: fixed;
-  font-family: 'Krub', sans-serif;
+
 }
 
 td, th {
   border: 1px solid #0B132B;
   text-align: left;
+
   // padding: 8px;
 }
 
 .trip_table tr:nth-child(even) {
   background-color: gray;
+  font-family: 'Krub', sans-serif;
 }
