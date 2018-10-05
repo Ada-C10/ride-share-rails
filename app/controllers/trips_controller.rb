@@ -4,14 +4,13 @@ class TripsController < ApplicationController
     if params[:passenger_id]
       @user = Passenger.find_by(id: params[:passenger_id])
       @trips = @user.trips
+      # do something if trips not found
 
     elsif params[:driver_id]
       @user = Driver.find_by(id: params[:driver_id])
       @trips = @user.trips
-
     else
       @trips = Trip.all
-
     end
   end
 
