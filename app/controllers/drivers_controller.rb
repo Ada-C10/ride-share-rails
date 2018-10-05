@@ -5,9 +5,10 @@ class DriversController < ApplicationController
 
   def show
     @driver = Driver.find_by(id: params[:id])
-        @driver_trips = @driver.trips.order("date").page(params[:page]).per_page(4)
     if @driver.nil?
-    render 'layouts/not_found_page', status: :not_found
+      render 'layouts/not_found_page', status: :not_found
+    else
+      @driver_trips = @driver.trips.order("date").page(params[:page]).per_page(4)
     end
   end
 
