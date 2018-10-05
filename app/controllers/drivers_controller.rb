@@ -34,7 +34,7 @@ class DriversController < ApplicationController
     @driver = Driver.find_by(id: params[:id])
 
     if @driver.update(driver_params)
-      redirect_to all_drivers_path(@driver.id)
+      redirect_to drivers_path(@driver.id)
     else
       render :update
     end

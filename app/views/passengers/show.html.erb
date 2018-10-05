@@ -2,7 +2,7 @@
 
   <h2><%= @passenger.name %> | <%= @passenger.id %></h2>
   <p>
-    <%= link_to "Add Trip", passenger_trips_path(@passenger.id), method: :post %>|
+    <%= link_to "Add Trip", passenger_trips_path(@passenger.id), method: :post %> |
     <%= link_to "Edit", edit_passenger_path(@passenger.id), class: "edit-link" %> |
     <%= link_to "Delete", passenger_path(@passenger.id), method: :delete, data: {confirm: "Are you sure you want to get rid of passenger #{@passenger.name}?" } %>
   </p>
@@ -12,22 +12,17 @@
       Phone Number: <%= @passenger.phone_num %>
     </p>
     <p>
-      Total Amount Charged: $<%= @passenger.total_cost %>
+      Total Amount Charged: $<%= "%.2f" % (@passenger.total_cost) %>
     </p>
     <p>
       Trips: <br />
       <% @passenger.list_trips.each do |trip| %>
-      Trip_ID: <%= trip.id %> <br />
-      Date: <%= trip.date %> <br />
-      Driver_ID: <%= trip.driver_id %> <br />
-      Passenger_ID: <%= trip.passenger_id %> <br/>
-      Rating: <%= trip.rating %> <br/>
-      Cost: $<%= (trip.cost/100.to_f) %> <br /></br>
+      <%=link_to trip.date, trip_path(trip.id) %> <br />
       <% end %>
           </p>
   </div>
   <div class="return-home">
     <h3>
-      <%= link_to "Return Home", passenger_path, class: "homepage" %>
+      <%= link_to "Return Home", trips_path, class: "homepage" %>
     </h3>
   </div>
