@@ -62,9 +62,6 @@
  }
 
  #main_container li {
-  display: flex;
-  justify-content: space-around;
-  float: left;
   padding: 1rem;
  }
 
