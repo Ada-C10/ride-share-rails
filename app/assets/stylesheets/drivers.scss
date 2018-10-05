@@ -94,7 +94,8 @@ tr:hover {
   -moz-box-shadow:    3px 3px 5px 6px #ccc;
  -webkit-box-shadow: 3px 3px 5px 6px #ccc;
  box-shadow:         3px 3px 5px 6px #ccc;
- background-color: #DEB887;
+ display: flex;
+ height: 400px;
 }
 
 .form-fill h1 {
@@ -103,4 +104,56 @@ tr:hover {
 
 .form-fill p {
   margin: 20px;
+  font-size: 25px;
+}
+
+.form-fill .background-photo {
+  width: 40%;
+  background-image: url("https://images.unsplash.com/photo-1536244123426-10030d193abe?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=de4f3ffa1d587e12a8bb4896091992b2&w=1000&q=80");
+}
+
+.form-contents {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.button {
+	/* background styles */
+  margin-top: 30px;
+	position: relative;
+	display: inline-block;
+	padding: 15px 25px;
+	background-color: green; /*for compatibility with older browsers*/
+	background-image: linear-gradient(#008B8B,#2F4F4F);
+  border-radius: 15px;
+
+	/* text styles */
+	text-decoration: none;
+  font-family: 'K2D';
+	color: #fff;
+	font-size: 20px;
+	font-weight: 100;
+}
+
+.button:hover{
+   box-shadow:
+       inset 0 0 50px #fff,      /* inner white */
+       inset 20px 0 80px #2F4F4F,   /* inner left magenta short */
+       inset -20px 0 80px #0ff,  /* inner right cyan short */
+       inset 20px 0 300px #2F4F4F,  /* inner left magenta broad */
+       inset -20px 0 300px #0ff, /* inner right cyan broad */
+       0 0 50px #fff,            /* outer white */
+       -10px 0 80px #2F4F4F,        /* outer left magenta */
+       10px 0 80px #0ff;         /* outer right cyan */
+}
+
+.text_field {
+  border: 0;
+  outline: 0;
+  background: transparent;
+  border-bottom: 1px solid black;
+  font-family: 'K2D';
+  font-size: 20px;
+  color: gray;
 }
