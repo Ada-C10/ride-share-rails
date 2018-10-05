@@ -1,6 +1,16 @@
 <h1>Rideshare Drivers</h1>
 
 <section class = "drivers-list">
+  <ul>
+    <li>
+      <strong>Driver ID: </strong>
+      <% @drivers.each do |driver| %>
+    <li>
+      <%= driver.id %>
+    </li>
+    <% end %>
+  </ul>
+
   <ul class = "drivers-list-names">
     <li><strong>Driver Name: </strong>
       <% @drivers.each do |driver| %>
@@ -14,16 +24,7 @@
       <li><strong>Driver Average Rating: </strong>
         <% @drivers.each do |driver| %>
         <li>
-          <%= rand(1..5) %>
-        </li>
-        <% end %>
-      </ul>
-
-      <ul class = "drivers-list-trips-links">
-        <li><strong>Driver Trips: </strong></li>
-        <% @drivers.each do |driver| %>
-        <li>
-          View Trips
+          <%= driver.average_rating.round(1) %>
         </li>
         <% end %>
       </ul>
