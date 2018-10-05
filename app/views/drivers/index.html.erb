@@ -1,7 +1,7 @@
 <h1> All Drivers </h1>
 
 <ul>
-  <% @drivers.sort.each do |driver| %>
+  <% @drivers.sort.reverse.each do |driver| %>
     <li><strong><%=driver.name %></strong></li>
     <%=link_to "View Details", driver_path(driver.id) %> |
     <%=link_to "Edit", edit_driver_path(driver.id) %> |

@@ -2,8 +2,7 @@
 <h1> All Passengers </h1>
 
 <ul>
-  <!-- <% @passengers.sort_by{|e| e[:name]} %> -->
-  <% @passengers.each do |passenger| %>
+  <% @passengers.sort.each do |passenger| %>
     <li><strong><%=passenger.name %></strong></li>
     <%=link_to "View Details", passenger_path(passenger.id) %> |
     <%= link_to "Edit", edit_passenger_path(passenger) %> |
