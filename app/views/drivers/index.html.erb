@@ -1,6 +1,4 @@
-<h1>Drivers#index</h1>
-<p>Find me in app/views/drivers/index.html.erb</p>
-
+<h1>Drivers List</h1>
 
 <div class="wrapper">
 
@@ -17,10 +15,11 @@
         Rating
       </div>
       <div class="cell">
-
+        Status
       </div>
       <div class="cell">
-
+      </div>
+      <div class="cell">
       </div>
     </div>
 
@@ -34,6 +33,13 @@
       </div>
       <div class="cell" data-title="Rating">
         <%= "#{driver.average_rating}"%>
+      </div>
+      <div class="cell" data-title="Status">
+        <% if driver.is_available? == true %>
+          <span class="dot_available"></span>
+        <% else %>
+          <span class="dot_unavailable"></span>
+        <%end%>
       </div>
       <div class="cell" data-title="Edit">
         <%= link_to "Edit", edit_driver_path(driver.id)%>

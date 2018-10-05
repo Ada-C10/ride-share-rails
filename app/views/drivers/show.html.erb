@@ -7,63 +7,6 @@
 <%= link_to "Delete", driver_path(@driver.id), method: :delete, data: {confirm: 'Are you sure you want to delete this driver?'} %>
 
 
-<div class="wrapper">
-
-  <div class="table">
-
-    <div class="row header">
-      <div class="cell">
-        Trip ID
-      </div>
-      <div class="cell">
-        Date
-      </div>
-      <div class="cell">
-        Driver
-      </div>
-      <div class="cell">
-        Passenger
-      </div>
-      <div class="cell">
-        Price
-      </div>
-      <div class="cell">
-        Rating
-      </div>
-      <div class="cell">
-        Delete
-      </div>
-
-    </div>
-
-<% @driver.trips.each do |trip| %>
-    <div class="row">
-      <div class="cell" data-title="ID">
-        <%= link_to trip.id, trip_path(trip.id) %>
-      </div>
-      <div class="cell" data-title="Date">
-        <%= trip.date %>
-      </div>
-      <div class="cell" data-title="Driver">
-        <%= trip.driver.name %>
-      </div>
-      <div class="cell" data-title="Passenger">
-        <%= trip.passenger.name %>
-      </div>
-      <div class="cell" data-title="Price">
-        <%= trip.formatted_cost %>
-      </div>
-      <div class="cell" data-title="Rating">
-        <%= trip.formatted_rating %>
-      </div>
-      <div class="cell" data-title="Delete">
-        <%= link_to "Delete", trip_path(trip.id), method: :delete, data: {confirm: 'Are you sure you want to delete this trip?'} %>
-      </div>
-    </div>
-<%end%>
-
-
-  </div>
-
-
-</div>
+<%= render partial: "layouts/personaltrips",
+locals: {all_trips: @driver.trips,
+        } %>

@@ -1,4 +1,4 @@
-
+<h1>Passenger Detail</h1>
 <h1><%= @passenger.name %> (<%= @passenger.status.to_s.gsub("_", "-") %>)</h1>
 <h2>Total Charged : <%= "$" + "%.2f" % @passenger.total_cost%></h2>
 <% if @passenger.status == :available %>
@@ -7,59 +7,6 @@
 <%= link_to "Edit", edit_passenger_path(@passenger.id) %>
 <%= link_to "Delete", passenger_path(@passenger.id), method: :delete, data: {confirm: 'Are you sure you want to delete this passenger?'} %>
 
-
-<div class="wrapper">
-
-  <div class="table">
-
-    <div class="row header">
-      <div class="cell">
-        Trip ID
-      </div>
-      <div class="cell">
-        Date
-      </div>
-      <div class="cell">
-        Driver
-      </div>
-      <div class="cell">
-        Passenger
-      </div>
-      <div class="cell">
-        Price
-      </div>
-      <div class="cell">
-        Rating
-      </div>
-
-    </div>
-
-<% @trips.each do |trip| %>
-
-    <div class="row">
-      <div class="cell" data-title="ID">
-        <%= link_to "#{trip.id}", trip_path(trip.id) %>
-      </div>
-      <div class="cell" data-title="Date">
-        <%= "#{trip.date}"%>
-      </div>
-      <div class="cell" data-title="Driver">
-        <%= "#{trip.driver.name}"%>
-      </div>
-      <div class="cell" data-title="Passenger">
-        <%= "#{trip.passenger.name}"%>
-      </div>
-      <div class="cell" data-title="Price">
-        <%= "#{trip.formatted_cost}" %>
-      </div>
-      <div class="cell" data-title="Rating">
-        <%= "#{trip.formatted_rating}" %>
-      </div>
-    </div>
-<%end%>
-
-
-  </div>
-
-
-</div>
+<%= render partial: "layouts/personaltrips",
+locals: {all_trips: @trips,
+        } %>
