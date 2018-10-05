@@ -273,8 +273,8 @@ label {
 
 .feedback-input {
 	color:#3c3c3c;
-	font-family: Helvetica, Arial, sans-serif;
-  font-weight:500;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 500;
 	font-size: 18px;
 	border-radius: 0;
 	line-height: 22px;
@@ -366,21 +366,21 @@ input:focus, textarea:focus {
 }
 
 #button-orange{
-	font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
 	float:left;
 	width: 100%;
 	border: #fbfbfb solid 4px;
 	cursor:pointer;
 	background-color: #ED7D3A;
 	color:white;
-	font-size:24px;
+	font-size:40px;
 	padding-top:22px;
 	padding-bottom:22px;
 	-webkit-transition: all 0.3s;
 	-moz-transition: all 0.3s;
 	transition: all 0.3s;
   margin-top: -4px;
-  font-weight:700;
   border-radius: 5px;
 }
 
@@ -490,6 +490,8 @@ input:focus, textarea:focus {
 h1.index-header {
   padding-top: 0px;
   padding-bottom: 30px;
+  font-weight: 200;
+  font-size: 40px;
 }
 
 .table.list-pages {
