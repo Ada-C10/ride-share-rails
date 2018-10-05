@@ -44,14 +44,14 @@ class DriversController < ApplicationController
     # (driver_instance)
     x = Driver.find_by(id: params[:id])
 
-    x.toggle!(:available).save
-    # if x.available
-    #   x.available = false
-    #   x.save
-    # else
-    #   x.available = true
-    #   x.save
-    # end
+    # x.toggle!(:available).save
+    if x.available
+      x.available = false
+      x.update
+    else
+      x.available = true
+      x.update
+    end
 
     redirect_to driver_trips_path(driver_instance.id)
   end

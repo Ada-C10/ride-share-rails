@@ -15,6 +15,6 @@ Rails.application.routes.draw do
   resources :passengers do
     resources :trips, include: [:index, :show, :new, :delete]
   end
-get '/drivers/:driver_id/trips', to: 'drivers#availability', as: 'availability'
+patch '/drivers/:driver_id/trips', to: 'drivers#availability', as: 'availability'
 
 end
