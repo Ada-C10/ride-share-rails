@@ -6,21 +6,29 @@ class Driver < ApplicationRecord
 
   def rating
     num_trips = self.trips.length
+    ongoing_trips = 0
     rating = 0
 
     num_trips.times do |i|
-      rating += self.trips[i].rating
+      if trip[i].rating != nil
+        rating += self.trips[i].rating
+      else
+        ongoing_trips += 1
+      end
     end
 
-    rating = rating.to_f/num_trips
+    rating = rating.to_f/(num_trips-ongoing_trip)
     return rating.round(2)
   end
 
   def earned
     num_trips = self.trips.length
     money = 0
+
     num_trips.times do |i|
-      money += (self.trips[i].cost-165) * 0.80
+      if trip[i].cost != nil
+        money += (self.trips[i].cost-165) * 0.80
+      end
     end
 
     money = money/100

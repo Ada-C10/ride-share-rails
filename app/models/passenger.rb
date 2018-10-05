@@ -8,7 +8,9 @@ class Passenger < ApplicationRecord
     money = 0
 
     self.trips.each do |trip|
-      money += trip.cost
+      if trip.cost != nil
+        money += trip.cost
+      end
     end
 
     money = money.to_f/100
