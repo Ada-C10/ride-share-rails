@@ -19,10 +19,10 @@
   </div>
 </div>
  <div class="c3">
-   <%= link_to "Request Ride", passenger_trips_path(@passenger.id), method: :post %>
+   <%= link_to "Request Ride", passenger_trips_path(@passenger.id), :class => "request-ride-button", method: :post %>
    <%= link_to "Edit #{@passenger.name}", edit_passenger_path(@passenger.id) %>
-   <%= link_to "Delete #{@passenger.name}", passenger_path(@passenger.id), method: :delete, data: { confirm: "Are you sure you want to delete the passenger #{@passenger.name}?" } %>
    <%=link_to "Return", request.referer.present? ? request.referer : home_path%>
+   <%= link_to "Delete #{@passenger.name}", passenger_path(@passenger.id),:class => "delete-button", method: :delete, data: { confirm: "Are you sure you want to delete the passenger #{@passenger.name}?" } %>
  </div>
  <div class="c4">
    <h2>Passenger Details</h2>
