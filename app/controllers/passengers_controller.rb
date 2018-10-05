@@ -5,6 +5,7 @@ class PassengersController < ApplicationController
   end
 
   def show
+    @trip = Trip.new
     @passenger = Passenger.find_by(id: params[:id])
     if @passenger.nil?
       head :not_found
@@ -49,7 +50,7 @@ class PassengersController < ApplicationController
 
 
   private
-  
+
   def passenger_params
     return params.require(:passenger).permit(
       :name,
