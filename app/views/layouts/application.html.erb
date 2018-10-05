@@ -12,13 +12,15 @@
   <% unless current_page?(root_path) %>
   <header>
     <div class="crop">
-      <%= image_tag("header.svg", :alt => "home") %>
-    </div>
+
+        <!-- Vector Graphics by Vecteezy.com -->
+        <%= image_tag("header.svg", :alt => "home", class: "responsive-img") %>
+      </div>
     <nav id="navbar">
       <ul>
         <li>
           <div class="dropdown">
-          <button class="dropbtn"><%= link_to "Home", root_path %></button>
+            <button class="dropbtn"><%= link_to "Home", root_path %></button>
           </div>
         </li>
         <li>
@@ -37,26 +39,26 @@
               <%= link_to "Driver List", drivers_path %>
               <%= link_to "Add a Driver", new_driver_path %>
             </div>
-        </li>
-      </ul>
-    </nav>
-    <% end %>
-  </header>
+          </li>
+        </ul>
+      </nav>
+      <% end %>
+    </header>
 
-  <div class="flash-message">
-    <% flash.each do |key, value| %>
-    <div><%= value %></div>
-    <% end %>
-  </div>
+    <div class="flash-message">
+      <% flash.each do |key, value| %>
+      <div><%= value %></div>
+      <% end %>
+    </div>
 
-  <main>
-    <%= yield %>
-  </main>
+    <main>
+      <%= yield %>
+    </main>
 
-  <footer class="footer">
-    <div>Copyright © 2018 | Benezra & Shields </div>
-  </footer>
+    <footer class="footer">
+      <div>Copyright © 2018 | Benezra & Shields </div>
+    </footer>
 
-</body>
+  </body>
 
-</html>
+  </html>

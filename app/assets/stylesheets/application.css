@@ -15,9 +15,8 @@
 */
 
 .crop img {
-    /* width: 400px;
-    height: 300px; */
-    margin: -190px 0 0 -100px;
+    margin: -140px 0 0 -100px;
+    max-width: 100%;
 }
 
 .application-header {
@@ -87,4 +86,10 @@ li {
   justify-content: center;
   align-items: center;
   margin-top: 10px;
+}
+
+.crop {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
