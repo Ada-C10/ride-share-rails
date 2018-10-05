@@ -42,18 +42,6 @@
       <% end %>
     </td>
 
-    <!-- <td>
-      <% if trip.rating.nil? %>
-      <%= form_with model: @trip, class: 'trip-form' do |f| %>
-      <%= f.label :rating %>
-      <%= f.select :rating, [*1..5] %>
-      <%= f.submit "Submit Rating" %>
-      <% end %>
-      <% else %>
-      <%= trip.rating %>
-      <% end %>
-    </td> -->
-
     <td><button> <%= link_to "Edit", edit_trip_path(trip.id) %> </button></td>
     <td><button> <%= link_to "Delete", trip_path(trip.id), method: :delete, data: { confirm: "Are you sure you want to delete #{trip.id}?" } %> </button></td>
 
