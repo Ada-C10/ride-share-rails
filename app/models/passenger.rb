@@ -1,5 +1,5 @@
 class Passenger < ApplicationRecord
-  has_many :trips
+  has_many :trips, dependent: :destroy
   has_many :drivers, through: :trips
 
   def total_cost
