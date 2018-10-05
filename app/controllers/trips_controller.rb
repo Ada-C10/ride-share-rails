@@ -52,13 +52,13 @@ class TripsController < ApplicationController
 
   def update
     @trip = Trip.find_by(id: params[:id].to_i)
-    @trip.passenger.status = "Standby"
-    @trip.passenger.save
+    # @trip.passenger.status = "Standby"
+    # @trip.passenger.save
     @trip.update(trip_params)
     if @trip.save
       redirect_to passenger_trip_path(@trip.passenger.id, @trip.id)
     else
-      render :new
+      render :edit
     end
   end
 
