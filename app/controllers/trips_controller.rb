@@ -18,7 +18,7 @@ class TripsController < ApplicationController
 
       driver = (Driver.all.select { |d| d.availability == true }).sample
 
-      @trip = passenger.trips.new(driver_id: driver.id, passenger_id: passenger.id, date: "2017-02-02", rating: 0, cost: 0)
+      @trip = passenger.trips.new(driver_id: driver.id, passenger_id: passenger.id, date: Date.today, rating: 0, cost: 0)
 
       if @trip.save
         redirect_to passenger_path(passenger.id)
@@ -35,10 +35,12 @@ class TripsController < ApplicationController
   end
 
   def update
-    trip = Trip.find(params[:id])
-    trip.update(trip_params)
-
-    redirect_to trip_path(trip.id)
+    @trip = Trip.find(params[:id])
+    if @trip.update(trip_params)
+      redirect_to trip_path(trip.id)
+    else
+      render :edit, status: :bad_request
+    end
   end
 
   def destroy

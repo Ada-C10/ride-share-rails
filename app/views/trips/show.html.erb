@@ -1,25 +1,26 @@
 <h1>Trip details</h1>
 
-<ul>
-    <li>
-      <%= @trip.id %>
-    </li>
-    <li>
-      <%= link_to "#{@trip.driver_id}", driver_path(@trip.driver_id) %>
-    </li>
-    <li>
-      <%= link_to "#{@trip.passenger_id}", passenger_path(@trip.passenger_id) %>
-    </li>
-    <li>
-      <%= @trip.date %>
-    </li>
-    <li>
-      <%= @trip.rating%>
-    </li>
-    <li>
-      <%= @trip.cost%>
-    </li>
-</ul>
+<section class="trips">
+  <table id="trips-table">
+    <tr>
+      <th>Trip ID</th>
+      <th>Driver's ID</th>
+      <th>Passenger's ID</th>
+      <th>Date</th>
+      <th>Rating</th>
+      <th>Cost ($)</th>
+    </tr>
+
+    <tr>
+      <td><%= @trip.id %></td>
+      <td><%= link_to "#{@trip.driver_id}", driver_path(@trip.driver_id) %></td>
+      <td><%= link_to "#{@trip.passenger_id}", passenger_path(@trip.passenger_id) %></td>
+      <td><%= @trip.date %></td>
+      <td><%= @trip.rating%></td>
+      <td><%= (@trip.cost.to_f) * 0.01 %></td>
+    </tr>
+  </table>
+</section>
 
 <section>
   <%= link_to "Edit", edit_trip_path(@trip.id) %>
