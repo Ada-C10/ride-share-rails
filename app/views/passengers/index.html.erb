@@ -1,7 +1,4 @@
 <h2>Passengers List</h2>
-<div class="apple_pagination">
-  <%= will_paginate @passengers %>
-</div>
 <table>
   <tbody>
     <% @passengers.each do |passenger| %>
@@ -23,3 +20,6 @@
     <% end %>
   </tbody>
 </table>
+<div class="apple_pagination">
+  <%= will_paginate @passengers, :page_links => false %>
+</div>

@@ -9,11 +9,11 @@
 </head>
 
 <body>
+  <% unless current_page?(root_path) %>
   <header>
-    <div class="application-header">
-      <h1>Rideshare Rails!</h1>
+    <div class="crop">
+      <%= image_tag("header.svg", :alt => "home") %>
     </div>
-    <% unless current_page?(root_path) %>
     <nav id="navbar">
       <ul>
         <li>
@@ -54,7 +54,7 @@
   </main>
 
   <footer>
-    <div>Copyright © 2018</div>
+    <div>Copyright © 2018 | Benezra & Shields </div>
   </footer>
 
 </body>
