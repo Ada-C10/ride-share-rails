@@ -5,8 +5,8 @@
   <body>
     <section class="driver-header">
       <h1>Passenger Info</h1>
-      <button class="driver-button"><%= link_to 'Edit', edit_driver_path(@passenger.id) %></button>
-      <button class="driver-button"><%= link_to "Delete", driver_path(@passenger.id), method: :delete, data: {confirm: "Are you sure?"} %></button>
+      <button class="driver-button"><%= link_to 'Edit', edit_passenger_path(@passenger.id) %></button>
+      <button class="driver-button"><%= link_to "Delete", passenger_path(@passenger.id), method: :delete, data: {confirm: "Are you sure?"} %></button>
       <button class ="driver-button"><%= link_to "Add trip", new_passenger_trip_path(@passenger.id) %></button>
     </section>
     <section class="driver-info">
