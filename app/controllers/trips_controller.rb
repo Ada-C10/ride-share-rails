@@ -16,24 +16,13 @@ class TripsController < ApplicationController
     @trip = Trip.new
   end
 
-#helper method for create trip
-  def find_available_driver
-    drivers = Driver.all
-    driver = drivers.find_by(available?: true)
-    if driver
-      driver.update(available?: false)
-      driver.save
-      return driver
-    end
-  end
-
   def create
 
     #through passenger_trip path
     if params[:passenger_id]
       passenger = Passenger.find_by(id: params[:passenger_id])
 
-      driver = find_available_driver
+      driver = Trip.find_available_driver
 
       @trip = Trip.new(passenger: passenger, cost: 0, date: Date.today, driver: driver)
       if driver == nil
