@@ -6,8 +6,8 @@
   <p>Phone Number:<%= @passenger.phone_num %> </p>
   <p>Total Spending in USD: $<%= sprintf('%.2f', @passenger.total_spending/100) %> </p>
   <p><%= link_to "Request New Trip", passenger_trips_path(@passenger.id), method: :create %> </p>
-  <%= button_to "Edit Passenger", edit_passenger_path(@passenger.id), method: :get %>
-  <%= button_to "Delete Passenger", passenger_path(@passenger.id), method: :delete , data: {confirm: "Are you sure?"}%>
+  <p><%= button_to "Edit Passenger", edit_passenger_path(@passenger.id), method: :get %></p>
+  <p><%= button_to "Delete Passenger", passenger_path(@passenger.id), method: :delete , data: {confirm: "Are you sure?"}%></p>
   <!-- <p><%= link_to "Trips", passenger_trips_path(@passenger.id) %> </p> -->
   <table class="header">
   <tr><td>Trip ID</td><td>Trip Date</td><td>Driver Name</td><td>Rating</td><td>Cost</td></tr>
