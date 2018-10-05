@@ -30,15 +30,20 @@ class TripsController < ApplicationController
   end
 
   def create
+    all_avail_drivers = Driver.where(available: true)
+    first_avail_driver = all_avail_drivers.first
+
     passenger_id = params[:passenger_id]
     @trip = Trip.new(
       date: Date.today,
       rating: 0.0,
       cost: 0,
-      driver_id: 99,
+      driver_id: first_avail_driver.id,
       passenger_id: passenger_id
     )
 
+    # Change driver's availability
+    first_avail_driver.update(available: false)
 
 
 
