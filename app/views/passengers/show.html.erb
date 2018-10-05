@@ -1,33 +1,28 @@
 <h1>Passenger Details</h1>
-<% if @passenger.nil? %>
-<h1> 404 not found </h1>
-<% else %>
-<section class="passenger_details">
-<h2>Name: <%= @passenger.name%></h2>
-<h3>Phone: <%= @passenger.phone_num%></h3>
-<h3>ID: <%= @passenger.id%></h3>
-<% end %>
-<div>
-<h2>Total Spent: <%= "🚀"'%.2f' %  (@passenger.total_cost/100) %></h2>
-</div>
-</section>
 
+<section class="passenger_details">
+  <h1><%= @passenger.name %></h1>
+  <section class="edit_actions">
+    <%= link_to "All Passengers", passengers_path %>
+    <%= "|" %>
+    <%= link_to "Edit", edit_passenger_path(@passenger.id) %>
+    <%= "|" %>
+    <%= link_to "Delete", passenger_path(@passenger.id), method: :delete, data: {confirm: "Are you sure?"} %>
+  </section>
+
+  <br />
+  <strong>Phone: <%= @passenger.phone_num%></strong>
+  <br />
+  <strong>ID: <%= @passenger.id%></strong>
+  <br />
+  <strong>Total Spent: <%= "🚀"'%.2f' %  (@passenger.total_cost/100) %></strong>
+  <br /><br />
+</section>
 
 <section class="ride_request">
-<div class="ride_button">
-<h3><%= link_to "Request a Trip", passenger_trips_path(@passenger.id), method: :post %></h3>
-</div>
-</section>
-
-
-
-
-<section class="edit_actions">
-  <%= link_to "All Passengers", passengers_path %>
-  <%= "|" %>
-  <%= link_to "Edit", edit_passenger_path(@passenger.id) %>
-  <%= "|" %>
-  <%= link_to "Delete", passenger_path(@passenger.id), method: :delete, data: {confirm: "Are you sure?"} %>
+  <div class="ride_button">
+    <strong class="button_size"><%= link_to "Request a Trip", passenger_trips_path(@passenger.id), method: :post %></strong>
+  </div>
 </section>
 
 <% active_trips = @trips.where(active: true).order(:date) %>
@@ -43,25 +38,23 @@
   </tr>
 
   <tbody>
-
-  <% if @passenger.trips.empty? %>
-    <%= "No Trips on Record" %>
-  <% else %>
-    <% active_trips.each do |trip| %>
-      <tr>
-        <td> <%= link_to "#{trip.id}", trip_path(trip.id) %></td>
-        <td> <%= trip.driver_id %></td>
-        <td> <%= trip.date %></td>
-        <td> <%= trip.rating %></td>
-        <td> <%= "🚀"'%.2f' % (trip.cost/100) %></td>
-        <% if trip.in_progress == true %>
-        <td id='in_progress'> <i class="w3-xxlarge material-icons w3-spin icons">refresh</i></td>
-        <% else %>
-        <td id='complete'> <i class="w3-xxlarge material-icons icons" >check_circle_outline</i></td>
-        <% end %>
-      </tr>
+    <% if @passenger.trips.empty? %>
+      <%= "No Trips on Record" %>
+    <% else %>
+      <% active_trips.each do |trip| %>
+        <tr>
+          <td> <%= link_to "#{trip.id}", trip_path(trip.id) %></td>
+          <td> <%= trip.driver_id %></td>
+          <td> <%= trip.date %></td>
+          <td> <%= trip.rating %></td>
+          <td> <%= "🚀"'%.2f' % (trip.cost/100) %></td>
+          <% if trip.in_progress == true %>
+          <td id='in_progress'> <i class="w3-xxlarge material-icons w3-spin icons">refresh</i></td>
+          <% else %>
+          <td id='complete'> <i class="w3-xxlarge material-icons icons" >check_circle_outline</i></td>
+          <% end %>
+        </tr>
       <% end %>
     <% end %>
   </tbody>
 </table>
-

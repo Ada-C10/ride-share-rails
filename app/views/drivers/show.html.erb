@@ -11,8 +11,8 @@
 <br />
 <strong>Average Rating: <%= '%.2f' % @driver.average_rating %></strong>
 <br /><br />
-<strong>Status: <%= @driver.change_status %> </strong>
-<br /><br />
+<!-- <strong>Status: <%#= @driver.change_status %> </strong>
+<br /><br /> -->
 
 
 <% active_trips = @trips.where(active: true).order(:date) %>

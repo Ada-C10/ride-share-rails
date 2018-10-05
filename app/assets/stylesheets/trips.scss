@@ -27,12 +27,10 @@ h1 {
 }
 
 .trips .header {
-  // background-color: #B2D6FF;
   height: 150px;
 }
 
 .trips .actions {
-  // background-color: #EAEDF0;
   height: 60px;
 }
 
@@ -40,30 +38,9 @@ h1 {
   padding: 0 3vw;
 }
 
-.trips .date {
-  // background-color: #D6E9FE;
-}
-
 .trips .t_id {
-  // background-color: #F5CF8E;
   display: flex;
   flex-direction: column;
-}
-
-.trips .p_id {
-  // background-color: #F09A9D;
-}
-
-.trips .d_id {
-  // background-color: #C8C6FA;
-}
-
-.trips .cost {
-  // background-color: #5995DA;
-}
-
-.trips .rating {
-  // background-color: #B2D6FF;
 }
 
 .trips .date,

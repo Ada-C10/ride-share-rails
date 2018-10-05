@@ -6,10 +6,8 @@
       <%= submit_tag 'Search', name: nil %>
     <% end %>
     </section>
-  
+
   <% active_passengers = @passengers.where(active: true) %>
-
-
 
   <table class="index_table" >
       <tr>
@@ -28,4 +26,3 @@
     <%= will_paginate @passengers, :container => false %>
   </div>
 </div>
-

@@ -9,23 +9,13 @@ colors {
   color: rgba(33, 33, 33, 1);
 }
 
-.passenger {
-  // background-image: url("moon.jpg");
-  height: 100%;
-  color: white;
-//   background-position: center;
-//   background-repeat: no-repeat;
-//   background-size: cover;
+@import url('https://fonts.googleapis.com/css?family=Exo+2:500');
+
+h1 {
+  font-size: 6vh;
 }
 
 .passenger_index {
-  // background: radial-gradient(circle at 100%, 
-  //   rgba(33, 33, 33, 1), rgba(33, 33, 33, 1) 50%, 
-  //   rgba(239, 239, 239, 1) 75%, rgba(33, 33, 33, 1) 75%); 
-  // background: radial-gradient(rgba(239, 239, 239, 1), rgba(33, 33, 33, 1));
-
-  // background-image: url("moon.jpg");
-  // background-size: cover;
   color: white;
 }
 

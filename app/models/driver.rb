@@ -49,11 +49,7 @@ class Driver < ApplicationRecord
     if term
       where('name LIKE ?', "%#{term}%").paginate(page: page, per_page: 5).order(:name)
     else
-<<<<<<< HEAD
-      paginate(page: page, per_page: 10).order(:name)
-=======
       paginate(page: page, per_page: 5).order(:name) 
->>>>>>> b130fb7e81d6334fc5a6aa293eda6ccc8d842c5f
     end
   end
 end
