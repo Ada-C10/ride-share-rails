@@ -33,13 +33,7 @@ class TripsController < ApplicationController
   end
 
   def update
-    driver = Driver.find(@trip.driver_id)
-    if trip_params[:rating] != nil
-      @trip.in_progress = false
-      @trip.cost = rand(9999) if @trip.cost == 0
-      driver.status = true
-      driver.save
-    end
+    @trip.end_trip(trip_params[:rating])
 
     if @trip.update(rating: trip_params[:rating], cost: @trip.cost, in_progress: @trip.in_progress)
       redirect_to trip_path
