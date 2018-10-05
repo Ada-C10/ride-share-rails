@@ -3,18 +3,18 @@
 
 <p>
   <strong>
-    <%= @trip.date %>
-    <%= @trip.rating %>
-    <%= @trip.cost %>
-    <%= @trip.driver_id %>
-    <%= @trip.passenger_id %>
+    <p>Trip date: <%= @trip.date %></p>
+    <p>Trip rating: <%= @trip.rating %></p>
+    <p>Trip cost: $<%= "%.2f" % ((@trip.cost) / 100) %> </p>
+    <p>Driver id: <%= @trip.driver_id %></p>
+    <p>Passenger id: <%= @trip.passenger_id %></p>
   </strong>
 
 </p>
 
 <div class="links">
 
-  <%= link_to "delete ", @trips, method: :delete, data: { confirm: "Are you really really sure that you want to delete ?" } %>
+  <%= link_to "delete ", @trips, method: :delete, data: { confirm: "Are you sure that you want to delete ?" } %>
   <%= link_to "Edit Trip ", edit_trip_path(@trip.id) %>
 
 </div>
