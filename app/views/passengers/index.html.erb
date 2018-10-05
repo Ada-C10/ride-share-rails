@@ -13,16 +13,35 @@
 
 <h1>Rideshare Passengers</h1>
 
-<section>
-<ul>
-   <% @passengers.each do |passenger| %>
-   <li>
-     <strong>
-     <%= link_to "#{passenger.name}", passenger_path(passenger.id) %>
-     </strong>
-     <%= link_to "Edit", edit_passenger_path(passenger.id) %>
-     <%= link_to "Delete", passenger_path(passenger.id), method: :delete, data: { confirm: "Do you want to delete #{passenger.name}?" } %>
-   </li>
-   <% end %>
-</ul>
+<section class = "passengers-list">
+  <ul>
+    <li>
+      <% @passengers.each do |passenger| %>
+      <li>
+        <%= link_to "#{passenger.id}", passenger_path(passenger.id) %>
+      </li>
+      <% end %>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <% @passengers.each do |passenger| %>
+      <li>
+        <%= link_to "#{passenger.name}", passenger_path(passenger.id) %>
+      </li>
+      <% end %>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <% @passengers.each do |passenger| %>
+      <li>
+        <%= link_to "Edit", edit_passenger_path(passenger.id) %>
+        <%= link_to "Delete", passenger_path(passenger.id), method: :delete, data: { confirm: "Do you want to delete #{passenger.name}?" } %>
+      </li>
+      <% end %>
+    </li>
+  </ul>
 </section>

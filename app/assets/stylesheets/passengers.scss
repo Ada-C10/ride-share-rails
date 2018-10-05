@@ -32,3 +32,9 @@ header {
   justify-content: flex-end;
   padding-right: 2em;
 }
+
+.passengers-list {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+}
