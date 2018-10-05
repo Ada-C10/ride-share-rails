@@ -1,11 +1,12 @@
-<%= link_to "Homepage", root_path %>
-
-
+<!--TODO: list a certain amount per page + mult pages?? render collection partial -->
 <h2>Rideshare Drivers</h2>
 
+<table>
 <% @drivers.each do |driver| %>
-  <strong><%= link_to driver.name, driver_trips_path(driver.id) %></strong>
-  <%= link_to "Edit", edit_driver_path(driver.id) %> |
-  <%= link_to "Delete", driver_path(driver.id), data: { confirm: "Are you sure you want to delete this driver: #{driver.name}?", method: :delete} %>
-  <br>
+<tr>
+  <td><%= link_to driver.name, driver_path(driver)  %></td>
+  <td><%= link_to "Edit", edit_driver_path(driver)  %></td>
+  <td><%= link_to "Delete", driver_path(driver), method: :delete, data: { confirm: "Are you sure you want to delete driver: #{driver.name}?" } %></td>
+</tr>
 <% end %>
+</table>

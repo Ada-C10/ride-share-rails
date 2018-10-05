@@ -15,8 +15,7 @@
 
 <div class="show_actions">
   <%= link_to "Edit", edit_passenger_path(@passenger)  %> |
-  <%= link_to "Delete", passenger_path(@passenger), method: :delete, data: { confirm: "Are you sure you want to delete passenger: #{@passenger.name}?" } %> |
-  <%= link_to "Book a new trip", passenger_trips_path(@passenger), method: :post %>
+  <%= link_to "Delete", passenger_path(@passenger), method: :delete, data: { confirm: "Are you sure you want to delete passenger: #{@passenger.name}?" } %>
 </div>
 
 
@@ -47,21 +46,20 @@
   </thead>
   <tbody>
 
-<!-- QUESTION: change driver and pass ids to names?? -->
+<!-- QUESTION: render partial the repeated code below to DRY it up? -->
 <% @passenger.trips.each do |trip| %>
   <tr>
     <td>
-      <!-- QUESTION: maybe add a link in trip show detail page back to driver+passenger?? -->
       <%= link_to "#{trip.id}", trip_path(trip) %>
     </td>
     <td>
       <%= trip.date %>
     </td>
     <td>
-      <%= trip.driver_id %>
+      <%= trip.driver_name %>
     </td>
     <td>
-      <%= trip.passenger_id %>
+      <%= trip.passenger_name %>
     </td>
     <td>
       $<%= trip.cost/100.to_f %>

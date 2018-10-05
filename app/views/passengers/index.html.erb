@@ -1,7 +1,7 @@
     <!--TODO: list a certain amount per page + mult pages?? render collection partial -->
 <h2>Rideshare Passengers</h2>
 
-<table border=1px>
+<table>
 <% @passengers.each do |passenger| %>
     <tr>
       <td><%= link_to passenger.name, passenger_path(passenger)  %></td>

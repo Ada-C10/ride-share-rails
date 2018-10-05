@@ -1,18 +1,13 @@
 class TripsController < ApplicationController
   def index
     if params[:driver_id]
-    #   # NOTE: changed instance var driver to normal var driver
       @driver = Driver.find_by(id: params[:driver_id])
       @trips = @driver.trips
-    #
-    #   # TODO: need to move this business logic to model
-    #   @avg_trip_rating = avg_trip_rating(@trips)
-    #   @total_trip_earnings = total_trip_earnings(@trips)
-    #
+
     elsif params[:passenger_id]
       passenger = Passenger.find_by(id: params[:passenger_id])
       @trips = passenger.trips
-    #
+
     else
       @trips = Trip.all
     end
@@ -21,11 +16,18 @@ class TripsController < ApplicationController
   def show
     trip_id = params[:id]
     @trip = Trip.find_by(id: trip_id)
+
+    if @trip
+      return @trip
+    else
+      head :not_found
+    end
+
   end
 
-  # def new
-  #   @trip = Trip.new
-  # end
+  def new
+    @trip = Trip.new
+  end
 
   def create
     passenger_id = params[:passenger_id]
@@ -38,13 +40,7 @@ class TripsController < ApplicationController
     )
 
 
-    # prob need to manually enter the params in for at least driver id and passenger id
-    # TODO: add availability column to driver db. default status: :unavailable
-    # passenger = Passenger.find_by(id: params[passenger_id])
-    # find first avail driver
-    # avail_driver = Driver.find_by(status: :available)[0] OR Driver.find(status: :available)
-    # avail_driver[status] = :unavailable or avail_driver.status = :unavailable i don't remember which
-    # @trip = Trip.new(avail_driver.id)
+
 
     result = @trip.save
 
@@ -75,13 +71,19 @@ class TripsController < ApplicationController
 
   def destroy
     trip_id = params[:id]
-    if trip_id
-      @trip = Trip.find_by(id: trip_id)
+    passenger_id = params[:passenger_id]
+    driver_id = params[:driver_id]
+
+    @trip = Trip.find_by(id: trip_id)
+
+    if @trip
       @trip.destroy
-      redirect_to passenger_path(@trip.passenger_id)
+      # NOTE: wanted to use redirect_back(fallback_location: root_path), but wouldn't work when I deleted a trip from trip details page
+      redirect_to root_path
     else
-      return head :not_found
+      head :not_found
     end
+
   end
 
 
