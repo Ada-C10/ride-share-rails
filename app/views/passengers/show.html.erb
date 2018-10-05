@@ -24,3 +24,13 @@
   <%= link_to "Edit Passenger ", edit_passenger_path(@passenger.id) %>
 
 </div>
+
+<div class="wrapper_index">
+  <h2>YOUR TRIPS</h2>
+  <ol>
+    <% @passenger.all_trips.each do |trip| %>
+      <%=link_to trip.date, trip_path(trip.id)%>
+    </div>
+  </li>
+  <% end %>
+</ol>
