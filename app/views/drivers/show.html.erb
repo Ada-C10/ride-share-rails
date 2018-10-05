@@ -1,3 +1,12 @@
+
+ <div class="available-button">
+   <% if @driver.status == true %>
+  <%= link_to "Driver is available", unavailable_path(@driver), method: :make_unavailable %>
+  <% else %>
+    <%= link_to "Driver is unavailable", available_path(@driver), method: :make_available %>
+  <% end%>
+ </div>
+
 <p>
   <strong>Driver:</strong>
   <%= @driver.name%>

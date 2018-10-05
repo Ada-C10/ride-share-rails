@@ -14,7 +14,16 @@
   $<%= @passenger.spent %>
 </p>
 
-<%=link_to "Request a new trip", new_trip_path %>
+<%= form_for @trip, url: passenger_trips_path(@passenger.id) do |f| %>
+
+  <!-- <%= f.hidden_field :driver_id, :value => 12 %>
+  <%= f.hidden_field :rating %>
+  <%= f.hidden_field :cost %>
+  <%= f.hidden_field :date %> -->
+
+  <%= f.submit "request new trip", class: "submit-button" %>
+<% end %>
+
 
 <h2>Trips for this Passenger</h2>
 <p>
@@ -24,8 +33,11 @@
     <li>Date: <%=trip.date %></li>
     <li>Rating: <%=trip.rating %></li>
     <li>Cost: <%=trip.cost %></li>
-    <%=link_to "Driver", driver_trips_path(trip.driver_id) %>
-    <br/>
+      <% if trip.driver_id %>
+      <%=link_to "Driver", driver_trips_path(trip.driver_id) %>
+      <% else %>
+      [No Driver]
+      <% end %>
 
     <% end %>
   </ul>
