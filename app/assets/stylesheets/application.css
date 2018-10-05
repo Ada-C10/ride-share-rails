@@ -53,10 +53,16 @@
 
  header nav {
    display: flex;
-   background-color: #CCC;
+   background-color: black;
+   color: white;
    margin: 0;
    padding: 5px;;
  }
+
+ header a {
+   color: white;
+ }
+
 
 header nav ul {
   padding: 0;
