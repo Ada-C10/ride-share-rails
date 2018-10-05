@@ -5,7 +5,7 @@
 <%= button_to "Edit Driver", edit_driver_path(@driver.id), method: :get %>
 <%= button_to "Delete Driver", driver_path(@driver.id), method: :delete, data: { confirm: "Are you sure?"}%>
 <table>
-<tr class="header"><td>Date</td><td>Passanger</td><td>Rating</td><td>Cost</td></tr>
+<tr class="header"><td>Date</td><td>Passanger</td><td>Rating</td><td>Cost</td><td>Edit</td><td>Delete</td></tr>
 <p><%@driver.trips.map do |trip| %>
   <tr>
   <td><%=trip.date%></td>
@@ -13,6 +13,8 @@
   <td><%= link_to "Passenger", passenger_path(trip.passenger.id) %></td>
   <td><%=trip.rating%></td>
   <td>$<%=sprintf('%.2f', trip.cost/100)%></td>
+  <td><%= link_to "Edit trip", edit_trip_path(trip.id) %></td>
+  <td><%= link_to "Delete trip", trip_path(trip.id), method: :delete, data: { confirm: "Are you sure?"} %></td>
   </tr>
 <%end%>
 </table>
