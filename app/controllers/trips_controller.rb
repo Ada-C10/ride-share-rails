@@ -80,15 +80,20 @@ class TripsController < ApplicationController
       else
         render :edit
       end
+  end
 
+  def add_rating
+      @trip = Trip.find_by(id: params[:id].to_i)
+      if @trip.rating.nil?
+        @trip.update(params.require(:trip).permit(:rating))
+      end
   end
 
   private
 
     def trip_params
-      return params.require(:trip).permit(:name, :phone_num)
+      return params.require(:trip).permit(:date, :passenger_id, :driver_id, :rating, :cost)
     end
-
 
 
 end
