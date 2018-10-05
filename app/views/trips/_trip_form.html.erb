@@ -1,0 +1,23 @@
+<% if @trip.errors.messages.any? %>
+  <ul class="errors">
+    <% @trip.errors.messages.each do |column, message| %>
+      <li>
+        <strong><%= column.capitalize %></strong> <%= message %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_with model: @trip, class: 'trip-form' do |f| %>
+
+  <h3><%= form_with %></h3>
+
+  <%= f.label :rating %>
+  <%= f.text_field :rating %>
+
+  <%= f.label :cost%>
+  <%= f.text_field :cost%>
+
+  <%= f.submit action_type, class: "trip-form-submit-button" %>
+
+<% end %>

@@ -10,8 +10,11 @@ class TripsController < ApplicationController
 
   def update
     @trip = Trip.find(params[:id])
-    @trip.update(trip_params)
-    redirect_to trips_path
+    if  @trip.update(trip_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -34,23 +37,23 @@ class TripsController < ApplicationController
       end
     end
 
-      def show
-        trip_id = params[:id]
-        @trip= Trip.find_by(id: trip_id)
-        if @trip.nil?
-          head :not_found
-        end
+    def show
+      trip_id = params[:id]
+      @trip= Trip.find_by(id: trip_id)
+      if @trip.nil?
+        head :not_found
       end
+    end
 
-      private
+    private
 
     def trip_params
       return params.require(:trip).permit(
         :rating,
         :cost,
-        )
-      end
+      )
+    end
 
 
 
-end
+  end
