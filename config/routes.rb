@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root "trips#index"
   # root - TODO  create a controller and view for the homepage to redirect
   # after deleting a passenger (passenger list or  homepage?)
 
