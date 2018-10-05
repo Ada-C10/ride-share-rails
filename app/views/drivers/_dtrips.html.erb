@@ -4,8 +4,8 @@
   <td><%= dtrips.driver_id %></td>
   <td><%= dtrips.passenger_id %></td>
   <% if dtrips.in_progress == true %>
-   <td id='in_progress'> <%= "⚪️ In Progress" %></td>
+    <td id='in_progress'> <i class="w3-xxlarge material-icons w3-spin icons">refresh</i></td>
   <% else %>
-   <td id='complete'> <%= "⚫️ Complete" %></td>
+    <td id='complete'> <i class="w3-xxlarge material-icons icons" >check_circle_outline</i></td>
   <% end %>
 </tr>

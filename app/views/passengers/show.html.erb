@@ -55,9 +55,9 @@
         <td> <%= trip.rating %></td>
         <td> <%= "🚀"'%.2f' % (trip.cost/100) %></td>
         <% if trip.in_progress == true %>
-        <td id='in_progress'> <i class="w3-xxlarge material-icons w3-spin">refresh</i></td>
+        <td id='in_progress'> <i class="w3-xxlarge material-icons w3-spin icons">refresh</i></td>
         <% else %>
-        <td id='complete'> <i class="w3-xxlarge material-icons" >check_circle_outline</i></td>
+        <td id='complete'> <i class="w3-xxlarge material-icons icons" >check_circle_outline</i></td>
         <% end %>
       </tr>
       <% end %>
