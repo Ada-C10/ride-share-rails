@@ -4,16 +4,4 @@
   <button><%= link_to 'Request New Trip', passenger_trips_path(@passenger.id), method: :post %></button>
 </section>
 
-<p>TODO: Render trips table partial.</p>
-<% @trips.each do |trip| %>
-
-<ul>
-  <strong>
-    <li><%= link_to 'Trip Details', trip_path(trip.id) %></li>
-    <li> Date: <%= trip.date %> </li>
-    <li> Rating: <%= trip.rating %> </li>
-    <li> Cost: <%= trip.cost %> </li>
-  </strong>
-</ul>
-
-<% end %>
+<%= render partial: 'layouts/trips_table' %>

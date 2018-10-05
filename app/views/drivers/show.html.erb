@@ -4,15 +4,4 @@
   <h3> Average Rating: <%= @driver.avg_rating.round(2) %> </h3>
 </section>
 
-<p>TODO: Render trips table partial.</p>
-  <% @trips.each do |trip| %>
-
-  <ul>
-    <strong>
-      <li> Date: <%= trip.date %> </li>
-      <li> Rating: <%= trip.rating %> </li>
-      <li> Cost: <%= trip.cost %> </li>
-    </strong>
-  </ul>
-
-  <% end %>
+<%= render partial: 'layouts/trips_table' %>
