@@ -12,9 +12,62 @@
     </tr>
     <tr>
       <td>Phone Number: <%= @passenger.phone_num%></td>
-      <td>Total Earnings</td>
+      <td>Total Charged: $<%= @passenger.total_spent(@passenger.id)/100.to_f %></td>
     </tr>
 </table>
 
 
-<h3>Passenger Trips [insert table]</h3>
+<h3>Passenger Trips</h3>
+<table>
+  <thead>
+    <td>
+      ID
+    </td>
+    <td>
+      Date
+    </td>
+    <td>
+      Driver
+    </td>
+    <td>
+      Passenger
+    </td>
+    <td>
+      Price
+    </td>
+    <td>
+      Rating
+    </td>
+    <td>
+      Delete
+    </td>
+  </thead>
+  <tbody>
+
+<% @passenger.generate_trips(@passenger.id).each do |trip| %>
+  <tr>
+    <td>
+      <%= trip.id %>
+    </td>
+    <td>
+      <%= trip.date %>
+    </td>
+    <td>
+      <%= trip.driver_id %>
+    </td>
+    <td>
+      <%= trip.passenger_id %>
+    </td>
+    <td>
+      $<%= trip.cost/100.to_f %>
+    </td>
+    <td>
+      <%= trip.rating %>
+    </td>
+    <td>
+      get names for pass, driver. set up nested routes for delete. get back to barbara ab deletions.
+    </td>
+  </tr>
+  <% end %>
+</tbody>
+</table>
