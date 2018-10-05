@@ -30,16 +30,16 @@
         <%= @trip.passenger_id %><br>
       </td>
       <td>
-        <%= ((@trip.cost) / 100) + ((@trip.cost) % 100) / 100.00 %><br>
+        <%= (@trip.cost).to_f / 100 %><br>
       </td>
       <td>
         <%= @trip.rating %><br>
       </td>
       <td>
-        <p>Edit Links here</p>
+        <%= link_to "Edit", edit_trip_path(@trip.id) %>
       </td>
       <td>
-        <p>Delete links here</p>
+        <%= link_to "Delete", trip_path(@trip.id), data: { confirm: "Are you sure you want to delete this trip?", method: :delete} %>
       </td>
     </tr>
 

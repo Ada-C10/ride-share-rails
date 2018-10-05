@@ -9,59 +9,16 @@
 
   <strong>Name: <%= @driver.name %></strong>
   <br>
-  <strong>Average Rating: <%= @avg_trip_rating %></strong>
+  <strong>Average Rating: <%= @driver.avg_rating %></strong>
   <br>
-  <strong>Driver Earnings: <%= @total_trip_earnings %></strong>
+  <strong>Driver Earnings: <%= @driver.total_trip_earnings %></strong>
   <br>
 
 
   <h2>Driver Trips</h2>
-  <table>
-    <thead>
-     <tr>
-       <th>ID</th>
-       <th>Date</th>
-       <th>Driver</th>
-       <th>Passenger</th>
-       <th>Price</th>
-       <th>Rating</th>
-       <th>Edit</th>
-       <th>Delete</th>
-     </tr>
-   </thead>
-   <tbody>
-     <% @trips.each do |trip| %>
-        <tr>
-          <td>
-            <%= link_to trip.id, trip_path(trip.id) %><br>
-          </td>
-          <td>
-            <%= trip.date.to_s %><br>
-          </td>
-          <td>
-            <%= trip.driver_id %><br>
-          </td>
-          <td>
-            <%= trip.passenger_id %><br>
-          </td>
-          <td>
-            <%= ((trip.cost) / 100) + ((trip.cost) % 100) / 100.00 %><br>
-          </td>
-          <td>
-            <%= trip.rating %><br>
-          </td>
-          <td>
-            <p>Edit Links here</p>
-          </td>
-          <td>
-            <p>Delete links here</p>
-          </td>
-        </tr>
-       <% end %>
-   </tbody>
-  </table>
-<% else %>
-  <h2>All Trips by All Driver</h2>
-  <%= @trips %>
+  <%= render partial: 'trip_list' %>
 
+<% else %>
+  <h2>All Trips by All Drivers</h2>
+  <%= render partial: 'trip_list' %>
 <% end %>
