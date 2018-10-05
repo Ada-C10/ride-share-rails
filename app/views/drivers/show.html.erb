@@ -2,4 +2,16 @@
 <p><%= "vin: " + @driver.vin %></p>
 <p>Total Earnings in USD: $<%= @driver.total_earning %> </p>
 <p>Average Rating: <%= @driver.average_rate %> </p>
-<p><%= link_to "Trips", driver_trips_path(@driver.id) %> </p>
+<table>
+<p><%@driver.trips.map do |trip| %>
+  <tr>
+  <td><%=trip.date%></td>
+  <td><%=trip.passenger%></td>
+  <td><%=trip.rating%></td>
+  <td><%=trip.cost%></td>
+  </tr>
+<%end%>
+</table>
+</p>
+<!-- <p><%= link_to "Trips", driver_trips_path(@driver.id) %> </p> -->
+<!-- add header, change money to real format, style with css -->
