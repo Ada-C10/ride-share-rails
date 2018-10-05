@@ -9,6 +9,8 @@
 <% end %>
 
 <%= form_with model: @passenger do |f| %>
+
+<p><%= form_intro %></p>
    <%= f.label :name %>
    <%= f.text_field :name %>
 
