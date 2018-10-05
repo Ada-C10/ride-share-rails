@@ -29,7 +29,7 @@ body, html {
  *= require_tree .
  *= require_self
  */
- @import url('https://fonts.googleapis.com/css?family=Alegreya|Monoton|Permanent+Marker|Vollkorn');
+ @import url('https://fonts.googleapis.com/css?family=Alegreya|Monoton|Permanent+Marker|Vollkorn')
 
  body {
     padding: 50px;
@@ -73,7 +73,6 @@ header li a {
 
  nav li {
     margin: 20px;
->>>>>>> b35586e3a547d6b0f5bdb64dd0bf58a54bf81aa2
 }
 
 main {
