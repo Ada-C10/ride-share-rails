@@ -17,7 +17,6 @@
       <input type="checkbox" id="toggle-1">
       <nav>
         <ul>
-          <li><%= link_to "Home", root_path %></li>
           <li><%= link_to "Passengers", passengers_path %></li>
           <li><%= link_to "Drivers", drivers_path %></li>
           <li><%= link_to "Create New Passenger", new_passenger_path %></li>
@@ -27,7 +26,7 @@
     </header>
 
   </section>
-  
+
   <body>
     <%= yield %>
   </body>
