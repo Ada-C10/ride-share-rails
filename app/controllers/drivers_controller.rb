@@ -14,7 +14,7 @@ class DriversController < ApplicationController
     if @driver.save
       redirect_to drivers_path
     else
-      #error message
+      render :new, status: :bad_request
     end
   end
 
@@ -26,18 +26,18 @@ class DriversController < ApplicationController
   end
 
   def update
-    driver = Driver.find(params[:id])
+    @driver = Driver.find(params[:id])
 
-    if driver.nil?
+    if @driver.nil?
       head :not_found
     end
 
-    is_updated = driver.update(driver_params)
+    is_updated = @driver.update(driver_params)
 
     if is_updated
-      redirect_to driver_trips_path(driver)
+      redirect_to driver_trips_path(@driver)
     else
-      render :edit
+      render :edit, status: :bad_request
     end
   end
 
