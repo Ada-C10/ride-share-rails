@@ -50,10 +50,7 @@ class DriversController < ApplicationController
     if driver.trips.length == 0
       driver.destroy
       redirect_to drivers_path
-
     else
-      #need to tell the client why they can't delete passenger as they are associated with other trips
-
       render :error, status: :bad_request
     end
 

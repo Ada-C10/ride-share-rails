@@ -49,10 +49,7 @@ class PassengersController < ApplicationController
     if passenger.trips.length == 0
       passenger.destroy
       redirect_to passengers_path
-
     else
-      #need to tell the client why they can't delete passenger as they are associated with other trips
-      #error-html.erb
       render :error, status: :bad_request
     end
   end
