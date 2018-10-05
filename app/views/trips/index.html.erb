@@ -29,7 +29,7 @@
     <td><%= "#{trip.passenger.name}" %></td>
     <td><%= "#{trip.driver.name}" %></td>
     <td><%= "#{trip.rating}" %></td>
-    <td><%= "#{trip.cost}" %></td>
+    <td><%= "$#{trip.cost/100.00}" %></td>
   </tr>
   <% end %>
 </table>
