@@ -49,11 +49,6 @@ class PassengersController < ApplicationController
     redirect_to passengers_path
   end
 
-#redirects the nested route for trips#create
-  def trips
-    redirect_to passengers_path
-  end
-
   private
   #
   # # Strong params: only let certain attributes
