@@ -31,6 +31,21 @@ class TripsController < ApplicationController
     end
   end
 
+  def update
+      if params[:passenger_id]
+        passenger = Passenger.find_by(id: params[:passenger_id])
+
+        trip = passenger.trips.find_by(:id)
+
+        trip.update(trip_params())
+
+        if trip.save
+          redirect_to passenger_path(passenger.id)
+        else
+          render :bad_request
+        end
+      end
+    end
 
 
   private

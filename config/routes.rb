@@ -10,11 +10,9 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :trips, only: [:show] do
-    post 'rate', to: 'trips#update', as: 'rate'
-  end
+  resources :trips, only: [:show, :update]
 
   resources :passengers do
-    resources :trips, only: [:create]
+    resources :trips, only: [:create, :show]
   end
 end
