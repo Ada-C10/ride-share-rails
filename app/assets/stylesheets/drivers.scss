@@ -74,6 +74,10 @@ button:hover {
   height: 150px;
 }
 
+.driver:hover, .passenger:hover {
+  font-size: 15pt;
+  font-weight: bold;
+}
 
 .driver-form {
   text-align: center;
