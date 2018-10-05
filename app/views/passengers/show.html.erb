@@ -37,7 +37,7 @@
     </p>
     <h3><%= @passenger.name %>'s Trips</h3>
     <% @passenger_trips.each do |trip| %>
-    <p class="trips-list">Trip ID: <%= trip.id %> Trip Date: <%= trip.date %> Trip cost: <%= trip.cost %> <%= link_to "[Details]", trip_path(trip.id) %>
+    <p class="trips-list">Trip ID: <%= trip.id %> Trip Date: <%= trip.date %> Trip cost: $ <%= "%.2f"  % (trip.cost / 100) %> <%= link_to "[Details]", trip_path(trip.id) %>
       <%end%>
       <%= will_paginate @passenger_trips, previous_label: h("<"), next_label: h(">") %>
     </p>
