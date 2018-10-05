@@ -1,7 +1,7 @@
 class Driver < ApplicationRecord
   validates :name, presence: true
   validates :vin, presence: true
-  has_many :trips
+  has_many :trips, dependent: :nullify
 
   FEE = 165
   PERCENTAGE = 0.80
