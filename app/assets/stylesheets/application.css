@@ -33,7 +33,6 @@
    list-style: none;
  }
 
-
  nav ul {
    display: flex;
    justify-content: space-between;
@@ -48,6 +47,10 @@
 .index-links li {
   padding: 5% 0 5% 0;
   font-size: 1.5rem;
+}
+
+.index-links {
+  text-align: center;
 }
 
 .index-links a:hover {
