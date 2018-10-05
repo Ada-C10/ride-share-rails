@@ -1,0 +1,18 @@
+<% if model_type.nil? %>
+  <h1><%= "404: NOT FOUND" %></h1>
+<% else %>
+<h1> <%= model_type.name %></h1>
+
+<ul>
+  <li><%=number_variable_name%>: <%= model_type[number_variable] %></li>
+  <li> money_variable: $<%= model_type.money_variable_method%></li>
+
+  </ul>
+  <ul>
+  <li><%= link_to "Edit", edit_model_path(model_type.id)%></li>
+  <li><%= link_to "Delete", model_path(model_type.id), method: :delete, data: {confirm:"Are you sure you want to delete?"} %></li>
+  </ul>
+  <section>
+    <%= render partial: "list_of_trips", locals: { user: user} %>
+    <%end%>
+  </section>

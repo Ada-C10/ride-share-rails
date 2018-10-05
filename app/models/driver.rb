@@ -22,9 +22,12 @@ class Driver < ApplicationRecord
 
   def self.find_driver
     @driver = self.find { |driver| driver.status == "AVAILABLE" }
+    @driver.status = "UNAVAILABLE"
+    @driver.save
+    return @driver
   end
 
-  def make_unavailable
-    self.status = "UNAVAILABLE"
-  end
+  # def make_unavailable
+  #   self.status = "UNAVAILABLE"
+  # end
 end

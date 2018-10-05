@@ -22,11 +22,17 @@ class TripsController < ApplicationController
 
   def create
     passenger = Passenger.find_by(id: params[:passenger_id].to_i)
-    @trip = passenger.trips.new(date: Date.today, driver_id: Driver.find_driver.id, cost: 0, status: "In Progress")
-    if @trip.save
-      redirect_to passenger_trip_inprogress_path(@trip.passenger.id, @trip.id)
+    if passenger.status != "On Trip"
+      @trip = passenger.trips.new(date: Date.today, driver_id: Driver.find_driver.id, cost: 500, status: "In Progress")
+      @trip.passenger.status = "On Trip"
+      @trip.passenger.save
+      if @trip.save
+        redirect_to passenger_trip_inprogress_path(@trip.passenger.id, @trip.id)
+      else
+        redirect_to :bad_request
+      end
     else
-      redirect_to :bad_request
+      raise Argumenterror, "Passenger is already on a trip"
     end
 
   end
@@ -46,6 +52,8 @@ class TripsController < ApplicationController
 
   def update
     @trip = Trip.find_by(id: params[:id].to_i)
+    @trip.passenger.status = "Standby"
+    @trip.passenger.save
     @trip.update(trip_params)
     if @trip.save
       redirect_to passenger_trip_path(@trip.passenger.id, @trip.id)
@@ -54,6 +62,11 @@ class TripsController < ApplicationController
     end
   end
 
+  def destroy
+    trip = Trip.find_by(id: params[:id].to_i)
+    trip.destroy
+    redirect_to passengers_path
+  end
 
 
   private
