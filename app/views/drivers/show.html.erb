@@ -14,9 +14,41 @@
       <%= @driver.vin %>
     </li>
     <li>
+      <strong>Average Rating: </strong>
+      <%= @driver.average_rating.round(1) %>
+    </li>
+    <li>
+      <strong>Total Earnings: </strong>
+      <%= @driver.total_earnings.round(2) %>
+    </li>
+    <li>
       <%= link_to "Edit Driver Information", edit_driver_path %>
     </li>
     <li>
       <%= link_to "Delete driver", driver_path(@driver.id), method: :delete, data: {confirm: "Are you sure you want to delete this driver?"}%>
     </li>
 </ul>
+
+<section class = "driver-trips">
+  <h3> Driver Trips </h3>
+  <table id = "driver-trips-table">
+    <tr>
+      <th>Trip ID</th>
+      <th>Date</th>
+      <th>Passenger</th>
+      <th>Rating</th>
+      <th>Price</th>
+      <th>Link for more info</th>
+    <tr>
+    <% @driver.trips.each do |trip| %>
+    <tr>
+      <td><%=trip.id%></td>
+      <td><%=trip.date%></td>
+      <td><%=trip.passenger.name%></td>
+      <td><%=trip.rating%></td>
+      <td><%=trip.cost%></td>
+      <td><%= link_to "View Trip Details", trip_path(trip.id) %></td>
+    </tr>
+    <%end%>
+  </table>
+</section>
