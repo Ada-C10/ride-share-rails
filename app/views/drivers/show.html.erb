@@ -1,19 +1,18 @@
-<h2> <%= @driver.name %> Detail Page </h2>
+<section class="driver-details">
+  <h2><%= @driver.name %></h2>
+  <h3> Total Earnings: <%= number_to_currency(@driver.total_earnings) %> </h3>
+  <h3> Average Rating: <%= @driver.avg_rating.round(2) %> </h3>
+</section>
 
-<ul>
-  <li> <%= @driver.name %> </li>
-  <li> <%= @driver.total_earnings %> </li>
-  <li> <%= @driver.avg_rating %> </li>
-</ul>
+<p>TODO: Insert trips table.</p>
+  <% @trips.each do |trip| %>
 
-<% @trips.each do |trip| %>
+  <ul>
+    <strong>
+      <li> Date: <%= trip.date %> </li>
+      <li> Rating: <%= trip.rating %> </li>
+      <li> Cost: <%= trip.cost %> </li>
+    </strong>
+  </ul>
 
-<ul>
-  <strong>
-    <li> Date: <%= trip.date %> </li>
-    <li> Rating: <%= trip.rating %> </li>
-    <li> Cost: <%= trip.cost %> </li>
-  </strong>
-</ul>
-
-<% end %>
+  <% end %>

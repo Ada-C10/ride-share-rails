@@ -1,21 +1,20 @@
+<section class="heading">
+  <h2>Drivers</h2>
 
-<div class="driver-index">
-  <section class="heading">
-    <h2>Drivers</h2>
+  <%= will_paginate @drivers %>
+</section>
 
-    <%= will_paginate @drivers %>
-  </section>
+<ul class="drivers-list">
+  <li class="column-label">Name</li>
+  <li class="column-label">Rating</li>
 
-  <ul class="list">
-    <li class="column-label">Name</li>
-    <li class="column-label">Rating</li>
-    <% @drivers.each do |driver| %>
-    <li class="name"><%= link_to driver.name, driver_path(driver.id) %></li>
-    <li class="rating"> <%= driver.avg_rating.round(2) %></li>
-    <li class="edit"> <%= link_to "Edit", edit_driver_path(driver.id) %></li>
-    <li class="delete">
+  <% @drivers.each do |driver| %>
+
+  <li class="name"><%= link_to driver.name, driver_path(driver.id) %></li>
+  <li class="rating"> <%= driver.avg_rating.round(2) %></li>
+  <li class="edit"> <%= link_to "Edit", edit_driver_path(driver.id) %></li>
+  <li class="delete">
       <%= link_to "Delete", driver_path(driver.id), method: :delete, data: {confirm: "Are you sure you want to delete #{driver.name}"} %></li>
-    <% end %>
-  </ul>
 
-</div>
+  <% end %>
+</ul>

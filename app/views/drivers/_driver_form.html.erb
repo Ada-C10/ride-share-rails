@@ -6,13 +6,17 @@ locals: {
 
 <%= form_with model: @driver, class: 'driver-form' do |f| %>
 
-<h3><%= form_title %></h3>
+<h2><%= form_title %></h2>
 
+<div class="driver-name">
 <%= f.label :name %>
 <%= f.text_field :name %>
+</div>
 
+<div class="driver-vin">
 <%= f.label :vin %>
 <%= f.text_field :vin %>
+</div>
 
 <%= f.submit action_type, class: "driver-form-submit-button" %>
 
