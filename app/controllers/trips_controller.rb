@@ -28,19 +28,17 @@ class TripsController < ApplicationController
     if rating_completed?
       if params[:passenger_id]
         passenger = Passenger.find_by(id: params[:passenger_id])
-        @trip = Trip.new
-        #
-        @trip = passenger.trips.new(date: Date.today, driver: @trip.assign_driver, cost: rand(1000..9999))
 
-        if @trip.save
+        driver = Driver.available_driver
+        @trip = passenger.trips.new(date: Date.today, driver: driver , cost: rand(1000..9999))
+
+        if @trip.save && driver.change_status
           redirect_to passenger_path(passenger.id)
         else
-          #TODO validation
           render :bad_request
         end
       end
     else
-      #TODO validation
       render :bad_request
     end
   end
