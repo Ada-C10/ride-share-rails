@@ -36,9 +36,10 @@
    </p>
    <h3><%=@driver.name%>'s Trips</h3>
       <% @driver_trips.each do |trip| %>
-      <p class='trips-list'>Trip_ID: <%= trip.id %> Trip cost: <%= trip.cost %> Rating: <%= trip.rating %> <%= link_to "[Details]", trip_path(trip.id) %>
+      <p class='trips-list'>
+          Trip_ID: <%= trip.id %> Trip cost: <%= trip.cost %> Rating: <%= trip.rating %> <%= link_to "[Details]", trip_path(trip.id) %>
+      </p>
       <%end%>
-    </p>
     <%= will_paginate @driver_trips, previous_label: h("<"), next_label: h(">") %>
  </div>
 </div>

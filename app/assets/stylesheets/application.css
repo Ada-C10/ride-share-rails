@@ -299,7 +299,7 @@ input[type=submit]:active {
   text-align: center;
   padding: 1em;
   cursor: default;
-  margin-top: 1.8em;
+  margin-top: .2em;
 }
 
 .pagination a, .pagination span {
