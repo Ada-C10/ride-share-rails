@@ -1,12 +1,14 @@
-<div id="form-main">
-  <div id="form-div">
+<div class="wrapper list-pages">
+
+  <h1 class ="index-header">Passenger Detail</h1>
+
+  <div class="table list-pages">
     <%= form_with model: @passenger, url: passenger_trips_path(@passenger.id), method: :post, class: "form", id: "form1" do |f| %>
-    <h2>Passenger Detail</h2>
     <h3><%= @passenger.name %> (<%= @passenger.status.to_s.gsub("_", "-") %>)</h3>
     <h3 class="detail-before-buttons">Total Charged : <%= "$" + "%.2f" % @passenger.total_cost%></h3>
 
     <% if @passenger.status == :available %>
-      <div class="submit">
+      <div class="submit request-ride">
         <%= f.submit "Request a Ride", id: "button-orange" %>
         <div class= "ease"></div>
     <%# link_to "Request a Ride", passenger_trips_path(@passenger.id), method: :post %>
@@ -16,10 +18,10 @@
     <button><%= link_to "Edit", edit_passenger_path(@passenger.id) %></button>
     <button><%= link_to "Delete", passenger_path(@passenger.id), method: :delete, data: {confirm: 'Are you sure you want to delete this trip?'} %></button>
 
+    <%= render partial: "layouts/personaltrips",
+    locals: {all_trips: @trips,
+            } %>
+
     <% end %>
   </div>
 </div>
-
-<%= render partial: "layouts/personaltrips",
-locals: {all_trips: @trips,
-        } %>

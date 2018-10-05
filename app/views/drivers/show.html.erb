@@ -1,4 +1,7 @@
-<h1>Driver</h1>
+<div class="wrapper list-pages">
+
+  <h1 class ="index-header">Driver Detail</h1>
+
 <h1><%= @driver.name %></h1>
  <% if @driver.is_available? == true %>
   <span class="dot_available"></span>
@@ -15,3 +18,5 @@
 <%= render partial: "layouts/personaltrips",
 locals: {all_trips: @driver.trips,
         } %>
+
+</div>
