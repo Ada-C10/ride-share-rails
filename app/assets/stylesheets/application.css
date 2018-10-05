@@ -302,7 +302,19 @@ input[type=submit]:active {
 /* ERROR STYLING */
 .c4 .form-errors h3 {
   font-size: 16px;
-  margin-left: 6px;
+  margin-left: 2em;
+  color: rgba(183, 21, 64,1.0);
+}
+
+.c4 .form-errors li {
+  list-style: none;
+  color: rgba(183, 21, 64,1.0);
+  text-align: center;
+  margin-left: -.2em;
+}
+
+.c4 .form-errors ul:last-child{
+  margin-bottom: 2em;
 }
 .c4 .form-errors {
   margin-bottom: -1.4em;
@@ -317,6 +329,7 @@ input[type=submit]:active {
 .c4 .field_with_errors input[type=text] {
   width: 50%;
 }
+
 /* PAGINATION STYLING */
 .pagination {
   background: rgba(0, 0, 0, 0);
