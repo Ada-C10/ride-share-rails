@@ -55,16 +55,7 @@ class DriversController < ApplicationController
     end
   end
 
-  def assign_rating
-    @driver = Driver.find_by(id: params[:id])
-
-    if @driver.nil?
-      head :not_found
-    end
-
-    @driver.update_attribute(:rating)
-
-    redirect_to driver_trips_path
+  def change_status
   end
 
   private

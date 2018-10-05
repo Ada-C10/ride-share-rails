@@ -18,3 +18,17 @@
 <br>
 <%= "Driver:" %>
 <%=  @trip.driver.name %>
+
+<br />
+
+<%= "Rating:" %>
+
+<% if @trip.rating == nil %>
+  <%= form_with model: @trip do |f| %>
+    <%= f.select :rating, Trip::RATINGS, prompt: "Rate Trip" %>
+    <%= f.submit %>
+    <% end %>
+
+<% else %>
+  <%= @trip.rating %>
+<% end %>

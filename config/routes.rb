@@ -6,16 +6,14 @@ Rails.application.routes.draw do
   resources :homepages
 
   resources :passengers do
-    resources :trips, only: [:index, :create]
+    resources :trips, only: [:index, :create, :update] 
   end
 
   resources :drivers do
     resources :trips, only: [:index, :assign_rating]
   end
 
-  resources :drivers, except: [:show] do
-    post 'assign_rating'
-  end
+  resources :drivers, except: [:show]
   resources :passengers, except: [:show]
   resources :trips
 end

@@ -48,15 +48,7 @@
     <%= link_to "#{t.passenger.name}", passenger_trips_path(t.passenger.id) %>
     <%= number_to_currency(t.cost/100) %>
     <%= t.date.strftime("%b %d %Y") %>
-    <% if t.rating == nil %>
-      <%= form_with model: @trip do |f| %>
-        <%= f.select :rating, Trip::RATINGS, prompt: "Rate Trip" %>
-        <%= link_to "Save", driver_assign_rating_path(@user.id), method: :post %>
-        <% end %>
-
-    <% else %>
-      <%= t.rating %>
-    <% end %>
+    <%= t.rating %>
     <br>
   <% end %>
 
