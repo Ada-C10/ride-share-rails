@@ -49,7 +49,7 @@ class TripsController < ApplicationController
 
      @deleted_trip = trip.destroy
 
-    redirect_to trips_path
+    redirect_to root_path
   end
 
 

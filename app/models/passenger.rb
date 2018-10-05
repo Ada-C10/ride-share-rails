@@ -10,7 +10,7 @@ class Passenger < ApplicationRecord
   end
 
   def total_spending
-    total = self.trips.sum {|trip| trip.cost} /100
+    total = self.trips.sum {|trip| trip.cost}
     return total
   end
 
