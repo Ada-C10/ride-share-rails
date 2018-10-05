@@ -64,7 +64,7 @@ nav li {
 footer {
   background-color: rgb(175,238,238);
   height: 100px;
-  margin: auto;
+  margin: 0;
 }
 
 footer p {
