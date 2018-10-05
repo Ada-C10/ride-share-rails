@@ -6,16 +6,16 @@ a {
   color: black;
 }
 
+ul {
+  list-style: none;
+}
+
 .pagination a:hover {
   font-size: 20pt;
 }
+
 .name:hover {
   font-size: 20pt;
-}
-
-
-ul {
-  list-style: none;
 }
 
 button {
@@ -24,6 +24,10 @@ button {
   font-size: 12pt;
   border-radius: 30px;
   border-width: 5px;
+}
+
+button:hover {
+  background-color: grey;
 }
 
 .heading {
@@ -67,6 +71,7 @@ button {
 
 .details {
   text-align: center;
+  height: 150px;
 }
 
 
