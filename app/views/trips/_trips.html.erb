@@ -1,22 +1,24 @@
-<h1>Trips</h1>
-<table>
-  <tr id="table_header">
-    <th>Date</th>
-    <th>Trip ID</th>
-    <th>Driver</th>
-    <th>Passenger</th>
-    <th>Cost</th>
-    <th>Rating</th>
-  </tr>
-  <% @trips.each do |trip| %>
-    <tr>
-      <td><%="#{trip.date}"%></td>
-      <td><%= link_to "#{trip.id}", trip_path(trip.id)%></td>
-      <td><%= link_to "#{trip.driver_id}", driver_path(trip.driver_id)%></td>
-      <td><%= link_to "#{trip.passenger_id}", passenger_path(trip.passenger_id)%></td>
-      <td><%= "$#{trip.convert_money(trip.cost)}" %></td>
-      <td><%="#{trip.rating}"%></td>
+<div class="container">
+  <h1>Trips</h1>
+  <table>
+    <tr id="table_header">
+      <th>Date</th>
+      <th>Trip ID</th>
+      <th>Driver</th>
+      <th>Passenger</th>
+      <th>Cost</th>
+      <th>Rating</th>
     </tr>
+    <% @trips.each do |trip| %>
+      <tr>
+        <td><%="#{trip.date}"%></td>
+        <td><%= link_to "#{trip.id}", trip_path(trip.id)%></td>
+        <td><%= link_to "#{trip.driver_id}", driver_path(trip.driver_id)%></td>
+        <td><%= link_to "#{trip.passenger_id}", passenger_path(trip.passenger_id)%></td>
+        <td><%= "$#{trip.convert_money(trip.cost)}" %></td>
+        <td><%="#{trip.rating}"%></td>
+      </tr>
 
-  <% end %>
+    <% end %>
+  </div>
 </table>
