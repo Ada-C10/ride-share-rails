@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 <html>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  
+
+
   <head>
     <title>RideShareRails</title>
     <%= csrf_meta_tags %>
@@ -9,6 +14,11 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <meta name='viewport'
       content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
+      <style>
+      html, body, h1, h2, h3, h4, h5, h6 {
+        font-family: 'Exo 2', sans-serif;
+      }
+</style>
   </head>
 
   <header>
@@ -44,4 +54,3 @@
       <%= yield %>
     </body>
   <% end %>
-</html>

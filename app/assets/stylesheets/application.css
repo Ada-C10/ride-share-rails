@@ -215,15 +215,15 @@ li.second {
 
 .ride_button {
   border: 1px solid white;
-  background-color: green;
+  background-color: #4b7a46;
   padding: 1px 10px;
   border-radius: 10px;
 }
 
 #complete {
-  color: rgba(218, 38, 30, 1);
+  color: rgba(1, 124, 194, 1);
 }
 
-#in_progress{
-    color: green;
+#in_progress {
+  color: #4b7a46;
 }
