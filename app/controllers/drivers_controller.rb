@@ -22,7 +22,7 @@ class DriversController < ApplicationController
       flash[:notice] = "Driver created successfully!"
       redirect_to drivers_path
     else
-      render :new
+      render :new, status: :bad_request
     end
   end
 
