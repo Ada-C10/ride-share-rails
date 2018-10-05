@@ -6,28 +6,32 @@ h2 {
   text-align: center;
 }
 
+.edit_delete_driver {
+  text-align: center;
+}
+
 .description-text {
-  color: rgb(193, 9, 9);
+  color: #114b5f;
 }
 
 .description-container {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .driver-container1 {
-  border: 1px solid black;
   width: 30%;
 }
 
 .driver-container2 {
-  border: 1px solid black;
   width: 30%;
 }
 
 .driver_trips {
   font-size: 1.3em;
+  color: #114b5f;
 }
 
 .return-home {
