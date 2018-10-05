@@ -31,11 +31,10 @@ class TripsController < ApplicationController
 
     @driver.update_attribute(:status, false)
 
-    if @trip.save
-      redirect_to passenger_trips_path
-    else
-      # raise an error message
-    end
+    @trip.save
+
+    redirect_to passenger_trips_path
+
   end
 
   def update
