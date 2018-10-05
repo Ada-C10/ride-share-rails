@@ -5,9 +5,12 @@ class DriversController < ApplicationController
   end
 
   def show
-    id = params[:id]
-    @driver = Driver.find(id)
-    @trips = @driver.trips.all
+    @driver = Driver.find_by(id: params[:id])
+    if @driver
+      @trips = @driver.trips.all
+    else
+      redirect_to drivers, alert: "There are no drivers with that ID"
+    end
   end
 
   def new
