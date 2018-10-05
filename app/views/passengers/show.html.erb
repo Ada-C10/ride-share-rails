@@ -2,11 +2,17 @@
 
 <% if @passenger.nil? %>
   <h1> 404 Not found</h1>
+<% elsif @passenger.status == false %>
+  <h1> <%= "Rider no. #{@passenger.id} is no longer active" %>
 <% else %>
   <h1><%=@passenger.name %></h1>
   <h3> <%= @passenger.phone_num %></h3>
   <h3> <%= @passenger.status %></h3>
   <h4> <%= "#{@passenger.name} has been charged a total of $ #{@passenger.charges}" %> </h4>
+  <%= link_to "Request a Trip", request_trip_path(@passenger.id), method: :create %>
+  <%= link_to "Edit", edit_passenger_path(@passenger.id) %>
+  <%= link_to "Delete #{@passenger.name}", passenger_path(@passenger.id), method: :delete, data: { confirm: 'Are you sure? This cannot be undone!'} %>
+<% end %>
 
   <% @passenger.trips.each do |trip| %>
   <ul>
@@ -17,8 +23,5 @@
     <li> <%= trip.rating%></li>
   </ul>
 <% end %>
-<%= link_to "Request a Trip", request_trip_path(@passenger.id), method: :create %>
-  <%= link_to "Edit", edit_passenger_path(@passenger.id) %>
-  <div></div>
-  <%= link_to "Delete #{@passenger.name}", passenger_path(@passenger.id), method: :delete, data: { confirm: 'Are you sure? This cannot be undone!'} %>
-<% end %>
+
+<br>

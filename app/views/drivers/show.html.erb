@@ -2,6 +2,8 @@
 
 <% if @driver.nil? %>
   <h1> 404 Not found</h1>
+<% elsif @driver.status == false %>
+    <h1> <%= "Driver no. #{@driver.id} is no longer active" %>
 <% else %>
   <h1> <%=@driver.name %></h1>
   <h3> <%= @driver.vin %></h3>

@@ -13,3 +13,54 @@
  *= require_tree .
  *= require_self
  */
+
+/* --------
+ colors: #FF9F19(orange), #06D6A0(turq.), #FFBF69(beige), #FF476F(raspberry), #F8FFE5(grey)
+-------- */
+
+body {
+  color: #f8ffe5;
+  background-color: #ff9f19;
+  font-family: 'Raleway', sans-serif;
+  margin: 1em;
+}
+
+ .navigation {
+   display: flex;
+   font-weight: 500; /* medium */
+   font-size: 4em;
+   font-family: 'Quicksand', sans-serif;
+   line-height: 1.5;
+   background: center/70% url('../images/city-cars.jpg');
+ }
+
+ .navigation a:visited {
+   color: #f8ffe5;
+ }
+
+ .navigation a:hover {
+   font-weight: 700; /* bold */
+ }
+
+ .navigation a:active{
+   font-weight: 700; /* bold */
+   color: #ff476f;
+ }
+
+ ul {
+   list-style: none;
+ }
+
+ a {
+   font-weight: 300; /* semi-light */
+   color: #f8ffe5;
+   text-decoration: none;
+ }
+
+a:hover {
+  font-weight: 600;
+}
+
+ a:visited {
+   color: #ff476f;
+ }
