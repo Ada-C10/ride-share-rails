@@ -1,8 +1,8 @@
 <h1> Trip In Progress</h1>
-<p> Requesting trip for <strong> <%= @passenger.name%></strong></p>
+<p> Requesting trip for <strong> <%= link_to "#{@trip.passenger.name}", passenger_path(@trip.passenger.id)%></li></strong></p>
 <p> Passenger Status: <%=@passenger.status%></p>
 <ul>
-  <li> You've been matched with:<strong> <%= @trip.driver.name%></strong></li>
+  <li> You've been matched with:<strong> <%= link_to "#{@trip.driver.name}", driver_path(@trip.driver.id) %></strong> </li>
   <li> Your Driver's Average Rating: <strong><%=@trip.driver.average_rating%></strong></li>
   <% @trip.driver.average_rating.round.times do  %>
     ⭐️

@@ -3,10 +3,6 @@ class TripsController < ApplicationController
     @trip = Trip.find_by(id: params[:id].to_i)
   end
 
-  def home
-    render :home
-  end
-
   def index
     if params[:driver_id]
       driver_id = params[:driver_id]
@@ -46,18 +42,7 @@ class TripsController < ApplicationController
     @passenger = Passenger.find_by(id: params[:passenger_id].to_i)
   end
 
-  def end_trip
-    @trip = Trip.find_by(id: params[:id].to_i)
-    @trip.passenger.status = "Standby"
-    @trip.driver.status = "AVAILABLE"
-    @trip.status = "Complete"
-    @trip.update(trip_params)
-    if @trip.save
-      redirect_to passenger_trip_path(@trip.passenger.id, @trip.id)
-    else
-      render :edit
-    end
-  end
+  
 
   def edit
     if params[:passenger_id]
@@ -69,8 +54,11 @@ class TripsController < ApplicationController
 
   def update
     @trip = Trip.find_by(id: params[:id].to_i)
-    # @trip.passenger.status = "Standby"
-    # @trip.passenger.save
+    @trip.passenger.status = "Standby"
+    @trip.driver.status = "AVAILABLE"
+    @trip.driver.save
+    @trip.passenger.save
+    @trip.status = "Complete"
     @trip.update(trip_params)
     if @trip.save
       redirect_to passenger_trip_path(@trip.passenger.id, @trip.id)
