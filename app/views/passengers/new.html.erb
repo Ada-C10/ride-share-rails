@@ -1,24 +1,15 @@
+
 <div class="passenger-container">
-  <%= form_with model: @passenger, class: 'new-passsenger-form' do |f| %>
 
-  <p>Please provide the following information to save new passenger to our database:</p>
+  <%= render partial: "passenger_form", locals: {
+    action_type: "Create New Passenger",
+    form_title: "New Passenger Form"
+    } %>
 
-  <h2>New Passenger Form</h2>
+  </div>
 
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-
-  <%= f.label :phone_number %>
-  <%= f.text_field :phone_num %>
-
-  <%= f.submit "Create New Passenger", class: "new-passenger-submit-button" %>
-
-  <% end %>
-
-</div>
-
-<div class="return-home">
-  <h3>
-    <%= link_to "Return Home", passenger_path, class: "homepage" %>
-  </h3>
-</div>
+  <div class="return-home">
+    <h3>
+      <%= link_to "Return Home", passengers_path, class: "homepage" %>
+    </h3>
+  </div>
