@@ -33,7 +33,7 @@ class TripsController < ApplicationController
   def create
 
     @passenger = Passenger.find_by(id: params[:passenger_id])
-    @driver = Driver.find_by(status: params[:status, "available"])
+    @driver = Driver.find_by(status: true)
     @trip = @passenger.trips.new()
 
     @trip.driver = @driver
@@ -42,12 +42,14 @@ class TripsController < ApplicationController
     @trip.rating = nil
     @trip.cost = rand(1..10)
 
+    @driver.update_attribute(:status, false)
 
     if @trip.save
       redirect_to passenger_trips_path
     else
       # raise an error message
     end
+
   end
 
 
