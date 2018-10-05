@@ -105,6 +105,9 @@ footer {
    cursor:pointer;
    transition:800ms ease all;
    outline:none;
+   background-image: linear-gradient(white,#F0FFFF);
+   text-decoration: none;
+
  }
  .welcome-button:hover{
    background:#fff;
