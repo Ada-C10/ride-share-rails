@@ -24,4 +24,16 @@ class Trip < ApplicationRecord
       driver.save
     end
   end
+
+  def self.request_trip(id)
+    passenger = Passenger.find(id)
+
+    if passenger.verify_trip
+      driver = Driver.new_trip_driver
+      trip = Trip.new(driver_id: driver, passenger_id: id, date: DateTime.now, cost: 0, in_progress: true)
+      return trip
+    end
+
+    return nil
+  end
 end

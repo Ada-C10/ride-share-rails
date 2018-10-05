@@ -12,16 +12,13 @@ class TripsController < ApplicationController
 
   def create
     if params[:passenger_id]
-      @passenger_id = params[:passenger_id].to_i
-      @passenger = Passenger.find(@passenger_id)
-      if @passenger.verify_trip
-        driver = Driver.new_trip_driver
-        @trip = Trip.new(driver_id: driver, passenger_id: @passenger_id, date: DateTime.now, cost: 0, in_progress: true)
-        @trip.save
+      @trip = Trip.request_trip(params[:passenger_id].to_i)
 
-        redirect_to passenger_path
-      else
+      if @trip == nil
         redirect_to root_path
+      else
+        @trip.save
+        redirect_to passenger_path(params[:passenger_id])
       end
     end
   end
@@ -50,23 +47,6 @@ class TripsController < ApplicationController
       redirect_to root_path
     end
   end
-
-
-  def create
-    if params[:passenger_id]
-      @passenger_id = params[:passenger_id].to_i
-      @passenger = Passenger.find(@passenger_id)
-      if @passenger.verify_trip
-        driver = Driver.new_trip_driver
-        @trip = Trip.new(driver_id: driver, passenger_id: @passenger_id, date: DateTime.now, cost: 0, in_progress: true)
-        @trip.save
-        redirect_to passenger_path(@passenger_id)
-      else
-        redirect_to root_path
-      end
-    end
-  end
-
 
   private
   def trip_params
