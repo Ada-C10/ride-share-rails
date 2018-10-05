@@ -1,10 +1,4 @@
-<h>TEST for individual Trip detail</h>
-
-
-
-<%= link_to "Edit", edit_trip_path %>
-  <%= link_to "Delete", trip_path(@trip), method: :delete, data: { confirm: "Are you 1000% sure you want to delete the Trip #{@trip.id}?" } %>
-
+<h2>Individual Trip Details</h2>
 
 <ul>
 
@@ -12,8 +6,15 @@
     <li> Trip date:  <%= @trip.date %></li>
     <li> Trip rating: <%= @trip.rating %></li>
     <li> Trip cost: $<%= @trip.cost/100.00 %></li>
-    <li> Trip Driver ID <%= link_to "#{@trip.driver_id}", driver_path %></li>
-    <li> Trip Passenger ID <%= link_to "#{@trip.passenger_id}", passenger_path %></li><br>
+    <li> Trip Driver ID <b><%= link_to "#{@trip.driver_id}", driver_path %></b></li>
+    <li> Trip Passenger ID <b><%= link_to "#{@trip.passenger_id}", passenger_path %></b></li><br>
 
 
 </ul>
+
+<%= link_to "(Edit This Trip)", edit_trip_path %>
+<%= link_to "(Delete This Trip)", trip_path(@trip), method: :delete, data: { confirm: "Are you 1000% sure you want to delete the Trip #{@trip.id}?" } %>
+
+  <p>
+  <h4><%= link_to "(Return to Passenger List)", passengers_path %></h4>
+  </p>

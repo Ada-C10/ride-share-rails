@@ -12,6 +12,7 @@ locals: {
 <%= f.label :date %>
 <%= f.text_field :date %>
 
+<%= f.label :name %>
 <%= f.select :passenger_id, Passenger.all.map{ |pass| [pass.name, pass.id] } %>
 
 <%= f.label :driver_id %>
