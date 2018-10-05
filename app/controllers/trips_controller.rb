@@ -21,36 +21,24 @@ class TripsController < ApplicationController
   end
 
   def create
-    filtered_params = trip_params()
-    @trip = Trip.new(filtered_params)
-    save_success = @trip.save
-    if save_success
-      redirect_to trips_path
-    else
-      render :new
+    if params[:passenger_id]
+      passenger = Passenger.find_by(id:
+        params[:passenger_id])
+        driver = Driver.all.sample
+        @trip = passenger.trips.new(driver_id: driver.id, passenger_id: passenger.id, date: "2018-06-01", rating: 0, cost: 0)
+        if @trip.save
+          redirect_to passenger_trips
+        else
+          render :new
+        end
+      end
     end
-  end
 
-  def new
-    @trip = Trip.new
-  end
-
-  def show
-    trip_id = params[:id]
-    @trip= Trip.find_by(id: trip_id)
-    if @trip.nil?
-      head :not_found
-    end
-  end
-  private
-
-  def trip_params
-    return params.require(:trip).permit(
-      :name,
-      :phone_num,
-    )
-  end
-
-
-
+      def show
+        trip_id = params[:id]
+        @trip= Trip.find_by(id: trip_id)
+        if @trip.nil?
+          head :not_found
+        end
+      end
 end

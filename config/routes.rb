@@ -14,6 +14,6 @@ Rails.application.routes.draw do
   end
 
   resources :passengers do
-    resources :trips, only: [:index, :new, :create]
+    resources :trips, only: [:index,  :create]
   end
 end
