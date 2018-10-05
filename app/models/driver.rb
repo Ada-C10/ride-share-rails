@@ -1,6 +1,8 @@
 class Driver < ApplicationRecord
   has_many :trips, :dependent => :nullify
 
+  validates :name, :vin, presence: true
+
   def average_rating
 
     return 0 if trips.length == 0
