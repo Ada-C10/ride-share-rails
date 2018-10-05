@@ -6,8 +6,8 @@
     <li> Trip date:  <%= @trip.date %></li>
     <li> Trip rating: <%= @trip.rating %></li>
     <li> Trip cost: $<%= @trip.cost/100.00 %></li>
-    <li> Trip Driver ID <b><%= link_to "#{@trip.driver_id}", driver_path %></b></li>
-    <li> Trip Passenger ID <b><%= link_to "#{@trip.passenger_id}", passenger_path %></b></li><br>
+    <li> Trip Driver ID <b><%= link_to "#{@trip.driver_id}", driver_path(@trip.driver_id) %></b></li>
+    <li> Trip Passenger ID <b><%= link_to "#{@trip.passenger_id}", passenger_path(@trip.passenger_id) %></b></li><br>
 
 
 </ul>
