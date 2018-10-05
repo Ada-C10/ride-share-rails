@@ -59,7 +59,7 @@ class TripsController < ApplicationController
       @trip = passenger.trips.new
       driver_picked = Driver.random_active_driver
       @trip.driver_id = driver_picked.id
-      @trip.cost = 10
+      @trip.cost = 1000
       @trip.date = Date.today
     else
       @trip = Trip.new

@@ -1,20 +1,22 @@
 <% if @passenger.nil? %>
   <h1> 404 Not found</h1>
 <% else %>
-  <h1><%=@passenger.name %></h1>
+  <h1>Passenger Details</h1>
+  <p>Name: <%=@passenger.name %></p>
   <p>Phone Number:<%= @passenger.phone_num %> </p>
   <p>Total Spending in USD: $<%= sprintf('%.2f', @passenger.total_spending/100) %> </p>
   <p><%= link_to "Request New Trip", passenger_trips_path(@passenger.id), method: :create %> </p>
-  <%= button_to "Edit Passenger", edit_passenger_path(@passenger.id), method: :create %>
+  <%= button_to "Edit Passenger", edit_passenger_path(@passenger.id), method: :get %>
   <%= button_to "Delete Passenger", passenger_path(@passenger.id), method: :delete , data: {confirm: "Are you sure?"}%>
   <!-- <p><%= link_to "Trips", passenger_trips_path(@passenger.id) %> </p> -->
   <table class="header">
-  <tr><td>Date</td><td>Drivers</td><td>Rating</td><td>Cost</td></tr>
+  <tr><td>Trip ID</td><td>Trip Date</td><td>Driver Name</td><td>Rating</td><td>Cost</td></tr>
   <p><%@passenger.trips.map do |trip| %>
     <tr>
+    <td><%= link_to "#{trip.id}", trip_path(trip.id) %></td>
     <td><%=trip.date%></td>
     <!-- the show method for passener expects expects the id of the passenger. So, you have to find it using the method in the model by testing it in the consule -->
-    <td><%= link_to "Driver", driver_path(trip.driver.id) %></td>
+    <td><%= trip.driver.name %></td>
     <td><%=trip.rating%></td>
     <td>$<%=sprintf('%.2f', trip.cost/100)%></td>
     </tr>

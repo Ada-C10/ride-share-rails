@@ -1,8 +1,9 @@
-<h2>Trip ID: <%= @trip.id %></h2>
+<h2>Trip Details</h2>
+<p>Trip ID: <%= @trip.id %></p>
 <p>Trip Date: <%= @trip.date %></p>
 <p><%= link_to "Passenger_id: #{@trip.passenger_id}", passenger_path(@trip.passenger_id) %> </p>
 <p><%= link_to "Driver_id: #{@trip.driver_id}", driver_path(@trip.driver_id) %> </p>
-<p>Cost: <%= sprintf('%.2f', @trip.cost/100)%></p>
+<p>Cost: $<%= sprintf('%.2f', @trip.cost/100)%></p>
 <p>Rating: <%= @trip.rating %></p>
 
 <%= link_to "Edit Trip", edit_trip_path(@trip.id) %>
