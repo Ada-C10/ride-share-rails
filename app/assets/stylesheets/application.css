@@ -14,6 +14,10 @@
  *= require_self
  */
 
+ a {
+   text-decoration: none;
+ }
+
 .trip-button, .driver-button, .passenger-button {
   padding: 0.5rem;
   margin: 1rem;
@@ -50,29 +54,6 @@
    margin: 0.5rem;
  }
 
- a {
-   text-decoration: none;
- }
-
-
- header nav {
-   display: flex;
-   justify-content: space-around;
-   background-color: black;
-   margin: 0;
-   padding: 5px;
- }
-
- #main_container a {
-   color: white;
- }
-
-
-header nav ul {
-  padding: 0;
-  margin: 0;
-}
-
  #main_container li {
   display: flex;
   justify-content: space-around;
@@ -80,6 +61,26 @@ header nav ul {
   padding: 1rem;
  }
 
+ #main_container a {
+   color: white;
+ }
+
+ #main_container li:hover {
+   background-color: #53a7ea;
+ }
+
+ header nav {
+   margin: 0;
+   font-size: 1.5rem;
+ }
+
+header nav ul {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-around;
+  background-color: black;
+}s
 
  .errors {
    color: red;
