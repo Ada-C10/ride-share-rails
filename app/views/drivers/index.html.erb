@@ -8,11 +8,6 @@
   <li>
     <%= link_to driver[:name], driver_path(driver.id) %>
 
-    driver rating: <%= driver.average_rating.round(2) %>
-
-    <%= link_to "edit", edit_driver_path(driver.id) %>
-
-    <%= link_to "delete", driver_path(driver), method: :delete, data: { confirm: "are you sure you want to delete #{driver.name}"} %>
   </li>
   <% end %>
 </ul>
