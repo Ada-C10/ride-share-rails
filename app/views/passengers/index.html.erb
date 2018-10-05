@@ -1,14 +1,34 @@
 <ol class="passenger-list">
-  <h1>All Passengers</h1>
+  
 
-  <% @passengers.each do |passenger| %>
-    <li><%= link_to passenger.name, passenger_path(passenger.id) %></li>
+  <%# @passengers.each do |passenger| %>
+    <li><%# link_to passenger.name, passenger_path(passenger.id) %></li>
 
-    <!-- <%= link_to "Edit", edit_passenger_path(passenger.id)%>
-    <%= link_to "Delete", passenger_path(passenger.id), method: :delete,
+    <!-- <%# link_to "Edit", edit_passenger_path(passenger.id)%>
+    <%# link_to "Delete", passenger_path(passenger.id), method: :delete,
     data: { confirm: 'Are you sure you want to delete?'}, class: 'button'%> -->
 
-  <%end%>
+  <%#end%>
+
+  <h1>All Passengers</h1>
+  <table style="width:90%">
+   <tr>
+     <th>Passenger Name</th>
+     <th>Phone</th>
+     <th>Edit</th>
+     <th>Delete</th>
+   </tr>
+   <% @passengers.each do |passenger| %>
+   <tr>
+     <td><%=link_to passenger.name, passenger_path(passenger.id)%></td>
+     <td><%=link_to passenger.phone_num, passenger_path(passenger.id)%></td>
+     <td><%= link_to "Edit", edit_passenger_path(passenger.id)%></td>
+     <td><%= link_to "Delete", passenger_path(passenger.id), method: :delete,
+     data: { confirm: 'Are you sure you want to delete?'}, class: 'button'%></td>
+     <% end  %>
+   </tr>
+ </table>
+
 
 
 </ol>

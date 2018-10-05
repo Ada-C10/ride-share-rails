@@ -1,30 +1,20 @@
 <% if @driver.nil? %>
-<h1> 404 Not found</h1>
+  <h1> 404 Not found</h1>
 <% else %>
 
+  <h1>Driver Details</h1>
+  <h2>Name:<%= @driver.name %></h2>
+  <h3>Vin :<%= @driver.vin %></h3>
+  <!-- <h3>Picture :<%= @driver.driver_picture %></h3> -->
+  <h3>Total Earned:<%= (@driver.total_earnings / 100).round(2) %></h3>
+  <h3>Average Rating:<%= @driver.average_rating %></h3>
 
-<h1>Driver Details</h1>
-<h2>Name:<%= @driver.name %></h2>
-<h3>Vin :<%= @driver.vin %></h3>
-<!-- <h3>Picture :<%= @driver.driver_picture %></h3> -->
-<h3>Total Earned:<%= (@driver.total_earnings / 100).round(2) %></h3>
-<h3>Average Rating:<%= @driver.average_rating %></h3>
+  <%= link_to "Edit #{@driver.name}", edit_driver_path(@driver.id)%>
+  <br>
+  <%= link_to "Delete #{@driver.name}", driver_path(@driver.id), method: :delete, data: { confirm: 'Are you sure you want to delete?'}%>
 
-<%= link_to "Edit #{@driver.name}", edit_driver_path(@driver.id)%>
-<br>
-<%= link_to "Delete #{@driver.name}", driver_path(@driver.id), method: :delete, data: { confirm: 'Are you sure you want to delete?'}%>
-
-
-<!-- <ol>
   <h2>Trips</h2>
-  <% @driver.trips.each do |trip| %>
-  <li><%= link_to "#{trip.id} #{trip.date} #{trip.cost} #{trip.rating} ", driver_trip_path(@driver.id) %>
-  </li>
-  <% end %>
-</ol> -->
-
-<h2>Trips</h2>
-<table style="width:90%">
+  <table style="width:90%">
    <tr>
      <th>Trip ID</th>
      <th>Passenger</th>
@@ -42,6 +32,5 @@
      <% end  %>
    </tr>
  </table>
-
 
 <% end %>
