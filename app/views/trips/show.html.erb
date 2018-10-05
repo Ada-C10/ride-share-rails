@@ -1,46 +1,64 @@
 <div class="container" role="main">
-<div class="c1">
-  <h1><%=link_to "Rideshare", home_path%></h1>
-</div>
-<div class="c2">
-  <div class="dropdown">
-    <button class="dropbtn">Drivers</button>
-    <div class="dropdown-content">
-      <%=link_to "View All", drivers_path%>
-      <%=link_to "Add Driver", new_driver_path %>
+  <div class="c1">
+    <h1><%=link_to "Rideshare", home_path%></h1>
+  </div>
+  <div class="c2">
+    <div class="dropdown">
+      <button class="dropbtn">Drivers</button>
+      <div class="dropdown-content">
+        <%=link_to "View All", drivers_path%>
+        <%=link_to "Add Driver", new_driver_path %>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropbtn">Passengers</button>
+      <div class="dropdown-content">
+        <%=link_to "View All", passengers_path%>
+        <%=link_to "Add Passenger", new_passenger_path%>
+      </div>
     </div>
   </div>
-  <div class="dropdown">
-    <button class="dropbtn">Passengers</button>
-    <div class="dropdown-content">
-      <%=link_to "View All", passengers_path%>
-      <%=link_to "Add Passenger", new_passenger_path%>
-    </div>
+  <div class="c3">
+    <%= link_to "View Driver", driver_path(id: @trip.driver_id) %>
+    <%= link_to "View Passenger", passenger_path(id: @trip.passenger_id) %>
+    <%= link_to "Return", request.referer.present? ? request.referer : home_path %>
   </div>
-</div>
- <div class="c3">
-     <%= link_to "View Driver", driver_path(id: @trip.driver_id) %>
-     <%= link_to "View Passenger", passenger_path(id: @trip.passenger_id) %>
-     <%= link_to "Return", request.referer.present? ? request.referer : home_path %>
- </div>
- <div class="c4">
-   <h2>Trip Details</h2>
-   <p><%= render partial: 'layouts/form_errors',
-   locals: {
-     model: @trip
-   }
-   %> </p>
+  <div class="c4">
+    <h2>Trip #<%= @trip.id %></h2>
+    <p><%= render partial: 'layouts/form_errors',
+    locals: {
+      model: @trip
+    }
+    %> </p>
+    <p>
+      <strong>Id: </strong><%= @trip.id %>
+    </p>
+    <p>
+      <strong>Date: </strong><%= @trip.date %>
+    </p>
+    <p>
+      <strong>Cost: </strong><%= @trip.cost%>
+    </p>
+    <p>
+      <strong>Rating: </strong><%= @trip.rating%>
+    </p>
+    <p>
+      <strong>Driver: </strong><%= link_to "#{@trip.driver.name}", driver_path(id: @trip.driver_id) %>
+    </p>
+    <p>
+      <strong>Passenger: </strong><%= link_to "#{@trip.passenger.name}", driver_path(id: @trip.passenger_id) %>
+    </p>
+    <%= form_with model: @trip do |f| %>
+    <h3>Change Trip Rating</h3>
+    <p class='ratings-box'>
+      <%= f.label :rating %>: 
+      <%= f.select :rating, [1,2,3,4,5] %>
+    </p>
 
-   <p>
-     Id: <%= @trip.id %> | Date: <%= @trip.date %> <%= @trip.cost%> | Rating: <%= @trip.rating%>
-     | Driver id: <%= link_to "#{@trip.driver_id}", driver_path(id: @trip.driver_id) %>
-     | Passenger id: <%= link_to "#{@trip.passenger_id}", driver_path(id: @trip.passenger_id) %> |
-     <%= form_with model: @trip do |f| %>
-       <h3>Edit rating</h3>
-       <%= f.label :rating %>
-       <%= f.select :rating, [1,2,3,4,5] %>
-       <%= f.submit "Save Rating"%>
-     <% end %>
-   </p>
- </div>
+    <p class="submit-button">
+      <%= f.submit "Save Rating"%>
+    </p>
+    <% end %>
+  </p>
+</div>
 </div>
