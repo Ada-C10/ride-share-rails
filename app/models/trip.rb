@@ -5,7 +5,6 @@ class Trip < ApplicationRecord
   validates :passenger_id, presence: true
   validates :driver_id, presence: true
   validates :date, presence: true
-  validates :rating, presence: true
   validates :cost, presence: true
 
   RATING = [1,2,3,4,5]
