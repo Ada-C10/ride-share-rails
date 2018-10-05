@@ -9,8 +9,11 @@ class Driver < ApplicationRecord
     #self is same thing as driver instance, since we are in model
     sum = 0
     self.trips.each do |trip|
-      sum = sum + trip.rating
+      unless trip.rating == nil
+        sum = sum + trip.rating
+      end
     end
+    
     length = self.trips.length
 
     if length == 0
@@ -41,14 +44,17 @@ class Driver < ApplicationRecord
   # create to find an available driver--assing to a new trip
 
 
-  # def avail_status
-  #   if self.status
-  #     self.status == false
-  #     return self.name
-  #   else
-  #     return "no drivers available"
-  #   end
-  # end
+  def self.avail_status
+    avail = Driver.where(status: true)
+    #fix syntax
+    one_driver = avail.sample
+    return one_driver
+  end
+
+
+  def update_status
+    return update(status: false)
+  end
 
 
 end

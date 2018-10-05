@@ -13,15 +13,15 @@ class TripsController < ApplicationController
 
   def new
     @trip = Trip.new
-
   end
 
 
   def create
     filtered_trip_params = trip_params()
-    @trip = Trip.new(filtered_trip_params)
+    driver = Driver.avail_status
+    @trip = Trip.new(filtered_trip_params.merge(:driver_id => driver.id))
 
-    is_successful_save = @trip.save
+    is_successful_save = @trip.save && driver.update_status
 
     if is_successful_save
       redirect_to passenger_path(filtered_trip_params[:passenger_id])
@@ -60,7 +60,6 @@ class TripsController < ApplicationController
       :date,
       :rating,
       :cost,
-      :driver_id,
       :passenger_id
 
     )
