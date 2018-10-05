@@ -10,8 +10,8 @@ class TripsController < ApplicationController
     if @trip.nil?
       head :not_found
     end
-
   end
+
 
   def rating_completed?
     @trips = Trip.where(id: params[:passenger_id])
@@ -23,6 +23,7 @@ class TripsController < ApplicationController
     end
     return true
   end
+
 
   def create
     if rating_completed?
