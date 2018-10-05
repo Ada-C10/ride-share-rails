@@ -27,6 +27,20 @@
    flex-direction: column;
  }
 
+ form {
+   display: flex;
+   flex-direction: column;
+   max-width: 40%;
+ }
+
+ input {
+   padding: 0.5rem;
+ }
+
+ label {
+   margin: 0.5rem;
+ }
+
  a {
    text-decoration: none;
  }

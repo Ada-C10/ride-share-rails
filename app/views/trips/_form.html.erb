@@ -8,26 +8,27 @@
   </ul>
 <% end %>
 
-
-<h1> <%= action_name %> </h1>
-
-<%= form_with model: @trip, class: "trip-form" do |f|%>
+<div class="container">
+  <h1> <%= action_name %> </h1>
   <p>Please provide the following information to save your trip to our database:</p>
 
-  <%= f.label :date %>
-  <%= f.text_field :date%>
+  <%= form_with model: @trip, class: "trip-form" do |f|%>
 
-  <%= f.label :rating %>
-  <%= f.text_field :rating%>
+    <%= f.label :date %>
+    <%= f.text_field :date%>
 
-  <%= f.label :cost %>
-  <%= f.text_field :cost%>
+    <%= f.label :rating %>
+    <%= f.text_field :rating%>
 
-  <%= f.label :driver_id %>
-  <%= f.select :driver_id, Driver.all.map{ |driv| [driv.name, driv.id] }.sort %>
+    <%= f.label :cost %>
+    <%= f.text_field :cost%>
 
-<%= f.label :passenger_id %>
-  <%= f.select :passenger_id, Passenger.all.map{ |pass| [pass.name, pass.id] }.sort %>
+    <%= f.label :driver_id %>
+    <%= f.select :driver_id, Driver.all.map{ |driv| [driv.name, driv.id] }.sort %>
 
-  <%= f.submit button_title, class: "trip-button" %>
-<% end %>
+  <%= f.label :passenger_id %>
+    <%= f.select :passenger_id, Passenger.all.map{ |pass| [pass.name, pass.id] }.sort %>
+
+    <%= f.submit button_title, class: "trip-button" %>
+  <% end %>
+</div>

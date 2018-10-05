@@ -5,7 +5,7 @@ class Trip < ApplicationRecord
   # Need to figure out how to only apply this if the currency doesn't
   # already have a decimal
   def convert_money(currency)
-    return currency.to_f / 100 
+    return currency.to_f / 100
     # if currency.to_s.include?(".")
     #   return currency
     # else
@@ -13,5 +13,4 @@ class Trip < ApplicationRecord
     # end
   end
 
-  # If trip.cost.
 end
