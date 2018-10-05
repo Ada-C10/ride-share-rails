@@ -3,7 +3,9 @@ class Passenger < ApplicationRecord
   has_many :drivers, through: :trips
 
   validates :name, presence: true
+  validates :name, format: { with: /[\w]+([\s]+[\w]+){1}+/, message: "bad format" }
   validates :phone_num, presence: true
+  validates :phone_num, format: { with: /\d{3}-\d{3}-\d{4}/, message: "bad format" }
 
   def total_cost
     total = 0
