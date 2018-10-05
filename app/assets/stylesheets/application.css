@@ -119,3 +119,8 @@ td {
 tr:nth-child(odd) {
   background-color: #CCC;
 }
+
+header h1 {
+  text-align: center;
+  font-size: 2.25rem;
+}
