@@ -1,6 +1,6 @@
 <h1>Passenger: <%= @passenger.name %></h1>
 <h3>Phone Number: <%= @passenger.phone_num %></h3>
-<button>
+<button id='requestride'>
   <%= link_to "Request Ride", passenger_trips_path(@passenger.id), method: :post %> </h2>
 </button>
 
