@@ -1,5 +1,5 @@
 class Driver < ApplicationRecord
-  has_many :trips, dependent: :nullify
+  has_many :trips, dependent: :delete_all
 
   validates :name, presence: true
   validates :vin, presence: true
