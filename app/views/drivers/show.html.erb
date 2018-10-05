@@ -5,17 +5,17 @@
 <%= button_to "Edit Driver", edit_driver_path(@driver.id), method: :get %>
 <%= button_to "Delete Driver", driver_path(@driver.id), method: :delete, data: { confirm: "Are you sure?"}%>
 <table>
-<tr class="header"><td>Date</td><td>Passanger</td><td>Rating</td><td>Cost</td><td>Edit</td><td>Delete</td></tr>
+<tr class="header"><td>Trip ID</td><td>Passanger Name</td><td>Rating</td><td>Rating</td><td>Cost</td></tr>
 <p><%@driver.trips.map do |trip| %>
   <tr>
+  <td><p><%= link_to "#{trip.id}", trip_path(trip.id) %> </p></td>
   <td><%=trip.date%></td>
   <!-- the show method for passener expects expects the id of the passenger. So, you have to find it using the method in the model by testing it in the consule -->
-  <td><%= link_to "Passenger", passenger_path(trip.passenger.id) %></td>
+  <td><%=trip.passenger.name %></td>
   <td><%=trip.rating%></td>
   <td>$<%=sprintf('%.2f', trip.cost/100)%></td>
-    <td><p><%= link_to "Trips", driver_trips_path(@driver.id) %> </p></td>
-  <td><%= link_to "Edit trip", edit_trip_path(trip.id) %></td>
-  <td><%= link_to "Delete trip", trip_path(trip.id), method: :delete, data: { confirm: "Are you sure?"} %></td>
+  <!-- <td><%= link_to "Edit trip", edit_trip_path(trip.id) %></td>
+  <td><%= link_to "Delete trip", trip_path(trip.id), method: :delete, data: { confirm: "Are you sure?"} %></td> -->
   </tr>
 <%end%>
 </table>
