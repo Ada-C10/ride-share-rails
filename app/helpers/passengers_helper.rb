@@ -5,7 +5,7 @@ module PassengersHelper
     if trip.rating.present?
       trip.rating
     else
-      form_with(model: @trip, method: :patch) do |f|
+      form_with(model: trip, method: :patch) do |f|
         (f.select :rating, RATES ) +
         (f.submit 'Rate')
       end
