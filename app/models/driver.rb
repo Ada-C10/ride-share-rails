@@ -1,5 +1,5 @@
 class Driver < ApplicationRecord
-  has_many :trips
+  has_many :trips, dependent: :nullify
 
   def total_earnings
   #The driver gets 80% of the trip cost after a fee of $1.65 is subtracted

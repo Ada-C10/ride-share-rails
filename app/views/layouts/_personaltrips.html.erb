@@ -21,10 +21,19 @@
         <%= "#{trip.date}"%>
       </div>
       <div class="cell" data-title="Driver">
-        <%= "#{trip.driver.name}"%>
+        <% if trip.driver == nil %>
+         Inactive User
+        <% else %>
+        <%= "#{trip.driver.name}" %>
+        <% end %>
       </div>
       <div class="cell" data-title="Passenger">
+        <% if trip.passenger == nil %>
+         Inactive User
+        <% else %>
         <%= "#{trip.passenger.name}"%>
+        <% end %>
+
       </div>
       <div class="cell" data-title="Price">
         <%= "#{trip.formatted_cost}" %>
