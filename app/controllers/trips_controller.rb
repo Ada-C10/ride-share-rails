@@ -32,11 +32,11 @@ class TripsController < ApplicationController
         if @trip.save
           redirect_to root_path
         else
-          render :show
+          render :edit
         end
       end
     end
-  
+
 
     def show
       trip_id = params[:id]
