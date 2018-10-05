@@ -1,25 +1,22 @@
 <% if @trip.nil? %>
   <h1>404 Not found</h1>
 <% else %>
-
-  <h1>Trip: <%= @trip.id %></h1>
-
-  <p>Date: <%= @trip.date%></p>
-  <p>Cost: $<%= (@trip.cost / 100.00).round(2) %></p>
-
-  <p>Rating: <%= @trip.rating%></p>
-
-  <br />
-  <%= link_to "Driver #{@trip.driver.name}", driver_path(@trip.driver) %>
-  <br />
-
-  <%= link_to "Passenger #{@trip.passenger.name}", passenger_path(@trip.passenger) %>
-  <br />
+  <h1>Trip Details</h1>
+  <h3>ID: <%= @trip.id %></h3>
+  <h3>Date: <%= @trip.date%></h3>
+  <h3>Cost: $<%= (@trip.cost / 100.00).round(2) %></h3>
 
   <% if @trip.rating.nil? %>
-    <%= link_to "Rate Trip #{@trip.id}", edit_trip_path(@trip.id)%>
+      <%= link_to "Rate Trip #{@trip.id}", edit_trip_path(@trip.id)%>
+  <% else %>
+      <h3>Rating: <%= @trip.rating%></h3>
   <% end %>
 
+  <%= link_to "Driver: #{@trip.driver.name}", driver_path(@trip.driver) %>
+  <br />
+
+  <%= link_to "Passenger: #{@trip.passenger.name}", passenger_path(@trip.passenger) %>
+  <br />
 
   <%= link_to "Edit Trip #{@trip.id}", edit_trip_path(@trip.id)%>
   <br />
