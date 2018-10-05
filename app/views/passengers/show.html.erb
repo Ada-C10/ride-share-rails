@@ -22,7 +22,7 @@
 
     <div class="passenger-container2">
       <p class="passenger_trips">
-        List of Trips: <br />
+        List of Trips Taken: <br />
         <% @passenger.list_trips.each do |trip| %>
         <br />
         <%=link_to trip.date, trip_path(trip.id) %>

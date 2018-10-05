@@ -73,6 +73,23 @@ nav li {
   font-family: 'Krub', sans-serif;
 }
 
+a:link {
+  color: #5bc0be;
+}
+a:visited {
+  color: #0b132b;
+}
+a:hover {
+  color: red;
+}
+a:active {
+  color: #333333;
+}
+
+a {
+  text-decoration: none;
+}
+
 footer {
   background-color: #5BC0BE;
   margin: 0px;

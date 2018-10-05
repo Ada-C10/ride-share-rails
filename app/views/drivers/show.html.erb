@@ -16,7 +16,7 @@
 
   <div class="driver-container2">
     <p class="driver_trips">
-      List of Trips: <br />
+      List of Trips Driven: <br />
       <% @driver.list_trips.each do |trip| %>
       <br/>
       <%=link_to trip.date, trip_path(trip.id) %>
