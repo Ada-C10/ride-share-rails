@@ -9,6 +9,8 @@
       <div class="cell">Passenger</div>
       <div class="cell">Price</div>
       <div class="cell">Rating</div>
+      <div class="cell">Edit</div>
+      <div class="cell">Delete</div>
     </div>
 
 <% all_trips.each do |trip| %>
@@ -33,13 +35,18 @@
         <% else %>
         <%= "#{trip.passenger.name}"%>
         <% end %>
-
       </div>
       <div class="cell" data-title="Price">
         <%= "#{trip.formatted_cost}" %>
       </div>
       <div class="cell" data-title="Rating">
         <%= "#{trip.formatted_rating}" %>
+      </div>
+      <div class="cell" data-title="Edit">
+        <%= link_to "Edit", passenger_trip_path(passenger.id) %>
+      </div>
+      <div class="cell" data-title="Delete">
+        <%= link_to "Delete", passenger_trip_path(passenger.id) %>
       </div>
     </div>
 <%end%>

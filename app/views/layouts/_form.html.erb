@@ -2,8 +2,7 @@
   <div id="form-div">
 
 
-  <form class="form" id="form1">
-  <%= form_with model: model, url: url, method: method do |f| %>
+  <%= form_with model: model, url: url, method: method, class:"form" , id:"form1" do |f| %>
   <%= message %>
   <%= f.label field_one_text_field, field_one_label, class: "name"%>
   <%= f.text_field field_one_text_field, placeholder: field_one_placeholder, required: true, class: "feedback-input", id: "name"%>
@@ -17,9 +16,9 @@
 
   <div class="submit">
     <%= f.submit button_text, id: "button-orange"  %>
-    <div class: "ease"></div>
+    <div class="ease"></div>
   </div>
   <% end %>
-  </form>
+  
 </div>
 </div>
