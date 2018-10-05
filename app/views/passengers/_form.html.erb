@@ -1,3 +1,4 @@
+<div class="passenger-form">
 <% if @passenger.errors.any? %>
   <ul class="errors">
     <% @passenger.errors.each do |column, message| %>
@@ -7,19 +8,23 @@
     <% end %>
   </ul>
 <% end %>
-
-<section class="driver-form">
+<section class="form-contents form-section">
   <h1> <%= action_name %> </h1>
 
   <%= form_with model: @passenger, class: "passenger-add" do |f|%>
-    <p>Please provide the following information to save passenger details to our database:</p>
+    <p>Please provide the following information to save passenger details:</p>
 
+    <p>
     <%= f.label :name %>
-    <%= f.text_field :name %>
-
+    <%= f.text_field :name, class: "text_field" %>
+    </p>
+    <p>
     <%= f.label :phone_num %>
-    <%= f.text_field :phone_num %>
-
-    <%= f.submit button_title, class: "passenger-button" %>
+    <%= f.text_field :phone_num, class: "text_field" %>
+  </p>
+  <p>
+    <%= f.submit button_title, class: "btn-primary" %>
+  </p>
   <% end %>
 </section>
+</div>
