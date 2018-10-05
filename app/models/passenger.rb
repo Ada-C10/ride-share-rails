@@ -2,7 +2,7 @@ class Passenger < ApplicationRecord
   has_many :trips
 
   validates :name, presence: true
-  validates :phone_num, presence: true, uniqueness: true
+  validates :phone_num, presence: true, uniqueness: true, length: { in: 10..20 }
 
   def total_charged
     # if self.trip.cost  !=nil

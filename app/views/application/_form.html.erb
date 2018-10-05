@@ -1,6 +1,6 @@
 <% if model_name.errors.any? %>
   <ul class="errors">
-    <% model.errors.each do |column, message| %>
+    <% model_name.errors.each do |column, message| %>
       <li>
         <strong><%= column.capitalize %></strong> <%= message %>
       </li>
