@@ -13,17 +13,20 @@ class TripsController < ApplicationController
 
   def new
     @trip = Trip.new
+    @trip.date = Date.today
+    @trip.rating = 0
+    @trip.cost = 5
   end
 
   def create
     @trip = Trip.new(passenger_params)
     if @trip.save
-      redirect_to passengers_path
+      redirect_to passenger_trips_path
     else
       puts "#{@trips.errors}"
       render :new
     end
-  end  
+  end
 
   def update
     @trip = Trip.find_by(id: params[:id].to_i)

@@ -4,9 +4,8 @@ class PassengersController < ApplicationController
       # This is the nested route, /author/:author_id/books
       trip = Trip.find_by(id: params[:trip_id])
       @passengers = trip.passengers
-
     else
-      @passengers = Passenger.all
+      @passengers = Passenger.all.order(:name)
     end
   end
 
