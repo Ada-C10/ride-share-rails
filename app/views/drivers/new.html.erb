@@ -2,26 +2,16 @@
   <div class="notice">
     <%= flash[:notice] %>
   </div>
-  <%= form_with model: @driver, method: :post, class: 'new-driver-form' do |f| %>
 
-  <p>Please provide the following information to save a new driver to our database:</p>
+  <%= render partial: "driver_form", locals: {
+    action_type: "Create New Driver",
+    form_title: "New Driver Form"
+    } %>
 
-  <h2>New Driver Form</h2>
+  </div>
 
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-
-  <%= f.label :vin %>
-  <%= f.text_field :vin %>
-
-  <%= f.submit "Create New Driver", class: "new-driver-submit-button" %>
-
-  <% end %>
-
-</div>
-
-<div class="return-home">
-  <h3>
-    <%= link_to "Return Home", trips_path, class: "homepage" %>
-  </h3>
-</div>
+  <div class="return-home">
+    <h3>
+      <%= link_to "Return Home", trips_path, class: "homepage" %>
+    </h3>
+  </div>
