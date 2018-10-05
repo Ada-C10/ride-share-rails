@@ -5,7 +5,7 @@ class PassengersController < ApplicationController
       trip = Trip.find_by(id: params[:trip_id])
       @passengers = trip.passengers
     else
-      @passengers = Passenger.all.order(:name)
+      @passengers = Passenger.search(params[:term], params[:page])
     end
   end
 
