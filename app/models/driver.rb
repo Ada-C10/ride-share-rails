@@ -21,7 +21,12 @@ class Driver < ApplicationRecord
       end
     end
 
-    return (total / total_length).to_f
+    if total_length != 0
+      return (total / total_length).to_f
+    else
+      return "Not yet rated"
+      #return 5.0?
+    end
   end
 
   def find_available_driver
