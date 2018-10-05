@@ -1,4 +1,5 @@
 <div class="passenger-form">
+  <section class="form-contents form-section">
 <% if @trip.errors.any? %>
   <ul class="errors">
     <% @trip.errors.each do |column, message| %>
@@ -9,7 +10,6 @@
   </ul>
 <% end %>
 
-<section class="form-contents form-section">
   <h1><%= page_title %></h1>
   <%= form_with model: @trip do |f| %>
     <p>
@@ -38,7 +38,7 @@
       <% end %>
     </p>
     <p>
-      <%= f.submit "Save Trip", class: "btn-primary" %>
+      <%= f.submit "CONFIRM", class: "btn-primary" %>
     </p>
 
 <% end %>
