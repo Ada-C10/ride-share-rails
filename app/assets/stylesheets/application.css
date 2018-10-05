@@ -48,6 +48,8 @@ font-family: 'Karla', sans-serif; */
 
 @import url('https://fonts.googleapis.com/css?family=Karla|Lora');
 
+
+/* LAYOUT DESIGN, SIZE AND RESIZING */
 body {
   margin: 0;
   font-family: 'Lora', serif;
@@ -73,6 +75,47 @@ body {
   width: 100%;
 }
 
+@media (min-width: 600px) {
+  .c2, .c3 {
+    width: 50%;
+  }
+}
+
+@media (min-width: 800px) {
+  .c1 {
+    width: 60%;
+    border-radius: 50px 0px 0px 0px;
+    margin-top: .5em;
+  }
+  .c2 {
+    width: 40%;
+    border-radius: 0px 50px 0px 0px;
+    margin-top: .5em;
+  }
+  .c3, .c4 {
+    width: 33.33%;
+    height: 375px;
+  }
+  .c4 {
+    width: 66.66%;
+    height: 375px;
+    border-radius: 0px 0px 50px 0px;
+  }
+  .c3 {
+    border-radius: 0px 0px 0px 50px;
+  }
+}
+
+@media (min-width: 800px) {
+  .container {
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+
+/* HEADER STYLING AND DROPDOWN MENU */
 .c1 {
   color: white;
   text-align: left;
@@ -89,6 +132,69 @@ body {
   border-left: 2px solid rgba(165, 177, 194,1.0);
 }
 
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Karla', sans-serif;
+  color: rgba(10, 61, 98,1.0);
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+}
+
+h1 {
+  font-size: 60px;
+  padding-left: 1em;
+}
+
+h1 a {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  text-decoration: none;
+  color: white;
+}
+/* Style The Dropdown Button */
+.dropbtn {
+  margin-top: 2.7em;
+  background-color: rgba(0, 0, 0, 0);
+  font-family: 'Karla', sans-serif;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  color: white;
+  padding: 16px;
+  font-size: 22px;
+  border-radius: 70px;
+  border: none;
+  cursor: pointer;
+}
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 100%;
+  box-shadow: 0px 4px 16px 0px rgba(0,0,0,0.1);
+  z-index: 1;
+}
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: rgba(10, 61, 98,1.0);
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: rgba(130, 204, 221,1.0)}
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  background-color: rgba(255, 255, 255,.4);
+}
+
+
+/* SIDEBAR STYLING AND SIDEBAR BUTTON STYLING */
 .c3 {
   color: #333;
   background-color: rgba(130, 204, 221,1.0);
@@ -134,119 +240,37 @@ body {
   -webkit-box-shadow: inset 0 -2px rgba(7, 153, 146,1.0);
   box-shadow: inset 0 -2px rgba(7, 153, 146,1.0);
 }
+
+
+/* MAIN BODY CONTENT STYLING */
 .c4 {
-  color: #333;
   background-color: rgba(209, 216, 224,1.0);
 }
-
-@media (min-width: 600px) {
-  .c2, .c3 {
-    width: 50%;
-  }
+.c4 h1,h2,h3,h4,h5,h6 {
+  text-align: center;
 }
 
-@media (min-width: 800px) {
-  .c1 {
-    width: 60%;
-    border-radius: 50px 0px 0px 0px;
-    margin-top: .5em;
-  }
-  .c2 {
-    width: 40%;
-    border-radius: 0px 50px 0px 0px;
-    margin-top: .5em;
-  }
-  .c3, .c4 {
-    width: 33.33%;
-    height: 375px;
-  }
-  .c4 {
-    width: 66.66%;
-    height: 375px;
-    border-radius: 0px 0px 50px 0px;
-  }
-  .c3 {
-    border-radius: 0px 0px 0px 50px;
-  }
+.c4 h3 {
+  margin-top: 15px;
+  font-size: 30px;
 }
 
-@media (min-width: 800px) {
-  .container {
-    width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-  }
+.c4 form {
+  margin-left: 2em;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Karla', sans-serif;
+.c4 a{
+  color: rgba(60, 99, 130,1.0);
+}
+.c4 a:visited{
   color: rgba(10, 61, 98,1.0);
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
 }
-
-h1 {
-  font-size: 60px;
-  padding-left: 1em;
-}
-
-h1 a {
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
-  text-decoration: none;
-  color: white;
+.c4 a:hover{
+  color: rgba(96, 163, 188,1.0);
 }
 
 
-/* Style The Dropdown Button */
-.dropbtn {
-  margin-top: 2.7em;
-  background-color: rgba(0, 0, 0, 0);
-  font-family: 'Karla', sans-serif;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
-  color: white;
-  padding: 16px;
-  font-size: 22px;
-  border-radius: 70px;
-  border: none;
-  cursor: pointer;
-}
-
-/* The container <div> - needed to position the dropdown content */
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-/* Dropdown Content (Hidden by Default) */
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 100%;
-  box-shadow: 0px 4px 16px 0px rgba(0,0,0,0.1);
-  z-index: 1;
-}
-
-/* Links inside the dropdown */
-.dropdown-content a {
-  color: rgba(10, 61, 98,1.0);
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-
-/* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: rgba(130, 204, 221,1.0)}
-
-/* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-/* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown:hover .dropbtn {
-  background-color: rgba(255, 255, 255,.4);
-}
-
+/* FORM BUTTON STYLING  */
 input[type=submit] {
   width: 85px;
   padding-top: 6px;
@@ -274,65 +298,7 @@ input[type=submit]:active {
   box-shadow: none;
 }
 
-.c4 h1,h2,h3,h4,h5,h6 {
-  text-align: center;
-}
-
-.c4 h3 {
-  margin-top: 15px;
-  font-size: 30px;
-}
-
-.c4 form {
-  margin-left: 2em;
-}
-
-.c4 a{
-  color: rgba(60, 99, 130,1.0);
-}
-.c4 a:visited{
-  color: rgba(10, 61, 98,1.0);
-}
-.c4 a:hover{
-  color: rgba(96, 163, 188,1.0);
-}
-
-.driver-links{
-  margin-left: 2em;
-}
-.driver-links a {
-  text-decoration: none;
-}
-.driver-links a:nth-child(3):hover{
-  color: rgba(183, 21, 64,1.0);
-}
-.driver-links:nth-child(odd){
-  padding-top: .2em;
-  padding-bottom: .2em;
-  padding-left: .4em;
-  margin-left: 1.6em;
-  margin-right: 2em;
-  background-color: rgba(165, 177, 194,1.0);
-}
-.passenger-links{
-  margin-left: 2em;
-}
-.passenger-links a {
-  text-decoration: none;
-}
-.passenger-links a:nth-child(3):hover{
-  color: rgba(183, 21, 64,1.0);
-}
-
-.passenger-links:nth-child(odd){
-  padding-top: .2em;
-  padding-bottom: .2em;
-  padding-left: .4em;
-  margin-left: 1.6em;
-  margin-right: 2em;
-  background-color: rgba(165, 177, 194,1.0);
-}
-
+/* PAGINATION STYLING */
 .pagination {
   background: rgba(0, 0, 0, 0);
   text-align: center;

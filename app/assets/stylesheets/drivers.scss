@@ -1,3 +1,23 @@
 // Place all the styles related to the drivers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+// MANAGE DRIVER VIEW STYLING 
+.driver-links{
+  margin-left: 2em;
+}
+.driver-links a {
+  text-decoration: none;
+}
+.driver-links a:nth-child(3):hover{
+  color: rgba(183, 21, 64,1.0);
+}
+.driver-links:nth-child(odd){
+  padding-top: .2em;
+  padding-bottom: .2em;
+  padding-left: .4em;
+  margin-left: 1.6em;
+  margin-right: 2em;
+  background-color: rgba(165, 177, 194,1.0);
+}

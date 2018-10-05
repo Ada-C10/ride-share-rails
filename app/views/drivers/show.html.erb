@@ -24,13 +24,17 @@
    <%= link_to "Delete #{@driver.name}", driver_path(@driver.id), :class => "delete-button", method: :delete, data: { confirm: "Are you sure you want to delete the driver #{@driver.name}?" } %>
  </div>
  <div class="c4">
-   <h2>Driver Details</h2>
-   <%=@driver.id%>
-   <%=@driver.name%>
-   <%=@driver.vin%>
-   Revenue: $ <%= "%.2f" % ((@driver.total_revenue) / 100.00) %>
-   Average Rating:  <%= @driver.average_rating %>
-   <h2>Driver Trips</h2>
+   <h2>Driver #<%=@driver.id%></h2>
+   <p>
+     <strong><%=@driver.name%></strong>
+   </p>
+   <p>
+     Average Rating:  <%= "%.1f" % (@driver.average_rating) %>
+   </p>
+   <p>
+     Total Revenue: $ <%= "%.2f" % ((@driver.total_revenue) / 100.00) %>
+   </p>
+   <h2><%=@driver.name%>'s Trips</h2>
       <% @driver_trips.each do |trip| %>
       <p>Trip_ID: <%= trip.id %> Trip cost: <%= trip.cost %> Rating: <%= trip.rating %> <%= link_to "[Details]", trip_path(trip.id) %>
       <%end%>
