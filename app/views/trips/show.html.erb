@@ -12,4 +12,9 @@
 
 </p>
 
-<%= link_to "Edit Trip ", edit_trip_path(@trip.id) %>
+<div class="links">
+
+  <%= link_to "delete ", @trips, method: :delete, data: { confirm: "Are you really really sure that you want to delete ?" } %>
+  <%= link_to "Edit Trip ", edit_trip_path(@trip.id) %>
+
+</div>
