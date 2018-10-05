@@ -2,8 +2,8 @@
   <td><%= link_to driver.name, driver_path(driver.id) %></td>
   <td><%= link_to driver.id, driver_path(driver.id)%></td>
   <% if driver.active == true %>
-       <td> <%= "🔵 Available" %></td>
-  <% else %>
-      <td> <%= "🔴 Unavaible" %></td>
-  <% end %>
+        <td id='active'> <i class="w3-xxlarge material-icons icons">airline_seat_recline_extra</i></td>
+        <% else %>
+        <td id='inactive'> <i class="w3-xxlarge material-icons icons" >airline_seat_individual_suite</i></td>
+        <% end %>
 </tr>

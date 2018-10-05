@@ -47,9 +47,9 @@ class Driver < ApplicationRecord
 
   def self.search(term, page)
     if term
-      where('name LIKE ?', "%#{term}%").paginate(page: page, per_page: 10).order(:name)
+      where('name LIKE ?', "%#{term}%").paginate(page: page, per_page: 5).order(:name)
     else
-      paginate(page: page, per_page: 10).order(:name) 
+      paginate(page: page, per_page: 5).order(:name) 
     end
   end
 
