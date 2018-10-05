@@ -1,6 +1,7 @@
 class TripsController < ApplicationController
   def index
-    @trips = Trip.order("date").page(params[:page]).per_page(4)
+    @trips = Trip.all
+    @all_trips = @trips.order("date").page(params[:page]).per_page(4)
   end
 
   def show
