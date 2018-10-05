@@ -8,7 +8,6 @@ class Passenger < ApplicationRecord
 
     self.trips.sum(:cost)
 
-    #TODO take the visual part in the view for cent to $
 
   end
 end
