@@ -8,4 +8,15 @@ class Trip < ApplicationRecord
    validates :driver_id, presence: true
    validates :passenger_id, presence: true
 
+
+   def passenger_name
+     passenger = self.passenger
+     return passenger.name
+   end
+
+   def driver_name
+     driver = self.driver
+     return driver.name
+   end
+
 end
