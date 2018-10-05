@@ -30,7 +30,7 @@
       <strong><%= link_to "#{driver.name}", driver_path(driver.id) %></strong>
       <%=driver.average_rating%>
       <%= link_to "[Edit]", edit_driver_path(driver.id) %>
-      <%= link_to "[Delete]", driver_path(driver.id), method: :delete, data: {confirm: "Are you sure you want to delete #{driver.name}"} %>
+      <%= link_to "[Delete]", driver_path(driver.id), method: :delete, data: {confirm: "Are you sure you want to delete #{driver.name}(It will also delete their associated trips)"} %>
       <%end%>
     </p>
     <%= will_paginate @drivers, :class => 'driver-pagination', previous_label: h("<"), next_label: h(">") %>
