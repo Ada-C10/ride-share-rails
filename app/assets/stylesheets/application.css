@@ -52,6 +52,7 @@ nav ul li:first-child { float: left; }
      margin: 4px;
      padding: 6px;
      border: 1px solid;
+     background-color: lightgray;
  }
 
  .pagination {
@@ -115,6 +116,10 @@ th {
 
 tr:nth-child(odd) {
 background-color: #ffcda3;
+}
+
+tr:nth-child(even) {
+background-color: lightgray;
 }
 
  .dropbtn {
