@@ -6,17 +6,29 @@ a {
   color: black;
 }
 
-a:hover {
+.pagination a:hover {
   font-size: 20pt;
 }
+.name:hover {
+  font-size: 20pt;
+}
+
 
 ul {
   list-style: none;
 }
 
+button {
+  background-color: whitesmoke;
+  font-weight: bold;
+  font-size: 12pt;
+  border-radius: 30px;
+  border-width: 5px;
+}
 
 .heading {
   text-align: center;
+  height: 100px;
 }
 
 .list {
@@ -24,10 +36,12 @@ ul {
   grid-template-columns: 3fr 2fr 1fr 1fr;
   padding-left: 150px;
   padding-right: 150px;
+  grid-row-gap: 10px;
 }
 
 .column-label {
   font-weight: bold;
+  padding-bottom: 10px;
 }
 
 .name {

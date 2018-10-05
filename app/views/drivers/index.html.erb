@@ -12,9 +12,9 @@
 
   <li class="name"><%= link_to driver.name, driver_path(driver.id) %></li>
   <li class="number"> <%= driver.avg_rating.round(2) %></li>
-  <li class="edit"> <%= link_to "Edit", edit_driver_path(driver.id) %></li>
-  <li class="delete">
-      <%= link_to "Delete", driver_path(driver.id), method: :delete, data: {confirm: "Are you sure you want to delete #{driver.name}"} %></li>
+  <li class="edit"><button><%= link_to "Edit", edit_driver_path(driver.id) %></button></li>
+  <li class="delete"><button>
+      <%= link_to "Delete", driver_path(driver.id), method: :delete, data: {confirm: "Are you sure you want to delete #{driver.name}"} %></button></li>
 
   <% end %>
 </ul>
