@@ -24,8 +24,8 @@ class Driver < ApplicationRecord
     if total_length != 0
       return (total / total_length).to_f
     else
-      return "Not yet rated"
-      #return 5.0?
+      #perfect score if new
+      return 5
     end
   end
 
