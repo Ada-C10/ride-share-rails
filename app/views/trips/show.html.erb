@@ -5,7 +5,11 @@
   <strong>
     <p>Trip date: <%= @trip.date %></p>
     <p>Trip rating: <%= @trip.rating %></p>
-    <p>Trip cost: $<%= "%.2f" % ((@trip.cost) / 100) %> </p>
+    <% if @trip.cost == nil %>
+    <p> Trip unfinished </p>
+    <% else %>
+    <p>Trip cost: $<%= “%0.2f” % ((@trip.cost) / 100) %> </p>
+    <%end%>
     <p>Driver id: <%= @trip.driver_id %></p>
     <p>Passenger id: <%= @trip.passenger_id %></p>
   </strong>
