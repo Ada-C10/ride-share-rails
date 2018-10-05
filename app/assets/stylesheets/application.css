@@ -106,3 +106,14 @@ html, body {
    text-align: center;
    padding-right: 1em;
  }
+
+ .home-page{
+   display: flex;
+   font-weight: 500; /* medium */
+   font-size: 4em;
+   font-family: 'Quicksand', sans-serif;
+   line-height: 1.5;
+   background-color: skyblue;
+   background-image: url("/assets/city-cars.jpg");
+
+ }
