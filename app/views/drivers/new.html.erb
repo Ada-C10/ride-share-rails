@@ -1,15 +1,15 @@
 <h1>Enter your new driver information: </h1>
 
-<% if @driver.errors.any? %>
+ <% if @driver.errors.any? %>
   <ul class = "errors">
-    <% @driver.errors.each do |column, message| %>
-        <li>
-          <strong><%= column. capitalize %></strong>
-          <%= message %>
-        </li>
-      <% end %>
-    </ul>
-  <% end %>
+     <% @driver.errors.each do |column, message| %>
+       <li>
+         <strong><%= column.capitalize %></strong>
+         <%= message %>
+       </li>
+     <% end %>
+   </ul>
+ <% end %>
 
 <section class = "content new-form">
   <%= render partial: "form" %>
