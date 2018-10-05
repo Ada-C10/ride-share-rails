@@ -8,7 +8,8 @@
 
   <div class= "driver-container1">
 
-    <p class="description-text">ID #: <%= @driver.id %> | <%= @driver.vin %></p>
+    <p class="description-text">ID #: <%= @driver.id %></p>
+    <p class="description-text"><%= @driver.vin %></p>
     <p class="description-text"> Average rating: <%= @driver.average_rating %> </p>
     <p class="description-text"> Total earnings: $<%= "%.2f" % ((@driver.total_earnings) / 100.00) %> </p>
   </div>

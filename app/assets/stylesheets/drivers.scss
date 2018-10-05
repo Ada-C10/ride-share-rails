@@ -23,6 +23,7 @@ h2 {
 
 .driver-container1 {
   width: 30%;
+  font-size: 1.5em;
 }
 
 .driver-container2 {
@@ -38,4 +39,22 @@ h2 {
   display: flex;
   justify-content: flex-end;
   padding: 30px;
+}
+
+
+a:link {
+  color: #5bc0be;
+}
+a:visited {
+  color: #0b132b;
+}
+a:hover {
+  color: red;
+}
+a:active {
+  color: #333333;
+}
+
+a {
+  text-decoration: none;
 }
