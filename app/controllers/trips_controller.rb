@@ -13,7 +13,7 @@ class TripsController < ApplicationController
 
   def new
     @trip = Trip.new
-    
+
   end
 
 
@@ -24,7 +24,7 @@ class TripsController < ApplicationController
     is_successful_save = @trip.save
 
     if is_successful_save
-      redirect_to trips_path
+      redirect_to passenger_path(filtered_trip_params[:passenger_id])
     else
       render :new, status: :bad_request
     end
@@ -48,7 +48,7 @@ class TripsController < ApplicationController
     trip = Trip.find_by(id: params[:id])
 
       trip.destroy
-      redirect_to trips_path
+      redirect_to passenger_path(trip[:passenger_id])
 
   end
 

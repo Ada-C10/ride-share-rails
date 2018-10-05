@@ -9,34 +9,36 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-
     <body>
       <header>
-        <h1>RideShareRails</h1>
-        <nav class="top-navbar">
-          <ul>
-            <li>
-              <%= link_to "All Drivers", drivers_path %>
-            </li>
-            <li>
-              <%= link_to "New Driver", new_driver_path %>
-            </li>
-            <li>
-              <%= link_to "All Passengers", passengers_path %>
-            </li>
-            <li>
-              <%= link_to "New Passenger", new_passenger_path %>
-            </li>
-          </ul>
-        </nav>
+        <h1><%= link_to "RideShareRails", trips_path %></h1>
+
+          <div class="dropdown">
+          <span>DRIVERS</span>
+            <div class="dropdown-content">
+            <%= link_to "View All Drivers", drivers_path %>
+            <br>
+            <%= link_to "Create New Driver", new_driver_path %>
+            </div>
+          </div>
+
+          <div class="dropdown">
+          <span>PASSENGERS</span>
+            <div class="dropdown-content">
+              <%= link_to "View All Passengers", passengers_path %>
+              <br>
+            <%= link_to "Create New Passenger", new_passenger_path %>
+            <br>
+            <%= link_to "Request A New Trip", new_trip_path %>
+
+            </div>
+          </div>
+
       </header>
 
       <main>
         <%= yield %>
       </main>
 
-      <footer>
-        &copy; 2018, Ada Developers Academy
-      </footer>
     </body>
   </html>
