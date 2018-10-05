@@ -10,7 +10,7 @@
   <!-- the show method for passener expects expects the id of the passenger. So, you have to find it using the method in the model by testing it in the consule -->
   <td><%= link_to "Passenger", passenger_path(trip.passenger.id) %></td>
   <td><%=trip.rating%></td>
-  <td>$<%=trip.cost / 100%></td>
+  <td>$<%=sprintf('%.2f', trip.cost/100)%></td>
   </tr>
 <%end%>
 </table>
