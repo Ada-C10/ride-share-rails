@@ -1,8 +1,8 @@
 <h2>PASSENGER DETAIL</h2>
 
 <% unrated_trips = @passenger.trips.where(rating: nil) %>
+<button>
 <% if unrated_trips.length == 0 %>
- <button>
    <%= link_to "Request Trip", passenger_trips_path(@passenger), method: :post %>
      <% else %>
      <strong>Please rate your past trips before requesting another one. </strong>
@@ -55,7 +55,7 @@
       not available
       <% end %>
     </td>
-  <td><%= (trip.cost.to_i/100.0).round(2) %></td>
+  <td>$ <%= (trip.cost.to_i/100.0).round(2) %></td>
   <td><%= rate_me(trip) %></td>
 </tr>
 <%end%>
