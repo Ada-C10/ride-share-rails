@@ -58,3 +58,8 @@ header li a {
  nav li {
     margin: 20px;
 }
+
+main {
+  background-color: lightblue;
+  padding: 10px;
+}
