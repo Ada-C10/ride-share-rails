@@ -22,8 +22,6 @@ class TripsController < ApplicationController
       else
         render :new
       end
-      # Same thing as above:
-      # @book = Book.new(author: author)
     else
       render :new
     end
