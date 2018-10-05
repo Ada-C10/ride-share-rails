@@ -20,7 +20,9 @@
     <% end %>
 
     <button><%= link_to "Edit", edit_passenger_path(@passenger.id) %></button>
-    <button><%= link_to "Delete", passenger_path(@passenger.id), method: :delete, data: {confirm: 'Are you sure you want to delete this trip?'} %></button>
+
+    <%= link_to "Delete", passenger_path(@passenger.id), method: :delete,
+      data: {confirm: 'Are you sure you want to delete this trip?'} %>
 
     <%= render partial: "layouts/personaltrips",
     locals: {all_trips: @trips,
