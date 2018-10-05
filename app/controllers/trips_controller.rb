@@ -5,7 +5,7 @@ class TripsController < ApplicationController
 
   def show
     trip_id = params[:id]
-    @trip = Trip.find(trip_id)
+    @trip = Trip.find_by(id: trip_id)
     if @trip == nil
       render 'layouts/not_found_page', status: :not_found
     end
