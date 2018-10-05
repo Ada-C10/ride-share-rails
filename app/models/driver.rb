@@ -32,7 +32,7 @@ class Driver < ApplicationRecord
       return nil
     else
       rate = trip_with_rate.sum {|trip| trip.rating} / trip_with_rate.length
-      return rate.round(0)
+      return rate.round(1)
     end
   end
 
