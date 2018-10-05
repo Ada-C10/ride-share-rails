@@ -9,7 +9,7 @@
 <% end %>
 
 <%= form_with model: @trip do |f|%>
-<h1>Edit Trip<h1>
+<h1>Edit Trip</h1>
   <%= f.label :date , "Date:"%>
   <%= f.text_field :date%>
   <br>
@@ -24,7 +24,6 @@
   <br>
   <%= f.label :rating , "Rating:"%>
   <%= f.select :rating, [1,2,3,4,5]%>
-
   <br>
   <%= f.submit "Update Trip"%>
 <%end%>
