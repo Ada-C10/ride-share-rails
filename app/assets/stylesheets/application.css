@@ -299,6 +299,24 @@ input[type=submit]:active {
   box-shadow: none;
 }
 
+/* ERROR STYLING */
+.c4 .form-errors h3 {
+  font-size: 16px;
+  margin-left: 6px;
+}
+.c4 .form-errors {
+  margin-bottom: -1.4em;
+}
+
+.c4 .field_with_errors {
+  min-height: 0;
+  margin-right: 6em;
+  margin-left: 2em;
+}
+
+.c4 .field_with_errors input[type=text] {
+  width: 50%;
+}
 /* PAGINATION STYLING */
 .pagination {
   background: rgba(0, 0, 0, 0);

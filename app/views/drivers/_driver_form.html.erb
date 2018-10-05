@@ -6,7 +6,7 @@ locals: {
 
 <%=form_with model: @driver do |field| %>
 
-<h3><%= form_title %></h3>
+<h2><%= form_title %></h2>
 <p>Please enter the following details:</p>
 <p>
   <%= field.label :name%>
@@ -16,8 +16,9 @@ locals: {
   <%=field.text_field :vin, placeholder: "123456-789" %>
 </p>
 <p>
-  <%= field.label :car_make%>
-  <%=field.text_field :car_make, placeholder: "Tesla" %>
+    <%= field.label :car_make%>
+    <%=field.text_field :car_make, placeholder: "Tesla" %>
+
 
   <%= field.label :car_model%>
   <%=field.text_field :car_model, placeholder: "Model 3" %>
