@@ -11,13 +11,10 @@ Rails.application.routes.draw do
     resources :trips, include: [:index, :show]
   end
 
-<<<<<<< HEAD
   # NOTE: added nested routes for passengers+trips
   resources :passengers do
     resources :trips, include: [:index, :show, :new, :delete]
   end
-=======
-  
->>>>>>> bc7346cbb706496830052886e3d245aa36eda31f
+
 
 end
