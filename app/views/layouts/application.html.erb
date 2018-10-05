@@ -10,6 +10,19 @@
   </head>
 
   <body>
+    <header>
+      <section class = "title-banner">
+        <h1>Rideshare</h1>
+      </section> 
+      <nav>
+        <ul>
+          <li><%= link_to "View All Passengers", passengers_path %> </li>
+          <li><%= link_to "View All Drivers", drivers_path %></li>
+          <li><%= link_to "Add New Passenger", new_passenger_path %></li>
+          <li><%= link_to "Add New Driver", new_driver_path %> </li>
+        </ul>
+      </nav>
+    </header>
     <%= yield %>
   </body>
 </html>
