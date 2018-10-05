@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   resources :trips, except: [:index, :new]
 
   resources :drivers
+
+  patch '/drivers/:id/status', to: 'drivers#status', as: 'drivers_status'
 end

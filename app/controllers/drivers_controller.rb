@@ -1,5 +1,5 @@
 class DriversController < ApplicationController
-  before_action :get_driver, only: [:show, :edit, :update, :destroy]
+  before_action :get_driver, only: [:show, :edit, :update, :destroy, :status]
   def get_driver
     @driver = Driver.find(params[:id].to_i)
   end
@@ -50,6 +50,17 @@ class DriversController < ApplicationController
     if @driver.save
         redirect_to drivers_path
     end
+  end
+
+  def status
+
+    if @driver.status == true
+      @driver.update(status: false)
+    else
+      @driver.update(status: true)
+    end
+    
+    redirect_to drivers_path
   end
  
 

@@ -13,6 +13,14 @@
   <br /><br />
 </section>
 
+<section class="driver_status">
+  <div class="status_button">
+    <strong class="button_color">
+      <%= link_to "Status", drivers_status_path(@driver), method: :patch %>
+    </strong>
+  </div>
+</section>
+
 
 <% active_trips = @trips.where(active: true).order(:date) %>
 
