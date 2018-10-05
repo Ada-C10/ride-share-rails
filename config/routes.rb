@@ -9,7 +9,7 @@ Rails.application.routes.draw do
    resources :passengers, except: :destroy  do
     resources :trips, only: :create
     member do
-      get :trips
+      get :trips, to: 'passengers#index'
     end
   end
   resources :drivers
