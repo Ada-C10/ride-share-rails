@@ -23,6 +23,15 @@
    flex-direction: column;
  }
 
+ a {
+   text-decoration: none;
+   color: black;
+ }
+
+ ul {
+   list-style: none;
+ }
+
  nav ul {
    display: flex;
    justify-content: space-between;
@@ -34,14 +43,6 @@
    font-size: 1.5rem;
  }
 
-li {
-  list-style-type: none;
-}
-
-nav a {
-  text-decoration: none;
-}
-
 .index-links li {
   padding: 5% 0 5% 0;
   font-size: 1.5rem;
@@ -49,4 +50,14 @@ nav a {
 
 .index-links a {
   text-decoration: none;
+}
+
+.form-errors {
+  text-align: center;
+  border: solid black 1px;
+  margin: 10px;
+}
+
+.form-errors strong {
+  text-transform: capitalize;
 }
