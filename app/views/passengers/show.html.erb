@@ -16,10 +16,6 @@
 
 <%= form_for @trip, url: passenger_trips_path(@passenger.id) do |f| %>
 
-  <!-- <%= f.hidden_field :driver_id, :value => 12 %>
-  <%= f.hidden_field :rating %>
-  <%= f.hidden_field :cost %>
-  <%= f.hidden_field :date %> -->
 
   <%= f.submit "request new trip", class: "submit-button" %>
 <% end %>
@@ -31,7 +27,13 @@
     <% @passenger.trips.sort.each do |trip| %>
     <li><strong>Trip #: <%=trip.id %></strong></li>
     <li>Date: <%=trip.date %></li>
-    <li>Rating: <%=trip.rating %></li>
+      <!-- <% if trip.rating == nil %>
+        <%=  %>
+
+      <% else %> -->
+        <li>Rating: <%=trip.rating %></li>
+      <!-- <% end %> -->
+
     <li>Cost: <%=trip.cost %></li>
       <% if trip.driver_id %>
       <%=link_to "Driver", driver_trips_path(trip.driver_id) %>
