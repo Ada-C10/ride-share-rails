@@ -1,6 +1,6 @@
 class PassengersController < ApplicationController
   def index
-    @passengers = Passenger.all
+    @passengers = Passenger.order("name").page(params[:page]).per_page(7)
   end
 
   def show

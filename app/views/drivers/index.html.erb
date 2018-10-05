@@ -23,19 +23,15 @@
    <%=link_to "Return", home_path%>
  </div>
  <div class="c4">
-   <ul>
-     <h2>Drivers</h2>
-     <%@drivers.each do |driver|%>
-     <li>
-       Id: <%=driver.id%>
-       | Name: <%=driver.name%>
-       | Vin: <%=driver.vin%>
-       <%= link_to "Details", driver_path(driver.id) %>
-       <%= link_to "Edit Driver", edit_driver_path(driver.id) %>
-       <%= link_to "Delete Driver", driver_path(driver.id), method: :delete, data: {confirm: "Are you sure you want to delete this #{driver.name}"} %>
-     </li>
-     <%end%>
+   <h2>Drivers</h2>
 
-   </ul>
+     <%@drivers.each do |driver|%>
+     <p>
+       <strong><%= link_to "#{driver.name}", driver_path(driver.id) %></strong> <%=driver.average_rating%>
+       <%= link_to "[Edit]", edit_driver_path(driver.id) %>
+       <%= link_to "[Delete]", driver_path(driver.id), method: :delete, data: {confirm: "Are you sure you want to delete #{driver.name}"} %>
+     </p>
+     <%end%>
+     <%= will_paginate @drivers, previous_label: h("<"), next_label: h(">") %>
  </div>
 </div>

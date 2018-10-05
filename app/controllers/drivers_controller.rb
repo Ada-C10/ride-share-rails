@@ -1,6 +1,6 @@
 class DriversController < ApplicationController
   def index
-    @drivers = Driver.all
+    @drivers = Driver.order("name").page(params[:page]).per_page(7)
   end
   def show
     @driver = Driver.find_by(id: params[:id])
@@ -24,9 +24,6 @@ class DriversController < ApplicationController
 
   def edit
     @driver = Driver.find_by(id: params[:id])
-    # if @driver.nil?
-    #   head :not_found
-    # end
   end
 
   def update

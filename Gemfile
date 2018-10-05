@@ -78,3 +78,6 @@ group :test do
   gem 'minitest-rails'
   gem 'minitest-reporters'
 end
+
+# pagination for models
+gem 'will_paginate', '> 3.0'

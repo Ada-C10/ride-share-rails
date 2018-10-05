@@ -32,9 +32,8 @@
 
      <h2>Passenger Trips</h2>
         <% @passenger.trips.each do |trip| %>
-        <p>Trip_ID: <%= trip.id %> Trip cost: <%= trip.cost %> <%= link_to "[Details]", trip_path(trip.id) %>
+        <p>Trip ID: <%= trip.id %> Trip Date: <%= trip.date %> Trip cost: <%= trip.cost %> <%= link_to "[Details]", trip_path(trip.id) %>
         <%end%>
-
       </p>
    </p>
  </div>
