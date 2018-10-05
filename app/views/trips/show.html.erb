@@ -37,7 +37,7 @@
       <strong>Date: </strong><%= @trip.date %>
     </p>
     <p>
-      <strong>Cost: </strong><%= @trip.cost%>
+      <strong>Cost: </strong>$ <%= "%.2f"  % (@trip.cost / 100) %>
     </p>
     <p>
       <strong>Rating: </strong><%= @trip.rating%>
@@ -51,7 +51,7 @@
     <%= form_with model: @trip do |f| %>
     <h3>Change Trip Rating</h3>
     <p class='ratings-box'>
-      <%= f.label :rating %>: 
+      <%= f.label :rating %>:
       <%= f.select :rating, [1,2,3,4,5] %>
     </p>
 
