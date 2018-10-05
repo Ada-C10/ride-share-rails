@@ -15,8 +15,27 @@
  */
 
 
- nav li {
-   list-style: none;
-   display: inline;
-   padding: 10px;
+ header {
+   background-color: teal;
  }
+
+.title-banner {
+  display: flex;
+  justify-content: center;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+}
+
+nav li {
+  list-style: none;
+
+  display: inline;
+  padding: 10px;
+}
+
+nav li a {
+ text-decoration: none;
+}
