@@ -46,7 +46,7 @@
       <td><%=trip.date%></td>
       <td><%=trip.passenger.name%></td>
       <td><%=trip.rating%></td>
-      <td><%=trip.cost%></td>
+      <td><%=((trip.cost.to_f) * 0.01).round(2) %></td>
       <td><%= link_to "View Trip Details", trip_path(trip.id) %></td>
     </tr>
     <%end%>
