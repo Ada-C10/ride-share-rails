@@ -31,9 +31,10 @@
      Total Spent: $ <%= ((@passenger.total_expenditures) / 100.00) %>
 
      <h2>Passenger Trips</h2>
-        <% @passenger.trips.each do |trip| %>
+        <% @passenger_trips.each do |trip| %>
         <p>Trip ID: <%= trip.id %> Trip Date: <%= trip.date %> Trip cost: <%= trip.cost %> <%= link_to "[Details]", trip_path(trip.id) %>
         <%end%>
+        <%= will_paginate @passenger_trips, previous_label: h("<"), next_label: h(">") %>
       </p>
    </p>
  </div>
