@@ -1,3 +1,14 @@
+<% if @driver.errors.any? %>
+   <ul>
+     <% @driver.errors.each do |column, message| %>
+      <li>
+        <strong><%= column.capitalize %></strong> <%= message %>
+      </li>
+    <% end %>
+   </ul>
+<% end %>
+
+
 <h1> <%= action_name %> </h1>
 
 <%= form_with model: @driver, class: "driver-form" do |f|%>
@@ -11,6 +22,6 @@
 
   <!-- <%= f.label :driver_picture %>
   <%= f.text_field :driver_picture %> -->
-  
+
   <%= f.submit button_title, class: "driver-button" %>
 <% end %>

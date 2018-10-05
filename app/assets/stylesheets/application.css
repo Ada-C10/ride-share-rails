@@ -1,8 +1,7 @@
 body, html {
   height: 100%;
-     background-color: black;
-
 }
+
 .bg {
   /* The image used */
   background-image: url("white_road.jpeg");
@@ -55,10 +54,6 @@ body, html {
 
 }
 
-.logo:active {
-  color: white;
-}
-
 /* .navbar-header {
   display: flex;
    padding-left: 5rem;
@@ -77,16 +72,24 @@ body, html {
 .navbar-header ul {
     display: flex;
     margin: 20px;
+    list-style: none;
 }
 
 .navbar-header li a {
     padding-right: 4rem;
-    color: white;
     text-decoration: none;
+}
+
+.navbar-header a:visited {
+    color: red;
 }
 
 main {
   background-color: white;
   padding: 10px;
 
+}
+
+h1, tr {
+  color: white;
 }

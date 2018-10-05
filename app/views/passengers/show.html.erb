@@ -3,8 +3,9 @@
 <% else %>
 
   <h1><%= @passenger.name %></h1>
-    <%= link_to "Add New Driver", new_driver_path%>
   <h3>Phone Number : <%= @passenger.phone_num %></h3>
+  <h3>Total Cost of Trips: <%= @passenger.total_trips_cost %></h3>
+  <br />
 
   <%= link_to "Edit #{@passenger.name}", edit_passenger_path(@passenger.id)%>
   <br />
@@ -17,11 +18,11 @@
     <%= f.submit "Request Ride" %>
   <% end %>
 
-  <h3>Total Cost of Trips: <%= @passenger.total_trips_cost %></h3>
-
+  <h3>Trips</h3>
   <% @passenger.trips.each do |trip| %>
-    <%= link_to "Passenger Trip: #{trip.id}", trip_path(trip) %>
+    <%= link_to "Trip: #{trip.id}", trip_path(trip) %>
     <br />
   <% end %>
+
 
 <% end %>

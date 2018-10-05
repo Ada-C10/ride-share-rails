@@ -1,6 +1,6 @@
 class TripsController < ApplicationController
   def index
-    @trips = Trip.all.paginate(page: params[:page], per_page: 8)
+    @trips = Trip.all.paginate(page: params[:page], per_page: 10)
   end
 
   def create
@@ -40,7 +40,6 @@ class TripsController < ApplicationController
     @trip.destroy
     redirect_to trips_path
   end
-
 
   private
 
