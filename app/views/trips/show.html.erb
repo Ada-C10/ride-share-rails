@@ -1,8 +1,6 @@
 <% if !@trip %>
-NO TRIPS
+THAT TRIP DOES NOT EXIST
 <% else %>
-
-
 <h2><%= @trip.date%></h2>
 <p>Trip ID: <%= @trip.id %></p>
 <p>Trip Cost: <%= currency(@trip.cost) %></p>
