@@ -1,22 +1,32 @@
-<h1> <%= action_name %> </h1>
-
-<% if @driver.errors.any? %>
-  <h4>Error Message(s):</h4>
-  <ul>
-    <% @driver.errors.each do |column, message| %>
-      <li>
-        <strong><%= "#{column.capitalize}: " %></strong> <%= message.capitalize %>
-      </li>
+<section class="form_partial">
+  <section class="section menu">
+  </section>
+  <section class="section header">
+    <h1><%= action_name %></h1>
+  </section>
+  <section class="section fill_out">
+    <%= form_with model: @driver do |f| %>
+      <%= f.label :name %>
+      <br />
+      <%= f.text_field :name %>
+      <br /><br />
+      <%= f.label :vin %>
+      <br />
+      <%= f.text_field :vin %>
+      <br /><br />
+      <%= f.submit button_title %>
     <% end %>
-  </ul>
-<% end %>
-
-<%= form_with model: @driver do |f|%>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <br />
-  <%= f.label :vin %>
-  <%= f.text_field :vin %>
-  <br />
-  <%= f.submit button_title%>
-<% end %>
+  </section>
+  <section class="section errors">
+    <% if @driver.errors.any? %>
+      <h4>Error Message(s):</h4>
+      <ul>
+        <% @driver.errors.each do |column, message| %>
+          <li>
+            <strong><%= "#{column.capitalize}: " %></strong> <%= message.capitalize %>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+  </section>
+</section>

@@ -18,7 +18,7 @@ h1 {
   font-family: 'Exo 2', sans-serif;
 }
 
-.section {
+.trips .section {
   width: 100%;
   height: 150px;
   display: flex;
@@ -26,127 +26,127 @@ h1 {
   align-items: center;
 }
 
-.menu {
+.trips .menu {
   // background-color: #5995DA;
   height: 80px;
 }
 
-.header {
+.trips .header {
   // background-color: #B2D6FF;
   height: 150px;
 }
 
-.actions {
+.trips .actions {
   // background-color: #EAEDF0;
   height: 60px;
 }
 
-.actions p {
+.trips .actions p {
   padding: 0 3vw;
 }
 
-.date {
+.trips .date {
   // background-color: #D6E9FE;
 }
 
-.t_id {
+.trips .t_id {
   // background-color: #F5CF8E;
   display: flex;
   flex-direction: column;
 }
 
-.p_id {
+.trips .p_id {
   // background-color: #F09A9D;
 }
 
-.d_id {
+.trips .d_id {
   // background-color: #C8C6FA;
 }
 
-.cost {
+.trips .cost {
   // background-color: #5995DA;
 }
 
-.rating {
+.trips .rating {
   // background-color: #B2D6FF;
 }
 
-.date,
-.t_id,
-.p_id,
-.d_id,
-.cost,
-.rating {
+.trips .date,
+.trips .t_id,
+.trips .p_id,
+.trips .d_id,
+.trips .cost,
+.trips .rating {
   display: flex;
   flex-direction: column;
   background-color: rgba(33, 33, 33, 0.5);
 }
 
-.titles {
+.trips .titles {
   font-size: 14px;
 }
 
-.data {
+.trips .data {
   font-size: 20px;
 }
 
-.actions a:link, .p_id a:link, .d_id a:link {
+.trips .actions a:link, .trips .p_id a:link, .trips .d_id a:link {
   color: #EFEFEF;
 }
 
-.actions a:visited, .p_id a:visited, .d_id a:visited{
+.trips .actions a:visited, .trips .p_id a:visited, .trips .d_id a:visited{
   color: rgba(1, 124, 194, 1);
 }
 
-.actions a:hover, .p_id a:hover, .d_id a:hover{
+.trips .actions a:hover, .trips .p_id a:hover, .trips .d_id a:hover{
   color: rgba(218, 38, 30, 1);
 }
 
 @media only screen and (min-width: 758px) and (max-width: 1024px) {
-  .date,
-  .t_id,
-  .p_id,
-  .d_id,
-  .cost,
-  .rating {
+  .trips .date,
+  .trips .t_id,
+  .trips .p_id,
+  .trips .d_id,
+  .trips .cost,
+  .trips .rating {
     width: 50%;
     height: 40vh;
   }
 
-  .titles {
+  .trips .titles {
     font-size: 18px;
   }
 
-  .data {
+  .trips .data {
     font-size: 28px;
   }
 }
 
 @media only screen and (min-width: 1025px) {
-  .page {
+  .trips .page {
     width: 1025px;
     margin: 0 auto;
   }
 
-  .date,
-  .t_id,
-  .p_id,
-  .d_id,
-  .cost,
-  .rating {
+  .trips .date,
+  .trips .t_id,
+  .trips .p_id,
+  .trips .d_id,
+  .trips .cost,
+  .trips .rating {
     width: 33.3%;
     height: 25vh;
   }
 
-  .header {
+  .trips .header {
     height: 150px;
   }
 
-  .titles {
+  .trips .titles {
     font-size: 14px;
   }
 
-  .data {
+  .trips .data {
     font-size: 24px;
   }
 }
