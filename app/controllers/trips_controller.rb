@@ -22,7 +22,7 @@ class TripsController < ApplicationController
 
   def create
     passenger = Passenger.find_by(id: params[:passenger_id].to_i)
-    @trip = passenger.trips.new(date: Date.today, driver_id: Driver.find_driver.id, cost: 0, status: "In Progress")
+    @trip = passenger.trips.new(date: Date.today, driver_id: Driver.find_driver.id, cost: 500, status: "In Progress")
     if @trip.save
       redirect_to passenger_trip_inprogress_path(@trip.passenger.id, @trip.id)
     else
@@ -54,6 +54,11 @@ class TripsController < ApplicationController
     end
   end
 
+  def destroy
+    trip = Trip.find_by(id: params[:id].to_i)
+    trip.destroy
+    redirect_to trips_path
+  end
 
 
   private

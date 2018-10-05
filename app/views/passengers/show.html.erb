@@ -5,7 +5,7 @@
 <section> <%= link_to "Request Trip", passenger_trips_path(@passenger), method: :post%>
 <ul>
   <li>Phone Number: <%= @passenger[:phone_num] %></li>
-  <li> Total Charged: $ </li>
+  <li> Total Charged: $<%=@passenger.total_charged/100%> </li>
 </ul>
 
 <section>
