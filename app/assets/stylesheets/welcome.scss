@@ -66,13 +66,13 @@
 
 .driver {
   grid-area: d;
-  background-image: url('driver.jpg');
+  background-image: image_url('driver.jpg');
   // margin: 10px;
 }
 
 .passenger {
   grid-area: p;
-  background-image: url('passenger.jpg');
+  background-image: image_url('passenger.jpg');
   // margin: 10px;
 }
 
