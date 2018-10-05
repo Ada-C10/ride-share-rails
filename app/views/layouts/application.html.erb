@@ -21,6 +21,20 @@
     <!--Import jQuery before materialize.js-->
      <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
      <script type="text/javascript" src="js/materialize.min.js"></script>
+
+    <nav class="navigation">
+      <strong>Ryde Baby Ryde!</strong>
+    <%= link_to "Drivers", drivers_path  %>
+    <%= link_to "Passengers", passengers_path %>
+    <%= link_to "Home", homepages_path %>
+    </nav>
+
     <%= yield %>
+
+    <footer class="footer">
+      Site by: Melissa && Katrina
+    </footer>
+
+
   </body>
 </html>
