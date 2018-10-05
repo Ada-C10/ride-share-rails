@@ -14,16 +14,23 @@
         <h1><%= link_to "RideShareRails", trips_path %></h1>
 
           <div class="dropdown">
-          <span><%= link_to "All Drivers", drivers_path %></span>
+          <span>DRIVERS</span>
             <div class="dropdown-content">
-            <%= link_to "New Driver", new_driver_path %>
+            <%= link_to "View All Drivers", drivers_path %>
+            <br>
+            <%= link_to "Create New Driver", new_driver_path %>
             </div>
           </div>
 
           <div class="dropdown">
-          <span><%= link_to "All Passengers", passengers_path %></span>
+          <span>PASSENGERS</span>
             <div class="dropdown-content">
-            <%= link_to "New Passenger", new_passenger_path %>
+              <%= link_to "View All Passengers", passengers_path %>
+              <br>
+            <%= link_to "Create New Passenger", new_passenger_path %>
+            <br>
+            <%= link_to "Request A New Trip", new_trip_path %>
+
             </div>
           </div>
 
