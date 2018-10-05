@@ -85,6 +85,7 @@ header {
 nav {
   width: auto;
   float: right;
+
 }
 nav ul {
   display: table;
@@ -92,6 +93,7 @@ nav ul {
 }
 nav ul li {
   float: left;
+  font-weight: 700;
 }
 nav ul li:last-child {
   padding-right: 0px;
@@ -148,6 +150,7 @@ label {
 @media only screen and (max-width: 980px) {
   header {
     padding: 20px 0px;
+
   }
   #logo {
     padding: 0px;
