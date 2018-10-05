@@ -15,7 +15,7 @@
  */
 
 body {
-  font-family: 'Niramit', sans-serif;
+  font-family: 'Amatic SC', cursive;
 }
 
 nav ul li:first-child { float: left; }
@@ -67,19 +67,6 @@ nav ul li:first-child { float: left; }
      padding: 7px;
  }
 
- .homebtn {
-  border-radius: 4px;
-  background-color: ffa659;
-  border: none;
-  color: #FFFFFF;
-  text-align: center;
-  font-size: 28px;
-  padding: 20px;
-  width: 200px;
-  transition: all 0.5s;
-  cursor: pointer;
-  margin: 5px;
-}
 
 .homebtn span {
   cursor: pointer;
@@ -99,7 +86,7 @@ nav ul li:first-child { float: left; }
 
 .homebtn:hover span {
   padding-right: 25px;
-  text-shadow: 2px 2px 5px black;
+  text-shadow: 2px 2px 10px black;
 }
 
 .homebtn:hover span:after {
@@ -119,23 +106,26 @@ background-color: #ffcda3;
 
  .dropbtn {
      padding: 16px;
-     font-size: 24px;
+     font-size: 30px;
      border: none;
      background-color: #ffa659;
-     color: white;
+     color: black;
      border-radius: 4px;
+     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
  }
 
 .homebtn {
      padding: 16px;
-     font-size: 24px;
+     font-size: 30px;
      border: none;
      float: left;
      background-color: #ffa659;
-     color: white;
+     color: black;
+     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+     border-radius: 4px;
  }
 
- .homebtn a:visited {color: white;}
+ .homebtn a:visited {color: black;}
 
  .dropdown {
     position: relative;
@@ -154,16 +144,23 @@ background-color: #ffcda3;
 }
 
 .dropdown-content a {
-    color: white;
+    color: black;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
+    font-size: 25px;
 }
 
-.dropdown:hover .dropdown-content {display: block;}
-
 .dropdown-content a:hover {
-    text-shadow: 2px 2px 5px black;
+  text-shadow: 2px 2px 10px black;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;}
+
+button a:hover {
+    text-shadow: 2px 2px 10px black;
+    color: black;
 }
 
 .list {
@@ -186,17 +183,19 @@ table {
 
 #requestride {
     background-color: #ffa659;
-    border: 2px solid black;
-    color: white;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 20px;
+    font-size: 35px;
     border-radius: 12px;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
     width: 20%;
     align-self: center;
     margin: 5%;
+}
 
+button {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  font-family: 'Amatic SC', cursive;
+  /* border: 2px solid black; */
 }
