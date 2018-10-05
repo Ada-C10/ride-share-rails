@@ -13,8 +13,10 @@
 
   <tr>
 
-    <td>
+    <td class="trip">
+      <%= link_to trip_path(trip.id) do %>
       <%= trip.id %>
+      <% end %>
     </td>
 
     <td class="driver">
@@ -24,7 +26,6 @@
     </td>
 
     <td class="passenger">
-
       <%= link_to passenger_path(trip.passenger.id)  do %>
       <%= trip.passenger.name %>
       <% end %>
