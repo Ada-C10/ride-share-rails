@@ -1,56 +1,56 @@
-<body class="passenger"
-<h1>Passenger Details</h1>
-<% if @passenger.nil? %>
-<h1> 404 not found </h1>
-<% else %>
-<section class="passenger_details">
-<h2>Name: <%= @passenger.name%></h2>
-<h3>Phone: <%= @passenger.phone_num%></h3>
-<h3>ID: <%= @passenger.id%></h3>
-<% end %>
-<div>
-<h2>Total Spent: <%= "🚀"'%.2f' %  (@passenger.total_cost/100) %></h2>
-</div>
-</section>
-
-
-<section class="ride_request">
-<h3><%= link_to "Request a Trip", passenger_trips_path(@passenger.id), method: :post %></h3>
-</section>
-
-
-
-<section class="edit_actions">
-  <%= link_to "✏️ Edit Passenger", edit_passenger_path(@passenger.id), id: "change", class: "hover_name1"%>
-  <%= link_to "🔥 Delete Passenger", @passenger, method: :delete, data: {confirm: "You sure about that? Select OK to remove task #{@passenger.name.upcase} ForEVVVeeeR!"}, id: "delete", class: "hover_name1" %>
-</section>
-
-<% active_trips = @trips.where(active: true).order(:date) %>
-
-<table class="show_table">
-  <tr>
-    <th>TRIP ID</th>
-    <th>DRIVER ID</th>
-    <th>DATE</th>
-    <th>RATING</th>
-    <th>COST</th>
-  </tr>
-<tbody>
-
-  <% if @passenger.trips.empty? %>
-    <%= "No Trips on Record" %>
+<section class="passenger">
+  <h1>Passenger Details</h1>
+  <% if @passenger.nil? %>
+  <h1> 404 not found </h1>
   <% else %>
-    <% active_trips.each do |trip| %>
-      <tr>
-        <td> <%= link_to "#{trip.id}", trip_path(trip.id) %></td>
-        <td> <%= trip.driver_id %></td>
-        <td> <%= trip.date %></td>
-        <td> <%= trip.rating %></td>
-        <td> <%= "🚀"'%.2f' % (trip.cost/100) %></td>
-      </tr>
-    <% end %>
-
+  <section class="passenger_details">
+  <h2>Name: <%= @passenger.name%></h2>
+  <h3>Phone: <%= @passenger.phone_num%></h3>
+  <h3>ID: <%= @passenger.id%></h3>
   <% end %>
-  </tbody>
-</table>
-</body>
+  <div>
+  <h2>Total Spent: <%= "🚀"'%.2f' %  (@passenger.total_cost/100) %></h2>
+  </div>
+  </section>
+
+
+  <section class="ride_request">
+  <h3><%= link_to "Request a Trip", passenger_trips_path(@passenger.id), method: :post %></h3>
+  </section>
+
+
+
+  <section class="edit_actions">
+    <%= link_to "✏️ Edit Passenger", edit_passenger_path(@passenger.id), id: "change", class: "hover_name1"%>
+    <%= link_to "🔥 Delete Passenger", @passenger, method: :delete, data: {confirm: "You sure about that? Select OK to remove task #{@passenger.name.upcase} ForEVVVeeeR!"}, id: "delete", class: "hover_name1" %>
+  </section>
+
+  <% active_trips = @trips.where(active: true).order(:date) %>
+
+  <table class="show_table">
+    <tr>
+      <th>TRIP ID</th>
+      <th>DRIVER ID</th>
+      <th>DATE</th>
+      <th>RATING</th>
+      <th>COST</th>
+    </tr>
+  <tbody>
+
+    <% if @passenger.trips.empty? %>
+      <%= "No Trips on Record" %>
+    <% else %>
+      <% active_trips.each do |trip| %>
+        <tr>
+          <td> <%= link_to "#{trip.id}", trip_path(trip.id) %></td>
+          <td> <%= trip.driver_id %></td>
+          <td> <%= trip.date %></td>
+          <td> <%= trip.rating %></td>
+          <td> <%= "🚀"'%.2f' % (trip.cost/100) %></td>
+        </tr>
+      <% end %>
+
+    <% end %>
+    </tbody>
+  </table>
+</section>

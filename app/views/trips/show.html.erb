@@ -1,37 +1,46 @@
-<h1>Trip Details</h1>
-
-<%= link_to "Edit", edit_trip_path(@trip.id) %>
-<%= "|" %>
-<%= link_to "Delete",  trip_path(@trip.id), method: :delete, data: {confirm: "Are you sure?"} %>
-<br /><br />
-
-<table class="show_table">
-  <tr>
-    <th>Trip ID</th>
-    <th>Date</th>
-    <th>Passenger (ID)</th>
-    <th>Driver (ID)</th>
-    <th>Cost</th>
-    <th>Rating</th>
-  </tr>
-  <tbody>
-    <tr>
-      <td><%= @trip.id %></td>
-      <td><%= @trip.date %></td>
-      <td><%= link_to @trip.passenger_id, passenger_path(@trip.passenger_id) %></td>
-      <td><%= link_to @trip.driver_id, driver_path(@trip.driver_id) %></td>
-      <td>$<%= '%.2f' % (@trip.cost / 100) %></td>
-      <td>
-        <% if @trip.rating.nil? %>
-          <%= form_with model: @trip do |f| %>
-            <%= f.label "Rate this trip!" %>
-            <%= f.select :rating, [ [1, 1], [2, 2], [3, 3], [4, 4], [5, 5]] %>
-            <%= f.submit %>
-          <% end %>
-        <% else %>
-          <%= @trip.rating %>
+<section class="trips">
+  <section class="section menu">
+  </section>
+  <section class="section header">
+    <h1>Trip Details</h1>
+  </section>
+  <section class="section actions">
+    <%= link_to "Edit", edit_trip_path(@trip.id) %>
+    <p>|</p>
+    <%= link_to "Delete",  trip_path(@trip.id), method: :delete, data: {confirm: "Are you sure?"} %>
+  </section>
+  <section class="section date">
+    <p class="titles">Date</p>
+    <p class="data"><%= @trip.date %></p>
+  </section>
+  <section class="section t_id">
+    <p class="titles">Trip ID</p>
+    <p class="data"><%= @trip.id %></p>
+  </section>
+  <section class="section p_id">
+    <p class="titles">Passenger ID</p>
+    <p class="data"><%= link_to @trip.passenger_id, passenger_path(@trip.passenger_id) %></p>
+  </section>
+  <section class="section d_id">
+    <p class="titles">Driver ID</p>
+    <p class="data"><%= link_to @trip.driver_id, driver_path(@trip.driver_id) %></p>
+  </section>
+  <section class="section cost">
+    <p class="titles">Cost</p>
+    <p class="data">$<%= '%.2f' % (@trip.cost / 100) %></p>
+  </section>
+  <section class="section rating">
+    <p class="titles">Rating</p>
+    <p class="data">
+      <% if @trip.rating.nil? %>
+        <%= form_with model: @trip do |f| %>
+          <%= f.label "Rate this trip!" %>
+          <%= f.select :rating, [ [1, 1], [2, 2], [3, 3], [4, 4], [5, 5]] %>
+          <%= f.submit %>
         <% end %>
-      </td>
-    </tr>
-  </tbody>
-</table>
+      <% else %>
+        <%= @trip.rating %>
+      <% end %>
+    </p>
+  </section>
+</section>

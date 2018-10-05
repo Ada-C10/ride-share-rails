@@ -14,6 +14,15 @@
  *= require_self
  */
 
+.background_img {
+   background-image: url("moon.jpg");
+   height: 100%;
+   color: white;
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+}
+
 table {
     margin: 20px;
     border-collapse: collapse;
@@ -62,6 +71,7 @@ a[href]{
 
 ul.nav_bar {
   display: grid;
+  display: flex;
   list-style-type: none;
   grid-template-columns: repeat(4, 1fr);
   padding: 0;
@@ -112,7 +122,6 @@ nav ul li {
     min-width: 1rem;
     z-index: 1;
     position: absolute;
-    padding-left: 4.5rem;
 }
 
 .drop_content a[href] {
