@@ -25,9 +25,9 @@ class TripsController < ApplicationController
       passenger = Passenger.find_by(id:
         params[:passenger_id])
         driver = Driver.all.sample
-        @trip = passenger.trips.new(driver_id: driver.id, passenger_id: passenger.id, date: "2018-06-01", rating: 0, cost: 0)
+        @trip = passenger.trips.new(driver_id: driver.id, passenger_id: passenger.id, date: "2018-06-01", rating: nil, cost: nil)
         if @trip.save
-          redirect_to passenger_trips
+          redirect_to root_path
         else
           render :new
         end
