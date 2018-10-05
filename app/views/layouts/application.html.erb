@@ -10,30 +10,30 @@
     <meta name='viewport'
       content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
   </head>
-  <!-- <header>
-    <nav>
-      <ul class="nav_bar">
+
+  <header>
+    <nav class="nav">
+      <ul class="menu">
         <li class="brand">
-          <h3><%= link_to "COMET", root_path %> </h3>
+          <h2><%= link_to "COMET", root_path %> </h2>
         </li>
-        <li class="dropdown passengers">
+        <li class="dropdown first">
           <button class="drop_heading">Passengers</button>
-          <div class="drop_content">
-            <%= link_to "View All", passengers_path %>
-            <%= link_to "Create New", new_passenger_path %>
-          </div>
+          <ul class="drop_content">
+            <li><%= link_to "View All", passengers_path %></li>
+            <li><%= link_to "Create New", new_passenger_path %></li>
+          </ul>
         </li>
-        <li class="dropdown drivers">
+        <li class="dropdown second">
           <button class="drop_heading">Drivers</button>
-          <div class="drop_content">
-            <%= link_to "View All", drivers_path %>
-            <%= link_to "Create New", new_driver_path %>
-          </div>
+          <ul class="drop_content">
+            <li><%= link_to "View All", drivers_path %></li>
+            <li><%= link_to "Create New", new_driver_path %></li>
+          </ul>
         </li>
       </ul>
     </nav>
-  </header> -->
-
+  </header>
 
   <% if params[:controller] == "pages" %>
     <body class="home">
