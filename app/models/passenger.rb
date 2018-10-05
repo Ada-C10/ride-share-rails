@@ -4,6 +4,6 @@ class Passenger < ApplicationRecord
   validates :phone_num, presence: true
 
   def net_expenditures
-    trips.sum(&:cost)
+    (trips.sum(&:cost).to_f) * 0.01
   end
 end
