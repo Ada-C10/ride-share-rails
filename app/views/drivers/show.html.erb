@@ -1,24 +1,31 @@
+<h2><%= @driver.name %></h2>
 <div class="description-container">
 
-  <h2><%= @driver.name %></h2>
 
-  <p>
-    <%= link_to "Edit", edit_driver_path(@driver.id), class: "edit-link" %> |
-    <%= link_to "Delete", driver_path(@driver.id), method: :delete, data: {confirm: "Are you sure you want to get rid of driver #{@driver.name}?", class: "delete-link" } %>
-  </p>
+  <div class= "driver-container1">
+    <p>
+      <%= link_to "Edit", edit_driver_path(@driver.id), class: "edit-link" %> |
+      <%= link_to "Delete", driver_path(@driver.id), method: :delete, data: {confirm: "Are you sure you want to get rid of driver #{@driver.name}?", class: "delete-link" } %>
+    </p>
 
-  <p class="description-text"><%= @driver.id %> | <%= @driver.vin %></p>
-  <p class="description-text"> Average rating: <%= @driver.average_rating %> </p>
-  <p class="description-text"> Total earnings: $<%= "%.2f" % ((@driver.total_earnings) / 100.00) %> </p>
-  <p>
-    Trips:
-    <br/>
-    <% @driver.list_trips.each do |trip| %>
-    <br/>
-    <%=link_to trip.date, trip_path(trip.id) %>
-    <% end %>
-  </p>
+    <p class="description-text">ID #: <%= @driver.id %> | <%= @driver.vin %></p>
+    <p class="description-text"> Average rating: <%= @driver.average_rating %> </p>
+    <p class="description-text"> Total earnings: $<%= "%.2f" % ((@driver.total_earnings) / 100.00) %> </p>
+  </div>
+
+  <div class="driver-container2">
+    <p class="driver_trips">
+      Trips:
+      <br/>
+      <% @driver.list_trips.each do |trip| %>
+      <br/>
+      <%=link_to trip.date, trip_path(trip.id) %>
+      <% end %>
+    </p>
+  </div>
+
 </div>
+
 <div class="return-home">
   <h3>
     <%= link_to "Return To All Drivers", drivers_path, class: "homepage" %>
