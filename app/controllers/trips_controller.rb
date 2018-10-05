@@ -53,9 +53,9 @@ class TripsController < ApplicationController
   def update
     @trip = Trip.find_by(passenger_id: params[:passenger_id], id: params[:id])
 
-    # if @trip.rating.nil?
-    #   @trip.driver.toggle_availablity
-    # end
+    if @trip.rating.nil?
+      @trip.driver.toggle_availablity
+    end
 
     if params[:passenger_id]
       if @trip.update(trip_params)
