@@ -1,15 +1,15 @@
 <div class="passenger-form">
   <section class="form-contents form-section">
-  <h1>Trips Details </h1>
-  <p>ID: <%= @trip.id %></p>
-  <p>Passenger: <%= @trip.passenger_id %></p>
-  <p>Driver: <%= @trip.driver_id %></p>
-  <p>Date: <%= @trip.date %></p>
-  <p>Rating: <%= @trip.rating %></p>
-  <p>Cost: <%= @trip.cost %></p>
+    <h1>Trips Details </h1>
+    <p>ID: <%= @trip.id %></p>
+    <p>Passenger: <%= @trip.passenger_id %></p>
+    <p>Driver: <%= @trip.driver_id %></p>
+    <p>Date: <%= @trip.date %></p>
+    <p>Rating: <%= @trip.rating %></p>
+    <p>Cost: <%= @trip.cost %></p>
 
-  <p><%= link_to 'Edit Trip Details', edit_trip_path(@trip.id) , class: "btn-primary"%></p>
-  <!-- maybe switch path to where it needs to go not driver_path -->
-  <p><%= link_to 'Delete Trip', trip_path(@trip.id), method: :delete, data: {confirm: "Are you sure?"}, class: "btn-primary"%></p>
-</section>
+    <p><%= link_to 'Edit Trip Details', edit_trip_path(@trip.id) , class: "btn-primary"%></p>
+    <!-- maybe switch path to where it needs to go not driver_path -->
+    <p><%= link_to 'Delete Trip', trip_path(@trip.id), method: :delete, data: {confirm: "Are you sure?"}, class: "btn-primary"%></p>
+  </section>
 </div>

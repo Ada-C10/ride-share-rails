@@ -1,31 +1,31 @@
 <div class="passenger-form">
-<section class="form-contents form-section">
-<% if @passenger.errors.any? %>
-  <ul class="errors">
-    <% @passenger.errors.each do |column, message| %>
-      <li>
-        <strong><%= column.capitalize %></strong> <%= message %>
-      </li>
-    <% end %>
-  </ul>
-<% end %>
+  <section class="form-contents form-section">
+  <% if @passenger.errors.any? %>
+    <ul class="errors">
+      <% @passenger.errors.each do |column, message| %>
+        <li>
+          <strong><%= column.capitalize %></strong> <%= message %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
 
-  <h1> <%= action_name %> </h1>
+    <h1> <%= action_name %> </h1>
 
-  <%= form_with model: @passenger, class: "passenger-add" do |f|%>
-    <p>Please provide the following information to save passenger details:</p>
+    <%= form_with model: @passenger, class: "passenger-add" do |f|%>
+      <p>Please provide the following information to save passenger details:</p>
 
-    <p>
-    <%= f.label :name %>
-    <%= f.text_field :name, class: "text_field" %>
+      <p>
+      <%= f.label :name %>
+      <%= f.text_field :name, class: "text_field" %>
+      </p>
+      <p>
+      <%= f.label :phone_num %>
+      <%= f.text_field :phone_num, class: "text_field" %>
     </p>
     <p>
-    <%= f.label :phone_num %>
-    <%= f.text_field :phone_num, class: "text_field" %>
-  </p>
-  <p>
-    <%= f.submit button_title, class: "btn-primary" %>
-  </p>
-  <% end %>
-</section>
+      <%= f.submit button_title, class: "btn-primary" %>
+    </p>
+    <% end %>
+  </section>
 </div>
