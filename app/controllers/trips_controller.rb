@@ -15,18 +15,7 @@ class TripsController < ApplicationController
   end
 
   def show
-    if params[:driver_id]
-      @user = Driver.find_by(id: params[:driver_id])
-      @trips = @user.trip.find_by(params[:driver_id])
-
-    elsif params[:passenger_id]
-      @user = Passenger.find_by(id: params[:passenger_id])
-      @trips = @user.trips
-
-    else
-      @trips = Trip.all
-    end
-
+    @trip = Trip.find_by(id: params[:id])
   end
 
   def create
@@ -39,7 +28,7 @@ class TripsController < ApplicationController
     @trip.passenger = @passenger
     @trip.date = Date.today
     @trip.rating = nil
-    @trip.cost = rand(1..10)
+    @trip.cost = rand(1.0..10.0)
 
     @driver.update_attribute(:status, false)
 
