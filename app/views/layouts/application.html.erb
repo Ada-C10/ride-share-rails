@@ -17,7 +17,6 @@
   <% end %>
 
   <header>
-    <h1>Rideshare</h1>
     <nav>
       <ul>
         <li><%= link_to "Passengers", passengers_path, class: "all_passengers-link" %>
@@ -27,6 +26,7 @@
         <li><%= link_to "Create New Passenger", new_passenger_path, class: "new_passengers-link" %></li>
       </ul>
     </nav>
+    <h1>Rideshare</h1>
   </header>
   <%= yield %>
   <footer>
