@@ -20,24 +20,20 @@ body {
 
 nav ul li:first-child { float: left; }
 
- nav ul li {
+nav ul li {
    list-style:none;
    margin:10px;
    float: right;
  }
 
- a {
+a {
    text-decoration: none;
    color: black;
  }
 
- a:hover {
+a:hover {
    text-decoration: none;
    color: #ffa659;
- }
-
- .navbackground {
-   background-color: black;
  }
 
  h2, h3 {
@@ -203,5 +199,4 @@ table {
     width: 20%;
     align-self: center;
     margin: 5%;
-
 }
