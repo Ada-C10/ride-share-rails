@@ -52,9 +52,9 @@ class TripsController < ApplicationController
 
   def destroy
     trip = Trip.find_by(id: params[:id].to_i)
-    trip.destroy
+    @trip = trip.destroy
 
-    redirect_to trips_path
+    redirect_to root_path
   end
 
   private
