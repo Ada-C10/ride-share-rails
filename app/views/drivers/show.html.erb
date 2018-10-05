@@ -3,16 +3,16 @@
 <p>Total Earnings in USD: $<%= @driver.total_earning %> </p>
 <p>Average Rating: <%= @driver.average_rate %> </p>
 <table>
-<tr><td>Date</td><td>Passanger</td><td>Rating</td><td>Cost</td></tr>
+<tr class="header"><td>Date</td><td>Passanger</td><td>Rating</td><td>Cost</td></tr>
 <p><%@driver.trips.map do |trip| %>
   <tr>
   <td><%=trip.date%></td>
-  <td><%=trip.passenger%></td>
+  <!-- the show method for passener expects expects the id of the passenger. So, you have to find it using the method in the model by testing it in the consule -->
+  <td><%= link_to "Passenger", passenger_path(trip.passenger.id) %></td>
   <td><%=trip.rating%></td>
   <td>$<%=trip.cost / 100%></td>
   </tr>
 <%end%>
 </table>
 </p>
-<!-- <p><%= link_to "Trips", driver_trips_path(@driver.id) %> </p> -->
 <!-- add header, change money to real format, style with css -->
