@@ -37,7 +37,7 @@ class PassengersController < ApplicationController
     if is_updated
       redirect_to passenger_trips_path(passenger)
     else
-      render :edit
+      render :edit, status: :bad_request
     end
   end
 
