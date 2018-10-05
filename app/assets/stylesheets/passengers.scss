@@ -16,3 +16,15 @@ h2, .passenger-name, .passenger-phone {
 label[for="passenger_phone_num"] {
   text-transform: capitalize;
 }
+
+button {
+  background-color: whitesmoke;
+  font-weight: bold;
+  font-size: 12pt;
+  border-radius: 30px;
+  border-width: 5px;
+}
+
+button:hover {
+  background-color: grey;
+}

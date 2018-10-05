@@ -1,7 +1,7 @@
 <section class="details">
   <h2><%= @passenger.name %></h2>
   <h3>Total Charges: <%= number_to_currency(@passenger.total_charges) %></h3>
-  <h3><%= link_to 'Request New Trip', passenger_trips_path(@passenger.id), method: :post %></h3>
+  <button><%= link_to 'Request New Trip', passenger_trips_path(@passenger.id), method: :post %></button>
 </section>
 
 <p>TODO: Render trips table partial.</p>
