@@ -4,7 +4,7 @@
 
 
   <%= form_with model: model, url: url, method: method, class:"form" , id:"form1" do |f| %>
-  <%= message %>
+  <h2 class="detail-before-buttons"><%= message %></h2>
   <%= f.label field_one_text_field, field_one_label, class: "name"%>
   <%= f.text_field field_one_text_field, placeholder: field_one_placeholder, required: true, class: "feedback-input", id: "name"%>
 
