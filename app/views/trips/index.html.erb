@@ -8,9 +8,10 @@
 <% else %>
   <span class="dot_unavailable"></span>
 <%end%>
-    <%= form_with model: @passenger, url: passenger_trips_path(@passenger.id), method: :post, class: "form", id: "form1" do |f| %>
-    <h3 class="detail-before-buttons">Total Charged : <%= "$" + "%.2f" % @passenger.total_cost%></h3>
 
+<h3 class="detail-before-buttons">Total Charged : <%= "$" + "%.2f" % @passenger.total_cost%></h3>
+
+    <%= form_with model: @passenger, url: passenger_trips_path(@passenger.id), method: :post, class: "form", id: "form1" do |f| %>
     <% if @passenger.status == :available %>
       <div class="submit request-ride">
         <%= f.submit "Request a Ride", id: "button-orange" %>

@@ -460,10 +460,10 @@ input:focus, textarea:focus {
 
 .user-name {
   display: inline-block;
+  padding: 10px;
 }
 
 .user-name::after {
-  content: " ";
   white-space: pre;
 }
 
