@@ -11,18 +11,28 @@
   <br>
 
   Total Earnings: $ <%= ((@driver.total_earnings)/100).round(2) %>
-<br />
+  <br />
 
- <% if @driver[:available] == true %>
- Status: Available
- <% else %>
- Status: Unavailable
- <% end %>
-
- <%= link_to "Change Status", update_status_driver_path(@driver.id), method: :patch %>
+  <% if @driver[:available] == true %>
+  Status: Available
+  <% else %>
+  Status: Unavailable
+  <% end %>
 
   <br>
-  <table class = "trips_table">
+  <br>
+
+  <div class = "buttons">
+    <div>
+    <%= link_to "Change Status", update_status_driver_path(@driver.id), class: "driver-button", method: :patch %></div>
+    <div>
+    <%= link_to "Update Driver", update_status_driver_path(@driver.id), class: "driver-button", method: :patch %></div>
+    <div>
+    <%= link_to "Delete Driver", update_status_driver_path(@driver.id), class: "driver-button", method: :patch %></div>
+  </div>
+
+  <br>
+  <table>
     <tr>
       <th>ID</th>
       <th>Date</th>
@@ -35,7 +45,6 @@
       <% @driver.trips.each do |trip| %>
       <td><%= link_to trip.id, trip_path(trip.id) %></td>
       <td><%= trip.date %></td>
-
 
 
       <td><% if trip.passenger != nil %>

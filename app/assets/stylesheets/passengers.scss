@@ -1,26 +1,3 @@
 // Place all the styles related to the Passengers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
-.trips_table {
-  font-family: sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-  text-align: left;
-}
-
-.trips_table td, .trips_table th {
-  border: 1px solid black;
-  padding: 4px;
-}
-
-.trips_table th {
-  padding-top: 6px;
-  padding-bottom: 6px;
-  background-color: Darkviolet;
-  color: white;
-}
-
-.trips_table tr:nth-child(even) {
-  background-color: lightgrey;
-}

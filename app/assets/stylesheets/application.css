@@ -135,3 +135,56 @@ h2 {
 a {
   text-decoration: none;
 }
+
+main li {
+  line-height: 2em;
+}
+
+table {
+  width: 100%;
+  margin-top: 1em;
+
+}
+
+table th {
+  background-color: #fa8072;
+  padding: .5em;
+  text-align: left;
+  color: #ffffff;
+
+}
+
+table tr {
+  background-color: #ffffff;
+  padding: 6em;
+  margin-top: 5em;
+}
+
+
+table td {
+  color: #232b2d;
+  padding: 1em 0 1em .5em;
+}
+
+table a {
+  color: #FF9F05;
+}
+
+
+.driver-button {
+  color: #ffffff;
+  background-color: #35324D;
+  padding: 1em 2em;
+  margin: 1.5em 0 0 0
+  text-decoration: none;
+  border-radius: 1em;
+}
+
+.driver-button a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.buttons div {
+  display: inline;
+}
