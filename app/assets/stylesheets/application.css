@@ -349,112 +349,112 @@ h1 {
 
 /* ----------------------*/
 #feedback-page{
-	text-align:center;
+  text-align:center;
 }
 
 #form-main{
-	width:100%;
-	float:left;
-	padding-top:0px;
+  width:100%;
+  float:left;
+  padding-top:0px;
 }
 
 #form-div {
-	background-color:rgba(72,72,72,0.9);
-	padding-left:35px;
-	padding-right:35px;
-	padding-top:35px;
-	padding-bottom:50px;
-	width: 450px;
-	float: left;
-	left: 50%;
-	position: absolute;
+  background-color:rgba(72,72,72,0.9);
+  padding-left:35px;
+  padding-right:35px;
+  padding-top:35px;
+  padding-bottom:50px;
+  width: 450px;
+  float: left;
+  left: 50%;
+  position: absolute;
   margin-top:30px;
-	margin-left: -260px;
+  margin-left: -260px;
   -moz-border-radius: 7px;
   -webkit-border-radius: 7px;
 }
 
 .feedback-input {
-	color:#3c3c3c;
+  color:#3c3c3c;
   font-family: 'Raleway', sans-serif;
   font-weight: 500;
-	font-size: 18px;
-	border-radius: 0;
-	line-height: 22px;
-	background-color: #fbfbfb;
-	padding: 13px 13px 13px 54px;
-	margin-bottom: 10px;
-	width:100%;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	-ms-box-sizing: border-box;
-	box-sizing: border-box;
+  font-size: 18px;
+  border-radius: 0;
+  line-height: 22px;
+  background-color: #fbfbfb;
+  padding: 13px 13px 13px 54px;
+  margin-bottom: 10px;
+  width:100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
   border: 3px solid rgba(0,0,0,0);
   border-radius: 5px;
 }
 
 .feedback-input:focus{
-	background: #fff;
-	box-shadow: 0;
-	border: 3px solid #ED7D3A;
-	color: #ED7D3A;
-	outline: none;
+  background: #fff;
+  box-shadow: 0;
+  border: 3px solid #ED7D3A;
+  color: #ED7D3A;
+  outline: none;
   padding: 13px 13px 13px 54px;
 }
 
 .focused{
-	color:#30aed6;
-	border:#30aed6 solid 3px;
+  color:#30aed6;
+  border:#30aed6 solid 3px;
 }
 
 /* Icons ---------------------------------- */
 #name{
-	background-image: url(https://image.flaticon.com/icons/svg/74/74472.svg);
-	background-size: 30px 30px;
-	background-position: 11px 8px;
-	background-repeat: no-repeat;
+  background-image: url(https://image.flaticon.com/icons/svg/74/74472.svg);
+  background-size: 30px 30px;
+  background-position: 11px 8px;
+  background-repeat: no-repeat;
 }
 
 #name:focus{
-	background-image: url(https://image.flaticon.com/icons/svg/74/74472.svg);
-	background-size: 30px 30px;
-	background-position: 8px 5px;
+  background-image: url(https://image.flaticon.com/icons/svg/74/74472.svg);
+  background-size: 30px 30px;
+  background-position: 8px 5px;
   background-position: 11px 8px;
-	background-repeat: no-repeat;
+  background-repeat: no-repeat;
 }
 
 #phone{
-	background-image: url(https://image.flaticon.com/icons/svg/9/9243.svg);
-	background-size: 30px 30px;
-	background-position: 11px 8px;
-	background-repeat: no-repeat;
+  background-image: url(https://image.flaticon.com/icons/svg/9/9243.svg);
+  background-size: 30px 30px;
+  background-position: 11px 8px;
+  background-repeat: no-repeat;
 }
 
 #phone:focus{
-	background-image: url(https://image.flaticon.com/icons/svg/9/9243.svg);
-	background-size: 30px 30px;
+  background-image: url(https://image.flaticon.com/icons/svg/9/9243.svg);
+  background-size: 30px 30px;
   background-position: 11px 8px;
-	background-repeat: no-repeat;
+  background-repeat: no-repeat;
 }
 #car{
-	background-image: url(https://image.flaticon.com/icons/svg/67/67994.svg);
-	background-size: 30px 30px;
-	background-position: 11px 8px;
-	background-repeat: no-repeat;
+  background-image: url(https://image.flaticon.com/icons/svg/67/67994.svg);
+  background-size: 30px 30px;
+  background-position: 11px 8px;
+  background-repeat: no-repeat;
 }
 
 #car:focus{
-	background-image: url(https://image.flaticon.com/icons/svg/67/67994.svg);
-	background-size: 30px 30px;
+  background-image: url(https://image.flaticon.com/icons/svg/67/67994.svg);
+  background-size: 30px 30px;
   background-position: 11px 8px;
-	background-repeat: no-repeat;
+  background-repeat: no-repeat;
 }
 
 #date{
-	background-image: url(https://image.flaticon.com/icons/svg/747/747310.svg);
-  	background-size: 30px 30px;
-  	background-position: 11px 8px;
-  	background-repeat: no-repeat;
+  background-image: url(https://image.flaticon.com/icons/svg/747/747310.svg);
+	background-size: 30px 30px;
+	background-position: 11px 8px;
+	background-repeat: no-repeat;
   }
 
 #cost_image{
@@ -463,13 +463,6 @@ h1 {
   background-position: 11px 8px;
   background-repeat: no-repeat;
   }
-
-
-);
-	background-size: 30px 30px;
-	background-position: 11px 8px;
-	background-repeat: no-repeat;
-}
 
 
 textarea {
