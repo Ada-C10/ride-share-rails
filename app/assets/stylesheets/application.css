@@ -14,6 +14,13 @@
  *= require_self
  */
 
+  * {
+   font-family: 'Fauna One', serif;
+ }
+  h1, h2, h3, h4, h5, th {
+   font-family: 'Playfair Display', serif;
+ }
+
  a {
    text-decoration: none;
  }
