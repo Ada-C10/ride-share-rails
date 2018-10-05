@@ -3,26 +3,18 @@
 
 <p>
   <strong>
-    <%= @passenger.name %>
-    <%= @passenger.id %>
-    <%= @passenger.phone_num %>
+    <p> Name: <%= @passenger.name %> </p>
+    <p> Passenger id: <%= @passenger.id %> </p>
+    <p> Phone Number: <%= @passenger.phone_num %> </p>
   </strong>
 
 </p>
-
-<p>
-
   <p>Total Charged: $<%= "%.2f" % ((@passenger.total_spent) / 100) %> </p>
-
-
-</p>
-
-
 <div class="links">
 
-  <%= link_to "delete ", @passenger, method: :delete, data: { confirm: "Are you really really sure that you want to delete?" } %>
-  <%= link_to "Edit Passenger ", edit_passenger_path(@passenger.id) %>
-  <%= button_to "Add a Trip ", passenger_trips_path(@passenger.id) %>
+  <%= link_to "Delete Passenger ", @passenger, method: :delete, data: { confirm: "Are you sure that you want to delete?" } %>
+  <%= link_to "Edit Passenger", edit_passenger_path(@passenger.id) %>
+  <%= button_to "Request a Trip", passenger_trips_path(@passenger.id) %>
 
 </div>
 

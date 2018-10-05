@@ -1,5 +1,5 @@
 <div class="wrapper_index">
-  <h2>YOUR DRIVERS</h2>
+  <h2>DRIVERS</h2>
   <ol>
     <% @drivers.each_with_index do |driver, index| %>
     <%=link_to "#{index +1}. " + driver.name, driver_path(driver.id)%>
