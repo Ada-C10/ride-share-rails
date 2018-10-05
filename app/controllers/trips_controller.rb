@@ -11,17 +11,20 @@ class TripsController < ApplicationController
     end
   end
 
-  def new
-    @trip = Trip.new
-    @trip.rating = 0
-  end
-
   def create
-    filtered_trip_params = trip_params()
-    @trip = Trip.new(filtered_trip_params)
+    if params[:passenger_id]
+      passenger = Passenger.find_by(id: params[:passenger_id])
 
-    if @trip.save
-      redirect_to trips_path
+
+      driver = (Driver.all.select { |d| d.availability == true }).sample
+
+      @trip = passenger.trips.new(driver_id: driver.id, passenger_id: passenger.id, date: Date.today, rating: 0, cost: 0)
+
+      if @trip.save
+        redirect_to passenger_path(passenger.id)
+      else
+        render :new
+      end
     else
       render :new
     end
@@ -32,17 +35,19 @@ class TripsController < ApplicationController
   end
 
   def update
-    trip = Trip.find(params[:id])
-    trip.update(trip_params)
-
-    redirect_to trip_path(trip.id)
+    @trip = Trip.find(params[:id])
+    if @trip.update(trip_params)
+      redirect_to trip_path(trip.id)
+    else
+      render :edit, status: :bad_request
+    end
   end
 
   def destroy
     trip = Trip.find_by(id: params[:id])
 
     trip.destroy
-    redirect_to trips_path
+    redirect_to passenger_path(passenger.id)
   end
 
   private

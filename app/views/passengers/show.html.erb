@@ -1,6 +1,6 @@
 <h1>Passenger details</h1>
 
-<ul>
+<ul class="passenger-details">
   <li>
     <%= @passenger.id %>
   </li>
@@ -11,22 +11,43 @@
     <%= @passenger.phone_num %>
   </li>
   <li>
-    <%= @passenger.net_expenditures %>
+    $ <%= @passenger.net_expenditures %>
   </li>
   <li>
-    <% @trip.each do |trip_details| %>
-    <%= link_to "Trip id: #{trip_details.id}", trip_path(trip_details.id) %>
-    <%= link_to "Driver's id: #{trip_details.driver_id}", trip_path(trip_details.id) %>
-    <%= link_to "Passenger's id: #{trip_details.passenger_id}", trip_path(trip_details.id) %>
-    <%= link_to "Date: #{trip_details.date}", trip_path(trip_details.id) %>
-    <%= link_to "Rating: #{trip_details.rating}", trip_path(trip_details.id) %>
-    <%= link_to "Cost: #{trip_details.cost}", trip_path(trip_details.id) %>
-    <br>
-    <% end %>
+    <%= link_to "Edit", edit_passenger_path(@passenger.id) %>
+  </li>
+  <li>
+    <%= link_to "Delete", passenger_path(@passenger.id), method: :delete, data: { confirm: "Do you want to delete #{@passenger.name}?" } %>
   </li>
 </ul>
+
 <section>
-  <%= link_to "Add New Trip", new_trip_path %>
-  <%= link_to "Edit", edit_passenger_path(@passenger.id) %>
-  <%= link_to "Delete", passenger_path(@passenger.id), method: :delete, data: { confirm: "Do you want to delete #{@passenger.name}?" } %>
+  <h3>
+  <%= link_to "Add New Trip", passenger_trips_path(@passenger.id), method: :post %>
+  </h3>
+</section>
+
+<section class="passenger-trips">
+  <h3> Passenger Trips </h3>
+  <table id="driver-trips-table">
+    <tr>
+      <th>Trip ID</th>
+      <th>Driver's ID</th>
+      <th>Passenger's ID</th>
+      <th>Date</th>
+      <th>Rating</th>
+      <th>Cost ($)</th>
+    <tr>
+
+    <% @trip.each do |trip_details| %>
+    <tr>
+    <td><%= link_to "#{trip_details.id}", trip_path(trip_details.id) %></td>
+    <td><%= link_to "#{trip_details.driver_id}", trip_path(trip_details.id) %></td>
+    <td><%= link_to "#{trip_details.passenger_id}", trip_path(trip_details.id) %></td>
+    <td><%= link_to "#{trip_details.date}", trip_path(trip_details.id) %></td>
+    <td><%= link_to "#{trip_details.rating}", trip_path(trip_details.id) %></td>
+    <td><%= link_to "#{(trip_details.cost.to_f) * 0.01}", trip_path(trip_details.id) %></td>
+    </tr>
+    <% end %>
+  </table>
 </section>

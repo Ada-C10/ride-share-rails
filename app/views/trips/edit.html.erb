@@ -1,2 +1,11 @@
-<h1>Trips#edit</h1>
-<p>Find me in app/views/trips/edit.html.erb</p>
+<h1>Edit Trip</h1>
+
+<%= form_with model: @trip, class: 'task-form' do |f| %>
+  <p><%= f.label :date %>:
+    <%= f.text_field :date%></p>
+  <p><%= f.label :rating %>:
+    <%= f.select :rating, [1, 2, 3, 4, 5]%>
+  <p><%= f.label :cost %>:
+    <%= f.text_field :cost %></p>
+  <%= f.submit "Save Changes to Trip" %>
+<% end %>
