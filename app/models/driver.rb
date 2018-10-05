@@ -1,6 +1,6 @@
 class Driver < ApplicationRecord
- has_many :trips
  has_many :passengers, through: :trips
+ has_many :trips, dependent: :nullify
 
  enum status: %i[inactive active]
 

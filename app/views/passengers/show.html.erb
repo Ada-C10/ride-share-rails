@@ -24,7 +24,15 @@
     <sub><%= link_to "Delete", passenger_path(@passenger.id), method: :delete, data: {confirm: "Please confirm you would like to delete." } %></sub>
   </ul>
 
+  <div class="inline">
+  <% if @passenger.status == "active"%>
+  <div class="buttonContainer"><%= link_to "Inactivate Your Account", passenger_status_path(@passenger.id), method: :patch, class: "button" %></div>
+  <% else @passenger.status == "inactive"%>
+  <div class="buttonContainer"><%= link_to "Ride With Us Again", passenger_status_path(@passenger.id), method: :patch, class: "button" %></div>
+  <% end %>
+
   <div class="buttonContainer"><%= link_to "Request A Ride", passenger_trips_path(@passenger.id), method: :post, class: "button" %></div>
+  </div>
 
     <h4>Trip History:</h4>
     <table style="width:100%">
@@ -40,10 +48,13 @@
       <tr>
         <td><%=link_to trip.id, trip_path(trip.id)%></td>
         <td><%=trip.passenger_id %></td>
-        <td><%=trip.driver_id%>
-        <% if trip.driver.status == "inactive"%>
-      (Inactive)
-      <% end %>
+        <% if trip.driver_id == nil %>
+        <td>Account Deleted</td>
+        <% elsif trip.driver.status == "inactive"%>
+        <td><%=link_to trip.driver_id, driver_path(trip.driver.id)%>(Driver Offline)</td>
+        <% else %>
+        <td><%=link_to trip.driver_id, driver_path(trip.driver.id)%></td>
+        <% end %>
       </td>
         <td><%=trip.date%></td>
         <td>
