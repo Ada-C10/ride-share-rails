@@ -14,8 +14,6 @@ class TripsController < ApplicationController
         @trip = Trip.find_by(passenger_id: passenger.id, id: params[:id] )
       end
 
-
-
     else
       #else show trip without option to edit
       @trip = Trip.find_by(driver_id: params[:driver_id], id: params[:id] )

@@ -9,7 +9,7 @@ class DriversController < ApplicationController
     if @driver
       @trips = @driver.trips.all
     else
-      redirect_to drivers, alert: "There are no drivers with that ID"
+      redirect_to drivers_path, alert: "There are no drivers with that ID"
     end
   end
 

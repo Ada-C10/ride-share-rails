@@ -5,9 +5,12 @@ class PassengersController < ApplicationController
   end
 
   def show
-    id = params[:id]
-    @passenger = Passenger.find(id)
-    @trips = @passenger.trips.all
+    @passenger = Passenger.find_by(id: params[:id])
+    if @passenger
+      @trips = @passenger.trips.all
+    else
+      redirect_to passengers_path, alert: "There are no passengers with that ID"
+    end
   end
 
   def new
@@ -38,15 +41,12 @@ class PassengersController < ApplicationController
 
   def destroy
     @passenger = Passenger.find_by(id: params[:id])
+    @passenger.trips.delete_all
 
-
-     @passenger.trips.each do |trip|
-       trip.destroy
-     end
-
-
-    # @driver = Driver.where(id: )
-    @passenger.destroy
+    if @passenger
+      @passenger.destroy
+    end
+    
     redirect_back fallback_location: :passengers_path
   end
 
