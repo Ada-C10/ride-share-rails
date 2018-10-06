@@ -13,6 +13,12 @@
  *= require_tree .
  *= require_self
  */
+
+ .take-a-little-trip{
+  margin-top: 8px;
+ }
+
+
 * {
   text-decoration:none; list-style:none;
   margin:0px;
@@ -626,5 +632,3 @@ h1.index-header {
   margin-bottom: 50px;
   text-align: center;
 }
-
-/* Fancy button */
