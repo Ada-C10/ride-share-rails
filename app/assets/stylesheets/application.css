@@ -22,6 +22,8 @@
 .title-banner {
   display: flex;
   justify-content: center;
+  font-family: 'Monoton', cursive;
+  font-size: 2em;
 }
 
 nav {
