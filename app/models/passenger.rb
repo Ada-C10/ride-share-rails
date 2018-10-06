@@ -1,6 +1,6 @@
 class Passenger < ApplicationRecord
   validates :name, presence: true, format: { with:/\A\S+\s{1}.+\z/ , message: "Please enter a first and last name."}
-  validates :phone_num, presence: true, format: { with: /\A1?\W?\d{3}.\d{3}.\d{4}.?x?\d*\z/, message: "Please enter a valid phone number."}
+  validates :phone_num, presence: true, format: { with: /\A1?\W?\d{3}.\d{3}.\d{4}.?x?\d*\z/, message: "Please enter a valid phone number in (XXX)XXX-XXXX format."}
 
   has_many :trips, dependent: :nullify
 
