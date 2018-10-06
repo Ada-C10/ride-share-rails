@@ -47,7 +47,7 @@
       <strong>Driver: </strong><%= link_to "#{@trip.driver.name}", driver_path(id: @trip.driver_id) %>
     </p>
     <p>
-      <strong>Passenger: </strong><%= link_to "#{@trip.passenger.name}", driver_path(id: @trip.passenger_id) %>
+      <strong>Passenger: </strong><%= link_to "#{@trip.passenger.name}", passenger_path(id: @trip.passenger_id) %>
     </p>
     <%= form_with model: @trip do |f| %>
     <h3>Change Trip Rating</h3>
