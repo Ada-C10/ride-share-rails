@@ -54,3 +54,7 @@ nav li :hover {
 nav li :visited {
   color: teal;
 }
+
+.errors {
+  color: red;
+}
