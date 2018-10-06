@@ -29,15 +29,28 @@
 nav {
   display: flex;
   justify-content: center;
+  background-color: black;
+  color: teal;
 }
 
 nav li {
   list-style: none;
-
   display: inline;
   padding: 10px;
 }
 
-nav li a {
+nav a {
  text-decoration: none;
+ color: teal;
+}
+
+nav li :hover {
+  border: 3px dotted teal;
+  color: teal;
+  padding: 10px;
+  margin: 10px;
+}
+
+nav li :visited {
+  color: teal;
 }
