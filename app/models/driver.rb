@@ -24,6 +24,8 @@ class Driver < ApplicationRecord
   def total_earnings
     total_earnings = 0.0
 
+    return 0.0 if trips.length == 0
+
     trips.each do |trip|
       if trip.cost != nil
         total_earnings += trip.cost

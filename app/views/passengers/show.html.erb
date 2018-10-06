@@ -3,14 +3,15 @@
   <div class = "main-button">
     <% unrated_trips = @passenger.trips.where(rating: nil) %>
     <% if unrated_trips.length == 0 %>
-        <%= link_to "Request Trip", passenger_trips_path(@passenger), class: "page-button", method: :post%>
-        <% else %>
-        <strong class = "page-button">Please rate your past trips before requesting another one. </strong>
+      <%= link_to "Request Trip", passenger_trips_path(@passenger), class: "page-button", method: :post%>
+    <% else %>
+      <strong class = "page-button">Please rate your past trips before requesting another one. </strong>
     <% end %>
   </div>
 
   <div class = "details">
-    <h2>Passenger Details</h2>
+    <h2>Passenger Profile</h2>
+
     <strong> ID:</strong><%= @passenger.id%>
     <br>
 
@@ -52,10 +53,12 @@
           not available
           <% end %>
         </td>
-      <td>$ <%= (trip.cost.to_i/100.0).round(2) %></td>
-      <td><%= rate_me(trip) %></td>
-    </tr>
-    <%end%>
+        <td>$ <%= (trip.cost.to_i/100.0).round(2) %></td>
+        <td><%= rate_me(trip) %></td>
+      </tr>
+      <%end%>
     </table>
+
   </div>
+
 </div>
