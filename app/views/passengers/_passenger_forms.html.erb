@@ -1,13 +1,16 @@
 <%= form_with model: @passenger, class: 'pass_form' do |f| %>
   <% if @passenger.errors.any?%>
     <h4>Errors:</h4>
+
     <ul>
       <% @passenger.errors.each do |column, message| %>
       <li>
-        <strong><%= column.capitalize %></strong><%= message%>
+        <strong><%= t(%{activerecord.attributes.passenger.phone
+     }) %></strong><%=column%><%= message%>
       </li>
       <% end %>
     </ul>
+
   <%end%>
 
   <div class = "form">

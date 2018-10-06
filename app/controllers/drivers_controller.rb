@@ -5,7 +5,6 @@ class DriversController < ApplicationController
   end
 
 
-
   def show
     @driver = Driver.find_by(id: params[:id])
     if @driver.nil?
@@ -13,23 +12,26 @@ class DriversController < ApplicationController
     end
   end
 
+
   def new
     @driver = Driver.new
   end
+
 
   def create
     @driver = Driver.new(driver_params)
     if @driver.save
       redirect_to drivers_path
     else
-      #TODO validation
       render :new
     end
   end
 
+
   def edit
     @driver = Driver.find_by(id: params[:id])
   end
+
 
   def update
     @driver = Driver.find_by(id: params[:id])
@@ -39,6 +41,7 @@ class DriversController < ApplicationController
     end
   end
 
+
   def destroy
 
     @driver = Driver.find_by(id: params[:id])
@@ -46,6 +49,7 @@ class DriversController < ApplicationController
 
     redirect_to drivers_path
   end
+
 
   def update_status
     driver = Driver.find_by(id: params[:id])
@@ -60,6 +64,7 @@ class DriversController < ApplicationController
       redirect_to driver_path(driver.id)
     end
   end
+
 
   private
   def driver_params

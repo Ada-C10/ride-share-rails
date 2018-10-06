@@ -5,7 +5,6 @@ class TripsController < ApplicationController
 
 
   def show
-
     @trip = Trip.find_by(id: params[:id])
     if @trip.nil?
       head :not_found
@@ -43,7 +42,6 @@ class TripsController < ApplicationController
       render :bad_request
     end
   end
-
 
 
   def update

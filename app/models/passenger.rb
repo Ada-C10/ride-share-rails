@@ -5,9 +5,6 @@ class Passenger < ApplicationRecord
 
 
   def total_spending
-
     self.trips.sum(:cost)
-
-
   end
 end

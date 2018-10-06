@@ -1,7 +1,7 @@
 <h2>TRIP DETAILS</h2>
 
-
 <table>
+
   <tr>
     <th>ID</th>
     <th>Date</th>
@@ -10,30 +10,27 @@
     <th>Price</th>
     <th>Rating</th>
   </tr>
-<tr>
-  <td><%= @trip.id %></td>
-  <td><%= @trip.date %></td>
 
+  <tr>
+    <td><%= @trip.id %></td>
+    <td><%= @trip.date %></td>
 
-  <td><% if @trip.driver != nil %>
-    <%= link_to @trip.driver.name, driver_path(@trip.driver.id)%>
-    <% else %>
-    not available
-    <% end %>
-  </td>
+    <td><% if @trip.driver != nil %>
+      <%= link_to @trip.driver.name, driver_path(@trip.driver.id)%>
+      <% else %>
+      not available
+      <% end %>
+    </td>
 
+    <td><% if @trip.passenger != nil %>
+      <%= link_to @trip.passenger.name, passenger_path(@trip.passenger.id)%>
+      <% else %>
+      not available
+      <% end %>
+    </td>
 
-  <td><% if @trip.passenger != nil %>
-    <%= link_to @trip.passenger.name, passenger_path(@trip.passenger.id)%>
-    <% else %>
-    not available
-    <% end %>
-  </td>
-
-
-
-  <td>$ <%= (@trip.cost.to_f)/100.0 %></td>
-  <td><%= @trip.rating %></td>
-
-</tr>
+    <td>$ <%= (@trip.cost.to_f)/100.0 %></td>
+    <td><%= @trip.rating %></td>
+  </tr>
+  
 </table>

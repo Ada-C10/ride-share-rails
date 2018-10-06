@@ -4,6 +4,7 @@ class Driver < ApplicationRecord
   validates :name, :vin, presence: true
   validates :vin, length: { minimum: 17 }
 
+
   def average_rating
 
     return 0 if trips.length == 0
@@ -21,6 +22,7 @@ class Driver < ApplicationRecord
     return average_rating
   end
 
+
   def total_earnings
     total_earnings = 0.0
 
@@ -36,14 +38,15 @@ class Driver < ApplicationRecord
     return total_earnings
   end
 
+
   def self.available_driver
     available_drivers = Driver.where(available: true)
     driver = available_drivers.sample
     return driver
   end
 
-  def change_status
 
+  def change_status
     update(available: false)
   end
 end
