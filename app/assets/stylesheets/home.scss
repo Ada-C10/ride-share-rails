@@ -1,0 +1,24 @@
+// Place all the styles related to the Home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.homepage ul {
+  display: flex;
+  justify-content: center;
+  padding: 50px;
+}
+
+
+.homepage li a {
+  padding: 10px;
+  border: solid 1px orange;
+  border-radius: 10px;
+  background-color: #3e1230f7;
+  margin: 10px;
+  font-size: 2rem;
+  color: #FF9800;
+  text-decoration: none;
+}
+
+.homepage li a:hover {
+  border: solid 4px orange;
+}
