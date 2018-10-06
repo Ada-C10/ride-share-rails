@@ -24,13 +24,14 @@
   justify-content: center;
   font-family: 'Monoton', cursive;
   font-size: 2em;
+  color: #490D36;
 }
 
 nav, footer {
   display: flex;
   justify-content: center;
-  background-color: black;
-  color: teal;
+  background-color: #3e1230;
+  color: #d08b2536;
 }
 
 nav li {
@@ -41,7 +42,7 @@ nav li {
 
 nav a {
  text-decoration: none;
- color: teal;
+ /* color: teal; */
 }
 
 nav li :hover {
@@ -52,7 +53,7 @@ nav li :hover {
 }
 
 nav li :visited {
-  color: teal;
+  color: #d08b2536;
 }
 
 body {
