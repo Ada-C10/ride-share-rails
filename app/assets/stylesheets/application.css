@@ -16,7 +16,7 @@
 
 
  header {
-   background-color: teal;
+   background-color: #33b9b9;
  }
 
 .title-banner {
@@ -26,7 +26,7 @@
   font-size: 2em;
 }
 
-nav {
+nav, footer {
   display: flex;
   justify-content: center;
   background-color: black;
@@ -45,7 +45,7 @@ nav a {
 }
 
 nav li :hover {
-  border: 3px dotted teal;
+  border: 3px ridge teal;
   color: teal;
   padding: 10px;
   margin: 10px;
@@ -55,6 +55,20 @@ nav li :visited {
   color: teal;
 }
 
+body {
+  background-color: #eef9f8;
+  border: solid black 5px;
+
+}
+
+body h1, body section {
+  padding: 7px;
+}
+
 .errors {
   color: red;
+}
+
+footer {
+  padding: 10px;
 }
