@@ -22,7 +22,7 @@
     <%= link_to "View Driver", driver_path(id: @trip.driver_id) %>
     <%= link_to "View Passenger", passenger_path(id: @trip.passenger_id) %>
     <%= link_to "Return", request.referer.present? ? request.referer : home_path %>
-    <%= link_to "Delete #{@trip.id}", trip_path(@passenger.id),:class => "delete-button", method: :delete, data: { confirm: "Are you sure you want to delete the passenger #{@trip.id}?" } %>
+    <%= link_to "Delete #{@trip.id}", trip_path(@trip.id),:class => "delete-button", method: :delete, data: { confirm: "Are you sure you want to delete the trip #{@trip.id}?" } %>
   </div>
   <div class="c4">
     <h2>Trip #<%= @trip.id %></h2>
