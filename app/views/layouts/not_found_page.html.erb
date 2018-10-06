@@ -22,7 +22,7 @@
      <div class="c3">
          <%= link_to "Return", request.referer.present? ? request.referer : home_path %>
      </div>
-     <div class="c4">
+     <div class="c4" id="error-page">
          <%= image_tag "404_page_template.jpg", {id: 'not-found'} %>
      </div>
     </div>

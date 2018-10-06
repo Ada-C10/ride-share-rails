@@ -330,6 +330,13 @@ input[type=submit]:active {
   width: 50%;
 }
 
+.c4#error-page {
+  background-color: #d9443e;
+}
+.c4#error-page img {
+  margin-top: 2em;
+  overflow: hidden;
+}
 /* PAGINATION STYLING */
 .pagination {
   background: rgba(0, 0, 0, 0);
