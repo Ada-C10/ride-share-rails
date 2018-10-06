@@ -32,8 +32,6 @@ body, html {
  *= require_tree .
  *= require_self
  */
- @import url('https://fonts.googleapis.com/css?family=Alegreya|Monoton|Permanent+Marker|Vollkorn')
-
 
 .navbar-header {
      background-color: white;
@@ -50,19 +48,8 @@ body, html {
   padding-left: 1rem;
   float: left;
   font-family: 'Permanent Marker', cursive;
-  /* font-family: 'Monoton', cursive; */
 
 }
-
-/* .navbar-header {
-  display: flex;
-   padding-left: 5rem;
-
- } */
-
- /* header * {
-    display: inline-block;
-} */
 
 .navbar-header ul li {
     padding-right: 3rem;
