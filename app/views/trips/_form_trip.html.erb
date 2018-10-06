@@ -1,4 +1,4 @@
-<h2>form_title</h2>
+<h2><%= form_title %></h2>
 <br>
 <%= form_with model: model do |f| %>
   <%= f.label :date %>
@@ -16,5 +16,5 @@
   <%= f.label :passenger_id %>
   <%= f.text_field :passenger_id %>
   <br>
-  <%= f.submit form_button %>
+  <%= f.submit action_type %>
 <% end %>

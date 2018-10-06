@@ -20,6 +20,7 @@ class TripsController < ApplicationController
     if @trip
       return @trip
     else
+      # render status: 404
       head :not_found
     end
 
@@ -83,7 +84,7 @@ class TripsController < ApplicationController
 
     if @trip
       @trip.destroy
-      # NOTE: wanted to use redirect_back(fallback_location: root_path), but wouldn't work when I deleted a trip from trip details page
+    # NOTE: wanted to use redirect_back(fallback_location: root_path), but wouldn't work when I deleted a trip from trip details page
       redirect_to root_path
     else
       head :not_found
