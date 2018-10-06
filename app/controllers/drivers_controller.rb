@@ -55,10 +55,6 @@ class DriversController < ApplicationController
     end
   end
 
-  def change_status
-    
-  end
-
   private
 
   def driver_params

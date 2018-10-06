@@ -1,17 +1,4 @@
-<h3> Edit passenger</h3>
-
-<%= form_for @passenger do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <br>
-  <br>
-  <%= f.label :phone_num %>
-  <%= f.text_field :phone_num %>
-  <br>
-  <br>
-  <%= f.submit %>
-<% end %>
-
+<h1> Edit Passenger</h1>
 
 <% if @passenger.errors.any? %>
   <ul class="errors">
@@ -21,4 +8,14 @@
       </li>
     <% end %>
   </ul>
+<% end %>
+
+<%= form_for @passenger do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :phone_num %>
+  <%= f.text_field :phone_num %>
+
+  <%= f.submit %>
 <% end %>

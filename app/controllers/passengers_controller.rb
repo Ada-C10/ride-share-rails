@@ -14,8 +14,9 @@ class PassengersController < ApplicationController
     if @passenger.save
       redirect_to passengers_path
     else
-      # error message
+      render :new, status: :bad_request
     end
+    
   end
 
   def edit

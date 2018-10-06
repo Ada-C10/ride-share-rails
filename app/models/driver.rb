@@ -1,6 +1,6 @@
 class Driver < ApplicationRecord
   has_many :trips, dependent: :destroy
-  validates :name, :vin, presence: true, uniqueness: true 
+  validates :name, :vin, presence: true, uniqueness: true
 
   def average_rating
     driver_trips = self.trips.where.not(rating: nil)
@@ -21,4 +21,5 @@ class Driver < ApplicationRecord
 
     return calculated_earnings * driver_cut
   end
+
 end

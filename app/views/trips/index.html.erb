@@ -1,41 +1,37 @@
 <h1> <%=@user.name %></h1>
 
+<!-- No trips for passenger or driver  -->
 <% if @trips.first == nil %>
-  <h2><%= "No trips for #{@user.name}" %></h2>
-<br>
+<h2><%= "No trips for #{@user.name}" %></h2>
 
 
-
-
-
-
-
+<!-- Trip details for passenger  -->
 <% elsif @trips.first.passenger == @user %>
-<%= link_to "Request Ride", passenger_trips_path(@user.id), method: :post %>
-<%= link_to "Edit This Passenger", edit_passenger_path(@user.id) %>
-<%= link_to "Delete This Passenger", passenger_path(@user.id), method: :delete,
-   data: { confirm: "Are you sure you want to delete this passenger?" } %>
+<strong><%= link_to "Request Ride", passenger_trips_path(@user.id), method: :post %></strong>
+<strong><%= link_to "Edit This Passenger", edit_passenger_path(@user.id) %></strong>
+<strong><%= link_to "Delete This Passenger", passenger_path(@user.id), method: :delete,
+data: { confirm: "Are you sure you want to delete this passenger?" } %></strong>
 
-<table class="highlight">
+<table cellpadding="20">
 
- <thead>
-   <tr>
-     <th>ID</th>
-     <th>Name</th>
-     <th>Price</th>
-     <th>Date</th>
-   </tr>
- </thead>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Driver</th>
+      <th>Price</th>
+      <th>Date</th>
+    </tr>
+  </thead>
 
- <tbody>
-  <% @trips.each do |t| %>
-  <tr>
-    <td><%= link_to "#{t.id}", trip_path(t.id) %></td>
-    <td><%= link_to "#{t.driver.name}", driver_trips_path(t.driver.id) %></td>
-    <td><%= number_to_currency(t.cost/100) %></td>
-    <td><%= t.date.strftime("%b %d %Y") %></td>
-  </tr>
-  <% end %>
+  <tbody>
+    <% @trips.each do |t| %>
+    <tr>
+      <td><%= link_to "#{t.id}", trip_path(t.id) %></td>
+      <td><%= link_to "#{t.driver.name}", driver_trips_path(t.driver.id) %></td>
+      <td><%= number_to_currency(t.cost/100) %></td>
+      <td><%= t.date.strftime("%b %d %Y") %></td>
+    </tr>
+    <% end %>
   </tbody>
 
   <tfoot>
@@ -47,45 +43,54 @@
 
 </table>
 
-
-
-
+<!-- Trip details for driver -->
 <% elsif @trips.first.driver == @user %>
-  <%= link_to "Edit This Driver", edit_driver_path(@user.id) %>
-  <%= link_to "Delete This Driver", driver_path(@user.id), method: :delete,
-     data: { confirm: "Are you sure you want to delete this driver?" } %>
-  <br>
-    <% if @user.status %>
-      <%= "Available" %>
-    <% else %>
-      <%= "Unavailable" %>
-    <% end %>
+<p><%= link_to "Edit This Driver", edit_driver_path(@user.id) %></p>
+<p><%= link_to "Delete This Driver", driver_path(@user.id), method: :delete,
+data: { confirm: "Are you sure you want to delete this driver?" } %></p>
 
-<table class="highlight">
+<% if @user.status %>
+<strong><%= "Status: Available" %></strong>
+<% else %>
+<strong><%= "Status: Unavailable" %></strong>
+<% end %>
+
+<table cellpadding="20">
 
   <thead>
     <tr>
       <th>ID</th>
-      <th>Name</th>
+      <th>Passenger</th>
       <th>Price</th>
       <th>Date</th>
       <th>Rating</th>
     </tr>
   </thead>
 
-  <% @trips.each do |t| %>
-    <%= link_to "#{t.id}", trip_path(t.id) %>
-    <%= link_to "#{t.passenger.name}", passenger_trips_path(t.passenger.id) %>
-    <%= number_to_currency(t.cost/100) %>
-    <%= t.date.strftime("%b %d %Y") %>
-    <%= t.rating %>
-    <br>
+  <tbody>
+    <% @trips.each do |t| %>
+    <tr>
+      <td><%= link_to "#{t.id}", trip_path(t.id) %></td>
+      <td><%= link_to "#{t.passenger.name}", passenger_trips_path(t.passenger.id) %></td>
+      <td><%= number_to_currency(t.cost/100) %></td>
+      <td><%= t.date.strftime("%b %d %Y") %></td>
+      <td><%= t.rating %></td>
+    </tr>
   <% end %>
+  </tbody>
 
-<%= "Total Earnings" %>
-<%= number_to_currency(@user.total_earnings/100) %>
+  <tfoot>
+    <tr>
+      <td><%= "Total Earnings" %></td>
+      <td><%= number_to_currency(@user.total_earnings/100) %></td>
+    </tr>
 
-<%= "Average Rating: " %>
-<%= "%.2f" % @user.average_rating %>
+    <tr>
+      <td><%= "Average Rating: " %></td>
+      <td><%= "%.2f" % @user.average_rating %></td>
+    </tr>
+  </tfoot>
+
+</table>
 
 <% end %>
