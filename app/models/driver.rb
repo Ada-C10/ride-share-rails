@@ -17,12 +17,12 @@ class Driver < ApplicationRecord
       if trip.rating == nil
         total_length -=1
       else
-        sum + trip.rating
+        sum + trip.rating.to_f
       end
     end
 
     if total_length != 0
-      return (total / total_length).to_f
+      return ("%.1f" % (total / total_length).to_f)
     else
       #perfect score if new
       return 5

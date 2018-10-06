@@ -29,7 +29,7 @@
      <strong><%=@driver.name%></strong>
    </p>
    <p>
-     Average Rating:  <%= "%.1f" % (@driver.average_rating) %>
+     Average Rating:  <%= @driver.average_rating %>
    </p>
    <p>
      Total Revenue: $ <%= "%.2f" % ((@driver.total_revenue) / 100.00) %>
