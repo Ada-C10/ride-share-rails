@@ -12,10 +12,11 @@
   <% unless current_page?(root_path) %>
   <header>
     <div class="crop">
-
-        <!-- Vector Graphics by Vecteezy.com -->
-        <%= image_tag("header.svg", :alt => "home", class: "responsive-img") %>
+      <!-- Vector Graphics by Vecteezy.com -->
+      <div class="banner">
+          <%= image_tag("header.svg", :alt => "home", class: "responsive-img") %>
       </div>
+    </div>
     <nav id="navbar">
       <ul>
         <li>
@@ -58,7 +59,5 @@
     <footer class="footer">
       <div>Copyright © 2018 | Benezra & Shields </div>
     </footer>
-
   </body>
-
   </html>

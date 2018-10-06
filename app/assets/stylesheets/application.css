@@ -15,8 +15,13 @@
 */
 
 .crop img {
-    margin: -140px 0 0 -100px;
+    margin: -240px 0 0 -100px;
+    margin-left: 5px;
     max-width: 100%;
+}
+
+.banner {
+  display: flex;
 }
 
 .application-header {
@@ -35,12 +40,9 @@ li {
 }
 
 .dropbtn {
-  /* background-color: #928BF2;
-  color: white; */
-  /* padding: 8px; */
+  padding: 8px;
   font-size: 16px;
   border: none;
-  border-radius: 20%;
   cursor: pointer;
 }
 
@@ -69,16 +71,11 @@ li {
 }
 
 /* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: #f1f1f1}
+.dropdown-content a:hover {background-color: #8AD0C5}
 
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
   display: block;
-}
-
-/* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown:hover .dropbtn {
-  background-color: #3e8e41;
 }
 
 .footer {

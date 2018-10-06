@@ -1,60 +1,73 @@
 <h2><%= @passenger.name%></h2>
+<div class="content">
+  <div class="col-1">
+    <div class="fixed-header">
+      <h3>Details:  </h3>
+    </div>
 
-  <% if @passenger.is_in_ride? %>
-  Ride in Progress...
-  <% else %>
-  <%= link_to "Request a Ride", passenger_trips_path(@passenger.id), method: :post %>
-  <% end %>
+    <section class="user-dets">
+      <% if @passenger.is_in_ride? %>
+      Ride in Progress...
+      <% else %>
+      <%= link_to "Request a Ride", passenger_trips_path(@passenger.id), method: :post %>
+      <% end %>
 
-<p>Phone Number: <%= @passenger.phone_num %></p>
-<p>Total Charged: <%= currency(@passenger.total_charged) %>  </p>
-<h3>Trips By Date: </h3>
+      <p>Phone Number: <%= @passenger.phone_num %></p>
+      <p>Total Charged: <%= currency(@passenger.total_charged) %>  </p>
+      <h4>Modify Passenger:  </h4>
 
-<table>
-  <thead>
-    <tr>
-      <th>Trip ID</th>
-      <th>Date</th>
-      <th>Driver</th>
-      <th>Passenger</th>
-      <th>Cost</th>
-      <th>Rating</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+      <section class="mod-options">
+        <ul>
+          <li>
+            <%= link_to "Edit| ", edit_passenger_path %>
+          </li>
+          <li>
+            <%= link_to "Delete", passenger_path(@passenger.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+          </li>
+        </ul>
+      </section>
+    </section>
+  </div>
 
-  <tbody>
-    <% @trips.each do |trip| %>
-      <tr>
-        <td><%= link_to trip.id, passenger_trip_path(@passenger.id, trip.id), class: 'trip-link' %></td>
-        <td><%= trip.date %></td>
-        <td><%= trip.driver_id %></td>
-        <td><%= trip.passenger_id %></td>
-        <td> <strong><%= currency(trip.cost) %></strong> </td>
-        <td>
-          <% if trip.rating == nil %>
-          <%= @passenger.id %>
-          <%= trip.id %>
+  <div class="col-2">
+    <div class="fixed-header">
+      <h3>Trips By Date: </h3>
+    </div>
+    <section class="trip-dets">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Trip ID</th>
+            <th>Date</th>
+            <th>Driver</th>
+            <th>Passenger</th>
+            <th>Cost</th>
+            <th>Rating</th>
+          </tr>
+        </thead>
 
-        <%= form_for trip, url: passenger_trip_path(trip.passenger_id, trip.id) do |f| %>
-          <%= f.select :rating, (1..5) %>
-          <%= f.submit %>
+        <tbody>
+          <% @trips.each do |trip| %>
+          <tr>
+            <td><%= link_to trip.id, passenger_trip_path(@passenger.id, trip.id), class: 'trip-link' %></td>
+            <td><%= trip.date %></td>
+            <td><%= trip.driver_id %></td>
+            <td><%= trip.passenger_id %></td>
+            <td> <strong><%= currency(trip.cost) %></strong> </td>
+            <td>
+              <% if trip.rating == nil %>
+              <%= form_for trip, url: passenger_trip_path(trip.passenger_id, trip.id) do |f| %>
+              <%= f.select :rating, (1..5) %>
+              <%= f.submit %>
+              <% end %>
+              <% else %>
+              <%= trip.rating %>
+              <% end %>
+            </td>
+          </tr>
           <% end %>
-        <% else %>
-          <%= trip.rating %>
-        <% end %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<h3>Modify Passenger:  </h3>
-<ul>
-  <li>
-    <%= link_to "Edit", edit_passenger_path %>
-  </li>
-  <li>
-    <%= link_to "Delete", passenger_path(@passenger.id), method: :delete, data: { confirm: 'Are you sure?' } %>
-  </li>
-</ul>
+        </tbody>
+      </table>
+    </section>
+  </div>
+</div>
