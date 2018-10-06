@@ -42,7 +42,6 @@ nav li {
 
 nav a {
  text-decoration: none;
- /* color: teal; */
 }
 
 nav li :hover {
@@ -66,10 +65,17 @@ body h1, body section {
   padding: 7px;
 }
 
+.app-form {
+  display: flex;
+  justify-content: left;
+  margin-left: 30px;
+}
+
 .errors {
   color: red;
 }
 
 footer {
   padding: 10px;
+  color: #b3771e;
 }
