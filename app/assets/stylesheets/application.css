@@ -24,7 +24,12 @@
   justify-content: center;
   font-family: 'Monoton', cursive;
   font-size: 2em;
+  /* color: #490D36; */
+}
+
+.title-banner a:link, .title-banner a:visited {
   color: #490D36;
+  text-decoration: none;
 }
 
 nav, footer {
