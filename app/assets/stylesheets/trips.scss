@@ -5,3 +5,16 @@
 .trip-list {
   font-size: 2rem;
 }
+
+.trip {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin-left: 30%;
+  margin-right: 30%;
+  border-top-style: dotted;
+  border-right-style: solid;
+  border-bottom-style: dotted;
+  border-left-style: solid;
+}
