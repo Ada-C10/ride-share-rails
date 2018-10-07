@@ -44,7 +44,7 @@
       </div>
       <div class="cell" data-title="Edit">
         <% if trip.cost == nil || trip.rating == nil %>
-          <%= link_to "End Trip", trip_path(trip.id) %>
+          <%= link_to "End Trip", trip_path(trip.id), class: "end-trip" %>
         <% else %>
           <%= link_to "Edit Trip", edit_trip_path(trip.id) %>
         <% end %>

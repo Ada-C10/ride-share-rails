@@ -31,8 +31,8 @@
       <div class= "ease"></div>
   <% end %>
 <% else %>
-  <button><%= link_to "Edit", edit_trip_path(@trip.id) %></button>
+  <%= link_to "Edit", edit_trip_path(@trip.id), class: "edit-delete-links" %>
 <% end %>
-<button><%= link_to "Delete", trip_path(@trip.id), method: :delete, data: {confirm: 'Are you sure you want to delete this trip?'} %></button>
+  <%= link_to "Delete", trip_path(@trip.id), method: :delete, data: {confirm: 'Are you sure you want to delete this trip?'}, class: "edit-delete-links" %>
 
 </div>

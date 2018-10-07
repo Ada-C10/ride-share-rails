@@ -11,8 +11,8 @@
 <h3>Total Earnings : $<%= @driver.total_earnings %></h3>
 <h3 class="detail-before-buttons">Average Ratings : <%= @driver.average_rating %></h3>
 
-<button><%= link_to "Edit", edit_driver_path(@driver.id) %></button>
-<button><%= link_to "Delete", driver_path(@driver.id), method: :delete, data: {confirm: 'Are you sure you want to delete this driver?'} %></button>
+<%= link_to "Edit", edit_driver_path(@driver.id), class: "edit-delete-links" %>
+<%= link_to "Delete", driver_path(@driver.id), method: :delete, data: {confirm: 'Are you sure you want to delete this driver?'}, class: "edit-delete-links" %>
 
 
 <%= render partial: "layouts/personaltrips",
