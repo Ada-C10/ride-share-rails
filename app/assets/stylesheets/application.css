@@ -380,7 +380,7 @@ h1 {
 }
 
 #form-div ul{
-  color: white
+  color: white;
 }
 
 .feedback-input {
@@ -602,7 +602,7 @@ input:focus, textarea:focus {
 }
 
 .submit {
-  margin-top: 5px;
+  margin-top: 20px;
 }
 
 /* The gray background box on all list pages */
