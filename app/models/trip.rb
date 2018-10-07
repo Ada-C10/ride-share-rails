@@ -2,6 +2,7 @@ class Trip < ApplicationRecord
   belongs_to :driver
   belongs_to :passenger
   validates :date, presence: true
+  validates :cost, format: {with: /\A\d{1,3}\.\d{2}\z/, message: 'Must have two decimal places, up to 999.99'}, allow_nil: true
 
   def status
     if self.rating == nil
