@@ -1,28 +1,47 @@
 <h2 class="my-class"><%= page_title %></h2>
-
-<% if @driver.errors.any? %>
-<ul class="errors">
-  <% @driver.errors.each do |field, message| %>
-  <li>
-    <strong><%= field.capitalize %>: </strong><%= message %>
-  </li>
+<div class="content">
+  <% if @driver.errors.any? %>
+  <ul class="errors">
+    <% @driver.errors.each do |field, message| %>
+    <li>
+      <strong><%= field.capitalize %>: </strong><%= message %>
+    </li>
+    <% end %>
+  </ul>
   <% end %>
-</ul>
-<% end %>
 
-<%= form_with model: @driver, class: 'driver-form', data: { remote: false } do |f| %>
-<%= f.label :name %>
-<%= f.text_field :name %>
+  <section class="form">
+    <%= form_with model: @driver, class: 'driver-form', data: { remote: false } do |f| %>
+    <div class="label-field">
+      <%= f.label :name %>
+      <div class="field">
+        <%= f.text_field :name %>
+      </div>
+    </div>
 
-<%= f.label :vin %>
-<%= f.text_field :vin %>
+    <div class="label-field">
+      <%= f.label :vin %>
+      <div class="field">
+        <%= f.text_field :vin %>
+      </div>
+    </div>
 
-<%= f.label :car_make %>
-<%= f.select :car_make, ["Ford", "Honda", "Hyundai", "Nissan", "Toyota"] %>
+    <div class="label-field">
+      <%= f.label :car_make %>
+      <div class="field">
+        <%= f.select :car_make, ["Ford", "Honda", "Hyundai", "Nissan", "Toyota"] %>
+      </div>
+    </div>
 
-<%= f.label :car_model %>
-<%= f.select :car_model, ["Escape", "Focus", "Fiesta", "Accord", "Civic", "CR-V", "Elantra", "Santa Fe", "Sonata", "Altma", "Leaf", "PathFinder","RAV4", "Prius", "Camry"] %>
-
-<%= f.submit %>
-
-<% end %>
+    <div class="label-field">
+      <%= f.label :car_model %>
+      <div class="field">
+        <%= f.select :car_model, ["Escape", "Focus", "Fiesta", "Accord", "Civic", "CR-V", "Elantra", "Santa Fe", "Sonata", "Altma", "Leaf", "PathFinder","RAV4", "Prius", "Camry"] %>
+      </div>
+    </div>
+    <div class="submit">
+      <%= f.submit %>
+    </div>
+  </section>
+  <% end %>
+</div>

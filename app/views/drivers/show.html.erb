@@ -26,9 +26,9 @@
       <section class="mod-options">
         <ul>
           <li>
-            <%= link_to "Edit| ", edit_driver_path %>
+            <%= link_to "Edit", edit_driver_path %>
           </li>
-
+          <li> | </li>
           <li>
             <%= link_to "Delete", driver_path(@driver.id), method: :delete, data: { confirm: 'Are you sure?' } %>
           </li>

@@ -1,22 +1,33 @@
 <h2 class="my-class"><%= page_title %></h2>
-
-<% if @passenger.errors.any? %>
-<ul class="errors">
-  <% @passenger.errors.each do |field, message| %>
-  <li>
-    <strong><%= field.capitalize %>: </strong><%= message %>
-  </li>
+<div class="content">
+  <% if @passenger.errors.any? %>
+  <ul class="errors">
+    <% @passenger.errors.each do |field, message| %>
+    <li>
+      <strong><%= field.capitalize %>: </strong><%= message %>
+    </li>
+    <% end %>
+  </ul>
   <% end %>
-</ul>
-<% end %>
 
-<%= form_with model: @passenger, class: 'passenger-form', data: { remote: false } do |f| %>
-<%= f.label :name %>
-<%= f.text_field :name %>
+<section class="form">
+  <%= form_with model: @passenger, class: 'passenger-form', data: { remote: false } do |f| %>
+  <div class="label-field">
+    <%= f.label :name %>
+    <div class="field">
+      <%= f.text_field :name %>
+    </div>
+  </div>
 
-<%= f.label :phone_number %>
-<%= f.text_field :phone_num %>
-
-<%= f.submit %>
-
-<% end %>
+  <div class="label-field">
+    <%= f.label :phone_number %>
+    <div class="field">
+      <%= f.text_field :phone_num %>
+    </div>
+  </div>
+  <div class="submit">
+    <%= f.submit %>
+  </div>
+  <% end %>
+</section>
+</div>

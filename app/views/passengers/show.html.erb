@@ -19,8 +19,9 @@
       <section class="mod-options">
         <ul>
           <li>
-            <%= link_to "Edit| ", edit_passenger_path %>
+            <%= link_to "Edit", edit_passenger_path %>
           </li>
+          <li> | </li>
           <li>
             <%= link_to "Delete", passenger_path(@passenger.id), method: :delete, data: { confirm: 'Are you sure?' } %>
           </li>
