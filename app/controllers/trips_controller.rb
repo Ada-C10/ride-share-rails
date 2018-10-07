@@ -41,12 +41,12 @@ class TripsController < ApplicationController
     # maybe don't need to dup? test it.
       formatted_trip_params[:cost] = @trip.assign_random_cost
       @trip.update(formatted_trip_params)
-      redirect_to passenger_trips_path(@trip.passenger.id, @trip.id)
+      redirect_to passenger_trips_path(@trip.passenger.id)
     else
       cost = formatted_trip_params[:cost].to_f
       formatted_trip_params[:cost] = (cost*100).to_i
       @trip.update(formatted_trip_params)
-      redirect_to trips_path(@trip.id)
+      redirect_to trip_path(@trip.id)
     end
   end
 
