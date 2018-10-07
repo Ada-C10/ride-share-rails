@@ -1,5 +1,7 @@
 class Passenger < ApplicationRecord
   has_many :trips, dependent: :nullify
+  validates :phone_num, presence: true, uniqueness: true
+  validates :name, presence: true
 
   def total_cost
     #The driver gets 80% of the trip cost after a fee of $1.65 is subtracted

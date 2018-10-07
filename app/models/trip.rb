@@ -1,6 +1,7 @@
 class Trip < ApplicationRecord
   belongs_to :driver
   belongs_to :passenger
+  validates :date, presence: true
 
   def status
     if self.rating == nil
