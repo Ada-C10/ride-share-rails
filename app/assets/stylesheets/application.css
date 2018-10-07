@@ -380,6 +380,10 @@ h1 {
   -webkit-border-radius: 7px;
 }
 
+#form-div ul{
+  color: white
+}
+
 .feedback-input {
   color:#3c3c3c;
   font-family: 'Raleway', sans-serif;

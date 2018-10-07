@@ -4,6 +4,18 @@
 
   <%= form_with model: model, url: url, method: method, class:"form" , id:"form1" do |f| %>
   <h1 class="detail-before-buttons index-header"><%= message %></h1>
+  <% if model.errors.any? %>
+  <ul class="errors">
+    <% model.errors.each do |column, message| %>
+    <li>
+      <strong><%= column.capitalize %></strong> <%= message %>
+    </li>
+    <% end %>
+  </ul>
+  <% end %>
+
+  <br>
+
   <%= f.label field_one_text_field, field_one_label, class: "name"%>
   <%= f.text_field field_one_text_field, placeholder: field_one_placeholder, required: true, class: "feedback-input", id: "name"%>
 
@@ -12,7 +24,6 @@
 
   <div class="submit">
     <%= f.submit button_text, id: "button-orange"  %>
-
     <div class="ease"></div>
   </div>
   <% end %>
