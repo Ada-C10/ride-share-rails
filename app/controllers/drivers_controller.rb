@@ -59,10 +59,10 @@ class DriversController < ApplicationController
     else
       @driver.update(status: true)
     end
-    
-    redirect_to drivers_path
+
+    redirect_to driver_path(@driver.id)
   end
- 
+
 
   private
   def driver_params

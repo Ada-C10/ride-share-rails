@@ -10,17 +10,17 @@
   <strong>Total Earnings: $<%= '%.2f' % @driver.total_earnings %></strong>
   <br />
   <strong>Average Rating: <%= '%.2f' % @driver.average_rating %></strong>
+  <br />
+  <strong>
+    <%= link_to "Status", drivers_status_path(@driver), method: :patch %>:
+    <% if @driver.status %>
+      <strong>Available</strong>
+    <% else %>
+      <strong>Unavailable</strong>
+    <% end %>
+  </strong>
   <br /><br />
 </section>
-
-<section class="driver_status">
-  <div class="status_button">
-    <strong class="button_color">
-      <%= link_to "Status", drivers_status_path(@driver), method: :patch %>
-    </strong>
-  </div>
-</section>
-
 
 <% active_trips = @trips.where(active: true).order(:date) %>
 
