@@ -1,6 +1,6 @@
 class Driver < ApplicationRecord
   has_many :trips, dependent: :nullify
-  validates :vin, presence: true, uniqueness: true, length: { is: 17 }, format: { with: /\A[[a-zA-Z]||\d]{17}\z/, message: “Must be exactly 17 letter and digits” }
+  validates :vin, presence: true, uniqueness: true, length: { is: 17 }, format: { with: /\A[[a-zA-Z]||\d]{17}\z/, message: 'Must be exactly 17 letter and digits' }
   validates :name, presence: true
 
   def total_earnings
