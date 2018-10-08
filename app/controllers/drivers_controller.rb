@@ -6,8 +6,6 @@ class DriversController < ApplicationController
   def show
     @id = params[:id].to_i
     @driver = Driver.find_by(id: @id)
-# See the driver's total earnings (-1.65, *.8)
-# See the driver's average rating
 
     if @driver.nil?
       render :notfound, status: :not_found
@@ -16,8 +14,6 @@ class DriversController < ApplicationController
 
   def new
     @driver = Driver.new
-# The user must provide a name and VIN
-# Don't worry about how the VIN is formatted
   end
 
   def create

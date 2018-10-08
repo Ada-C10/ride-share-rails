@@ -37,6 +37,7 @@ class TripsController < ApplicationController
   def update
     @trip = Trip.find_by(id: params[:id].to_i)
     formatted_trip_params = trip_params.dup
+    binding.pry
     if @trip.cost == nil
       formatted_trip_params[:cost] = @trip.assign_random_cost
       @trip.update(formatted_trip_params)
