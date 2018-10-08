@@ -1,0 +1,27 @@
+  <div class = "container">
+  <% if @passenger.nil? %>
+    <h1> 404 Not found</h1>
+  <% else %>
+    <h1><%=@passenger.name %></h1>
+    <button>
+      <%= link_to "Add A Trip", new_trip_path %>
+    </button>
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>Phone Number</th>
+        <th>Total Spent</th>
+        <th>Edit Passenger</th>
+        <th>Delete Passenger</th>
+      </tr>
+      <tr>
+        <td><%= "#{@passenger.id}" %></td>
+        <td><%= "#{@passenger.phone_num}" %></td>
+        <td><%= "$#{@passenger.total_charged}" %></td>
+        <td><%= link_to "Edit", edit_passenger_path(@passenger.id) %></td>
+        <td><%= link_to "Delete", passenger_path(@passenger.id), method: :delete %></td>
+      </tr>
+    </table>
+    <%= render partial: "trips/trips" %>
+  </div>
+<% end %>

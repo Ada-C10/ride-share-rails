@@ -1,0 +1,38 @@
+<% if @driver.nil? %>
+  <h1> 404 Not found</h1>
+<% else %>
+<div class="container">
+  <h1><%=@driver.name %></h1>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Vin Number</th>
+      <th>Average Rating</th>
+      <th>Total Earned</th>
+      <th>Edit Driver</th>
+      <th>Delete Driver</th>
+    </tr>
+    <tr>
+      <td>
+        <%= "#{@driver.id}" %>
+      </td>
+      <td>
+        <%= "#{@driver.vin}" %>
+      </td>
+      <td>
+        <%= "#{@driver.average_rating}"%>
+      </td>
+      <td>
+        <%= "$#{@driver.amount_earned}" %>
+      </td>
+      <td>
+        <%= link_to "Edit", edit_driver_path(@driver.id) %>
+      </td>
+      <td>
+        <%= link_to "Delete", driver_path(@driver.id), method: :delete %>
+      </td>
+    </tr>
+  </table>
+  <%= render partial: "trips/trips" %>
+  </div>
+<% end %>

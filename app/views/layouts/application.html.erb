@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RideShareRails</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Fauna+One|Playfair+Display" rel="stylesheet">
+
+  </head>
+
+  <body>
+    <header>
+      <h1>DrivesMe</h1>
+      <nav>
+        <ul id = "main_container">
+          <!-- <li>
+            <!- <%# link_to  "Home", "/", id: "home-link" %> -->
+          <li>
+           <%= link_to "Passengers", passengers_path%>
+         </li>
+         <li>
+          <%= link_to "Drivers", drivers_path%>
+         </li>
+         <li>
+           <a href="<%= new_passenger_path%>">
+             Add Passenger
+           </a>
+         </li>
+         <li>
+           <a href="<%=new_driver_path%>">
+             Add Driver
+           </a>
+         </li>
+        </ul>
+      </nav>
+    </header>
+<main>
+    <%= yield %>
+</main>
+  </body>
+</html>
+
+
+
+
+  <!-- <body>
+
+    <main>
+      <%# yield %>
+    </main>
+  </body>
+</html> -->

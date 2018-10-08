@@ -1,0 +1,32 @@
+<!-- <h1>trips#show</h1>
+<p>Find me in app/views/trips/show.html.erb</p> -->
+
+<% if @trip.nil? %>
+  <h1> 404 Not found</h1>
+<% else %>
+<div class="container">
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Date</th>
+      <th>Rating</th>
+      <th>Cost</th>
+      <th>Driver</th>
+      <th>Passenger</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+    <tr>
+      <td><%= link_to "#{@trip.id}", trip_path(@trip.id) %></td>
+      <td><%="#{@trip.date}" %></td>
+      <td><%="#{@trip.rating}" %></td>
+      <td><%="$#{@trip.convert_money(@trip.cost)}" %></td>
+      <td><%=link_to "#{@trip.driver_id}", driver_path(@trip.driver_id) %></td>
+      <td><%=link_to "#{@trip.passenger_id}", passenger_path(@trip.passenger_id) %></td>
+      <td><%= link_to "Edit", edit_trip_path(@trip.id) %></td>
+      <td><%= link_to "Delete", trip_path(@trip.id), method: :delete %></td>
+    </tr>
+  </table>
+</div>
+
+<% end %>
