@@ -1,0 +1,154 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ body {
+   display: flex;
+   justify-content: center;
+   height: 100%;
+   font-family: Futura, Sans-serif;
+   color: white;
+ }
+
+ a {
+   color: white;
+   text-decoration: none;
+ }
+
+ .container {
+   border: 1px solid black;
+   background-color: black;
+   height: 100%;
+   width: 700px;
+   display: flex;
+   flex-direction: column;
+   padding-bottom: 40px;
+ }
+
+ .logo {
+   width: 60%;
+   margin: 35px 13% 20px 40px;
+   border: 1px solid white;
+ }
+
+ nav ul {
+   min-width: 56%;
+   margin-top: 140px;
+   margin-right: 50px;
+   padding: 0;
+   list-style: none;
+   display: flex;
+   justify-content: flex-end;
+   align-self: center;
+ }
+
+ nav {
+   display: flex;
+   justify-content: space-between;
+ }
+
+ nav li {
+   align-self: center;
+   display: inline-block;
+   margin-left: 20px;
+   margin-right: 4px;
+   padding-left: 16px;
+   padding-right: 16px;
+   padding-top: 6px;
+   padding-bottom: 6px;
+   font-style: italic;
+ }
+
+ nav li:hover {
+   padding-left: 15px;
+   padding-right: 15px;
+   padding-top: 5px;
+   padding-bottom: 5px;
+   border: 1px white solid;
+   border-radius: 25px;
+ }
+
+ .dropdown-content {
+     display: none;
+     position: absolute;
+     background-color: white;
+     min-width: 90px;
+     margin-top: 7px;
+     margin-left: -9px;
+     box-shadow: 1px 2px 2px 0px rgba(0,0,0,0.2);
+     padding: 4px 16px;
+     z-index: 1;
+ }
+
+ .dropdown-content a {
+   color: black;
+ }
+
+ .dropdown-content a:hover {
+   color: lightgray;
+ }
+
+ .nav-links:hover .dropdown-content {
+     display: block;
+ }
+
+ img[alt="profile pic"] {
+   border-radius: 50%;
+ }
+
+
+
+
+
+ /* NEW FORMS STYLING */
+ .formcontainer {
+   display: flex;
+   justify-content: center;
+ }
+
+ .driver-form {
+   text-align: center;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+ }
+
+ .driver-form label {
+   display: block;
+   margin: 10px;
+ }
+
+ .driver-form-submit-button {
+   display: block;
+   margin-top: 20px;
+   margin-bottom: 40px;
+ }
+
+ .passenger-form {
+   text-align: center;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+ }
+
+ .passenger-form label {
+   display: block;
+   margin: 10px;
+ }
+
+ .passenger-form-submit-button {
+   display: block;
+   margin-top: 20px;
+   margin-bottom: 40px;
+ }

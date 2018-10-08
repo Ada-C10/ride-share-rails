@@ -1,0 +1,14 @@
+// Place all the styles related to the trips controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.trip1-container {
+  height: 103px;
+  width: 530px;
+  border: 1px solid white;
+  border-radius: 25px;
+  padding: 5px 15px 0px 15px;
+  margin-left: 35px;
+  margin-right: 35px;
+  margin-bottom: 15px;
+  overflow: scroll;
+}

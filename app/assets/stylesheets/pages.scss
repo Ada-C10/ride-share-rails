@@ -1,0 +1,19 @@
+// Place all the styles related to the pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.homeh1 {
+  font-style: italic;
+  margin-left: 18%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.homeh1 a {
+  padding: 3px 16px 9px 16px;
+}
+
+.homeh1:hover a {
+  border: 1px solid white;
+  border-radius: 25px;
+  padding: 2px 15px 8px 15px;
+}

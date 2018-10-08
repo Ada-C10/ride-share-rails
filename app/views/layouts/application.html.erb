@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rideshare on Rails</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        <nav>
+          <%= link_to image_tag("logo4.png", alt: "Rideshare on Rails logo. White text on a square black background. The word 'Rideshare' is set in the Futura regular oblique typeface on the top half of the black square, with a dashed horizontal line below it, imitating the lines on a road. The words 'on Rails' are set in the Helvetica regular typeface, with the word 'Rails' horizontally filling the lower half of the black square.", class: "logo"), root_path %>
+
+          <ul>
+            <li class="nav-links">
+              <%= link_to "Drivers"%>
+              <div class="dropdown-content">
+                <p class="unlast-item">
+                  <%= link_to "All Drivers", drivers_path %>
+                </p>
+                <p>
+                  <%= link_to "Add Driver", new_driver_path %>
+                </p>
+              </div>
+            </li>
+
+            <li class="nav-links">
+              <%= link_to "Passengers"%>
+              <div class="dropdown-content">
+                <p class="unlast-item">
+                  <%= link_to "All Passengers", passengers_path %>
+                </p>
+                <p>
+                  <%= link_to "Add Passenger", new_passenger_path %>
+                </p>
+              </div>
+            </li>
+          </ul>
+        </nav>
+      </header>
+      <%= yield %>
+    </div>
+  </body>
+</html>

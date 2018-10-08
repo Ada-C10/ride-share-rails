@@ -1,0 +1,249 @@
+// Place all the styles related to the Passengers controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.entrycontainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.entry {
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: 18.5% 10% 4% 30% 20% 7%;
+  border: 1px solid black;
+}
+
+.name, .modifications {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.pic {
+  grid-column-start: 2;
+}
+
+.name {
+  grid-column-start: 4;
+}
+
+.modifications {
+  grid-column-start: 5;
+  justify-self: end;
+}
+
+.modify {
+  padding: 5px;
+}
+
+#passengers-index form {
+  display: flex;
+  justify-content: center;
+}
+
+// This rule is repeated in the drivers css file but is also left here to elucidate what is going on with the layout
+.search {
+  margin-left: 20px;
+  margin-top: 2px;
+}
+
+#passengers-index .pagination a, .current, .previous_page, .next_page {
+  padding: 5px;
+  border: 1px solid white;
+}
+
+#passengers-index .pagination a:hover {
+  color: slategray;
+  text-shadow: 2px 2px 1px lightgray;
+  background-color: white;
+}
+
+.entry li a:hover {
+  color: lightgray;
+}
+
+
+
+
+
+.summary-container {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.summary {
+  display: flex;
+}
+
+.namenumreq {
+  display: flex;
+  flex-direction: column;
+}
+
+.name {
+  margin-bottom: 10px;
+}
+
+.request {
+  font-style: italic;
+  border: 1px solid white;
+  border-radius: 25px;
+  margin-top: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  width: 100px;
+  text-align: center;
+}
+
+.button {
+  font-style: italic;
+  border: 1px solid white;
+  border-radius: 25px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 4px;
+  padding-bottom: 5px;
+  width: 60px;
+  text-align: center;
+  margin-bottom: 10px;
+  margin-left: 20px;
+}
+
+.request:hover, .button:hover {
+  background-color: white;
+  color: black;
+}
+
+.totalspent {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.totalmods {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.summary section {
+  margin-left: 11px;
+  margin-right: 11px;
+}
+
+.passenger-trips {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.yourtrips {
+  margin-bottom: 25px;
+}
+
+.trips-container {
+  height: 300px;
+  width: 530px;
+  border: 1px solid white;
+  border-radius: 25px;
+  padding: 5px 15px 0px 15px;
+  margin-left: 35px;
+  margin-right: 35px;
+  margin-bottom: 15px;
+  overflow: scroll;
+}
+
+
+.trips-headers {
+  list-style: none;
+  padding-left: 40px;
+  padding-right: 40px;
+  margin-top: 12px;
+
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 3fr 3fr 2fr 2fr 1fr;
+}
+
+.trips-headers li {
+  text-align: center;
+  text-decoration: underline;
+}
+
+.tripsdate {
+  grid-column-start: 2;
+}
+
+.tripsdriver {
+  grid-column-start: 3;
+}
+
+.tripspassenger {
+  grid-column-start: 4;
+}
+
+.tripsprice {
+  grid-column-start: 5;
+}
+
+.tripsrating {
+  grid-column-start: 6;
+}
+
+.tripsdelete {
+  grid-column-start: 7;
+}
+
+.tripsentries {
+  list-style: none;
+  padding-left: 40px;
+  padding-right: 40px;
+
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 3fr 3fr 2fr 2fr 1fr;
+}
+
+.tripsentries li {
+  text-align: center;
+  font-size: .8em;
+}
+
+.tripsentries li a:hover {
+  color: lightgray;
+}
+
+
+// .summary ul {
+//   list-style: none;
+//   display: grid;
+//   grid-template-columns: 10% 30% 30%;
+//   grid-template-rows: 20% 20%;
+// }
+//
+// .showpic {
+//   grid-column-start: 1;
+// }
+//
+// .showname, .shownum, .request {
+//   grid-column-start: 2;
+// }
+//
+// .showmod, .showtotal {
+//   grid-column-start: 3;
+// }
+//
+// .showname, .shownum, .showtotal {
+//   grid-row-start: 1;
+// }
+//
+// .request, .showmod {
+//   grid-row-start: 2;
+// }
+
+#passenger-detail-page ul li {
+  // display: inline-block;
+}

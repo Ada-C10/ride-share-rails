@@ -1,0 +1,94 @@
+// Place all the styles related to the Drivers controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+h2 {
+  display: flex;
+  justify-content: center;
+  margin-top: 0px;
+  margin-bottom: 8px;
+  font-style: italic;
+  font-size: 4em;
+}
+
+#drivers-index form {
+  display: flex;
+  justify-content: center;
+}
+
+.search {
+  margin-left: 20px;
+  margin-top: 2px;
+}
+
+#drivers-index .pagination a, .current, .previous_page, .next_page {
+  padding: 5px;
+  border: 1px solid white;
+}
+
+#drivers-index .pagination a:hover {
+  color: slategray;
+  text-shadow: 2px 2px 1px lightgray;
+  background-color: white;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.driverentry li a:hover {
+  color: lightgray;
+}
+
+.driverentry {
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: 14% 10% 4% 30% 10% 19% 7%;
+  border: 1px solid black;
+}
+
+.driverpic {
+  grid-column-start: 2;
+}
+
+.drivername {
+  grid-column-start: 4;
+}
+
+.driverrating {
+  grid-column-start: 5;
+}
+
+.drivermods {
+  grid-column-start: 6;
+  justify-self: end;
+}
+
+.driverrating {
+  text-align: center;
+  font-size: .8em;
+}
+
+.driverrating .rating {
+  margin-top: 3px;
+  margin-bottom: 0px;
+  font-size: 1.3em;
+}
+
+.driverpic, .drivername, .drivermods, .driverrating {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+
+// new driver page
+
+.newdriver {
+  text-align: center;
+  margin-left: 20px;
+  margin-right: 20px;
+}

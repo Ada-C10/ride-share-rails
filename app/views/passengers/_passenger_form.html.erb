@@ -1,0 +1,19 @@
+<p><h2 class="newdriver">Welcome to our Family, Passenger</h2></p>
+
+<section class="formcontainer">
+
+  <%= render partial: 'layouts/form_errors', locals: { model: @passenger } %>
+
+  <%= form_with model: @passenger, class: 'passenger-form' do |f| %>
+
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+
+    <%= f.label :phone_number %>
+    <%= f.text_field :phone_num%>
+
+    <%= f.submit action_type, class: 'passenger-form-submit-button' %>
+
+  <% end %>
+
+</section>

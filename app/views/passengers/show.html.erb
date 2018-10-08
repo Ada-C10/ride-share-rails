@@ -1,0 +1,60 @@
+<div id="passenger-detail-page">
+
+  <div class="summary-container">
+    <section class="summary">
+      <section class="pic">
+        <%= image_tag "http://placekitten.com/50/50", alt: "profile pic" %>
+      </section>
+      <section class="namenumreq">
+        <span class="name"><%= @passenger.name %></span>
+        <span class="num"><%= @passenger.phone_num %></span>
+        <span class="totalspent">Total Spent: $<%= @passenger.amt_charged %></span>
+        <%= link_to "Request Ride", create_passenger_trip_path(@passenger), method: :post, class: "request" %>
+      </section>
+      <section class="totalmods">
+        <%= link_to "Edit", edit_passenger_path(@passenger), class: "button" %>
+        <%= link_to "Delete", passenger_path(@passenger), method: :delete, data: {confirm: "Are you sure you want to delete the passenger #{@passenger.name}?"}, class: "button" %>
+      </section>
+    </section>
+  </div>
+  <section class="passenger-trips">
+
+    <h2 class="yourtrips">Your Trips</h2>
+
+    <section class="trips-container">
+      <ul class="trips-headers">
+        <li class="tripsid">ID</li>
+        <li class="tripsdate">Date</li>
+        <li class="tripsdriver">Driver</li>
+        <li class="tripspassenger">Passenger</li>
+        <li class="tripsprice">Price</li>
+        <li class="tripsrating">Rating</li>
+        <li class="tripsdelete">Delete</li>
+      </ul>
+
+      <% @passenger.trips.each do |trip| %>
+      <ul class="tripsentries">
+        <li class="tripsid"><%= link_to trip.id, trip_path(trip.id) %></li>
+        <li class="tripsdate"><%=trip.date%></li>
+        <li class=
+        "tripsdriver"><%= link_to trip.driver.name, driver_path(trip.driver.id) %></li>
+        <li class="tripspassenger"><%= link_to trip.passenger.name, passenger_path(trip.passenger.id) %></li>
+        <li class="tripsprice">$<%=trip.cost%></li>
+        <li class="tripsrating">
+          <%if trip.rating == nil%>
+            <%= form_with model: trip do |f| %>
+              <%= f.select :rating, ['1', '2', '3', '4', '5'], {}, { value: trip.rating, class: 'form-control', onchange: 'this.form.submit();' }%>
+            <% end %>
+          <% else %>
+            <%= trip.rating %>
+          <% end %>
+        </li>
+        <li class="tripsdelete"><%= button_to "Delete", trip_path(trip), method: :delete, data: {confirm: "Are you sure you want to delete Trip #{trip.id}?"} %></li>
+      </ul>
+    <% end %>
+    </section>
+
+
+  </section>
+
+</div>
