@@ -2,7 +2,7 @@ class TripsController < ApplicationController
   def home
   end
 
-# Passenger Show Page
+# This is the Passenger "show" page, where a Passenger can Request a Ride (create new trip)
   def index
     if params[:passenger_id]
       @passenger = Passenger.find_by(id: params[:passenger_id])
@@ -22,12 +22,15 @@ class TripsController < ApplicationController
   end
 
   def create
-    driver_id = Driver.first_available.id
     new_trip_params = {date: Date.today, rating: nil, cost: nil,
-                       driver_id: driver_id, passenger_id: params[:passenger_id]}
+                       driver_id: Driver.first_available.id, passenger_id: params[:passenger_id]}
     @trip = Trip.new(new_trip_params)
-    @trip.save # make sure to validate this later?
-    redirect_to trip_path(@trip.id) # redirects to Trip show page
+    if @trip.save
+      redirect_to trip_path(@trip.id) # redirects to Trip show page
+    else
+      render :index # Passenger "show" page
+      # TODO: test that this works
+    end
   end
 
   def edit
@@ -37,7 +40,6 @@ class TripsController < ApplicationController
   def update
     @trip = Trip.find_by(id: params[:id].to_i)
     formatted_trip_params = trip_params.dup
-    binding.pry
     if @trip.cost == nil
       formatted_trip_params[:cost] = @trip.assign_random_cost
       @trip.update(formatted_trip_params)
@@ -58,6 +60,7 @@ class TripsController < ApplicationController
     @trip = trip.destroy
 
     redirect_to root_path
+    # TODO: add a conditional in case there's an exception
   end
 
   private

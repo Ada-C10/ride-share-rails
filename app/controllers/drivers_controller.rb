@@ -41,6 +41,7 @@ class DriversController < ApplicationController
   def destroy
     driver = Driver.find_by(id: params[:id].to_i)
     driver.destroy
+# TODO: add a conditional in case there's an exception
     redirect_to drivers_path
   end
 

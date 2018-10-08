@@ -5,9 +5,9 @@
 
     <% if @trip.errors.any? %>
     <ul class="errors">
-      <% @trip.errors.each do |column, message| %>
+      <% @trip.errors.each do |col, msg| %>
       <li>
-        <strong><%= column.capitalize %></strong> <%= message %>
+        <strong><%= col.capitalize %></strong> <%= msg %>
       </li>
       <% end %>
     </ul>
