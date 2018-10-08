@@ -1,0 +1,225 @@
+/*
+* This is a manifest file that'll be compiled into application.css, which will include all the files
+* listed below.
+*
+* Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+* vendor/assets/stylesheets directory can be referenced here using a relative path.
+*
+* You're free to add application-wide styles to this file and they'll appear at the bottom of the
+* compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+* files in this directory. Styles in this file should be added after the last require_* statement.
+* It is generally better to create a new file per style scope.
+*
+*= require_tree .
+*= require_self
+*/
+
+body {
+  padding: 60px;
+  background-color: #E0E2DB;
+  font-family: Helvetica;
+  margin-left: 20px;
+}
+
+p {
+  font-family: Helvetica;
+  font-size: 1em;
+}
+
+h1 {
+  font-size: 2em;
+  font-family: Helvetica;
+  color: black;
+}
+
+.main {
+  font-size: 2em;
+  background-color: #E0E2DB;
+  opacity: 0.5;
+  text-align: center;
+}
+
+.main h3 :hover {
+  text-decoration: none;
+  font-size: 100%;
+  color: black;
+}
+
+header :link, header :active, header :visited {
+  color: black;
+  text-decoration: none;
+  font-family: Helvetica;
+  color: #36393B;
+}
+
+h3 :link, h3 :active,h3 :visited {
+  font-size: 1em;
+  text-decoration: none;
+  color: #36393B;
+}
+
+h3 :hover {
+  text-decoration: none;
+  font-size: 1.25em;
+  color: #AFD0D6;
+}
+
+table {
+  border-collapse: collapse;
+  table-layout: auto;
+  width: auto;
+  padding: 10px;
+  border-style: solid;
+  border-color: #36393B;
+}
+table :link, h3 :active, h3 :visited {
+  font-size: 1em;
+  text-decoration: none;
+  color: #36393B;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+
+th {
+  background-color: #7681B3;
+  color: white;
+}
+
+td {
+  text-align: center;
+  border-width: thin;
+  border-style: solid;
+  border-color: #36393B;
+}
+
+.passform {
+  font-size: 1em;
+  font-style: italic;
+}
+
+.driverbox {
+  width: 30%;
+  padding: 10px;
+}
+
+.pformbox {
+  text-align: center;
+  font-size: 1em;
+  display: inline-flex;
+  flex-direction: column;
+  height: 50px;
+  width: 150px;
+  justify-content: space-between;
+  padding: 5px;
+}
+
+.boxa {
+  text-align: center;
+  font-size: 1em;
+  display: inline-flex;
+  flex-direction: column;
+  height: 50px;
+  width: 150px;
+  justify-content: space-between;
+  padding: 5px;
+}
+.passbox{
+  display: inline-flex;
+  position: relative;
+  padding: 3px;
+}
+.npbutton{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-left: 135px;
+}
+.drbox{
+  border: 1px solid black;
+  display: inline-flex;
+  position: relative;
+  padding: 3px;
+}
+.boxb{
+  text-align: center;
+  font-size: 1em;
+  display: inline-flex;
+  flex-direction: column;
+  height: 50px;
+  width: 150px;
+  justify-content: space-between;
+  padding: 5px;
+}
+.dformbox{
+  margin: 1px solid black;
+  text-align: center;
+  font-size: 1em;
+  flex-direction: column;
+  height: 150px;
+  width: 150px;
+  justify-content: space-between;
+  padding: 5px;
+}
+.ndbutton{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-right: 35px;
+}
+
+/* Dropdown Button */
+.dropbtn {
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+header {
+  display: inline-flex;
+  list-style-type: none;
+  position: sticky;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-family: Helvetica;
+  width: 100%;
+  margin-left: 5px;
+  margin-right: 5px;
+  height: 45px;
+  width: 100%;
+  border: 5px solid white;
+  background-color: #E8EFE3;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #9c9e99;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {background-color: #E0E2DB;}
