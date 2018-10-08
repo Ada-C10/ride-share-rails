@@ -1,0 +1,37 @@
+<section id="title">
+  <h1>New Driver</h1>
+  <sub>Changing The Way People Travel</sub>
+</section>
+
+<nav class="nav">
+  <li><%= link_to "HOME", root_path %></li>
+  <li><%= link_to "DRIVER", drivers_path %></li>
+  <li><%= link_to "PASSENGER", passengers_path %></li>
+  <li><%= link_to "TRIPS", trips_path %></li>
+</nav>
+
+
+<% if @driver.errors.any? %>
+  <ul class="errors">
+    <% @driver.errors.each do |column, message| %>
+      <li>
+        <strong><%= column.capitalize %></strong> <%= message %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+  <img id="selfie" src="https://s18311.pcdn.co/wp-content/uploads/2018/06/davis-Crimes-Against-Ridesharing-Drivers-Increase-in-Detroit-img.jpg" alt="Image of a car">
+
+<%= form_with model: @driver, class: "driver-form" do |f|%>
+  <p class="parah">Please provide the following information to become a driver on RideShare!</p>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :vin %>
+  <%= f.text_field :vin %>
+
+
+  <%= f.submit "Sumbit!", class: "driver-button" %>
+<% end %>

@@ -1,0 +1,44 @@
+<section id="title">
+  <h1>Trip's Details</h1>
+  <sub>Changing The Way People Travel</sub>
+</section>
+
+<nav class="nav">
+  <li><%= link_to "HOME", root_path %></li>
+  <li><%= link_to "DRIVER", drivers_path %></li>
+  <li><%= link_to "PASSENGER", passengers_path %></li>
+  <li><%= link_to "TRIPS", trips_path %></li>
+</nav>
+
+
+<table style="width:100%" class="table">
+  <tr class="header_font">
+    <th>Trip ID</th>
+    <th>Passenger ID</th>
+    <th>Driver Id</th>
+    <th>Date</th>
+    <th>Rating</th>
+    <th>Cost</th>
+    <th>Update</th>
+    <th>Delete</th>
+  </tr>
+  <% @trips.each do |trip| %>
+  <tr>
+    <td><%=link_to trip.id,trip_path(trip.id)%></td>
+    <% if trip.passenger_id == nil %>
+    <td>Account Deleted</td>
+    <% elsif trip.passenger.status == "inactive"%>
+    (Inactive Account)
+    <% else %>
+    <td><%=link_to trip.passenger_id, passenger_path(trip.passenger.id)%></td>
+    <% end %>
+    </td>
+    <td><%=link_to trip.driver_id, driver_path(trip.driver.id)%></td>
+    <td><%=trip.date%></td>
+    <td><%=trip.rating%></td>
+    <td>$<%="#{'%.2f' % (trip.cost * 0.01)}"%></td>
+    <td><%=link_to "edit", edit_trip_path(trip.id)%></td>
+    <td><%=link_to "delete", trip_path(trip.id), method: :delete, data: {confirm: "Please confirm you would like to delete this"}%></td>
+    <% end  %>
+  </tr>
+</table>

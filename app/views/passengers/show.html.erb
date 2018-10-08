@@ -1,0 +1,72 @@
+<section id="title">
+  <h1>Passenger <%="#{@passenger.id}"%></h1>
+  <sub>Changing The Way You Travel</sub>
+</section>
+
+<nav class="nav">
+  <li><%= link_to "HOME", root_path %></li>
+  <li><%= link_to "DRIVER", drivers_path %></li>
+  <li><%= link_to "PASSENGER", passengers_path %></li>
+  <li><%= link_to "TRIPS", trips_path %></li>
+</nav>
+
+  <ul>
+    <li><strong>Name:</strong> <%= @passenger.name %></li>
+    <li><strong>Phone Number:</strong> <%= @passenger.phone_num %></li>
+    <li><strong>Total Spent:</strong> $<%="#{'%.2f' % (@passenger.total_spent)}"%></li>
+    <% if @passenger.status == "active"%>
+    <li><%= link_to "Inactivate Your Account", passenger_status_path(@passenger.id), method: :patch %></li>
+    <% else @passenger.status == "inactive"%>
+    <li><%= link_to "Actitvate Your Account", passenger_status_path(@passenger.id), method: :patch %></li>
+    <%end%>
+
+    <sub><%= link_to "Edit", edit_passenger_path(@passenger.id) %></sub>
+    <sub><%= link_to "Delete", passenger_path(@passenger.id), method: :delete, data: {confirm: "Please confirm you would like to delete." } %></sub>
+  </ul>
+
+  <div class="inline">
+  <% if @passenger.status == "active"%>
+  <div class="buttonContainer"><%= link_to "Inactivate Your Account", passenger_status_path(@passenger.id), method: :patch, class: "button" %></div>
+  <% else @passenger.status == "inactive"%>
+  <div class="buttonContainer"><%= link_to "Ride With Us Again", passenger_status_path(@passenger.id), method: :patch, class: "button" %></div>
+  <% end %>
+
+  <div class="buttonContainer"><%= link_to "Request A Ride", passenger_trips_path(@passenger.id), method: :post, class: "button" %></div>
+  </div>
+
+    <h4>Trip History:</h4>
+    <table style="width:100%">
+      <tr class="header_font">
+        <th>Trip ID</th>
+        <th>Passenger ID</th>
+        <th>Driver Id</th>
+        <th>Date</th>
+        <th>Rating</th>
+        <th>Cost</th>
+      </tr>
+      <% @passenger.all_passenger_trips.each do |trip| %>
+      <tr>
+        <td><%=link_to trip.id, trip_path(trip.id)%></td>
+        <td><%=trip.passenger_id %></td>
+        <% if trip.driver_id == nil %>
+        <td>Account Deleted</td>
+        <% elsif trip.driver.status == "inactive"%>
+        <td><%=link_to trip.driver_id, driver_path(trip.driver.id)%>(Driver Offline)</td>
+        <% else %>
+        <td><%=link_to trip.driver_id, driver_path(trip.driver.id)%></td>
+        <% end %>
+      </td>
+        <td><%=trip.date%></td>
+        <td>
+          <%if trip.rating.nil?%>
+              <%= link_to "Add Rating", trip_edit_rating_path(trip.id)  %>
+            <%else%>
+              <%=trip.rating%>
+            <% end%>
+        </td>
+
+
+        <td>$<%="#{'%.2f' % (trip.cost * 0.01)}"%></td>
+        <% end  %>
+      </tr>
+    </table>

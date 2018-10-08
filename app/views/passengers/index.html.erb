@@ -1,0 +1,32 @@
+<section id="title">
+  <h1>Passenger List</h1>
+  <sub>Changing The Way You Travel</sub>
+</section>
+
+<nav class="nav">
+  <li><%= link_to "HOME", root_path %></li>
+  <li><%= link_to "DRIVER", drivers_path %></li>
+  <li><%= link_to "PASSENGER", passengers_path %></li>
+  <li><%= link_to "TRIPS", trips_path %></li>
+</nav>
+
+<div class="buttonContainer"><%= link_to "RIDE WITH US", new_passenger_path, method: :get, class: "button" %>
+
+<table style="width:100%" class="table">
+  <tr class="header_font">
+    <th>Passenger ID</th>
+    <th>Name</th>
+    <th>Phone Number</th>
+    <th>Update</th>
+    <th>Delete</th>
+  </tr>
+  <% @passengers.each do |passenger| %>
+  <tr>
+    <td><%= link_to passenger.id, passenger_path(passenger.id)%></td>
+    <td><%= passenger.name %></td>
+    <td><%= passenger.phone_num %></td>
+    <td><%= link_to "edit", edit_passenger_path(passenger.id) %></td>
+    <td><%= link_to "delete", passenger_path(passenger.id), method: :delete, data: {confirm: "Please confirm you would like to be deleted as a passenger"} %></td>
+    <% end  %>
+  </tr>
+</table>

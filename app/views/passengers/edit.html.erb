@@ -1,0 +1,34 @@
+<section id="title">
+  <h1>Update Passenger</h1>
+  <sub>Changing The Way You Travel</sub>
+</section>
+
+<nav class="nav">
+  <li><%= link_to "HOME", root_path %></li>
+  <li><%= link_to "DRIVER", drivers_path %></li>
+  <li><%= link_to "PASSENGER", passengers_path %></li>
+  <li><%= link_to "TRIPS", trips_path %></li>
+</nav>
+
+<% if @passenger.errors.any? %>
+  <ul class="errors">
+    <% @passenger.errors.each do |column, message| %>
+      <li>
+        <strong><%= column.capitalize %></strong> <%= message %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_with model: @passenger, class: "passenger-form" do |f|%>
+  <p class="parah">Please provide the following information to become a passenger on RideShare!</p>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :phone_num %>
+  <%= f.text_field :phone_num %>
+
+
+  <%= f.submit "Submit Edit", class: "passenger-button" %>
+<% end %>

@@ -1,0 +1,38 @@
+<section id="title">
+  <h1>Ride Share</h1>
+  <sub>Changing The Way People Travel</sub>
+</section>
+
+<nav class="nav">
+  <li><%= link_to "HOME", root_path %></li>
+  <li><%= link_to "DRIVER", drivers_path %></li>
+  <li><%= link_to "PASSENGER", passengers_path %></li>
+  <li><%= link_to "TRIPS", trips_path %></li>
+</nav>
+
+<h4>Trip Details</h4>
+<table style="width:100%">
+  <tr class="header_font">
+    <th>Trip ID</th>
+    <th>Driver's ID</th>
+    <th>Driver's name</th>
+    <th>Passenger's Name</th>
+    <th>Date</th>
+    <th>Rating</th>
+    <th>Cost</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </tr>
+
+  <tr>
+    <td><%=@trip.id%></td>
+    <td><%=@trip.driver.id%></td>
+    <td><%= link_to @trip.driver.name, driver_path(@trip.driver.id)%></td>
+    <td><%= link_to @trip.passenger.name, passenger_path(@trip.passenger.id)%></td>
+    <td><%=@trip.date%></td>
+    <td><%=@trip.rating%></td>
+    <td>$<%="#{'%.2f' % (@trip.cost * 0.01)}"%></td>
+    <td><%= link_to "Update", edit_trip_path(@trip.id) %></td>
+    <td><%= link_to "Delete", trip_path(@trip.id), method: :delete, data: {confirm: "Please confirm you would like to delete this"}%></td>
+  </tr>
+</table>

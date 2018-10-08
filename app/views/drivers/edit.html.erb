@@ -1,0 +1,32 @@
+<section id="title">
+  <h1>Driver Update</h1>
+  <sub>Changing The Way You Travel</sub>
+</section>
+
+<nav class="nav">
+  <li><%= link_to "HOME", root_path %></li>
+  <li><%= link_to "DRIVER", drivers_path %></li>
+  <li><%= link_to "PASSENGER", passengers_path %></li>
+  <li><%= link_to "TRIPS", trips_path %></li>
+</nav>
+
+<% if @driver.errors.any? %>
+  <ul class="errors">
+    <% @driver.errors.each do |column, message| %>
+      <li>
+        <strong><%= column.capitalize %></strong> <%= message %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_with model: @driver, class: "driver-form" do |f|%>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :vin %>
+  <%= f.text_field :vin %>
+
+  <%= f.submit "Edit", class: "driver-button" %>
+<% end %>

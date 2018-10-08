@@ -1,0 +1,38 @@
+<section id="title">
+  <h1>New Passenger</h1>
+  <sub>Start Your Journey Today</sub>
+</section>
+
+<nav class="nav">
+  <li><%= link_to "HOME", root_path %></li>
+  <li><%= link_to "DRIVER", drivers_path %></li>
+  <li><%= link_to "PASSENGER", passengers_path %></li>
+  <li><%= link_to "TRIPS", trips_path %></li>
+</nav>
+
+
+<% if @passenger.errors.any? %>
+  <ul class="errors">
+    <% @passenger.errors.each do |column, message| %>
+      <li>
+        <strong><%= column.capitalize %></strong> <%= message %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<img id="selfie" src="https://www.amigoexpress.com/file?action=view&id=eHCEJJLiKnw=" alt="Image of a car">
+
+
+<%= form_with model: @passenger, class: "passenger-form" do |f|%>
+  <p class="parah">Please provide the following information to become a passenger on RideShare!</p>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :phone_number %>
+  <%= f.text_field :phone_num %>
+
+
+  <%= f.submit "Sumbit!", class: "passenger-button" %>
+<% end %>
