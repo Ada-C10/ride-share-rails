@@ -1,6 +1,8 @@
 class Passenger < ApplicationRecord
   has_many :trips, dependent: :nullify
-  validates :phone_num, presence: true, uniqueness: true
+  validates :phone_num, presence: true, uniqueness: { message: -> (object, data) do
+        "must be unique - #{data[:value]} is taken by #{Passenger.where(phone_num: data[:value]).first.name}."
+      end}
   validates :name, presence: true
 
   def total_cost

@@ -15,14 +15,14 @@ class PassengersController < ApplicationController
   def destroy
     passenger = Passenger.find_by(id: params[:id].to_i)
     passenger.destroy
-
+# TODO: add a conditional in case there's an exception
     redirect_to passengers_path
   end
 
   def create
     @passenger = Passenger.new(passenger_params)
     if @passenger.save
-      redirect_to passenger_trips_path(@passenger.id) #does this need to be to integer?
+      redirect_to passenger_trips_path(@passenger.id)
     else
       render :new
     end
@@ -30,9 +30,11 @@ class PassengersController < ApplicationController
 
   def update
     @passenger = Passenger.find_by(id: params[:id].to_i)
-    @passenger.update!(passenger_params)
-
-    redirect_to passenger_trips_path(@passenger.id)
+    if @passenger.update(passenger_params)
+      redirect_to passenger_trips_path(@passenger.id)
+    else
+      render :edit
+    end
   end
 
   private
