@@ -24,12 +24,12 @@
           <% cost_value = nil %>
         <% else %>
           <% cost_placeholder = @trip.formatted_cost %>
-          <% value_placeholder = @trip.formatted_cost %>
+          <% cost_value = @trip.formatted_cost %>
         <% end %>
-      <%= f.text_field :cost, value: cost_value, placeholder: cost_placeholder, required: true, class: "feedback-input", id: "cost_image" %>
+      <%= f.text_field :cost, value: cost_value, placeholder: cost_placeholder, required: true, pattern: '\d{1,3}\.\d{2}', class: "feedback-input", id: "cost_image" %>
 
       <%= f.label :trip_rating, "Rating", class: "rating" %>
-      <%= f.select :trip_rating, [["1"], ["2"], ["3"], ["4"], ["5"]], selected: @trip.rating, required: true, class: "feedback-input", id: "rating_image" %>
+      <%= f.select :trip_rating, [["1"], ["2"], ["3"], ["4"], ["5"]], selected: @trip.rating, prompt: 'Select Rating to End Trip', required: true, class: "feedback-input", id: "rating_image" %>
       <div class="submit">
         <%= f.submit "Save Changes",id: "button-orange" %>
         <div class="ease"></div>

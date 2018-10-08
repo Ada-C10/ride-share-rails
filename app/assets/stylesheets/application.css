@@ -653,3 +653,7 @@ a:first-of-type[class="edit-delete-links"]::after {
   content: "   |  ";
   white-space: pre;
 }
+
+.errors {
+  color: white;
+}

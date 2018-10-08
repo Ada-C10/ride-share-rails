@@ -28,8 +28,8 @@ class TripsController < ApplicationController
     if @trip.save
       redirect_to trip_path(@trip.id) # redirects to Trip show page
     else
-      render :index # Passenger "show" page
-      # TODO: test that this works
+      render :notfound
+      # TODO: change back
     end
   end
 
@@ -45,7 +45,7 @@ class TripsController < ApplicationController
       if @trip.update(formatted_trip_params)
         redirect_to passenger_trips_path(@trip.passenger.id)
       else
-        render :edit # TODO: is this right?
+        render :show # TODO: is this right?
       end
     else
       cost = formatted_trip_params[:cost].to_f

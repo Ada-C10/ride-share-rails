@@ -20,12 +20,24 @@
    <span class="dot_unavailable"></span>
   <%end%></p>
 
+  <% if @trip.errors.any? %>
+  <ul class="errors">
+    <% @trip.errors.each do | col, msg | %>
+    <li>
+      <strong><%= col.capitalize %></strong> <%= msg %>
+    </li>
+    <% end %>
+  </ul>
+  <% end %>
+
+  <br>
+
 <h3>Rating : <%= @trip.formatted_rating %></h3>
 <h3 class="detail-before-buttons">Cost : $<%= @trip.formatted_cost %></h3>
 <% if @trip.status == :in_progress %>
   <%= form_with model: @trip, url: trip_path, method: :patch do |f| %>
     <%= f.label :rating, "Add Rating and End Trip" %>
-    <%= f.select :rating, [["1"], ["2"], ["3"], ["4"], ["5"]], prompt: 'Select Rating to End Trip', required: true %>
+    <%= f.select :rating, [[1], [2], [3], [4], [5]], include_blank: 'Select Rating to End Trip', required: true %>
     <div class="submit end-trip">
       <%= f.submit "End Trip", id: "button-orange" %>
       <div class= "ease"></div>

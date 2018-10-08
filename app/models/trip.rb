@@ -2,13 +2,15 @@ class Trip < ApplicationRecord
   belongs_to :driver
   belongs_to :passenger
   validates :date, presence: true
+  validates :rating, presence: {message: "can't be blank. Trip won't end until you select a rating." }, unless: :passenger_is_requesting_trip
+  validates :cost, presence: {message: "can't be blank."}, unless: :passenger_is_requesting_trip
 
-
-  # format: {with: /\A\d{1,3}\.\d{2}\z/, message: 'Must have two decimal places, up to 999.99'}, allow_nil: true
+  def passenger_is_requesting_trip
+    self.created_at == nil
+  end
 
   def status
-    # safer to base status on cost than rating, because cost is back-end and rating is user-enterd
-    if self.cost == nil
+    if self.rating == nil
       return :in_progress
     else
       return :complete
