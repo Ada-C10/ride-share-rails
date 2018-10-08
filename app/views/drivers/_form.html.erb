@@ -1,0 +1,47 @@
+<h2 class="my-class"><%= page_title %></h2>
+<div class="content">
+  <% if @driver.errors.any? %>
+  <ul class="errors">
+    <% @driver.errors.each do |field, message| %>
+    <li>
+      <strong><%= field.capitalize %>: </strong><%= message %>
+    </li>
+    <% end %>
+  </ul>
+  <% end %>
+
+  <section class="form">
+    <%= form_with model: @driver, class: 'driver-form', data: { remote: false } do |f| %>
+    <div class="label-field">
+      <%= f.label :name %>
+      <div class="field">
+        <%= f.text_field :name %>
+      </div>
+    </div>
+
+    <div class="label-field">
+      <%= f.label :vin %>
+      <div class="field">
+        <%= f.text_field :vin %>
+      </div>
+    </div>
+
+    <div class="label-field">
+      <%= f.label :car_make %>
+      <div class="field">
+        <%= f.select :car_make, ["Ford", "Honda", "Hyundai", "Nissan", "Toyota"] %>
+      </div>
+    </div>
+
+    <div class="label-field">
+      <%= f.label :car_model %>
+      <div class="field">
+        <%= f.select :car_model, ["Escape", "Focus", "Fiesta", "Accord", "Civic", "CR-V", "Elantra", "Santa Fe", "Sonata", "Altma", "Leaf", "PathFinder","RAV4", "Prius", "Camry"] %>
+      </div>
+    </div>
+    <div class="submit">
+      <%= f.submit %>
+    </div>
+  </section>
+  <% end %>
+</div>

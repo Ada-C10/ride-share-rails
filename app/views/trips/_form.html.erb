@@ -1,0 +1,25 @@
+<div class="content">
+  <section class="form">
+    <%= form_for @trip, url: passenger_trip_path(@trip.passenger_id, @trip.id) do |f| %>
+    <div class="label-field">
+      <%= f.label :rating %>
+      <div class="field">
+        <%= f.select :rating, (1..5) %>
+      </div>
+    </div>
+    <div class="submit">
+      <%= f.submit %>
+    </div>
+    <% end %>
+  </section>
+
+  <% if @trip.errors.any? %>
+  <ul class="errors">
+    <% @trip.errors.each do |field, message| %>
+    <li>
+      <strong><%= field.capitalize %>: </strong><%= message %>
+    </li>
+    <% end %>
+  </ul>
+  <% end %>
+</div>

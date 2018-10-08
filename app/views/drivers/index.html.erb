@@ -1,0 +1,28 @@
+<div class="user-page">
+<h2>Drivers List</h2>
+<table class="table", id="user-list">
+  <tbody>
+    <% @drivers.each do |driver| %>
+    <tr>
+      <td>
+        <%=  link_to driver.name, driver_path(driver.id), class: 'name-link' %>
+      </td>
+      <td>
+        <ul>
+          <li>
+            <%= link_to "Edit", edit_driver_path(driver.id) %>
+          </li>
+          <li> | </li>
+          <li>
+            <%= link_to "Delete", driver_path(driver.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+          </li>
+        </ul>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<div class="apple_pagination">
+  <%= will_paginate @drivers, :page_links => false %>
+</div>
+</div>

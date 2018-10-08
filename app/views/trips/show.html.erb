@@ -1,0 +1,34 @@
+<div class="trip">
+  <% if !@trip %>
+  THAT TRIP DOES NOT EXIST
+  <% else %>
+  <h2><%= @trip.date%></h2>
+  <p>Trip ID: <%= @trip.id %></p>
+  <p>Trip Cost: <%= currency(@trip.cost) %></p>
+
+  <% if @trip.driver_id != nil %>
+  <p><%= link_to "Driver: #{@trip.driver.name}", driver_path(@trip.driver_id) %></p>
+  <% else %>
+  <p><%= link_to "Driver: DELETED DRIVER", drivers_path %></p>
+  <% end %>
+
+  <% if @trip.passenger_id != nil %>
+  <p><%= link_to "Passenger: #{@trip.passenger.name}", passenger_path(@trip.passenger_id) %></p>
+  <% else %>
+  <p><%= link_to "Passenger: DELETED PASSENGER", passengers_path %></p>
+  <% end %>
+
+  <p>Cost:  <%= currency(@trip.cost) %></p>
+  <p>Rating: <%= @trip.rating %></p>
+
+  <% if params[:passenger_id] %>
+  <h3>Modify trip:  </h3>
+  <ul>
+    <li>
+      <%= link_to "Edit", edit_passenger_trip_path(@trip.passenger) %>
+    </li>
+
+  </ul>
+  <% end %>
+  <% end %>
+</div>

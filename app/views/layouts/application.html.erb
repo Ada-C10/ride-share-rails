@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RideshareRails</title>
+  <%= csrf_meta_tags %>
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+  <% unless current_page?(root_path) %>
+  <header>
+    <div class="crop">
+      <!-- Vector Graphics by Vecteezy.com -->
+      <div class="banner">
+          <%= image_tag("header.svg", :alt => "home", class: "responsive-img") %>
+      </div>
+    </div>
+    <nav id="navbar">
+      <ul>
+        <li>
+          <div class="dropdown">
+            <button class="dropbtn"><%= link_to "Home", root_path %></button>
+          </div>
+        </li>
+        <li>
+          <div class="dropdown">
+            <button class="dropbtn">Passengers</button>
+            <div class="dropdown-content">
+              <%= link_to "Passenger List", passengers_path %>
+              <%= link_to "Add a Passenger", new_passenger_path %>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="dropdown">
+            <button class="dropbtn">Drivers</button>
+            <div class="dropdown-content">
+              <%= link_to "Driver List", drivers_path %>
+              <%= link_to "Add a Driver", new_driver_path %>
+            </div>
+          </li>
+        </ul>
+      </nav>
+      <% end %>
+    </header>
+
+    <div class="flash-message">
+      <% flash.each do |key, value| %>
+      <div><%= value %></div>
+      <% end %>
+    </div>
+
+    <main>
+      <%= yield %>
+    </main>
+
+    <footer class="footer">
+      <div>Copyright © 2018 | Benezra & Shields </div>
+    </footer>
+  </body>
+  </html>
