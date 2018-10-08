@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Take A Little Trip</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,400,700,900" rel="stylesheet">
+  </head>
+  <header>
+    <section>
+      <%= link_to "Take a Little Trip", root_path, id: "logo", class: "take-a-little-trip" %>
+      <label for="toggle-1" class="toggle-menu"><ul><li></li> <li></li> <li></li></ul></label>
+      <input type="checkbox" id="toggle-1">
+      <nav>
+        <ul>
+          <li><%= link_to "All Passengers", passengers_path %></li>
+          <li><%= link_to "All Drivers", drivers_path %></li>
+          <li><%= link_to "Create New Passenger", new_passenger_path %></li>
+          <li><%= link_to "Create New Driver", new_driver_path %></li>
+        </ul>
+      </nav>
+    </header>
+
+  </section>
+
+  <body>
+    <%= yield %>
+  </body>
+</html>

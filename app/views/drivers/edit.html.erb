@@ -1,0 +1,16 @@
+<%= render partial: "layouts/form",
+locals: {message: "Edit driver:",
+         this_model: @driver,
+         url: driver_path,
+         method: :patch,
+         field_one_label: "Name",
+         field_one_text_field: :name,
+         field_one_placeholder: @driver.name,
+         field_two_label: 'VIN Number',
+         field_two_text_field: :vin,
+         field_two_placeholder: @driver.vin,
+         icon_image: "car",
+         field_two_maxlength: 17,
+         field_two_pattern: '\A[[a-zA-Z]||\d]{17}\z',
+         button_text: 'Save Changes'
+        } %>

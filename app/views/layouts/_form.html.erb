@@ -1,0 +1,32 @@
+<div id="form-main">
+  <div id="form-div">
+
+
+  <%= form_with model: this_model, url: url, method: method, class:"form" , id:"form1" do |f| %>
+  <h1 class="detail-before-buttons index-header"><%= message %></h1>
+  <% if this_model.errors.any? %>
+  <ul class="errors">
+    <% this_model.errors.each do | col, msg | %>
+    <li>
+      <strong><%= col.capitalize %></strong> <%= msg %>
+    </li>
+    <% end %>
+  </ul>
+  <% end %>
+
+  <br>
+
+  <%= f.label field_one_text_field, field_one_label, class: "name"%>
+  <%= f.text_field field_one_text_field, placeholder: field_one_placeholder, required: true, class: "feedback-input", id: "name"%>
+
+  <%= f.label field_two_text_field, field_two_label, class: "phone"%>
+  <%= f.text_field field_two_text_field, placeholder: field_two_placeholder, required: true, maxlength: field_two_maxlength, pattern: field_two_pattern, class: "feedback-input", id: icon_image %>
+
+  <div class="submit">
+    <%= f.submit button_text, id: "button-orange"  %>
+    <div class="ease"></div>
+  </div>
+  <% end %>
+
+  </div>
+</div>

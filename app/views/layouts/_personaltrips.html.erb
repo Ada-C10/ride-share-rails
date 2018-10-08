@@ -1,0 +1,61 @@
+<div class="wrapper list-pages">
+
+  <div class="table list-pages">
+
+    <div class="row header">
+      <div class="cell">Trip ID</div>
+      <div class="cell">Date</div>
+      <div class="cell">Driver</div>
+      <div class="cell">Passenger</div>
+      <div class="cell">Price</div>
+      <div class="cell">Rating</div>
+      <div class="cell">Edit</div>
+      <div class="cell">Delete</div>
+    </div>
+
+<% all_trips.each do |trip| %>
+
+    <div class="row">
+      <div class="cell" data-title="ID">
+        <%= link_to "#{trip.id}", trip_path(trip.id) %>
+      </div>
+      <div class="cell" data-title="Date">
+        <%= "#{trip.date}"%>
+      </div>
+      <div class="cell" data-title="Driver">
+        <% if trip.driver == nil %>
+         Inactive User
+        <% else %>
+        <%= "#{trip.driver.name}" %>
+        <% end %>
+      </div>
+      <div class="cell" data-title="Passenger">
+        <% if trip.passenger == nil %>
+         Inactive User
+        <% else %>
+        <%= "#{trip.passenger.name}"%>
+        <% end %>
+      </div>
+      <div class="cell" data-title="Price">
+        <%= "#{trip.formatted_cost}" %>
+      </div>
+      <div class="cell" data-title="Rating">
+        <%= "#{trip.formatted_rating}" %>
+      </div>
+      <div class="cell" data-title="Edit">
+        <% if trip.passenger == nil || trip.driver == nil %>
+        <% elsif trip.cost == nil %>
+          <%= link_to "End Trip", trip_path(trip.id), class: "end-trip" %>
+        <% else %>
+          <%= link_to "Edit Trip", edit_trip_path(trip.id) %>
+        <% end %>
+      </div>
+      <div class="cell" data-title="Delete">
+        <%= link_to "Delete Trip", trip_path(trip.id), method: :delete %>
+      </div>
+    </div>
+<%end%>
+
+  </div>
+
+</div>

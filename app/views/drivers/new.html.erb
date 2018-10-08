@@ -1,0 +1,16 @@
+<%= render partial: "layouts/form",
+locals: {message: "Create a new driver:",
+         this_model: @driver,
+         url: drivers_path,
+         method: :post,
+         field_one_label: "Name",
+         field_one_text_field: :name,
+         field_one_placeholder: "Name",
+         field_two_label: 'VIN Number',
+         field_two_text_field: :vin,
+         field_two_placeholder: "VIN Number",
+         icon_image: "car",
+         field_two_maxlength: 17,
+         field_two_pattern: '\A.+\z',
+         button_text: 'Create Driver'
+        } %>
