@@ -1,0 +1,23 @@
+<%= render partial: 'layouts/form_errors',
+locals: {
+  model: @passenger
+}
+%>
+
+<%= form_with model: @passenger, class: 'db-form' do |f| %>
+
+<h2><%= form_title %></h2>
+
+<div class="field-one">
+<%= f.label :name %>
+<%= f.text_field :name %>
+</div>
+
+<div class="field-two">
+<%= f.label :phone_num %>
+<%= f.text_field :phone_num %>
+</div>
+
+<%= f.submit action_type, class: "passenger-form-submit-button" %>
+
+<% end %>

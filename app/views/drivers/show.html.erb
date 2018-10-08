@@ -1,0 +1,7 @@
+<section class="details">
+  <h2><%= @driver.name %></h2>
+  <h3> Total Earnings: <%= number_to_currency(@driver.total_earnings) %> </h3>
+  <h3> Average Rating: <%= @driver.avg_rating.round(2) %> </h3>
+</section>
+
+<%= render partial: 'layouts/trips_table' %>

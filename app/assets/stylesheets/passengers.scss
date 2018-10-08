@@ -1,0 +1,33 @@
+// Place all the styles related to the Passengers controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+// For the passenger forms
+
+label[for="passenger_phone_num"] {
+  text-transform: capitalize;
+}
+
+// For the show page
+
+.request-trip:hover {
+  font-size: 20pt;
+}
+
+.pagination a{
+  padding: 10px
+}
+
+[class$="page"] {
+  font-size: 15pt;
+  font-weight: 525;
+}
+
+[class$="disabled"] {
+  visibility: hidden;
+}
+
+[class="current"] {
+  font-size: 20pt;
+  font-weight: 525;
+}

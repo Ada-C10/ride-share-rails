@@ -1,0 +1,53 @@
+<div class="trip-show">
+
+  <h2> Trip # <%= @trip.id %> </h2>
+
+  <table>
+    <tr>
+      <th>Driver</th>
+      <th>Passenger</th>
+      <th>Date</th>
+      <th>Cost</th>
+      <th>Rating</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+
+    <tr>
+
+      <td class="driver">
+        <%= link_to driver_path(@trip.driver.id) do %>
+        <%= @trip.driver.name %>
+        <% end %>
+      </td>
+
+      <td class="passenger">
+
+        <%= link_to passenger_path(@trip.passenger.id)  do %>
+        <%= @trip.passenger.name %>
+        <% end %>
+      </td>
+
+
+      <td> <%= @trip.date %> </td>
+      <td> <%= number_to_currency(@trip.cost) %>  </td>
+
+      <td>
+        <% if @trip.rating.nil? %>
+        <%= form_with model: @trip, class: 'trip-form' do |f| %>
+        <%= f.label :rating %>
+        <%= f.select :rating, [*1..5] %>
+        <%= f.submit "Submit Rating" %>
+        <% end %>
+        <% else %>
+        <%= @trip.rating %>
+        <% end %>
+      </td>
+
+      <td><button> <%= link_to "Edit", edit_trip_path(@trip.id) %> </button></td>
+      <td><button> <%= link_to "Delete", trip_path(@trip.id), method: :delete, data: { confirm: "Are you sure you want to delete #{@trip.id}?" } %> </button></td>
+
+
+    </tr>
+  </table>
+</div>
