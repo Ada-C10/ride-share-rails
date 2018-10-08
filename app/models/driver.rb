@@ -36,15 +36,19 @@ class Driver < ApplicationRecord
   end
 
   def is_available?
+      # safer to base status on cost than rating, because cost is back-end and rating is user-enterd
     return self.trips.where(cost: nil).length == 0
   end
 
   def self.first_available
     return Driver.all.find { |driver| driver.is_available? }
+    # if all drivers are taken, RecordNotFound will be raised
+    # TODO: what happens if all drivers are taken?
   end
 
   def status
-    if self.trips.any? { |trip| trip.cost == nil || trip.rating == nil }
+      # safer to base status on cost than rating, because cost is back-end and rating is user-enterd
+    if self.trips.any? { |trip| trip.cost == nil }
       return :in_progress
     else
       return :available

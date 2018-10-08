@@ -636,16 +636,16 @@ h1.index-header {
   text-align: center;
 }
 
-.edit-delete-links {
+a[class*="delete-link"] {
   font-weight: bold;
   color: #EEE5E9;
 }
 
-.edit-delete-links:visited {
+a[class*="delete-link"]:visited {
   color: #EEE5E9;
 }
 
-.edit-delete-links:hover {
+a[class*="delete-link"]:hover {
   color: orange;
 }
 

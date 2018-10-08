@@ -25,7 +25,7 @@
 <% if @trip.status == :in_progress %>
   <%= form_with model: @trip, url: trip_path, method: :patch do |f| %>
     <%= f.label :rating, "Add Rating and End Trip" %>
-    <%= f.select :rating, [["1"], ["2"], ["3"], ["4"], ["5"]], include_blank: "Please select", required: true %>
+    <%= f.select :rating, [["1"], ["2"], ["3"], ["4"], ["5"]], prompt: 'Select Rating to End Trip', required: true %>
     <div class="submit end-trip">
       <%= f.submit "End Trip", id: "button-orange" %>
       <div class= "ease"></div>
@@ -33,6 +33,6 @@
 <% else %>
   <%= link_to "Edit", edit_trip_path(@trip.id), class: "edit-delete-links" %>
 <% end %>
-  <%= link_to "Delete", trip_path(@trip.id), method: :delete, data: {confirm: 'Are you sure you want to delete this trip?'}, class: "edit-delete-links" %>
+  <%= link_to "Delete", trip_path(@trip.id), method: :delete, data: {confirm: 'Are you sure you want to delete this trip?'}, class: "delete-link" %>
 
 </div>

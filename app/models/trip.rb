@@ -7,7 +7,8 @@ class Trip < ApplicationRecord
   # format: {with: /\A\d{1,3}\.\d{2}\z/, message: 'Must have two decimal places, up to 999.99'}, allow_nil: true
 
   def status
-    if self.rating == nil
+    # safer to base status on cost than rating, because cost is back-end and rating is user-enterd
+    if self.cost == nil
       return :in_progress
     else
       return :complete

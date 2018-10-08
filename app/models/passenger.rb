@@ -14,7 +14,8 @@ class Passenger < ApplicationRecord
   end
 
   def status
-    if self.trips.any? { |trip| trip.cost == nil || trip.rating == nil }
+      # safer to base status on cost than rating, because cost is back-end and rating is user-enterd
+    if self.trips.any? { |trip| trip.cost == nil }
       return :in_progress
     else
       return :available

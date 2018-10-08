@@ -42,8 +42,11 @@ class TripsController < ApplicationController
     formatted_trip_params = trip_params.dup
     if @trip.cost == nil
       formatted_trip_params[:cost] = @trip.assign_random_cost
-      @trip.update(formatted_trip_params)
-      redirect_to passenger_trips_path(@trip.passenger.id)
+      if @trip.update(formatted_trip_params)
+        redirect_to passenger_trips_path(@trip.passenger.id)
+      else
+        render :edit # TODO: is this right?
+      end
     else
       cost = formatted_trip_params[:cost].to_f
       formatted_trip_params[:cost] = (cost*100).to_i
