@@ -1,0 +1,37 @@
+// Place all the styles related to the Passengers controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.btn-primary {
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+
+.btn-primary:hover {
+  background-color: grey
+}
+
+.passenger-form {
+  text-align: center;
+}
+.form-section {
+  background-color: lightsteelblue;
+  margin: 50px 300px;
+  padding: 30px 50px;
+  display: inline-block;
+  border-color: lightgray;
+  border-style: inset;
+  border-width: thick;
+}

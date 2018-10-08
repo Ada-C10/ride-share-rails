@@ -1,0 +1,191 @@
+// Place all the styles related to the Drivers controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.driver-header {
+  text-align: center;
+  font-family: 'K2D';
+  background-image: url("https://images.unsplash.com/photo-1536244123426-10030d193abe?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=de4f3ffa1d587e12a8bb4896091992b2&w=1000&q=80");
+  padding: 3em;
+}
+
+.driver-header h1 {
+  font-size: 50px;
+  color: white;
+}
+
+.driver-info {
+  border: 3px solid black;
+  border-radius: 8px;
+  text-align: center;
+  margin: 10% 30% 10% 30%;
+}
+
+
+.driver-button {
+  font-family: 'K2D';
+  background:white;
+  color: black;
+  border: 2px solid black;
+  border-radius: 8px;
+  position:relative;
+  height:60px;
+  font-size:1.6em;
+  padding:0 2em;
+  vertical-align: center;
+  cursor:pointer;
+  transition:800ms ease all;
+  outline:none;
+}
+.driver-button:hover{
+  background:#fff;
+  color:#1AAB8A;
+}
+.driver-button:before,button:after{
+  content:'';
+  position:absolute;
+  top:0;
+  right:0;
+  height:5px;
+  width:0;
+  background: black;
+  transition:400ms ease all;
+}
+.driver-button:after{
+  right:inherit;
+  top:inherit;
+  left:0;
+  bottom:0;
+}
+.driver-button:hover:before,button:hover:after{
+  width:100%;
+  transition:800ms ease all;
+}
+
+main {
+  text-align: center;
+}
+
+table {
+  font-family: 'K2D';
+  border: 15px solid white;
+  border-radius: 8px;
+  // border-collapse: collapse;
+  // border-spacing: 5px;
+  margin: 2em 10em 2em 10em;
+  width: 75%
+}
+
+th, td {
+  padding: 20px;
+  border-bottom: 5px double black;
+}
+
+th {
+  font-size: 30px;
+}
+
+tr:hover {
+  background-color: #5F9EA0;
+}
+
+.form-fill {
+  border: 5px solid black;
+  margin: 5% 30% 5% 30%;
+  -moz-box-shadow:    3px 3px 5px 6px #ccc;
+ -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+ box-shadow:         3px 3px 5px 6px #ccc;
+ display: flex;
+ height: 400px;
+}
+
+.form-fill h1 {
+  text-align: center;
+}
+
+.form-fill p {
+  margin: 20px;
+  font-size: 25px;
+}
+
+.form-fill .background-photo {
+  width: 40%;
+  background-image: url("https://images.unsplash.com/photo-1536244123426-10030d193abe?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=de4f3ffa1d587e12a8bb4896091992b2&w=1000&q=80");
+}
+
+.form-contents {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.button {
+	/* background styles */
+  margin-top: 30px;
+	position: relative;
+	display: inline-block;
+	padding: 15px 25px;
+	background-color: green; /*for compatibility with older browsers*/
+	background-image: linear-gradient(#008B8B,#2F4F4F);
+  border-radius: 15px;
+
+	/* text styles */
+	text-decoration: none;
+  font-family: 'K2D';
+	color: #fff;
+	font-size: 20px;
+	font-weight: 100;
+}
+
+.button:hover{
+   box-shadow:
+       inset 0 0 50px #fff,      /* inner white */
+       inset 20px 0 80px #2F4F4F,   /* inner left magenta short */
+       inset -20px 0 80px #0ff,  /* inner right cyan short */
+       inset 20px 0 300px #2F4F4F,  /* inner left magenta broad */
+       inset -20px 0 300px #0ff, /* inner right cyan broad */
+       0 0 50px #fff,            /* outer white */
+       -10px 0 80px #2F4F4F,        /* outer left magenta */
+       10px 0 80px #0ff;         /* outer right cyan */
+}
+
+.text_field {
+  border: 0;
+  outline: 0;
+  background: transparent;
+  border-bottom: 1px solid black;
+  font-family: 'K2D';
+  font-size: 20px;
+  color: gray;
+}
+
+.apple_pagination {
+  background: #f1f1f1;
+  border: 1px solid #e5e5e5;
+  text-align: center;
+  padding: 1em;
+  cursor: default; }
+  .apple_pagination a, .apple_pagination span {
+    padding: 0.2em 0.3em; }
+  .apple_pagination .disabled {
+    color: #aaaaaa; }
+  .apple_pagination .current {
+    font-style: normal;
+    font-weight: bold;
+    background-color: #bebebe;
+    display: inline-block;
+    width: 1.4em;
+    height: 1.4em;
+    line-height: 1.5;
+    -moz-border-radius: 1em;
+    -webkit-border-radius: 1em;
+    border-radius: 1em;
+    text-shadow: rgba(255, 255, 255, 0.8) 1px 1px 1px; }
+  .apple_pagination a {
+    text-decoration: none;
+    color: black; }
+    .apple_pagination a:hover, .apple_pagination a:focus {
+      text-decoration: underline; }
+
+.errors li {
+  list-style: none;
+}

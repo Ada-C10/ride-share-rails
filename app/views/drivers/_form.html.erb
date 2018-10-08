@@ -1,0 +1,33 @@
+<body>
+  <main class="form-fill">
+    <section class="background-photo">
+
+    </section>
+    <section class="form-contents">
+      <% if @driver.errors.any? %>
+        <ul class="errors">
+          <% @driver.errors.each do |column, message| %>
+            <li>
+              <strong><%= column.capitalize %></strong> <%= message %>
+            </li>
+          <% end %>
+        </ul>
+      <% end %>
+      <h1><%= page_title %></h1>
+      <%= form_with model: @driver do |f| %>
+        <p>
+          <%= f.label :name %>
+          <%= f.text_field :name, class: "text_field" %>
+        </p>
+        <p class="text_submit">
+          <%= f.label :vin %>
+          <%= f.text_field :vin, class: "text_field" %>
+        </p>
+        <p class="submit-button">
+          <%= f.submit "Save Driver", class: "button" %>
+        </p>
+
+      <% end %>
+    </section>
+  </main>
+</body>

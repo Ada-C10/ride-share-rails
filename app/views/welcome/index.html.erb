@@ -1,0 +1,59 @@
+<html>
+  <body class="homepage">
+    <header class="welcome-header">
+      <img class="smurf" src="https://www.gpcl.com.au/big6/Buttons/icon-turtle.png" alt="turtle">
+      <h1>F.A.S.T.</h1>
+      <div class="driver-dropdown dropdown">
+        <button class="dropbtn">Driver</button>
+        <div class="dropdown-content">
+          <p><%= link_to "All Drivers", drivers_path %></p>
+          <p><%= link_to "Add a New Driver", new_driver_path %></p>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="dropbtn">Passenger</button>
+        <div class="dropdown-content">
+          <p><%= link_to "All Passengers", passengers_path %></p>
+          <p><%= link_to "Add a New Passenger", new_passenger_path %></p>
+        </div>
+      </div>
+      <article class="home-button">
+        <%= link_to image_tag("https://www.iconsdb.com/icons/preview/white/home-xxl.png", alt: "home buttom"), root_path %>
+      </article>
+    </header>
+    <section class="tagline">
+      <h1>Your friendly and swift transportation starts here.</h1>
+    </section>
+    <section class="main-part driver">
+      <!-- https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_button_test -->
+      <button class="welcome-button"><%= link_to "Driver", drivers_path%></button>
+    </section>
+    <section class="main-part passenger">
+      <button class="welcome-button"><%= link_to "Passenger", passengers_path %></button>
+    </section>
+    <section class="info">
+      <h2>Join the Adventure</h2>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+        nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+        pariatur. Excepteur sint occaecat cupidatat non proident,
+        sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+        nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+        pariatur. Excepteur sint occaecat cupidatat non proident,
+        sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>
+    </section>
+    <footer class="copywrite">
+      <p>Copyright(c) 2018</p>
+    </footer>
+  </body>
+</html>

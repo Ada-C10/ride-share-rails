@@ -1,0 +1,30 @@
+<body>
+
+  <section class="driver-header">
+    <h1>Drivers</h1>
+    <button class="driver-button"><%= link_to "Add a New Driver", new_driver_path %></button>
+  </section>
+
+
+  <main>
+    <table>
+      <tr>
+        <th>Driver Name</th>
+        <th>VIN</th>
+      </tr>
+      <% @drivers.each do |driver| %>
+      <tr>
+        <td><%=link_to "#{driver.name}", driver_path(driver.id) %></td>
+        <td><%= driver.vin %></td>
+      </tr>
+      <% end %>
+    </table>
+  </main>
+
+  <div class="apple_pagination">
+    <div class="page_info">
+      <%= page_entries_info @drivers %>
+    </div>
+    <%= will_paginate @drivers, :container => false %>
+  </div>
+</body>

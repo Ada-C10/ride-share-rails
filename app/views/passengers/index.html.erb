@@ -1,0 +1,27 @@
+<body>
+  <section class="driver-header">
+    <h1>Passengers</h1>
+    <button class="driver-button"><%= link_to "Add a Passenger", new_passenger_path %></button>
+  </section>
+
+  <main>
+    <table>
+      <tr>
+        <th>Passenger Name</th>
+        <th>Phone Number</th>
+      </tr>
+      <% @passengers.each do |passenger| %>
+      <tr>
+        <td><%=link_to "#{passenger.name}", passenger_path(passenger.id) %></th>
+        <td><%= passenger.phone_num %></th>
+      </tr>
+      <% end %>
+    </table>
+  </main>
+  <div class="apple_pagination">
+    <div class="page_info">
+      <%= page_entries_info @drivers %>
+    </div>
+    <%= will_paginate @drivers, :container => false %>
+  </div>
+</body>
