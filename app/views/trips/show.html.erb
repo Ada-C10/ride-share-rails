@@ -1,0 +1,38 @@
+<h1>Trip Details</h1>
+<strong><%= link_to "Delete This Trip", trip_path, method: :delete,
+   data: { confirm: "Are you sure you want to delete this trip?" } %></strong>
+
+<table cellpadding="20">
+
+  <thead>
+    <tr>
+      <th>Trip ID</th>
+      <th>Driver</th>
+      <th>Passenger</th>
+      <th>Date</th>
+      <th>Price</th>
+      <th>Rating</th>
+      <th>Updating Rating</th>
+    </tr>
+  </thead>
+
+
+  <tbody>
+    <tr>
+      <td><%= @trip.id %></td>
+      <td><%= link_to "#{@trip.driver.name }", driver_trips_path(@trip.driver.id) %></td>
+      <td><%= link_to "#{@trip.passenger.name}", passenger_trips_path(@trip.passenger.id) %></td>
+      <td><%= @trip.date.strftime("%b %d %Y")%></td>
+      <td><%= number_to_currency(@trip.cost/100) %></td>
+      <% if @trip.rating == nil %>
+        <%= form_with model: @trip do |f| %>
+        <td><%= f.select :rating, Trip::RATINGS, prompt: "Rate Trip" %></td>
+        <td><%= f.submit %></td>
+        <% end %>
+      <% else %>
+        <td><%= @trip.rating %></td>
+      <% end %>
+    </tr>
+  </tbody>
+
+</table>

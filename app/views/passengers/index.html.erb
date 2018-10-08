@@ -1,0 +1,27 @@
+<h1>All Passengers</h1>
+
+<table cellpadding="20">
+
+  <thead>
+    <tr>
+      <td>Name</td>
+      <td>Phone Number</td>
+      <td>Edit</td>
+      <td>Delete</td>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @passengers.each do |p| %>
+    <tr>
+      <td><%= link_to p.name, passenger_trips_path(p.id) %></td>
+      <td><%= p.phone_num %></td>
+      <td><%= link_to "Edit", edit_passenger_path(p.id) %></td>
+      <td><%= link_to "Delete", passenger_path(p.id), method: :delete,
+      data: { confirm: "Are you sure you want to delete this passenger?" } %></td>
+      <% end %>
+    </tr>
+  </tbody>
+
+
+</table>

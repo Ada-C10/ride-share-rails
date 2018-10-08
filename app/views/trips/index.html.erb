@@ -1,0 +1,96 @@
+<h1> <%=@user.name %></h1>
+
+<!-- No trips for passenger or driver  -->
+<% if @trips.first == nil %>
+<h2><%= "No trips for #{@user.name}" %></h2>
+
+
+<!-- Trip details for passenger  -->
+<% elsif @trips.first.passenger == @user %>
+<strong><%= link_to "Request Ride", passenger_trips_path(@user.id), method: :post %></strong>
+<strong><%= link_to "Edit This Passenger", edit_passenger_path(@user.id) %></strong>
+<strong><%= link_to "Delete This Passenger", passenger_path(@user.id), method: :delete,
+data: { confirm: "Are you sure you want to delete this passenger?" } %></strong>
+
+<table cellpadding="20">
+
+  <thead>
+    <tr>
+      <th>Trip ID</th>
+      <th>Driver</th>
+      <th>Price</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @trips.each do |t| %>
+    <tr>
+      <td><%= link_to "#{t.id}", trip_path(t.id) %></td>
+      <td><%= link_to "#{t.driver.name}", driver_trips_path(t.driver.id) %></td>
+      <td><%= number_to_currency(t.cost/100) %></td>
+      <td><%= t.date.strftime("%b %d %Y") %></td>
+    </tr>
+    <% end %>
+  </tbody>
+
+  <tfoot>
+    <tr>
+      <td><%= "Total Charges" %></td>
+      <td><%= number_to_currency(@user.total_charges/100) %></td>
+    </tr>
+  </tfoot>
+
+</table>
+
+<!-- Trip details for driver -->
+<% elsif @trips.first.driver == @user %>
+<p><%= link_to "Edit This Driver", edit_driver_path(@user.id) %></p>
+<p><%= link_to "Delete This Driver", driver_path(@user.id), method: :delete,
+data: { confirm: "Are you sure you want to delete this driver?" } %></p>
+
+<% if @user.status %>
+<strong><%= "Status: Available" %></strong>
+<% else %>
+<strong><%= "Status: Unavailable" %></strong>
+<% end %>
+
+<table cellpadding="20">
+
+  <thead>
+    <tr>
+      <th>Trip ID</th>
+      <th>Passenger</th>
+      <th>Price</th>
+      <th>Date</th>
+      <th>Rating</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @trips.each do |t| %>
+    <tr>
+      <td><%= link_to "#{t.id}", trip_path(t.id) %></td>
+      <td><%= link_to "#{t.passenger.name}", passenger_trips_path(t.passenger.id) %></td>
+      <td><%= number_to_currency(t.cost/100) %></td>
+      <td><%= t.date.strftime("%b %d %Y") %></td>
+      <td><%= t.rating %></td>
+    </tr>
+  <% end %>
+  </tbody>
+
+  <tfoot>
+    <tr>
+      <td><%= "Total Earnings" %></td>
+      <td><%= number_to_currency(@user.total_earnings/100) %></td>
+    </tr>
+
+    <tr>
+      <td><%= "Average Rating: " %></td>
+      <td><%= "%.2f" % @user.average_rating %></td>
+    </tr>
+  </tfoot>
+
+</table>
+
+<% end %>
