@@ -6,7 +6,9 @@
       <h3>Details:  </h3>
     </div>
     <section class="user-dets">
-      <% if @driver.is_available == false %>
+      <% if @driver.trips.any? { |trip| trip.rating == nil } %>
+      <h4>Driver is currently in a ride...</h4>
+      <% elsif @driver.is_available == false %>
       <%= link_to "Go ONLINE",  change_status_path(@driver.id), method: :patch %>
       <% else %>
       <%= link_to "Go OFFLINE", change_status_path(@driver.id), method: :patch %>
@@ -14,9 +16,9 @@
 
       <p>STATUS:
         <% if @driver.is_available %>
-        <strong>Online</strong>
+        <strong>Available</strong>
         <% else %>
-        <strong>Offline</strong>
+        <strong>Unavailable</strong>
         <% end %>
       </p>
       <p>VIN: <%= @driver.vin %></p>
