@@ -1,7 +1,7 @@
 class TripsController < ApplicationController
   before_action :get_trip, only: [:show, :edit, :update]
   def get_trip
-    @trip = Trip.find(params[:id].to_i)
+    @trip = Trip.find_by(id: params[:id].to_i)
   end
 
   def show

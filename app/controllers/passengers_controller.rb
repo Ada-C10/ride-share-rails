@@ -1,7 +1,7 @@
 class PassengersController < ApplicationController
   before_action :get_passenger, only: [:show, :edit, :update, :destroy]
   def get_passenger
-    @passenger = Passenger.find(params[:id].to_i)
+    @passenger = Passenger.find_by(id: params[:id].to_i)
   end
 
   def index

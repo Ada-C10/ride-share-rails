@@ -1,7 +1,7 @@
 class DriversController < ApplicationController
   before_action :get_driver, only: [:show, :edit, :update, :destroy, :status]
   def get_driver
-    @driver = Driver.find(params[:id].to_i)
+    @driver = Driver.find_by(id: params[:id].to_i)
   end
 
   def index
