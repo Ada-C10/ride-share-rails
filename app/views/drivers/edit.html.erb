@@ -1,6 +1,6 @@
 <%= render partial: "layouts/form",
 locals: {message: "Edit driver:",
-         model: @driver,
+         this_model: @driver,
          url: driver_path,
          method: :patch,
          field_one_label: "Name",

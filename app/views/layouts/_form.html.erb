@@ -2,13 +2,13 @@
   <div id="form-div">
 
 
-  <%= form_with model: model, url: url, method: method, class:"form" , id:"form1" do |f| %>
+  <%= form_with model: this_model, url: url, method: method, class:"form" , id:"form1" do |f| %>
   <h1 class="detail-before-buttons index-header"><%= message %></h1>
-  <% if model.errors.any? %>
+  <% if this_model.errors.any? %>
   <ul class="errors">
-    <% model.errors.each do |column, message| %>
+    <% this_model.errors.each do | col, msg | %>
     <li>
-      <strong><%= column.capitalize %></strong> <%= message %>
+      <strong><%= col.capitalize %></strong> <%= msg %>
     </li>
     <% end %>
   </ul>

@@ -1,6 +1,6 @@
 <%= render partial: "layouts/form",
 locals: {message: "Create a new driver:",
-         model: @driver,
+         this_model: @driver,
          url: drivers_path,
          method: :post,
          field_one_label: "Name",

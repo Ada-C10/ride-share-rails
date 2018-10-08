@@ -19,7 +19,7 @@ class DriversController < ApplicationController
   def create
     @driver = Driver.new(driver_params)
     if @driver.save
-      redirect_to driver_path(@driver.id) # unsure if need .to_i?
+      redirect_to driver_path(@driver.id)
     else
       render :new
     end
@@ -32,7 +32,9 @@ class DriversController < ApplicationController
   def update
     @driver = Driver.find_by(id: params[:id].to_i)
     if @driver.update(driver_params)
-      redirect_to driver_path(@driver.id) # unsure if need .to_i?
+      redirect_to driver_path(@driver.id)
+    else
+      render :edit
     end
   end
 

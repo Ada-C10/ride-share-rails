@@ -1,6 +1,6 @@
 <%= render partial: "layouts/form",
 locals: {message: "Edit passenger:",
-         model: @passenger,
+         this_model: @passenger,
          url: passenger_path,
          method: :patch,
          field_one_label: "Name",
