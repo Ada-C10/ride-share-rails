@@ -1,0 +1,20 @@
+<ol class="driver-list">
+
+  <h1>All Drivers</h1>
+  <table style="width:90%">
+   <tr>
+     <th>Name</th>
+     <th>Vin</th>
+     <th>Delete</th>
+   </tr>
+   <% @drivers.each do |driver| %>
+   <tr>
+     <td><%=link_to driver.name, driver_path(driver.id)%></td>
+     <td><%=link_to driver.vin, driver_path(driver.id)%></td>
+     <td><%= link_to "Delete", driver_path(driver.id), method: :delete,
+     data: { confirm: 'Are you sure you want to delete?'}, class: 'button'%></td>
+     <% end  %>
+   </tr>
+  </table>
+
+</ol>

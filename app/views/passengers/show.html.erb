@@ -1,0 +1,28 @@
+<% if @passenger.nil? %>
+  <h1> 404 Not found</h1>
+<% else %>
+
+  <h1><%= @passenger.name %></h1>
+  <h3>Phone Number : <%= @passenger.phone_num %></h3>
+  <h3>Total Cost of Trips: <%= @passenger.total_trips_cost %></h3>
+  <br />
+
+  <%= link_to "Edit #{@passenger.name}", edit_passenger_path(@passenger.id)%>
+  <br />
+
+  <%= link_to "Delete #{@passenger.name}", passenger_path(@passenger.id), method: :delete, data: { confirm: 'Are you sure you want to delete?'}%>
+  <br />
+
+  <%= form_with model: Trip.new do |f|%>
+    <%= f.hidden_field :passenger_id, :value => @passenger.id %>
+    <%= f.submit "Request Ride" %>
+  <% end %>
+
+  <h3>Trips</h3>
+  <% @passenger.trips.each do |trip| %>
+    <%= link_to "Trip: #{trip.id}", trip_path(trip) %>
+    <br />
+  <% end %>
+
+
+<% end %>
