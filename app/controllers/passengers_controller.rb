@@ -44,9 +44,9 @@ class PassengersController < ApplicationController
     passenger = Passenger.find_by(id: params[:id].to_i)
     passenger.status = false
     if passenger.save
-    redirect_to passengers_path
+      redirect_to passengers_path
+    end
   end
-end
 
   private
 

@@ -44,9 +44,9 @@ class DriversController < ApplicationController
     driver = Driver.find_by(id: params[:id].to_i)
     driver.status = false
     if driver.save
-    redirect_to drivers_path
+      redirect_to drivers_path
+    end
   end
-end
 
   private
 
