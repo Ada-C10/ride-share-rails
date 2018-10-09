@@ -1,0 +1,13 @@
+<%= will_paginate @drivers %>
+
+<h2>All Drivers</h2>
+
+<ul>
+  <% @drivers.all.each do |driver| %>
+
+  <li>
+    <%= link_to driver[:name], driver_path(driver.id) %>
+  </li>
+  
+  <% end %>
+</ul>

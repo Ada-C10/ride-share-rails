@@ -1,0 +1,69 @@
+<div class = "show-container">
+
+  <div class = "main-button">
+    <%= link_to "Change Status", update_status_driver_path(@driver.id), class: "page-button", method: :patch %>
+  </div>
+
+  <div class = "details">
+    <h2>Driver Profile</h2>
+
+    <strong>Name:</strong> <%= @driver.name %>
+    <br>
+
+    <strong>VIN:</strong> <%= @driver.vin %>
+    <br>
+
+    <strong>Average Rating:</strong> <%= @driver.average_rating.round(2)%>
+    <br>
+
+    <strong>Total Earnings:</strong> $ <%= ((@driver.total_earnings)/100).round(2) %>
+    <br />
+
+    <% if @driver[:available] == true %>
+      <strong>Status:</strong> Available
+    <% else %>
+      <strong>Status:</strong> Unavailable
+    <% end %>
+  </div>
+
+  <div class = "buttons">
+    <div><%= link_to "Edit Driver Info", edit_driver_path(@driver.id), class: "page-button"%> </div>
+
+    <div><%= link_to "Delete Driver", driver_path(@driver), class: "page-button", method: :delete, data: { confirm: "are you sure you want to delete #{@driver.name}"} %></div>
+  </div>
+
+  <div class = "trips-table">
+
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>Date</th>
+        <th>Passenger</th>
+        <th>Price</th>
+        <th>Rating</th>
+      </tr>
+
+      <tr>
+        <% @driver.trips.each do |trip| %>
+        <td><%= link_to trip.id, trip_path(trip.id) %></td>
+        <td><%= trip.date %></td>
+
+
+        <td><% if trip.passenger != nil %>
+          <%= link_to trip.passenger.name, passenger_path(trip.passenger.id)%>
+          <% else %>
+          not available
+          <% end %>
+        </td>
+
+        <td>$ <%= (trip.cost.to_i/100.0).round(2) %></td>
+
+        <td><%= trip.rating %></td>
+      </tr>
+
+
+      <% end %>
+    </table>
+  </div>
+
+</div>

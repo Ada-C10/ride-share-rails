@@ -1,0 +1,27 @@
+<%= form_with model: @driver do |f| %>
+
+  <% if @driver.errors.any?%>
+    <h4>Errors: </h4>
+    <ul>
+      <% @driver.errors.each do |column, message| %>
+      <li>
+        <strong><%= column.capitalize %> </strong><%= message%>
+      </li>
+      <% end %>
+    </ul>
+  <%end%>
+
+  <div class = "form">
+
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+    <br>
+    <br>
+    <%= f.label :vin %><br>
+    <%= f.text_field :vin %>
+
+  </div>
+
+  <%= f.submit action_name, class: "edit-button" %>
+
+<% end %>

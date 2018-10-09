@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RideShareRails</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <link href="https://fonts.googleapis.com/css?family=Merriweather|Merriweather+Sans|Montserrat|PT+Sans|PT+Sans+Narrow" rel="stylesheet">  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+</head>
+
+  <body>
+    <div class = "container">
+
+      <nav>
+        <div class = "navigation">
+          <p><a href = "/">home</a></p>
+          <div class = "other-links">
+            <div class = "drivers-link"><a href="/drivers">all drivers</a></div>
+            <div class = "passengers-link"><a href="/passengers">all passengers</a></div>
+          </div>
+        </div>
+      </nav>
+
+      <header>
+        <h1>SEMLIND Rideshare Application</h1>
+      </header>
+
+      <main>
+        <%= yield %>
+      </main>
+
+      <div class = "sidebar">
+        <button class = "sidebar-button">
+          <a href="/passengers/new">add new passenger</a>
+        </button>
+
+        <button class = "sidebar-button">
+          <a href="/drivers/new">add new driver</a>
+        </button>
+      </div>
+
+      <footer>
+        &copy 2018, SEMLIND Incorporated.
+      </footer>
+
+    </div>
+  </body>
+</html>
