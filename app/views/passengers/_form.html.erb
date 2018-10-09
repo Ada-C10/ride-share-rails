@@ -1,0 +1,11 @@
+<%= render partial: 'layouts/form_errors', locals: {model: @passenger
+}
+%>
+
+<%= form_with model: @passenger, class: 'task-form' do |f| %>
+  <p><%= f.label :name %>:
+    <%= f.text_field :name%></p>
+  <p><%= f.label :phone_num %>:
+    <%= f.text_field :phone_num %></p>
+  <%= f.submit "Save Passenger" %>
+<% end %>

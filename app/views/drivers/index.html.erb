@@ -1,0 +1,32 @@
+<h1>Rideshare Drivers</h1>
+
+<section class = "drivers-list">
+  <ul>
+    <li>
+      <strong>Driver ID: </strong>
+      <% @drivers.each do |driver| %>
+    <li>
+      <%= driver.id %>
+    </li>
+    <% end %>
+  </ul>
+
+  <ul class = "drivers-list-names">
+    <li><strong>Driver Name: </strong>
+      <% @drivers.each do |driver| %>
+      <li>
+        <%= link_to "#{driver.name}", driver_path(driver.id)%>
+      </li>
+      <% end %>
+    </ul>
+
+    <ul class = "drivers-list-ratings">
+      <li><strong>Driver Average Rating: </strong>
+        <% @drivers.each do |driver| %>
+        <li>
+          <%= driver.average_rating.round(1) %>
+        </li>
+        <% end %>
+      </ul>
+
+    </section>
