@@ -1,0 +1,37 @@
+
+<%=image_tag("spookbus2.jpg") %>
+<h1>All Trips</h1>
+
+
+<%= will_paginate @trips, :params => {:anchor => 'triptable'} %>
+
+<table id='triptable'>
+  <tr>
+    <th>Trip ID</th>
+    <th>Date</th>
+    <th>Driver</th>
+    <th>Passenger</th>
+    <th>Price</th>
+    <th>Rating</th>
+    <th>Delete?</th>
+  </tr>
+  <% @trips.each do |trip| %>
+    <tr>
+      <td><%= link_to "#{trip.id}", trip_path(trip.id) %></td>
+      <td><%= trip.date %></td>
+      <% if trip.driver %>
+        <td><%= link_to "#{trip.driver.name}", driver_path(trip.driver.id) %></td>
+      <% else %>
+        <td>Inactive Driver</td>
+      <% end %>
+      <% if trip.passenger %>
+        <td><%= link_to "#{trip.passenger.name}", passenger_path(trip.passenger.id) %></td>
+      <% else %>
+        <td>Inactive Passenger</td>
+      <% end %>
+      <td><%= trip.cost_in_dollars %></td>
+      <td><%= trip.rating %></td>
+      <td><%= link_to "Delete Trip", trip_path(trip.id), method: :delete, data: {confirm: "Delete Trip ##{trip.id}?"}%></td>
+    </tr>
+  <%end%>
+</table>

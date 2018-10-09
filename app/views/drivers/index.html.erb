@@ -1,0 +1,24 @@
+<h1>Spooky Bus Drivers:</h1>
+
+<%= will_paginate @drivers %>
+
+  <table>
+    <tr>
+      <th> Name </th>
+      <th> Edit </th>
+      <th> Delete </th>
+    </tr>
+      <% @drivers.each do |driver| %>
+      <tr>
+        <td>
+          <%= link_to "#{driver.name}", driver_path(driver.id) %>
+        </td>
+        <td>
+          <%= link_to "Edit", edit_driver_path(driver.id) %>
+        </td>
+        <td>
+          <%= link_to "Delete", driver_path(driver.id), method: :delete, data: {confirm: "Delete #{driver.name}?  \n(All of the associated trips will no longer have a driver listed.)"} %>
+        </td>
+      </tr>
+    <% end %>
+  </table>

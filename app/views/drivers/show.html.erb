@@ -1,0 +1,35 @@
+<h1>Driver: <%= @driver.name %></h1>
+<h3>VIN: <%= @driver.vin %></h3>
+
+<!-- <%= link_to "Edit", edit_driver_path(@driver.id) %>
+<%= link_to "Delete", driver_path(@driver.id), method: :delete, data: {confirm: "Delete #{@driver.name}?  \n(All of the associated trips will no longer have a driver listed.)"} %> -->
+<h3>Total Earnings: $<%= @driver.total_earnings.to_f / 100 %></h3>
+<h3>Average Rating: <%= @driver.average_rating %></h3>
+<h2>Trips for <%= @driver.name %>:</h2>
+<table>
+  <tr>
+    <th>Trip ID</th>
+    <th>Date</th>
+    <th>Passenger</th>
+    <th>Price</th>
+    <th>Rating</th>
+    <th>Delete?</th>
+  </tr>
+
+  <% @driver.trips.each do |trip| %>
+    <tr>
+      <td><%= link_to "#{trip.id}", trip_path(trip.id) %></td>
+      <td><%= trip.date %></td>
+
+      <% if trip.passenger %>
+        <td><%= link_to "#{trip.passenger.name}", passenger_path(trip.passenger.id) %></td>
+      <% else %>
+        <td>Inactive Passenger</td>
+      <% end %>
+
+      <td><%= trip.cost_in_dollars %></td>
+      <td><%= trip.rating %></td>
+      <td><%= link_to "Delete Trip", trip_path(trip.id), method: :delete, data: {confirm: "Delete Trip ##{trip.id}?"}%></td>
+    </tr>
+  <% end %>
+</table>
