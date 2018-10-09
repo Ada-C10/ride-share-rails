@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="div3">
+    <h3 id= "drive_list" class="driver_list">List of Drivers</h3>
+    <ol class="driver_list">
+      <% i = 0 %>
+      <% @drivers.each do |driver| %>
+      <li>
+        <p>
+          <%= "#{driver.name}" %>
+          <%= link_to "Details", driver_path(driver.id), class: "driver-link" %> |
+          <%= link_to "Edit", edit_driver_path(driver.id), class: "edit-link" %> |
+          <%= link_to "Delete", driver_path(driver.id), method: :delete, data: {confirm: "Are you sure you want to get rid of this driver #{driver.name}?" } %>
+        </p>
+      </li>
+      <% end %>
+    </ol>
+  </div>
+
+</div>

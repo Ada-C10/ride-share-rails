@@ -1,0 +1,38 @@
+<h2><%= @passenger.name %></h2>
+<p class="edit_delete_passenger">
+  <%= link_to "Add Trip", passenger_trips_path(@passenger.id), method: :post %> |
+  <%= link_to "Edit", edit_passenger_path(@passenger.id), class: "edit-link" %> |
+  <%= link_to "Delete", passenger_path(@passenger.id), method: :delete, data: {confirm: "Are you sure you want to get rid of passenger #{@passenger.name}?" } %>
+</p>
+
+<div class="description-container">
+  <div class= "passenger-container1">
+    <p class="description-text">ID #:
+      <%= @passenger.id %>
+      Name: <%= @passenger.name %><p/>
+      <p>
+        Phone Number: <%= @passenger.phone_num %>
+      </p>
+      <p>
+        Total Amount Charged: $<%= "%.2f" % (@passenger.total_cost) %>
+      </p>
+
+    </div>
+
+
+    <div class="passenger-container2">
+      <p class="passenger_trips">
+        List of Trips Taken: <br />
+        <% @passenger.list_trips.each do |trip| %>
+        <br />
+        <%=link_to trip.date, trip_path(trip.id) %>
+        <% end %>
+      </p>
+    </div>
+  </div>
+
+  <div class="return-home">
+    <h3>
+      <%= link_to "Return To Passengers", passengers_path, class: "homepage" %>
+    </h3>
+  </div>

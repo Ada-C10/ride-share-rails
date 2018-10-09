@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RideShareRails</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+</head>
+
+<body>
+  <% flash.each do |name, msg| %>
+  <ul>
+    <li> <%= msg %> </li>
+  </ul>
+  <% end %>
+
+  <header>
+    <nav>
+      <ul>
+        <li><%= link_to "Passengers", passengers_path, class: "all_passengers-link" %>
+        </li>
+        <li><%= link_to "Drivers", drivers_path, class: "all_drivers-link" %></li>
+        <li><%= link_to "Create New Driver", new_driver_path, class: "new_driver-link" %></li>
+        <li><%= link_to "Create New Passenger", new_passenger_path, class: "new_passengers-link" %></li>
+      </ul>
+    </nav>
+    <h1>Rideshare</h1>
+  </header>
+  <div id="content">
+    <%= yield %>
+  </div>
+  <footer>
+    <p>Copyright &copy 2018</p>
+  </footer>
+</body>
+</html>

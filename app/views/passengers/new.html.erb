@@ -1,0 +1,15 @@
+
+<div class="passenger-container">
+
+  <%= render partial: "passenger_form", locals: {
+    action_type: "Create New Passenger",
+    form_title: "New Passenger Form"
+    } %>
+
+  </div>
+
+  <div class="return-home">
+    <h3>
+      <%= link_to "Return Home", passengers_path, class: "homepage" %>
+    </h3>
+  </div>

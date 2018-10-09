@@ -1,0 +1,37 @@
+<div class="container">
+
+  <div class="div3">
+    <h3>WELCOME!</h3>
+
+    <!-- <ol>
+    <% i = 0 %>
+    <% @trips.each do |trip| %>
+    <li>
+    <p>
+    <%= "#{trip.id}" %>
+  </p>
+</li>
+<% end %>
+</ol> -->
+<table class="trip_table">
+  <tr>
+    <th>ID</th>
+    <th>Date</th>
+    <th>Passenger</th>
+    <th>Driver</th>
+    <th>Rating</th>
+    <th>Cost</th>
+  </tr>
+  <tr>
+    <% @trips.each do |trip| %>
+    <td> <%= trip.id %> </td>
+    <td> <%= trip.date %> </td>
+    <td> <%= trip.passenger.name %> </td>
+    <td> <%= trip.driver.name %> </td>
+    <td> <%= trip.rating %> </td>
+    <td> <%= "$#{ (trip.cost.to_i/100.00) }" %> </td>
+  </tr>
+  <% end %>
+</table>
+</div>
+</div>

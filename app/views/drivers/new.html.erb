@@ -1,0 +1,17 @@
+<div class="driver-edit-container">
+  <div class="notice">
+    <%= flash[:notice] %>
+  </div>
+
+  <%= render partial: "driver_form", locals: {
+    action_type: "Create New Driver",
+    form_title: "New Driver Form"
+    } %>
+
+  </div>
+
+  <div class="return-home">
+    <h3>
+      <%= link_to "Return Home", trips_path, class: "homepage" %>
+    </h3>
+  </div>

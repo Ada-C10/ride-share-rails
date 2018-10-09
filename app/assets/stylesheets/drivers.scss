@@ -1,0 +1,62 @@
+// Place all the styles related to the Drivers controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+h2 {
+  text-align: center;
+}
+
+.edit_delete_driver {
+  text-align: center;
+}
+
+.description-text {
+  color: #114b5f;
+}
+
+.description-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.driver-form {
+  text-align: center;
+}
+
+.driver-container1 {
+  width: 30%;
+  font-size: 1.5em;
+}
+
+.driver-container2 {
+  width: 30%;
+}
+
+.driver_trips {
+  font-size: 1.3em;
+  color: #114b5f;
+}
+
+.return-home {
+  height: auto;
+  margin: 0px;
+  display: flex;
+  justify-content: flex-end;
+  padding: 30px;
+}
+
+.return-home h3 {
+  margin-bottom: 0px;
+  margin-top: 8em;
+}
+
+
+#drive_list {
+  font-size: 1.5em;
+}
+
+.driver_list {
+  margin-left: 2em;
+}

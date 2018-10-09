@@ -1,0 +1,57 @@
+// Place all the styles related to the passengers controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import url('https://fonts.googleapis.com/css?family=Faster+One%7CKrub');
+
+h2 {
+  text-align: center;
+}
+
+.edit_delete_passenger {
+  text-align: center;
+}
+
+.description-text {
+  color: #114b5f;
+}
+
+.description-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  // border: 1px solid black;
+}
+
+.passenger-container1 {
+  width: 30%;
+  font-size: 1.5em;
+}
+
+.passenger-container2 {
+  width: 30%;
+}
+
+.passenger_trips {
+  font-size: 1.3em;
+  color: #114b5f;
+}
+
+.return-home {
+  margin: 0px;
+  display: flex;
+  justify-content: flex-end;
+  padding: 30px;
+}
+
+#pass_list {
+  font-size: 1.5em;
+}
+
+.passenger_list {
+  margin-left: 2em;
+}
+
+.passenger-container {
+  text-align: center;
+}

@@ -1,0 +1,19 @@
+<%= render partial: 'layouts/form_errors',
+locals: {
+  model: @trip
+}
+%>
+
+<p class="description-text">Driver_id: <%= @trip.driver_id %> | Passenger_id: <%= @trip.passenger_id %> | Date: <%= @trip.date %> 
+
+<%= form_with model: @trip, class: 'edit-trip-form' do |f| %>
+
+<%= f.label :Rating %>
+<%= f.select :rating, [*1..5] %>
+
+<%= f.label :cost %>
+<%= f.text_field :cost %>
+
+<%= f.submit "Submit Update", class: "trip-submit-button" %>
+
+<% end %>
