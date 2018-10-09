@@ -1,0 +1,4 @@
+<h2>Add New Passenger</h2>
+
+<%= render partial: 'layouts/form_errors', locals: {model: @passenger} %>
+<%= render partial: "form_passengers", locals: { model: @passenger, action_type: "Add New Passenger" } %>

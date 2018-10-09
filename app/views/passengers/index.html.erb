@@ -1,0 +1,12 @@
+    <!--TODO: list a certain amount per page + mult pages?? render collection partial -->
+<h2>Rideshare Passengers</h2>
+
+<table>
+<% @passengers.each do |passenger| %>
+    <tr>
+      <td><%= link_to passenger.name, passenger_path(passenger)  %></td>
+      <td><%= link_to "Edit", edit_passenger_path(passenger)  %></td>
+      <td><%= link_to "Delete", passenger_path(passenger), method: :delete, data: { confirm: "Are you sure you want to delete passenger: #{passenger.name}?" } %></td>
+    </tr>
+  <% end %>
+</table>

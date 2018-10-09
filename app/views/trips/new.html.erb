@@ -1,0 +1,5 @@
+<h2>Add New Trip</h2>
+
+<%= render partial: 'layouts/form_errors', locals: {model: @trip} %>
+<!-- QUESTION: form_title issue + action vs button -->
+<%= render partial: 'form_trip', locals: {model: @trip, action_type: "Create Trip"} %>

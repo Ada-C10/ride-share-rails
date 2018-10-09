@@ -1,0 +1,76 @@
+<h2>Driver Details</h2>
+
+<table>
+    <tr>
+      <td>Name: <%= @driver.name %></td>
+      <td>Photo</td>
+    </tr>
+    <tr>
+      <td> Average Rating: <%= @driver.avg_rating %></td>
+      <td> Driver Earnings: $<%= @driver.total_trip_earnings %></td>
+    </tr>
+</table>
+
+
+<div class="show_actions">
+  <%= link_to "Edit", edit_driver_path(@driver)  %> |
+  <%= link_to "Delete", driver_path(@driver), method: :delete, data: { confirm: "Are you sure you want to delete driver: #{@driver.name}?" } %>
+</div>
+
+
+<!-- QUESTION: render partial to DRY code?? -->
+<h3>Driver Trips</h3>
+<table>
+  <thead>
+    <td>
+      ID
+    </td>
+    <td>
+      Date
+    </td>
+    <td>
+      Driver
+    </td>
+    <td>
+      Passenger
+    </td>
+    <td>
+      Price
+    </td>
+    <td>
+      Rating
+    </td>
+    <td>
+      Delete
+    </td>
+  </thead>
+  <tbody>
+
+    <!-- QUESTION: render partial the repeated code below to DRY it up? -->
+<% @driver.trips.each do |trip| %>
+  <tr>
+    <td>
+      <%= link_to "#{trip.id}", trip_path(trip) %>
+    </td>
+    <td>
+      <%= trip.date %>
+    </td>
+    <td>
+      <%= trip.driver_name %>
+    </td>
+    <td>
+      <%= trip.passenger_name %>
+    </td>
+    <td>
+      $<%= trip.cost/100.to_f %>
+    </td>
+    <td>
+      <%= trip.rating %>
+    </td>
+    <td>
+      <%= link_to "Delete", trip_path(trip), method: :delete, data: { confirm: "Are you sure you want to delete this trip?" } %>
+    </td>
+  </tr>
+  <% end %>
+</tbody>
+</table>

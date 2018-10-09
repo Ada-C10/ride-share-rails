@@ -1,0 +1,20 @@
+<h2><%= form_title %></h2>
+<br>
+<%= form_with model: model do |f| %>
+  <%= f.label :date %>
+  <%= f.date_field :date %>
+  <br>
+  <%= f.label :rating %>
+  <%= f.select :rating, [1,2,3,4,5] %>
+  <br>
+  <%= f.label :cost %>
+  <%= f.text_field :cost %>
+  <br>
+  <%= f.label :driver_id %>
+  <%= f.text_field :driver_id %>
+  <br>
+  <%= f.label :passenger_id %>
+  <%= f.text_field :passenger_id %>
+  <br>
+  <%= f.submit action_type %>
+<% end %>
