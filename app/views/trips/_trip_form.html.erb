@@ -1,0 +1,29 @@
+<%= render partial: 'layouts/form_errors',
+locals: {
+  model: @trip
+}
+
+%>
+
+<%= form_with model: @trip, class: 'trip-form' do |f| %>
+
+<h3><%= form_title %></h3>
+
+<%= f.label :date %>:
+<%= f.text_field :date %>
+
+<%= f.label :name %>:
+<%= f.select :passenger_id, Passenger.all.map{ |pass| [pass.name, pass.id] } %>
+
+
+<%= f.label :cost %>:
+<%= f.text_field :cost %>
+
+<% if show_review %>
+<%= f.label :rating %>:
+<%= f.select(:rating, ['1', '2', '3', '4', '5']) %>
+<% end %>
+
+<%= f.submit action_type, class: "trip-form-submit-button" %>
+
+<% end %>

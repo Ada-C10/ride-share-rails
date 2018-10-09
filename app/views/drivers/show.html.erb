@@ -1,0 +1,36 @@
+<h1>Driver show page</h1>
+
+<p>Name: <%= @driver.name %></p>
+
+<p>Driver Vin: <%= @driver.vin %></p>
+
+<p>Average Rating: <%= @driver.average_rating %></p>
+
+<p>Total Earnings: $<%= @driver.total_earnings %></p>
+
+
+<% trips = @driver.trips %>
+
+<br>
+<%= @driver.name %>'s Driven Trips:</p>
+<ul>
+  <% trips.each do |trip| %>
+
+    <li> Trip id: <%= link_to "#{trip.id}", trip_path(trip.id) %> </li>
+    <li> Trip date:  <%= trip.date %></li>
+    <li> Trip rating: <%= trip.rating %></li>
+    <li> Trip cost: $<%= trip.cost/100.00 %></li>
+    <li> Trip Driver ID <%= trip.driver_id %></li>
+    <li> Trip Passenger ID <%= trip.passenger_id %></li><br>
+
+  <% end %>
+
+</ul>
+
+
+
+<%= link_to "(Edit Driver Details)", edit_driver_path %>
+<%= link_to "(Delete This Driver)", driver_path(@driver), method: :delete, data: { confirm: "Are you 1000% sure you want to delete the Driver: #{@driver.name}?" } %>
+<p>
+<h4><%= link_to "(Return to Driver List)", drivers_path %></h4>
+</p>
