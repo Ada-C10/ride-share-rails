@@ -1,0 +1,14 @@
+<h1>List of Passengers</h1>
+<% @passengers.each do |passenger| %>
+    <h3><a href= "/passengers/ <%=passenger.id %>">
+          <%= passenger[:name] %>
+        </a>
+      </h3>
+      <ul>
+        <li>Phone Number: <%= passenger[:phone_num] %></li>
+      </ul>
+      <ul>
+      <li><%= link_to "Edit", edit_passenger_path(passenger.id)%></li>
+      <li><%= link_to "Delete", passenger_path(passenger.id), method: :delete, data: {confirm:"Are you sure you want to delete?"} %></li>
+      </ul>
+      <%end%>

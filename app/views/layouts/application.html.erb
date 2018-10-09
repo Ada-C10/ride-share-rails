@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RideShareRails</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+  </head>
+
+  <body>
+
+  <header>
+    <h1><%= link_to "RideShare Rails", trips_home_path %></h1>
+    <nav>
+      <ul>
+        <li><%= link_to "Passenger List", "/passengers" %></li>
+        <li><%= link_to "Add Passenger", "/passengers/new" %></li>
+      </ul>
+      <ul>
+        <li><%= link_to "Driver List", "/drivers" %></li>
+        <li><%= link_to "Add Driver", "/drivers/new" %></li>
+      </ul>
+    </nav>
+  </header>
+    <%= yield %>
+  </body>
+</html>

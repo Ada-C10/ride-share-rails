@@ -1,0 +1,19 @@
+<% if @trip.nil? %>
+<h1><%= "404: NOT FOUND" %></h1>
+<% else %>
+<h1> Trip ID: <%= @trip.id %></h1>
+<ul>
+  <li> Trip Date: <%= @trip.date%></li>
+  <li> Trip Status: <%= @trip.status%></li>
+  <li> Driver: <%= link_to "#{@trip.driver.name}", driver_path(@trip.driver.id) %> </li>
+  <li> Passenger: <%= link_to "#{@trip.passenger.name}", passenger_path(@trip.passenger.id)%></li>
+  <li> Cost: <%= @trip.cost/100%></li>
+  <li> Rating: <%= @trip.rating%></li>
+</ul>
+<%end%>
+
+<ul>
+<li> <%= link_to "Go Back", passenger_path(@trip.passenger.id)%>
+<li><%= link_to "Edit", edit_trip_path(@trip.id)%></li>
+<li><%= link_to "Delete", trip_path(@trip.id), method: :delete, data: {confirm:"Are you sure you want to delete?"} %></li>
+</ul>

@@ -1,0 +1,29 @@
+<% if @trip.errors.any? %>
+  <ul class="errors">
+    <% @trip.errors.each do |column, message| %>
+      <li>
+        <strong><%= column.capitalize %></strong> <%= message %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_with model: @trip do |f|%>
+<h1>Edit Trip</h1>
+  <%= f.label :date , "Date:"%>
+  <%= f.text_field :date%>
+  <br>
+  <%= f.label :driver_id , "Driver:"%>
+  <%= f.select :driver_id, Driver.driver_list %>
+  <br>
+  <%= f.label :passenger , "Passenger:"%>
+  <%= f.select :passenger_id, Passenger.passenger_list %>
+  <br>
+  <%= f.label :cost , "Cost:"%>
+  <%= f.text_field :cost%>
+  <br>
+  <%= f.label :rating , "Rating:"%>
+  <%= f.select :rating, [1,2,3,4,5]%>
+  <br>
+  <%= f.submit "Update Trip"%>
+<%end%>

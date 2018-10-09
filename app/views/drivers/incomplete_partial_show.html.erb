@@ -1,0 +1,6 @@
+  <%= render partial: "show", locals: { model_type: @driver, number_variable_name: "Vehicle ID", number_variable: :vin, money_variable: "Total Earned", money_variable_method: total_earned, edit_model_path: edit_driver_path, model_path: driver_path, user: user} %>
+  <section class="status">Status:
+    <ul>
+      <li><%=@driver.status%> </section></li>
+      <li> Average Rating: <%= @driver.average_rating%></li>
+    </ul>

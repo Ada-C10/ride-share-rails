@@ -1,0 +1,18 @@
+<h1> Trip In Progress</h1>
+<p> Requesting trip for <strong> <%= link_to "#{@trip.passenger.name}", passenger_path(@trip.passenger.id)%></li></strong></p>
+<p> Passenger Status: <%=@passenger.status%></p>
+<ul>
+  <li> You've been matched with:<strong> <%= link_to "#{@trip.driver.name}", driver_path(@trip.driver.id) %></strong> </li>
+  <li> Your Driver's Average Rating: <strong><%=@trip.driver.average_rating%></strong></li>
+  <% @trip.driver.average_rating.round.times do  %>
+    ⭐️
+  <% end %>
+  <li> Trip Cost: $5</li>
+  <li>  <%= form_with model: @trip do |f|%>
+    <%= f.label :rating, "Your trips rating:"%>
+    <%= f.select :rating, [1,2,3,4,5]%>
+    <br>
+    <%= f.submit "End Trip" %>
+    <%end%>
+    </li>
+</ul>

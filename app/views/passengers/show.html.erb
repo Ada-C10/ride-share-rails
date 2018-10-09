@@ -1,0 +1,28 @@
+<% if @passenger.nil? %>
+  <h1><%= "404: NOT FOUND" %></h1>
+<% else %>
+<h1> <%= @passenger.name %></h1>
+<p> Passenger Status: <%=@passenger.status%></p>
+<% if @passenger.status == "On Trip" %>
+  <strong>You're on a trip!</strong>
+<% else %>
+<section class="button">
+  <strong><%= link_to "Request Trip", passenger_trips_path(@passenger), method: :post%></strong>
+</section>
+<% end %>
+
+<ul>
+  <li>Phone Number: <%= @passenger[:phone_num] %></li>
+  <li> Total Charged: $<%=@passenger.total_charged/100%> </li>
+</ul>
+
+<section>
+  <%= render partial: "list_of_trips", locals: { user: "Passenger" } %>
+
+</section>
+<!-- create chart of trips -->
+<ul>
+<li><%= link_to "Edit", edit_passenger_path(@passenger.id)%></li>
+<li><%= link_to "Delete", passenger_path(@passenger.id), method: :delete, data: {confirm:"Are you sure you want to delete?"} %></li>
+</ul>
+<% end %>
