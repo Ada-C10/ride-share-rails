@@ -1,0 +1,9 @@
+
+<%= render partial: 'layouts/form_errors',
+locals: {
+  model: @driver
+}
+%>
+
+
+<%= render partial: "form", locals: {directions: "Complete this form to edit driver information:", action_button: "Edit Driver Info"} %>

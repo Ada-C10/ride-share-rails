@@ -1,0 +1,53 @@
+<h1>Passenger <%= @passenger.id %>: <%= @passenger.name %></h1>
+<p>
+  <strong>ID:</strong>
+  <%= @passenger.id %>
+  <br />
+  <strong>Passenger:</strong>
+  <%= @passenger.name %>
+  <br />
+  <strong>Phone Number:</strong>
+  <%= @passenger.phone_num %>
+  <br />
+  <strong>Money spent:</strong>
+  $<%= @passenger.spent %>
+</p>
+
+<%= form_for @trip, url: passenger_trips_path(@passenger.id) do |f| %>
+  <%= f.submit "Request New Trip", class: "submit-button" %>
+<% end %>
+
+<h2>Trips for this <%= @passenger.name %></h2>
+  <ul>
+    <% @passenger.trips.sort.each do |trip| %>
+    <p>
+      <li><strong>Trip: <%=trip.id %></strong></li>
+      <li>Date: <%=trip.date %></li>
+      <% if trip.cost == nil %>
+        <li>Cost: Ride in progress</li>
+      <% else %>
+        <li>Cost: $<%=(trip.cost/100.0).round(2) %></li>
+      <% end %>
+
+      <div class='rating-dropdown'>
+        <% if trip.rating == nil %>
+          <%= form_for @trip, url: trip_path(trip.id), :method => :patch do |f| %>
+          <li>
+            <%= f.label :rating %><br>
+            <%= f.select :rating, [ '1', '2', '3', '4', '5'], :prompt => 'Select rating' %>
+            <%= f.submit "Update rating", class: "submit-button" %>
+          </li>
+          <% end %>
+        <% else %>
+          <li>Rating: <%= trip.rating %></li>
+        <% end %>
+      </div>
+
+      <% if trip.driver_id %>
+        <%=link_to "Driver", driver_trips_path(trip.driver_id) %>
+      <% else %>
+        [No Driver]
+      <% end %>
+    </p>
+    <% end %>
+  </ul>

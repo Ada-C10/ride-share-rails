@@ -1,0 +1,11 @@
+
+<h1>Create a new driver</h1>
+
+<%= render partial: 'layouts/form_errors',
+locals: {
+  model: @driver
+}
+%>
+
+
+<%= render partial: "form", locals: {directions: "Complete this form to sign up a new driver:", action_button: "Create New Driver"} %>

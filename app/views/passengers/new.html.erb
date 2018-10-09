@@ -1,0 +1,12 @@
+
+
+<h1>Create a new passenger</h1>
+
+
+<%= render partial: 'layouts/form_errors',
+locals: {
+  model: @passenger
+}
+%>
+
+<%= render partial: "form", locals: {directions: "Complete this form to add a new passenger:", action_button: "Create New Passenger"} %>
