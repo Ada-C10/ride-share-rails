@@ -40,7 +40,7 @@ a:hover {
    color: #ffa659;
  }
 
- h2, h3 {
+ h1, h2, h3 {
    align-self: center;
  }
 
@@ -114,7 +114,7 @@ tr:nth-child(even) {
 background-color: lightgray;
 }
 
- .dropbtn {
+.dropbtn {
      padding: 16px;
      font-size: 30px;
      border: none;
@@ -122,7 +122,7 @@ background-color: lightgray;
      color: black;
      border-radius: 4px;
      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
- }
+}
 
 .homebtn {
      padding: 16px;
@@ -176,8 +176,6 @@ background-color: lightgray;
 }
 
 h1 {
-  display: flex;
-  justify-content: center;
   padding-top: 4%;
   font-size: 40px;
 }
@@ -212,4 +210,27 @@ button a:hover {
 
 .errors {
   align-self: center;
+  color: red;
+  font-size: 25px;
+}
+
+.form-container {
+    max-width: 600px;
+    padding: 20px 12px 10px 20px;
+    align-self: center;
+    background-color: white;
+}
+
+
+.form-container label {
+  display: block;
+  margin: 0px 0px 15px 0px;
+}
+
+.form-container label > span {
+  width: 100px;
+  font-weight: bold;
+  float: left;
+  padding-top: 8px;
+  padding-right: 5px;
 }

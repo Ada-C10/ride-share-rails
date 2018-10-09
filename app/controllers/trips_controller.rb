@@ -4,6 +4,7 @@ class TripsController < ApplicationController
   def create
     @trip = Trip.new
     @trip.update(@trip.fill_trip_hash)
+    @trip.update(passenger_id: (params[:passenger_id].to_i))
     redirect_to trip_path(@trip.id)
   end
 

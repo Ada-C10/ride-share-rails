@@ -1,5 +1,5 @@
 class Driver < ApplicationRecord
-  validates_presence_of :VIN
+  validates_presence_of :vin
   validates :name, presence: true, format: { with:/\A\S+\s{1}.+\z/ , message: "Please enter a first and last name."}
 
   has_many :trips, dependent: :nullify

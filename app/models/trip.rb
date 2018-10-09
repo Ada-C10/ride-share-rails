@@ -17,7 +17,7 @@ class Trip < ApplicationRecord
   def fill_trip_hash
     available_drivers = Driver.select { |driver| driver.is_available? }
     driver = available_drivers.sample
-    trip_hash = {driver_id: driver.id, passenger_id: 10, date: DateTime.now, cost: rand(200..5000)}
+    trip_hash = {driver_id: driver.id, date: DateTime.now, cost: rand(200..5000)}
     trip_hash
   end
 
