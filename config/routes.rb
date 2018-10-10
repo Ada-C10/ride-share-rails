@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'pages#home'
 
   # resources :passengers
-  # resources :drivers
+  resources :drivers
   resources :trips, except: [:new, :create]
 
   resources :passengers do
