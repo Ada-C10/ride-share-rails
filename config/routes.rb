@@ -10,9 +10,9 @@ Rails.application.routes.draw do
     resources :trips, only: [:index, :create]
   end
 
-  resources :drivers do
-    resources :trips, only: [:index]
-  end
+  # resources :drivers do
+  #   resources :trips, only: [:index]
+  # end
 
   patch 'trips/:id/rating', to: 'trips#add_rating', as: 'add_rating'
 
