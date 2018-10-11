@@ -1,0 +1,12 @@
+<main >
+  <h1>Here's who's driving</h1>
+  <section class='passenger-list'>
+  <% @drivers.each do |driver| %>
+  <h2>
+    <%= link_to "#{driver.name}", driver_path(driver.id) %>
+  </h2>
+
+  <% end %>
+  </section>
+
+</main>

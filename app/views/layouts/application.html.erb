@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Number One Best Rideshare</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <link href="https://fonts.googleapis.com/css?family=Quicksand|Raleway|Kaushan+Script" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <header>
+      <h1 class="app-name"> Number One Best Rideshare </h1>
+    </header>
+
+    <nav class="navigation">
+      <ul>
+        <li>
+          <%= link_to "HOME", root_path %>
+        </li>
+        <li>
+          <%= link_to "DRIVE", new_driver_path %>
+        </li>
+        <li>
+          <%= link_to "RIDE", new_passenger_path %>
+        </li>
+        <li>
+          <%= link_to "RIDER LIST", passengers_path %>
+        </li>
+        <li>
+          <%= link_to "DRIVER LIST", drivers_path %>
+        </li>
+      </ul>
+    </nav>
+
+    <%= yield %>
+  </body>
+</html>

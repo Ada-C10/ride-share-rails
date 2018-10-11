@@ -1,0 +1,119 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+/* --------
+ colors: #FF9F19(orange), #06D6A0(turq.), #FFBF69(beige), #FF476F(raspberry), #F8FFE5(grey)
+-------- */
+
+html, body {
+  color: #f8ffe5;
+  background-color: #ff9f19;
+  font-family: 'Raleway', sans-serif;
+  margin: 1em;
+}
+
+ nav {
+   display: flex;
+   font-weight: 500; /* medium */
+   font-size: 3em;
+   font-family: 'Quicksand', sans-serif;
+   line-height: 1;
+   background-color: skyblue;
+   background-image: url("../images/city-cars.jpg");
+ }
+
+ .navigation a:visited {
+   color: #f8ffe5;
+ }
+
+ .navigation a:hover {
+   font-weight: 700; /* bold */
+ }
+
+ .navigation a:active {
+   font-weight: 700; /* bold */
+   color: #ff476f;
+ }
+
+ .app-name {
+   font-family: 'Kaushan Script', cursive;
+ }
+
+ ul {
+   list-style: none;
+ }
+
+ a {
+   font-weight: 300; /* semi-light */
+   color: #f8ffe5;
+   text-decoration: none;
+ }
+
+ a:hover {
+  font-weight: 600;
+}
+
+ a:visited {
+   color: #ff476f;
+ }
+
+ table {
+   border-spacing: 1em;
+   width: 50%;
+   grid-column-start: 2;
+ }
+
+ .names-list {
+   display: flex;
+   grid-row-start: 2;
+   justify-content: space-between;
+   /* grid-column-end: 4; */
+   flex-direction: row;
+   align-items: baseline;
+   flex-wrap: wrap;
+ }
+
+ .passenger-form, .driver-form {
+   padding: 1em;
+   background: #06D6A0;
+   border: solid 3px #FFBF69;
+   box-shadow: .3em .2em .2em #717469;
+ }
+
+ .user-links{
+   display: flex;
+   font-size: 1.5em;
+ }
+
+ @keyframes vroom {
+
+ }
+
+ .trip-list{
+   text-align: center;
+   padding-right: 1em;
+ }
+
+ .home-page{
+   display: flex;
+   font-weight: 500; /* medium */
+   font-size: 4em;
+   font-family: 'Quicksand', sans-serif;
+   line-height: 1.5;
+   background-color: skyblue;
+   background-image: url("/assets/city-cars.jpg");
+
+ }
