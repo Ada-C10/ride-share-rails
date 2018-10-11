@@ -1,8 +1,5 @@
 class PassengersController < ApplicationController
   before_action :get_passenger, only: [:show, :edit, :update, :destroy]
-  def get_passenger
-    @passenger = Passenger.find_by(id: params[:id].to_i)
-  end
 
   def index
     @passengers = Passenger.search(params[:term], params[:page])
@@ -10,10 +7,6 @@ class PassengersController < ApplicationController
 
   def show
     @trips = @passenger.trips
-
-    if @passenger.nil?
-      render :notfound, status: :not_found
-    end
   end
 
   def new
@@ -29,11 +22,7 @@ class PassengersController < ApplicationController
     end
   end
 
-  def edit
-    if @passenger.nil?
-      render :notfound, status: :not_found
-    end
-  end
+  def edit; end
 
   def update
     if @passenger.update(passenger_params)
@@ -44,14 +33,24 @@ class PassengersController < ApplicationController
   end
 
   def destroy
-    @passenger.active = false
-    if @passenger.save
-      redirect_to passengers_path
+    if !@passenger.nil?
+      @passenger.active = false
+      if @passenger.save
+        redirect_to passengers_path
+      end
     end
   end
 
   private
   def passenger_params
     return params.require(:passenger).permit(:name, :phone_num)
+  end
+
+  def get_passenger
+    @passenger = Passenger.find_by(id: params[:id].to_i)
+
+    if @passenger.nil?
+      render :notfound, status: :not_found
+    end
   end
 end

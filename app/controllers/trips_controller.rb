@@ -1,14 +1,7 @@
 class TripsController < ApplicationController
-  before_action :get_trip, only: [:show, :edit, :update]
-  def get_trip
-    @trip = Trip.find_by(id: params[:id].to_i)
-  end
+  before_action :get_trip, only: [:show, :edit, :update, :destroy]
 
-  def show
-    if @trip.nil?
-      render :notfound, status: :not_found
-    end
-  end
+  def show; end
 
   def create
     if params[:passenger_id]
@@ -23,11 +16,7 @@ class TripsController < ApplicationController
     end
   end
 
-  def edit
-    if @trip.nil?
-      render :notfound, status: :not_found
-    end
-  end
+  def edit; end
 
   def update
     @trip.end_trip(trip_params[:rating])
@@ -40,16 +29,25 @@ class TripsController < ApplicationController
   end
 
   def destroy
-    trip = Trip.find(params[:id].to_i)
-    trip.active = false
+    if !@trip.nil?
+      @trip.active = false
 
-    if trip.save
-      redirect_to root_path
+      if @trip.save
+        redirect_to root_path
+      end
     end
   end
 
   private
   def trip_params
     return params.require(:trip).permit(:driver_id, :passenger_id, :rating, :in_progress, :active, :cost)
+  end
+
+  def get_trip
+    @trip = Trip.find_by(id: params[:id].to_i)
+
+    if @trip.nil?
+      render :notfound, status: :not_found
+    end
   end
 end
