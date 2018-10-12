@@ -1,0 +1,39 @@
+<header>
+  <h1>All Trips</h1>
+</header>
+
+<section>
+  <aside class="page-index">
+    <%= will_paginate @trips %>
+  </aside>
+  <table class="list-of-data">
+    <tr class="table-header details">
+      <td>ID</td>
+      <td>Driver</td>
+      <td>Passenger</td>
+      <td>Date</td>
+      <td>Cost</td>
+      <td>Rating</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <% @trips.each do |trip| %>
+      <tr class="details">
+        <td><%= link_to "#{trip.id}", trip_path(trip.id) %></td>
+        <td><%= link_to "#{trip.driver_id}", driver_path(trip.driver_id) %></td>
+        <td><%= link_to "#{trip.passenger_id}", passenger_path(trip.passenger_id) %></td>
+        <td><%= trip.date %></td>
+        <td><%= trip.display_cost %></td>
+        <td>
+          <% if trip.rating %>
+            <%= trip.rating %>
+          <% else %>
+            <%= link_to "Rate Trip", edit_trip_path(trip.id) %>
+          <% end %>
+        </td>
+        <td><%= link_to "Edit", edit_trip_path(trip.id) %></td>
+        <td><%= link_to "Delete", trip_path(trip.id), method: :delete,  data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </table>
+</section>

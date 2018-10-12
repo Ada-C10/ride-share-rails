@@ -9,7 +9,11 @@ CSV.foreach(DRIVER_FILE, :headers => true) do |row|
   driver.id = row['id']
   driver.name = row['name']
   driver.vin = row['vin']
+  driver.is_active = true
+  driver.available = true
   successful = driver.save
+  driver.image_url = row['image_url']
+  
   if !successful
     driver_failures << driver
     puts "Failed to save driver: #{driver.inspect}"
@@ -32,6 +36,9 @@ CSV.foreach(PASSENGER_FILE, :headers => true) do |row|
   passenger.id = row['id']
   passenger.name = row['name']
   passenger.phone_num = row['phone_num']
+  passenger.is_active = true
+  passenger.available = true
+  passenger.image_url = row['image_url']
   successful = passenger.save
   if !successful
     passenger_failures << passenger

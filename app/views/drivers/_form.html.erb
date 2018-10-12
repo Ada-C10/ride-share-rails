@@ -1,0 +1,31 @@
+<div class="user">
+  <header class="user__header">
+      <img src='/assets/red-car.svg' alt="" />
+      <h1 class="user__title"><%= action_name %></h1>
+  </header>
+
+  <section class="form">
+    <% if @driver.errors.any? %>
+      <ul class="errors">
+        <% @driver.errors.each do |column, message| %>
+        <li>
+          <strong><%= column.capitalize %></strong> <%= message %>
+        </li>
+        <% end %>
+      </ul>
+    <% end %>
+
+    <%= form_with model: @driver, class: "form" do |f|%>
+        <%# f.label :name %>
+        <%= f.text_field :name, placeholder: :name, class: "form__input"%>
+
+        <%# f.label :vin %>
+        <%= f.text_field :vin, placeholder: :vin, class: "form__input"%>
+
+        <%# f.label :image_url %>
+        <%= f.text_field :image_url, placeholder: :image_url, class: "form__input" %>
+
+      <%= f.submit button_title, class: 'btn'%>
+    <% end %>
+  </section>
+</div>

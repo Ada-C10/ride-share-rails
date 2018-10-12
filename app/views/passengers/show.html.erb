@@ -1,0 +1,63 @@
+<header>
+  <h1>Passenger Detail</h1>
+</header>
+
+<section>
+  <header>
+    <h2><%= @passenger.name %></h2>
+    <section class='profile_pic'>
+    <% if @passenger.image_url.nil? %>
+    <%= image_tag 'https://www.edgehill.ac.uk/health/files/2017/12/blank-profile.png' %>
+    <% else %>
+    <%= image_tag @passenger.image_url, alt: "Picture of #{@passenger.name}" %>
+    <% end %>
+    </section>
+  </header>
+
+  <section>
+    <p><strong>ID</strong><br><%= @passenger.id %></p>
+    <p><strong>Phone number</strong><br><%= @passenger.phone_num %></p>
+    <p><strong>Total spending</strong><br><%= @passenger.total_spent %></p>
+
+    <%= button_to "Start Trip", passenger_trips_path(@passenger.id), method: :post %>
+    <%= button_to "Edit", edit_passenger_path(@passenger.id), class: "alt-button", method: :get %>
+    <%= button_to "Delete", passenger_path(@passenger.id), method: :delete,
+      data: { confirm: 'Are you sure?'}, class: "alt-button" %>
+  </section>
+</section>
+
+<hr>
+
+<section>
+  <header>
+    <h2>Trips</h2>
+  </header>
+
+  <section>
+    <% trips = @passenger.list_trips %>
+    <table class="list-of-data">
+      <tr class="table-header details">
+        <td>Trip ID</td>
+        <td>Driver ID</td>
+        <td>Date</td>
+        <td>Cost</td>
+        <td>Rating</td>
+      </tr>
+      <% trips.each do |trip| %>
+        <tr class="details">
+          <td><%= link_to "#{trip.id}", trip_path(trip.id) %></td>
+          <td><%= link_to "#{trip.driver_id}", driver_path(trip.driver_id) %></td>
+          <td><%= trip.date %></td>
+          <td><%= trip.display_cost %></td>
+          <td>
+            <% if trip.rating %>
+              <%= trip.rating %>
+            <% else %>
+              <%= link_to "Rate Trip", edit_trip_path(trip.id) %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  </section>
+</section>

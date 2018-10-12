@@ -1,0 +1,247 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+:root {
+   --jk-lightpurple: #4a1942;
+   --jk-green: #18a999;
+   --jk-white: #eaeaea;
+
+   /* use these like this: var(--jk-lightpurple) */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+
+  background: var(--jk-white);
+  color: #333333;
+  font-family: "Avenir Next", "Avenir", sans-serif;
+
+  display: flex;
+  flex-direction: column;
+
+  /* background-size: 200% 100% !important;
+  animation: move 30s ease infinite;
+  transform: translate3d(0, 0, 0);
+  background: linear-gradient(45deg, var(--jk-lightpurple) 10%, var(--jk-white) 90%);
+  height: 100vh */
+}
+
+a {
+  text-decoration: none;
+  color: var(--jk-lightpurple);
+
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--jk-green);
+}
+
+.button_to {
+  display: inline;
+}
+
+.button_to > input {
+  background-color: var(--jk-lightpurple);
+  color: var(--jk-white);
+  border-radius: 5px;
+  padding: 0.25rem 0.5rem;
+  /* box-shadow: 0 2px 5px rgba(0,0,0,0.3); */
+  border: 0;
+  font-size: 1rem;
+  border: 1px solid var(--jk-lightpurple);
+  margin-top: 1rem;
+}
+
+.button_to > input:hover {
+  background-color: var(--jk-green);
+  color: var(--jk-white);
+  /* box-shadow: 0 1px 5px rgba(0,0,0,0.1); */
+  border: 1px solid var(--jk-green);
+}
+
+.button_to > .alt-button {
+  background-color: var(--jk-white);
+  color: var(--jk-lightpurple);
+  border: 1px solid var(--jk-lightpurple);
+}
+
+.button_to > .alt-button:hover {
+  color: var(--jk-green);
+  border: 1px solid var(--jk-green);
+  background-color: var(--jk-white);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+main {
+  padding: 2rem;
+}
+
+main > section, main > header {
+  padding: 1rem 0;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+hr {
+  margin: 2rem 0;
+}
+
+.page-index {
+  padding: 0.5rem 0;
+}
+
+#menuToggle {
+  display: block;
+  position: relative;
+  top: 2rem;
+  left: 2rem;
+
+  z-index: 1;
+
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* hidden checkbox on hamburger */
+#menuToggle input {
+  display: block;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  top: -7px;
+  left: -5px;
+
+  cursor: pointer;
+
+  opacity: 0;
+  z-index: 2;
+
+  -webkit-touch-callout: none;
+}
+
+/* hamburger lines */
+#menuToggle span {
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+
+  background: var(--jk-lightpurple);
+  border-radius: 3px;
+
+  z-index: 1;
+
+  transform-origin: 4px 0px;
+
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              opacity 0.55s ease;
+}
+
+#menuToggle span:first-child
+{
+  transform-origin: 0% 0%;
+}
+
+#menuToggle span:nth-last-child(2)
+{
+  transform-origin: 0% 100%;
+}
+
+/* rotate hamburger line 1 */
+#menuToggle input:checked ~ span
+{
+  opacity: 1;
+  transform: rotate(45deg) translate(-2px, -1px);
+  background: var(--jk-white);
+}
+
+/* hide the middle hamburger line */
+#menuToggle input:checked ~ span:nth-last-child(3)
+{
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+/* rotate hamburger line 3 */
+#menuToggle input:checked ~ span:nth-last-child(2)
+{
+  transform: rotate(-45deg) translate(0, -1px);
+}
+
+#menu {
+  position: absolute;
+  width: 300px;
+  margin: -100px 0 0 -50px;
+  padding: 50px;
+  padding-top: 125px;
+  background: var(--jk-lightpurple);
+  height: 1000px;
+
+  list-style-type: none;
+  -webkit-font-smoothing: antialiased; /* stops flickering text in safari */
+
+  transform-origin: 0% 0%;
+  transform: translate(-100%, 0);
+
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+
+#menu li {
+  padding: 0.8rem 0;
+  font-size: 1.5rem;
+}
+
+#menu a {
+  color: var(--jk-white);
+}
+
+#menu a:hover {
+  color: var(--jk-green);
+}
+
+/* slide in from left */
+#menuToggle input:checked ~ ul {
+  transform: none;
+}
+
+table.list-of-data {
+  width: 60%;
+  border-spacing: 0;
+}
+
+tr:nth-of-type(odd) {
+  background-color: #dadada;
+}
+
+tr.table-header {
+  background-color: var(--jk-lightpurple);
+  color: var(--jk-white);
+  font-weight: bold;
+}
+
+tr > td:first-child {
+  padding-left: 10px;
+}
