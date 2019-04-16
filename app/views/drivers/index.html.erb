@@ -1,0 +1,10 @@
+<h1>DRIVERS</h1>
+<table>
+<tr><td>Driver Name</td><td>Rating</td></tr>
+<% Driver.active_drivers.each do |driver| %>
+<tr>
+  <td><a href="/drivers/<%= driver.id %>" name="<%= driver.name%>"><%= driver.name%></a></td>
+  <td><%=driver.average_rate%></td>
+</tr>
+<% end %>
+</table>

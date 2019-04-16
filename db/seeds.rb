@@ -12,7 +12,7 @@ CSV.foreach(DRIVER_FILE, :headers => true) do |row|
   successful = driver.save
   if !successful
     driver_failures << driver
-    puts "Failed to save driver: #{driver.inspect}"
+    puts "Failed to save driver: #{driver.inspect}" # so user can check that driver to see what happened
   else
     puts "Created driver: #{driver.inspect}"
   end

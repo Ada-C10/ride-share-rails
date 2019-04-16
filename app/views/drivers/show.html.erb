@@ -1,0 +1,23 @@
+<h2>Driver: <%= @driver.name %></h2>
+<p><%= "vin: " + @driver.vin %></p>
+<p>Total Earnings in USD: $<%= sprintf('%.2f', @driver.total_earning/100) %> </p>
+<p>Average Rating: <%= @driver.average_rate %> </p>
+<p><%= button_to "Edit Driver", edit_driver_path(@driver.id), method: :get %></p>
+<p><%= button_to "Delete Driver", driver_path(@driver.id), method: :delete, data: { confirm: "Are you sure?"}%></p>
+<table class="header">
+<tr><td>Trip ID</td><td>Passanger Name</td><td>Rating</td><td>Rating</td><td>Cost</td></tr>
+<p><%@driver.trips.map do |trip| %>
+  <tr>
+  <td><p><%= link_to "#{trip.id}", trip_path(trip.id) %> </p></td>
+  <td><%=trip.date%></td>
+  <!-- the show method for passener expects expects the id of the passenger. So, you have to find it using the method in the model by testing it in the consule -->
+  <td><%=trip.passenger.name %></td>
+  <td><%=trip.rating%></td>
+  <td>$<%=sprintf('%.2f', trip.cost/100)%></td>
+  <!-- <td><%= link_to "Edit trip", edit_trip_path(trip.id) %></td>
+  <td><%= link_to "Delete trip", trip_path(trip.id), method: :delete, data: { confirm: "Are you sure?"} %></td> -->
+  </tr>
+<%end%>
+</table>
+</p>
+<!-- add header, change money to real format, style with css -->
