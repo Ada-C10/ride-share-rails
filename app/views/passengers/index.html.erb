@@ -1,0 +1,28 @@
+<div class="passenger_index">
+  <h1>Passengers</h1>
+  <section class="search">
+    <%= form_tag(passengers_path, method: :get) do %>
+      <%= text_field_tag :term, params[:term] %>
+      <%= submit_tag 'Search', name: nil %>
+    <% end %>
+    </section>
+
+  <% active_passengers = @passengers.where(active: true) %>
+
+  <table class="index_table" >
+      <tr>
+        <th>NAME</th>
+        <th>ID</th>
+      </tr>
+      <tbody>
+        <%= render partial: "passenger", collection: active_passengers %>
+      </tbody>
+  </table>
+
+  <div class="flickr_pagination">
+    <div class="page_info">
+      <%= page_entries_info @passengers %>
+    </div>
+    <%= will_paginate @passengers, :container => false %>
+  </div>
+</div>

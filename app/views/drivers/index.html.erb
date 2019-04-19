@@ -1,0 +1,27 @@
+<h1>Drivers</h1>
+<section class="search">
+    <%= form_tag(drivers_path, method: :get) do %>
+      <%= text_field_tag :term, params[:term] %>
+      <%= submit_tag 'Search', name: nil %>
+    <% end %>
+</section>
+
+<% active_drivers = @drivers.where(active: true) %>
+
+<table class="index_table">
+  <tr>
+    <th>NAME</th>
+    <th>ID</th>
+    <th>STATUS</th>
+  </tr>
+  <tbody>
+    <%= render partial: "driver", collection: active_drivers %>
+  </tbody>
+</table>
+
+<div class="flickr_pagination">
+    <div class="page_info">
+      <%= page_entries_info @drivers %>
+    </div>
+    <%= will_paginate @drivers, :container => false %>
+</div>

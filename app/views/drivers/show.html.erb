@@ -1,0 +1,39 @@
+<section class="driver_details">
+  <h1><%= @driver.name %></h1>
+  <%= link_to "All Drivers", drivers_path %>
+  <%= "|" %>
+  <%= link_to "Edit", edit_driver_path(@driver.id) %>
+  <%= "|" %>
+  <%= link_to "Delete", driver_path(@driver.id), method: :delete, data: {confirm: "Are you sure?"} %>
+  <br /><br />
+
+  <strong>Total Earnings: $<%= '%.2f' % @driver.total_earnings %></strong>
+  <br />
+  <strong>Average Rating: <%= '%.2f' % @driver.average_rating %></strong>
+  <br />
+  <strong>
+    <%= link_to "Status", drivers_status_path(@driver), method: :patch %>:
+    <% if @driver.status %>
+      <strong>Available</strong>
+    <% else %>
+      <strong>Unavailable</strong>
+    <% end %>
+  </strong>
+  <br /><br />
+</section>
+
+<% active_trips = @trips.where(active: true).order(:date) %>
+
+<table class="show_table">
+  <tr>
+    <th>Trip ID</th>
+    <th>Date</th>
+    <th>Passenger ID</th>
+    <th>Trip Status</th>
+    <th>Trip Rating</th>
+    <th>Trip Cost</th>
+  </tr>
+  <tbody>
+    <%= render partial: "dtrips", collection: active_trips %>
+  </tbody>
+</table>

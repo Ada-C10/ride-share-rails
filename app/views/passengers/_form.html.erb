@@ -1,0 +1,30 @@
+<section class="form_partial">
+  <section class="section header">
+    <h1><%= action_name %></h1>
+  </section>
+  <section class="section fill_out">
+    <%= form_with model: @passenger do |f|%>
+      <%= f.label :name %>
+      <br />
+      <%= f.text_field :name %>
+      <br /><br />
+      <%= f.label :phone_num %>
+      <br />
+      <%= f.text_field :phone_num %>
+      <br /><br />
+      <%= f.submit button_title %>
+    <% end %>
+  </section>
+  <section class="section errors">
+    <% if @passenger.errors.any? %>
+      <h4 class="show_red">Error Message(s):</h4>
+      <ul>
+        <% @passenger.errors.each do |column, message| %>
+          <li>
+            <strong><%= "#{column.capitalize}: " %></strong> <%= message.capitalize %>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+  </section>
+</section>

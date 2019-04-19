@@ -1,0 +1,58 @@
+<section class="passenger_details">
+  <h1><%= @passenger.name %></h1>
+  <section class="edit_actions">
+    <%= link_to "All Passengers", passengers_path %>
+    <%= "|" %>
+    <%= link_to "Edit", edit_passenger_path(@passenger.id) %>
+    <%= "|" %>
+    <%= link_to "Delete", passenger_path(@passenger.id), method: :delete, data: {confirm: "Are you sure?"} %>
+  </section>
+
+  <br />
+  <strong>Phone: <%= @passenger.phone_num%></strong>
+  <br />
+  <strong>ID: <%= @passenger.id%></strong>
+  <br />
+  <strong>Total Spent: <%= "🚀"'%.2f' %  (@passenger.total_cost/100) %></strong>
+  <br /><br />
+</section>
+
+<section class="ride_request">
+  <div class="ride_button">
+    <strong class="button_color"><%= link_to "Request a Trip", passenger_trips_path(@passenger.id), method: :post %></strong>
+  </div>
+</section>
+
+<% active_trips = @trips.where(active: true).order(:date) %>
+
+<table class="show_table">
+  <tr>
+    <th>TRIP ID</th>
+    <th>DRIVER ID</th>
+    <th>DATE</th>
+    <th>RATING</th>
+    <th>COST</th>
+    <th>TRIP STATUS</th>
+  </tr>
+
+  <tbody>
+    <% if @passenger.trips.empty? %>
+      <%= "No Trips on Record" %>
+    <% else %>
+      <% active_trips.each do |trip| %>
+        <tr>
+          <td> <%= link_to "#{trip.id}", trip_path(trip.id) %></td>
+          <td> <%= link_to trip.driver_id, driver_path(trip.driver_id) %></td>
+          <td> <%= trip.date %></td>
+          <td> <%= trip.rating %></td>
+          <td> <%= "🚀"'%.2f' % (trip.cost/100) %></td>
+          <% if trip.in_progress == true %>
+          <td id='in_progress'> <i class="w3-xxlarge material-icons w3-spin icons">refresh</i></td>
+          <% else %>
+          <td id='complete'> <i class="w3-xxlarge material-icons icons" >check_circle_outline</i></td>
+          <% end %>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>

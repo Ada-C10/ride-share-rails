@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+  <head>
+    <title>RideShareRails</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name='viewport'
+      content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
+  </head>
+
+  <header>
+    <nav class="nav">
+      <ul class="menu">
+        <li class="brand">
+          <h2><%= link_to "BUZZ", root_path %> </h2>
+          <strong class="slogan">The Universe is Yours!</strong>
+        </li>
+        <li class="dropdown first">
+          <button class="drop_heading">Passengers</button>
+          <ul class="drop_content">
+            <li><%= link_to "View All", passengers_path %></li>
+            <li><%= link_to "Create New", new_passenger_path %></li>
+          </ul>
+        </li>
+        <li class="dropdown second">
+          <button class="drop_heading">Drivers</button>
+          <ul class="drop_content">
+            <li><%= link_to "View All", drivers_path %></li>
+            <li><%= link_to "Create New", new_driver_path %></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <% if params[:controller] == "pages" %>
+    <body class="home">
+      <%= yield %>
+    </body>
+  <% else %>
+    <body class="background_img">
+      <%= yield %>
+    </body>
+  <% end %>
